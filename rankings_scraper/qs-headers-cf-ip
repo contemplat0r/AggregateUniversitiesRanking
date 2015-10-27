@@ -1,0 +1,66 @@
+https://mail.yandex.ua/neo2/handlers/handlers3.jsx?_h=db-ro-status
+
+POST /neo2/handlers/handlers3.jsx?_h=db-ro-status HTTP/1.1
+Host: mail.yandex.ua
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:31.0) Gecko/20100101 Firefox/31.0 Iceweasel/31.1.0
+Accept: application/json, text/javascript, */*; q=0.01
+Accept-Language: ru-ru,ru;q=0.7,uk;q=0.3
+Accept-Encoding: gzip, deflate
+Content-Type: application/x-www-form-urlencoded; charset=UTF-8
+X-Requested-With: XMLHttpRequest
+Referer: https://mail.yandex.ua/neo2/?nocache=57&ncrnd=2008&uid=237951526&login=contemplat0r
+Content-Length: 184
+Cookie: attach-head-view=icons; attach-body-view=icons; fuid01=435f5309076a95f5.qcAFkZWJuq6ixwG4yD64-3CZx2o1kZILloVtIaI86-IGOXJhhkcWKp_KoDyHUXaPu0opsTsArfqH24s6oLbX_ObzT9n6dFnXjUepEFiunGLx9N9OYZhvsX4zly1zR92I; L=T2BRCFNVY0FjTnB5U1xlRlwBY0AHcEVmGVssKG0dSXUTUDcABzsmMBMnBSMyQkIzEgEKA0p0GX0FHz9JXS5Oaw==.1405793846.11077.263381.81b9132a0071f2291b766c362d069358; Session_id=3:1445850634.5.0.1405793846000:6tZWbQ:8.0|237951526.0.2|4:103019.834478.Y3v9ysgryXR4vtH7f01dlz2XEUA; my=YzYBAQA=; yandexuid=2104418591445683630; yp=1721153846.udn.cDpjb250ZW1wbGF0MHI%3D; sessionid2=3:1445850634.5.0.1405793846000:6tZWbQ:8.1|237951526.0.2|4:103019.363664.wEIdbYeqsLHf5rYM1RdQ6qL4Z6U; yandex_login=contemplat0r; stngs=lamp::on; yabs-frequency=/4/2W06064cArRWQBDL/; ys=wprid.1445856854572435-374724270964504566610062-6-002
+Connection: keep-alive
+Pragma: no-cache
+Cache-Control: no-cache
+_handlers=db-ro-status&_locale=ru&_timestamp=1445884854660&_product=RUS&_ckey=hm%2FpRVmHuLQTKRcUWjOkHTuTM2lMNiSULUsLnC3omwI%3D&_connection_id=neo2-1445838014698-02796622&_uid=237951526
+HTTP/1.1 200 OK
+Server: nginx
+Date: Mon, 26 Oct 2015 18:40:56 GMT
+Content-Type: application/json; charset=utf-8
+Cache-Control: max-age=0, must-revalidate, proxy-revalidate, no-cache, no-store, private
+Expires: Thu, 01 Jan 1970 00:00:01 GMT
+Pragma: no-cache
+X-Content-Type-Options: nosniff
+x-response-with: YMail
+X-Frame-Options: SAMEORIGIN
+x-dns-prefetch-control: off
+strict-transport-security: max-age=315360000
+Content-Encoding: gzip
+X-Firefox-Spdy: 3.1
+----------------------------------------------------------
+http://www.topuniversities.com/user/cf-ip
+
+GET /user/cf-ip HTTP/1.1
+Host: www.topuniversities.com
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:31.0) Gecko/20100101 Firefox/31.0 Iceweasel/31.1.0
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+Accept-Language: ru-ru,ru;q=0.7,uk;q=0.3
+Accept-Encoding: gzip, deflate
+Cookie: __cfduid=df5463dce42ef2694b0abe21fe31968541438548886; _ga=GA1.2.722318591.1438548886; __gads=ID=e2e9d6ebaa8a8c8b:T=1438548889:S=ALNI_MamVkphFQADh0TSCBXSGYhByaJaEA; com.silverpop.iMAWebCookie=6c212848-1d6c-e1a2-e56a-d9ac6c09e659; cookie-agreed=2; has_js=1
+Connection: keep-alive
+
+HTTP/1.1 200 OK
+Date: Mon, 26 Oct 2015 18:40:57 GMT
+Content-Type: application/json
+Content-Length: 8
+Connection: keep-alive
+Cache-Control: no-cache, must-revalidate, post-check=0, pre-check=0
+Content-Language: en
+Expires: Sun, 19 Nov 1978 05:00:00 GMT
+X-Drupal-Cache: MISS
+X-Pantheon-Endpoint: ac2870ad-1724-49bf-903b-8374427d2fc2
+X-Pantheon-Styx-Hostname: styx37bdde9b
+X-Styx-Build-Date: Tue Sep  8 20:14:49 UTC 2015
+X-Styx-Build-Num: 975
+X-Styx-Build-Sha: 75058451cd2e622496298f556cda4ba5248e3ab6
+X-Styx-Req-Id: styx-189d09bfec9a29a85d0700f716d6be18
+X-Styx-Version: StyxGo
+X-Varnish: 387729806
+Age: 0
+Via: 1.1 varnish-v4
+Accept-Ranges: bytes
+Server: cloudflare-nginx
+CF-RAY: 23b84ae6add22ae5-WAW
+----------------------------------------------------------

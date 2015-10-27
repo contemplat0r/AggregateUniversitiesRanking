@@ -1,0 +1,35 @@
+https://play.google.com/log?format=json
+
+POST /log?format=json HTTP/1.1
+Host: play.google.com
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:31.0) Gecko/20100101 Firefox/31.0 Iceweasel/31.1.0
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+Accept-Language: ru-ru,ru;q=0.7,uk;q=0.3
+Accept-Encoding: gzip, deflate
+Authorization: SAPISIDHASH b05f84ed76be8d9c73c73e5e1c4fa47ada018def
+X-Goog-AuthUser: 0
+Content-Type: application/x-www-form-urlencoded;charset=utf-8
+Referer: https://mail.google.com/mail/u/0/
+Content-Length: 301
+Origin: https://mail.google.com
+Cookie: PREF=ID=1111111111111111:LD=en:NR=10:CR=2:TM=1121077994:LM=1445882164:GM=1:SG=2:V=1:S=An4XtXxJgns9GQHR; NID=72=P0M7qzG6C4nWCj0wlGxXtwYQ55DcfGSxUAHgTEraB16usfmJG69YsJJdHT8rgoGWm8Yjs5eKNOXuGMRsfSYtCY5Cg3vakMFSkvJkVxbVqozQesqFWydoo6GLg61Kf36Xl61dcWEyyzN6OpGy7sZHTNRAtAiUVT-Qygh9K5Y0p4BNAvIFPaHtyjrdHpJ-OkfA6tZnPel7wQIMqWOX8k5wvKn7PQUU_WPAcSzNyhVVDIWipWlI5BW_fAiOlkZuagtirF9XcHNHzCfVCoKwDDaNmreBeHmcOrvOqp6oEIU; SID=DQAAABQBAADauq8xEztqxXxNtkDXo5B0eGvdf6POwsfMoxZcGZjECnnqzrWLIXbVNrmrUpEhL0ylFaBjYxZMUSMZpBVwhgq6tLrzCXDxvkO6Em-ohg7-Judgo1FcemFCujABFLvvY-d2fcfPnaN1YGV82vQE_ejf8zqeiIcgH9qpuGSn_KEpeqhpu_mZAvczXLOgpcoTci6MtyJTdC7fHPgbvkjH12ubT6TzYpmv1LtHPEYC_wkN6-PcrIWAjTYDMagfoyB1CJSpQPiqZSmeRE5JO1YMeWCTyJtol1zPAeMlh2KRtA8NgTA35qb0k-AK5Iyf0QIZ8VTJzrjJZxyGGpQjDjzER0v2RibFaZSLF-paCFB5GkpI-LJ6djRtyehRfXheZmVTNFI; HSID=A3GuXrrdUxlCfLG0b; SSID=AhWJIriU-mAlWmQeT; APISID=9smRSJJFTXv-1hGR/AWsJnZzPTPFmi3N33; SAPISID=6ECop4BglKd8PYJn/AX0cOL24MXKPGnVi0
+Connection: keep-alive
+Pragma: no-cache
+Cache-Control: no-cache
+[[1],78,[["1445882613045",null,[],null,null,null,null,"[null,null,null,null,null,null,null,null,null,null,null,[[null,1,null,null,null,null,23,2147190310]],null,null,[1366,768],null,null,null,null,null,null,null,null,[]]",null,null,null,null,null,null,null,null,null,null,null,[]]],"1445882613046",[]]
+HTTP/1.1 200 OK
+Access-Control-Allow-Origin: https://mail.google.com
+Access-Control-Allow-Credentials: true
+Access-Control-Allow-Headers: X-Playlog-Web
+Content-Type: text/plain; charset=UTF-8
+Content-Encoding: gzip
+Date: Mon, 26 Oct 2015 18:03:34 GMT
+Server: Playlog
+Cache-Control: private
+Content-Length: 58
+X-XSS-Protection: 1; mode=block
+X-Frame-Options: SAMEORIGIN
+alternate-protocol: 443:quic,p=1
+alt-svc: quic=":443"; p="1"; ma=604800
+X-Firefox-Spdy: 3.1
+----------------------------------------------------------

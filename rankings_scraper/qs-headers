@@ -1,0 +1,662 @@
+http://www.topuniversities.com/university-rankings/world-university-rankings/2015
+
+GET /university-rankings/world-university-rankings/2015 HTTP/1.1
+Host: www.topuniversities.com
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:31.0) Gecko/20100101 Firefox/31.0 Iceweasel/31.1.0
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+Accept-Language: ru-ru,ru;q=0.7,uk;q=0.3
+Accept-Encoding: gzip, deflate
+Referer: http://www.topuniversities.com/qs-world-university-rankings
+Cookie: __cfduid=df5463dce42ef2694b0abe21fe31968541438548886; _ga=GA1.2.722318591.1438548886; __gads=ID=e2e9d6ebaa8a8c8b:T=1438548889:S=ALNI_MamVkphFQADh0TSCBXSGYhByaJaEA; com.silverpop.iMAWebCookie=6c212848-1d6c-e1a2-e56a-d9ac6c09e659; cookie-agreed=2; has_js=1; _gat=1; com.silverpop.iMA.session=0a4963e8-06ec-1d89-cdd5-15e7e6dd4219; com.silverpop.iMA.page_visit=9500773,
+Connection: keep-alive
+
+HTTP/1.1 200 OK
+Date: Mon, 26 Oct 2015 18:20:32 GMT
+Content-Type: text/html; charset=utf-8
+Transfer-Encoding: chunked
+Connection: keep-alive
+Cache-Control: public, max-age=32400
+Content-Language: en
+Expires: Sun, 19 Nov 1978 05:00:00 GMT
+Last-Modified: Mon, 26 Oct 2015 09:56:08 GMT
+Link: <http://www.topuniversities.com/university-rankings/world-university-rankings/2015>; rel="canonical",<http://www.topuniversities.com/node/299926>; rel="shortlink",<http://plus.google.com/>; rel="author"
+X-Drupal-Cache: HIT
+X-Generator: Drupal 7 (http://drupal.org)
+X-Pantheon-Endpoint: 198e35aa-5df3-4296-8a5b-116c91184dfb
+X-Pantheon-Styx-Hostname: styx37bdde9b
+X-Styx-Build-Date: Tue Sep  8 20:14:49 UTC 2015
+X-Styx-Build-Num: 975
+X-Styx-Build-Sha: 75058451cd2e622496298f556cda4ba5248e3ab6
+X-Styx-Req-Id: styx-c313f281408a4a936b656e1c05def7f3
+X-Styx-Version: StyxGo
+X-Varnish: 407481010 89694947
+Age: 30258
+Via: 1.1 varnish-v4
+Vary: Accept-Encoding, Cookie, Cookie
+Server: cloudflare-nginx
+CF-RAY: 23b82cff391a2af1-WAW
+Content-Encoding: gzip
+----------------------------------------------------------
+http://pagead2.googlesyndication.com/activeview?id=osdtos&avi=BUDgfzm4uVqynF_TAyAPqgqKIDwAAAAAQATgByAEDwAIC4AIAyAOZBOAEAaAGFA&cid=5GgkdnM0TRAxKQwJERL1n3T45Gw&ti=1&adk=573626109&p=298,899,562,1213&tos=5873,148,232,0,184&mtos=5873,6021,6253,6253,6437&rs=3&ht=0&tfs=527&tls=6780&fp=correlator%3D1153953489994875%26eid%3D108809080%26iu%3D%252F8070%252FTopuni-Web%252Fqs-world-university-rankings%26oid%3D3%26url%3Dhttp%253A%252F%252Fwww.topuniversities.com%252Fqs-world-university-rankings&afp=%26output%3Djson_html%26impl%3Dfif%26dt%3D1445883596059%26adx%3D907%26ady%3D298%26ifi%3D1%26flash%3D11.2.202&tmo=5&tme=525&tdl=88&tcl=687&abd=1-0-49&r=u&bs=1346,615&bos=1362,712&ps=1346,2978&ss=1366,768&tt=30186&pt=2747&deb=1-3-3-30-50-8&tvt=32407&uc=49&tgt=IMG&cl=1
+
+GET /activeview?id=osdtos&avi=BUDgfzm4uVqynF_TAyAPqgqKIDwAAAAAQATgByAEDwAIC4AIAyAOZBOAEAaAGFA&cid=5GgkdnM0TRAxKQwJERL1n3T45Gw&ti=1&adk=573626109&p=298,899,562,1213&tos=5873,148,232,0,184&mtos=5873,6021,6253,6253,6437&rs=3&ht=0&tfs=527&tls=6780&fp=correlator%3D1153953489994875%26eid%3D108809080%26iu%3D%252F8070%252FTopuni-Web%252Fqs-world-university-rankings%26oid%3D3%26url%3Dhttp%253A%252F%252Fwww.topuniversities.com%252Fqs-world-university-rankings&afp=%26output%3Djson_html%26impl%3Dfif%26dt%3D1445883596059%26adx%3D907%26ady%3D298%26ifi%3D1%26flash%3D11.2.202&tmo=5&tme=525&tdl=88&tcl=687&abd=1-0-49&r=u&bs=1346,615&bos=1362,712&ps=1346,2978&ss=1366,768&tt=30186&pt=2747&deb=1-3-3-30-50-8&tvt=32407&uc=49&tgt=IMG&cl=1 HTTP/1.1
+Host: pagead2.googlesyndication.com
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:31.0) Gecko/20100101 Firefox/31.0 Iceweasel/31.1.0
+Accept: image/png,image/*;q=0.8,*/*;q=0.5
+Accept-Language: ru-ru,ru;q=0.7,uk;q=0.3
+Accept-Encoding: gzip, deflate
+Referer: http://www.topuniversities.com/qs-world-university-rankings
+Connection: keep-alive
+
+HTTP/1.1 200 OK
+P3P: policyref="http://www.googleadservices.com/pagead/p3p.xml", CP="NOI DEV PSA PSD IVA IVD OTP OUR OTR IND OTC"
+Access-Control-Allow-Origin: *
+Content-Type: image/gif
+Date: Mon, 26 Oct 2015 18:20:33 GMT
+Pragma: no-cache
+Expires: Fri, 01 Jan 1990 00:00:00 GMT
+Cache-Control: no-cache, must-revalidate
+X-Content-Type-Options: nosniff
+Server: cafe
+Content-Length: 42
+X-XSS-Protection: 1; mode=block
+----------------------------------------------------------
+http://pagead2.googlesyndication.com/activeview?id=osdim&avi=BBwB50G4uVo-KHOy0yQPT8ZDwAwAAAAAQATgByAEDwAIC4AIAyAOZBOAEAaAGFA&cid=5GhmKUrl3pNGrjCrb5T0EiW3ZhA&ti=1&adk=2535492765&p=1382,126,1486,868&tos=0,0,0,0,0&mtos=0,0,0,0,0&rs=3&ht=0&fp=correlator%3D1153953489994875%26eid%3D108809080%26iu%3D%252F8070%252FTopuni-Web%252Fqs-world-university-rankings%26oid%3D3%26url%3Dhttp%253A%252F%252Fwww.topuniversities.com%252Fqs-world-university-rankings&afp=%26output%3Djson_html%26impl%3Dfif%26dt%3D1445883598811%26adx%3D126%26ady%3D1382%26ifi%3D3%26flash%3D11.2.202&tmo=1709&tme=1828&tdl=1776&tcl=1775&abd=2-0-44&r=u&bs=1346,615&bos=1362,712&ps=1346,2978&ss=1366,768&tt=30186&pt=2747&deb=1-3-3-30-50-8&tvt=32407&uc=44&tgt=IMG&cl=1
+
+GET /activeview?id=osdim&avi=BBwB50G4uVo-KHOy0yQPT8ZDwAwAAAAAQATgByAEDwAIC4AIAyAOZBOAEAaAGFA&cid=5GhmKUrl3pNGrjCrb5T0EiW3ZhA&ti=1&adk=2535492765&p=1382,126,1486,868&tos=0,0,0,0,0&mtos=0,0,0,0,0&rs=3&ht=0&fp=correlator%3D1153953489994875%26eid%3D108809080%26iu%3D%252F8070%252FTopuni-Web%252Fqs-world-university-rankings%26oid%3D3%26url%3Dhttp%253A%252F%252Fwww.topuniversities.com%252Fqs-world-university-rankings&afp=%26output%3Djson_html%26impl%3Dfif%26dt%3D1445883598811%26adx%3D126%26ady%3D1382%26ifi%3D3%26flash%3D11.2.202&tmo=1709&tme=1828&tdl=1776&tcl=1775&abd=2-0-44&r=u&bs=1346,615&bos=1362,712&ps=1346,2978&ss=1366,768&tt=30186&pt=2747&deb=1-3-3-30-50-8&tvt=32407&uc=44&tgt=IMG&cl=1 HTTP/1.1
+Host: pagead2.googlesyndication.com
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:31.0) Gecko/20100101 Firefox/31.0 Iceweasel/31.1.0
+Accept: image/png,image/*;q=0.8,*/*;q=0.5
+Accept-Language: ru-ru,ru;q=0.7,uk;q=0.3
+Accept-Encoding: gzip, deflate
+Referer: http://www.topuniversities.com/qs-world-university-rankings
+Connection: keep-alive
+
+HTTP/1.1 200 OK
+P3P: policyref="http://www.googleadservices.com/pagead/p3p.xml", CP="NOI DEV PSA PSD IVA IVD OTP OUR OTR IND OTC"
+Access-Control-Allow-Origin: *
+Content-Type: image/gif
+Date: Mon, 26 Oct 2015 18:20:33 GMT
+Pragma: no-cache
+Expires: Fri, 01 Jan 1990 00:00:00 GMT
+Cache-Control: no-cache, must-revalidate
+X-Content-Type-Options: nosniff
+Server: cafe
+Content-Length: 42
+X-XSS-Protection: 1; mode=block
+----------------------------------------------------------
+http://pagead2.googlesyndication.com/activeview?id=osdim&avi=Bd1Rq0W4uVvz1AdS8yAOrt4voAwAAAAAQATgByAEDwAIC4AIAyAOZBOAEAaAGFA&cid=5GjOqgEb6f0_r7qoun638MbICTI&ti=1&adk=781480741&p=1381,906,1645,1220&tos=0,0,0,0,0&mtos=0,0,0,0,0&rs=3&ht=0&fp=correlator%3D1153953489994875%26eid%3D108809080%26iu%3D%252F8070%252FTopuni-Web%252Fqs-world-university-rankings%26oid%3D3%26url%3Dhttp%253A%252F%252Fwww.topuniversities.com%252Fqs-world-university-rankings&afp=%26output%3Djson_html%26impl%3Dfif%26dt%3D1445883599194%26adx%3D906%26ady%3D1381%26ifi%3D4%26flash%3D11.2.202&tmo=2371&tme=2594&tdl=2485&tcl=2736&abd=3-0-42&r=u&bs=1346,615&bos=1362,712&ps=1346,2978&ss=1366,768&tt=30186&pt=2747&deb=1-3-3-30-50-8&tvt=32407&uc=42&tgt=IMG&cl=1
+
+GET /activeview?id=osdim&avi=Bd1Rq0W4uVvz1AdS8yAOrt4voAwAAAAAQATgByAEDwAIC4AIAyAOZBOAEAaAGFA&cid=5GjOqgEb6f0_r7qoun638MbICTI&ti=1&adk=781480741&p=1381,906,1645,1220&tos=0,0,0,0,0&mtos=0,0,0,0,0&rs=3&ht=0&fp=correlator%3D1153953489994875%26eid%3D108809080%26iu%3D%252F8070%252FTopuni-Web%252Fqs-world-university-rankings%26oid%3D3%26url%3Dhttp%253A%252F%252Fwww.topuniversities.com%252Fqs-world-university-rankings&afp=%26output%3Djson_html%26impl%3Dfif%26dt%3D1445883599194%26adx%3D906%26ady%3D1381%26ifi%3D4%26flash%3D11.2.202&tmo=2371&tme=2594&tdl=2485&tcl=2736&abd=3-0-42&r=u&bs=1346,615&bos=1362,712&ps=1346,2978&ss=1366,768&tt=30186&pt=2747&deb=1-3-3-30-50-8&tvt=32407&uc=42&tgt=IMG&cl=1 HTTP/1.1
+Host: pagead2.googlesyndication.com
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:31.0) Gecko/20100101 Firefox/31.0 Iceweasel/31.1.0
+Accept: image/png,image/*;q=0.8,*/*;q=0.5
+Accept-Language: ru-ru,ru;q=0.7,uk;q=0.3
+Accept-Encoding: gzip, deflate
+Referer: http://www.topuniversities.com/qs-world-university-rankings
+Connection: keep-alive
+
+HTTP/1.1 200 OK
+P3P: policyref="http://www.googleadservices.com/pagead/p3p.xml", CP="NOI DEV PSA PSD IVA IVD OTP OUR OTR IND OTC"
+Access-Control-Allow-Origin: *
+Content-Type: image/gif
+Date: Mon, 26 Oct 2015 18:20:33 GMT
+Pragma: no-cache
+Expires: Fri, 01 Jan 1990 00:00:00 GMT
+Cache-Control: no-cache, must-revalidate
+X-Content-Type-Options: nosniff
+Server: cafe
+Content-Length: 42
+X-XSS-Protection: 1; mode=block
+----------------------------------------------------------
+https://securepubads.g.doubleclick.net/gampad/ads?gdfp_req=1&correlator=1032056309913272&output=json_html&callback=callbackProxy&impl=fif&eid=108809080&sc=0&sfv=1-0-2&iu=%2F8070%2FTopuni-Web%2Funiversity-rankings%2Fworld-university-rankings%2F2015&sz=728x90&scp=pos%3Dleaderboard%26URL%3Duniversity-rankings%252Fworld-university-rankings%252F2015&cookie=ID%3De2e9d6ebaa8a8c8b%3AT%3D1438548889%3AS%3DALNI_MamVkphFQADh0TSCBXSGYhByaJaEA&lmt=1445853368&dt=1445883632808&cc=100&frm=20&biw=1362&bih=615&oid=3&adx=134&ady=336&adk=2644944191&gut=v2&ifi=1&u_tz=120&u_his=2&u_h=768&u_w=1366&u_ah=768&u_aw=1366&u_cd=24&u_nplug=1&u_nmime=2&u_sd=1&flash=11.2.202&url=http%3A%2F%2Fwww.topuniversities.com%2Funiversity-rankings%2Fworld-university-rankings%2F2015&ref=http%3A%2F%2Fwww.topuniversities.com%2Fqs-world-university-rankings&dssz=33&icsg=261095231&std=4&csl=115&vrg=74&vrp=74&ga_vid=722318591.1438548886&ga_sid=1445883633&ga_hid=1247184762
+
+GET /gampad/ads?gdfp_req=1&correlator=1032056309913272&output=json_html&callback=callbackProxy&impl=fif&eid=108809080&sc=0&sfv=1-0-2&iu=%2F8070%2FTopuni-Web%2Funiversity-rankings%2Fworld-university-rankings%2F2015&sz=728x90&scp=pos%3Dleaderboard%26URL%3Duniversity-rankings%252Fworld-university-rankings%252F2015&cookie=ID%3De2e9d6ebaa8a8c8b%3AT%3D1438548889%3AS%3DALNI_MamVkphFQADh0TSCBXSGYhByaJaEA&lmt=1445853368&dt=1445883632808&cc=100&frm=20&biw=1362&bih=615&oid=3&adx=134&ady=336&adk=2644944191&gut=v2&ifi=1&u_tz=120&u_his=2&u_h=768&u_w=1366&u_ah=768&u_aw=1366&u_cd=24&u_nplug=1&u_nmime=2&u_sd=1&flash=11.2.202&url=http%3A%2F%2Fwww.topuniversities.com%2Funiversity-rankings%2Fworld-university-rankings%2F2015&ref=http%3A%2F%2Fwww.topuniversities.com%2Fqs-world-university-rankings&dssz=33&icsg=261095231&std=4&csl=115&vrg=74&vrp=74&ga_vid=722318591.1438548886&ga_sid=1445883633&ga_hid=1247184762 HTTP/1.1
+Host: securepubads.g.doubleclick.net
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:31.0) Gecko/20100101 Firefox/31.0 Iceweasel/31.1.0
+Accept: */*
+Accept-Language: ru-ru,ru;q=0.7,uk;q=0.3
+Accept-Encoding: gzip, deflate
+Referer: http://www.topuniversities.com/university-rankings/world-university-rankings/2015
+Cookie: id=22ddc23dc701005e||t=1390162425|et=730|cs=002213fd4817ab64595f82e58e; __gads=ID=e9ae1adf71a03f48:T=1407220765:S=ALNI_MZ8G6ozk3HIwuvn_Vm3qCWlWXVt9Q; _drt_=AL_3zv3-YYH979KSYCwJLRn_0iXvjyf8wyLMqLztzs0thers4W7nvYKKm6GXRkUkqHrtm9Y0q9uxwm9tGf98hr7Mku_LPjySMTaGLx80JkY2xfQ-FKoJ73o; DSID=AL_3zv2jxmw1YCHU8IdJkP-C0BexZJG1gmxII8O-ByM2TIuN2eW5wsVVdDTz5PTv1NUCdsaqeLGwhnI40Kyabgg8OhQb9QrnevFPpiZwEt3Vb2h53BpUbXU
+Connection: keep-alive
+
+HTTP/1.1 200 OK
+P3P: policyref="https://googleads.g.doubleclick.net/pagead/gcn_p3p_.xml", CP="CURa ADMa DEVa TAIo PSAo PSDo OUR IND UNI PUR INT DEM STA PRE COM NAV OTC NOI DSP COR"
+Google-LineItem-Id: 106983979
+Google-Creative-Id: 76794338419
+Date: Mon, 26 Oct 2015 18:20:34 GMT
+Pragma: no-cache
+Expires: Fri, 01 Jan 1990 00:00:00 GMT
+Cache-Control: no-cache, must-revalidate
+Content-Type: text/javascript; charset=UTF-8
+X-Content-Type-Options: nosniff
+Content-Disposition: attachment; filename="f.txt"
+Content-Encoding: gzip
+Server: cafe
+Content-Length: 10721
+X-XSS-Protection: 1; mode=block
+X-Firefox-Spdy: 3.1
+----------------------------------------------------------
+http://www.topuniversities.com/user/cf-ip
+
+GET /user/cf-ip HTTP/1.1
+Host: www.topuniversities.com
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:31.0) Gecko/20100101 Firefox/31.0 Iceweasel/31.1.0
+Accept: application/json, text/javascript, */*; q=0.01
+Accept-Language: ru-ru,ru;q=0.7,uk;q=0.3
+Accept-Encoding: gzip, deflate
+X-NewRelic-ID: UwUCVVVTGwIAV1VXBQkP
+X-Requested-With: XMLHttpRequest
+Referer: http://www.topuniversities.com/university-rankings/world-university-rankings/2015
+Cookie: __cfduid=df5463dce42ef2694b0abe21fe31968541438548886; _ga=GA1.2.722318591.1438548886; __gads=ID=e2e9d6ebaa8a8c8b:T=1438548889:S=ALNI_MamVkphFQADh0TSCBXSGYhByaJaEA; com.silverpop.iMAWebCookie=6c212848-1d6c-e1a2-e56a-d9ac6c09e659; cookie-agreed=2; has_js=1; _gat=1; com.silverpop.iMA.session=0a4963e8-06ec-1d89-cdd5-15e7e6dd4219; com.silverpop.iMA.page_visit=9500773,
+Connection: keep-alive
+
+HTTP/1.1 200 OK
+Date: Mon, 26 Oct 2015 18:20:34 GMT
+Content-Type: application/json
+Content-Length: 8
+Connection: keep-alive
+Cache-Control: no-cache, must-revalidate, post-check=0, pre-check=0
+Content-Language: en
+Expires: Sun, 19 Nov 1978 05:00:00 GMT
+X-Drupal-Cache: MISS
+X-NewRelic-App-Data: PxQAUlNXCwMTVVFRAwQFXlwTGhE1AwE2QgNWEVlbQFtcC2VOcAJHCwtYa04XEGdGQwETEWhSUTkNQRQfUkhTUgBSCE4IFgUDBV0LTRxQH0AAUwRZU1FZBwAHUFQOCQVWRh1QUg4VBj8=
+X-Pantheon-Endpoint: 378a6234-08e2-4486-b084-571cf0ed85d3
+X-Pantheon-Styx-Hostname: styx112b8753
+X-Styx-Build-Date: Tue Sep  8 20:14:49 UTC 2015
+X-Styx-Build-Num: 975
+X-Styx-Build-Sha: 75058451cd2e622496298f556cda4ba5248e3ab6
+X-Styx-Req-Id: styx-2f36a4e61bb2649c533209f52253d006
+X-Styx-Version: StyxGo
+X-Varnish: 265193378 265193379
+Age: 0
+Via: 1.1 varnish-v4
+Accept-Ranges: bytes
+Server: cloudflare-nginx
+CF-RAY: 23b82d0bbca62af1-WAW
+----------------------------------------------------------
+http://www.google-analytics.com/collect?v=1&_v=j39&a=1247184762&t=pageview&_s=1&dl=http%3A%2F%2Fwww.topuniversities.com%2Funiversity-rankings%2Fworld-university-rankings%2F2015&ul=ru-ru&de=UTF-8&dt=QS%20World%20University%20Rankings%C2%AE%202015%2F16%20%7C%20Top%20Universities&sd=24-bit&sr=1366x768&vp=1346x615&je=0&fl=11.2%20r202&_u=QCCAgEAB~&jid=&cid=722318591.1438548886&tid=UA-37767707-2&cd1=anonymous%20user&z=1302942867
+
+GET /collect?v=1&_v=j39&a=1247184762&t=pageview&_s=1&dl=http%3A%2F%2Fwww.topuniversities.com%2Funiversity-rankings%2Fworld-university-rankings%2F2015&ul=ru-ru&de=UTF-8&dt=QS%20World%20University%20Rankings%C2%AE%202015%2F16%20%7C%20Top%20Universities&sd=24-bit&sr=1366x768&vp=1346x615&je=0&fl=11.2%20r202&_u=QCCAgEAB~&jid=&cid=722318591.1438548886&tid=UA-37767707-2&cd1=anonymous%20user&z=1302942867 HTTP/1.1
+Host: www.google-analytics.com
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:31.0) Gecko/20100101 Firefox/31.0 Iceweasel/31.1.0
+Accept: image/png,image/*;q=0.8,*/*;q=0.5
+Accept-Language: ru-ru,ru;q=0.7,uk;q=0.3
+Accept-Encoding: gzip, deflate
+Referer: http://www.topuniversities.com/university-rankings/world-university-rankings/2015
+Connection: keep-alive
+
+HTTP/1.1 200 OK
+Access-Control-Allow-Origin: *
+Date: Thu, 22 Oct 2015 16:16:10 GMT
+Pragma: no-cache
+Expires: Mon, 01 Jan 1990 00:00:00 GMT
+Last-Modified: Sun, 17 May 1998 03:00:00 GMT
+X-Content-Type-Options: nosniff
+Content-Type: image/gif
+Server: Golfe2
+Content-Length: 35
+Cache-Control: no-cache, no-store, must-revalidate
+Age: 353068
+----------------------------------------------------------
+https://cm.g.doubleclick.net/push?client=ca-pub-7436521208680540&srn=gdn
+
+GET /push?client=ca-pub-7436521208680540&srn=gdn HTTP/1.1
+Host: cm.g.doubleclick.net
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:31.0) Gecko/20100101 Firefox/31.0 Iceweasel/31.1.0
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+Accept-Language: ru-ru,ru;q=0.7,uk;q=0.3
+Accept-Encoding: gzip, deflate
+Referer: http://www.topuniversities.com/university-rankings/world-university-rankings/2015
+Cookie: id=22ddc23dc701005e||t=1390162425|et=730|cs=002213fd4817ab64595f82e58e; __gads=ID=e9ae1adf71a03f48:T=1407220765:S=ALNI_MZ8G6ozk3HIwuvn_Vm3qCWlWXVt9Q; _drt_=AL_3zv3-YYH979KSYCwJLRn_0iXvjyf8wyLMqLztzs0thers4W7nvYKKm6GXRkUkqHrtm9Y0q9uxwm9tGf98hr7Mku_LPjySMTaGLx80JkY2xfQ-FKoJ73o; DSID=AL_3zv2jxmw1YCHU8IdJkP-C0BexZJG1gmxII8O-ByM2TIuN2eW5wsVVdDTz5PTv1NUCdsaqeLGwhnI40Kyabgg8OhQb9QrnevFPpiZwEt3Vb2h53BpUbXU
+Connection: keep-alive
+
+HTTP/1.1 204 No Content
+Date: Mon, 26 Oct 2015 18:20:38 GMT
+Content-Type: text/html
+Server: HTTP server (unknown)
+Content-Length: 0
+X-XSS-Protection: 1; mode=block
+X-Firefox-Spdy: 3.1
+----------------------------------------------------------
+https://securepubads.g.doubleclick.net/gampad/ads?gdfp_req=1&correlator=1032056309913272&output=json_html&callback=callbackProxy&impl=fif&eid=108809080&sc=0&sfv=1-0-2&iu=%2F8070%2FTopuni-Web%2Funiversity-rankings%2Fworld-university-rankings%2F2015&sz=300x250%7C300x600&scp=pos%3Dtop%26URL%3Duniversity-rankings%252Fworld-university-rankings%252F2015%26AgeYear%3D2015&cookie=ID%3De2e9d6ebaa8a8c8b%3AT%3D1438548889%3AS%3DALNI_MamVkphFQADh0TSCBXSGYhByaJaEA&lmt=1445853368&dt=1445883635591&cc=100&frm=20&biw=1346&bih=615&oid=3&adx=906&ady=675&adk=1954543149&gut=v2&ifi=3&u_tz=120&u_his=2&u_h=768&u_w=1366&u_ah=768&u_aw=1366&u_cd=24&u_nplug=1&u_nmime=2&u_sd=1&flash=11.2.202&url=http%3A%2F%2Fwww.topuniversities.com%2Funiversity-rankings%2Fworld-university-rankings%2F2015&ref=http%3A%2F%2Fwww.topuniversities.com%2Fqs-world-university-rankings&dssz=44&icsg=267361517296&std=0&vrg=74&vrp=74&ga_vid=722318591.1438548886&ga_sid=1445883633&ga_hid=1247184762
+
+GET /gampad/ads?gdfp_req=1&correlator=1032056309913272&output=json_html&callback=callbackProxy&impl=fif&eid=108809080&sc=0&sfv=1-0-2&iu=%2F8070%2FTopuni-Web%2Funiversity-rankings%2Fworld-university-rankings%2F2015&sz=300x250%7C300x600&scp=pos%3Dtop%26URL%3Duniversity-rankings%252Fworld-university-rankings%252F2015%26AgeYear%3D2015&cookie=ID%3De2e9d6ebaa8a8c8b%3AT%3D1438548889%3AS%3DALNI_MamVkphFQADh0TSCBXSGYhByaJaEA&lmt=1445853368&dt=1445883635591&cc=100&frm=20&biw=1346&bih=615&oid=3&adx=906&ady=675&adk=1954543149&gut=v2&ifi=3&u_tz=120&u_his=2&u_h=768&u_w=1366&u_ah=768&u_aw=1366&u_cd=24&u_nplug=1&u_nmime=2&u_sd=1&flash=11.2.202&url=http%3A%2F%2Fwww.topuniversities.com%2Funiversity-rankings%2Fworld-university-rankings%2F2015&ref=http%3A%2F%2Fwww.topuniversities.com%2Fqs-world-university-rankings&dssz=44&icsg=267361517296&std=0&vrg=74&vrp=74&ga_vid=722318591.1438548886&ga_sid=1445883633&ga_hid=1247184762 HTTP/1.1
+Host: securepubads.g.doubleclick.net
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:31.0) Gecko/20100101 Firefox/31.0 Iceweasel/31.1.0
+Accept: */*
+Accept-Language: ru-ru,ru;q=0.7,uk;q=0.3
+Accept-Encoding: gzip, deflate
+Referer: http://www.topuniversities.com/university-rankings/world-university-rankings/2015
+Cookie: id=22ddc23dc701005e||t=1390162425|et=730|cs=002213fd4817ab64595f82e58e; __gads=ID=e9ae1adf71a03f48:T=1407220765:S=ALNI_MZ8G6ozk3HIwuvn_Vm3qCWlWXVt9Q; _drt_=AL_3zv3-YYH979KSYCwJLRn_0iXvjyf8wyLMqLztzs0thers4W7nvYKKm6GXRkUkqHrtm9Y0q9uxwm9tGf98hr7Mku_LPjySMTaGLx80JkY2xfQ-FKoJ73o; DSID=AL_3zv2jxmw1YCHU8IdJkP-C0BexZJG1gmxII8O-ByM2TIuN2eW5wsVVdDTz5PTv1NUCdsaqeLGwhnI40Kyabgg8OhQb9QrnevFPpiZwEt3Vb2h53BpUbXU
+Connection: keep-alive
+
+HTTP/1.1 200 OK
+P3P: policyref="https://googleads.g.doubleclick.net/pagead/gcn_p3p_.xml", CP="CURa ADMa DEVa TAIo PSAo PSDo OUR IND UNI PUR INT DEM STA PRE COM NAV OTC NOI DSP COR"
+Google-LineItem-Id: 106983979
+Google-Creative-Id: 76794338539
+Date: Mon, 26 Oct 2015 18:20:38 GMT
+Pragma: no-cache
+Expires: Fri, 01 Jan 1990 00:00:00 GMT
+Cache-Control: no-cache, must-revalidate
+Content-Type: text/javascript; charset=UTF-8
+X-Content-Type-Options: nosniff
+Content-Disposition: attachment; filename="f.txt"
+Content-Encoding: gzip
+Server: cafe
+Content-Length: 10881
+X-XSS-Protection: 1; mode=block
+X-Firefox-Spdy: 3.1
+----------------------------------------------------------
+http://contentz.mkt912.com/lp/static/js/iMAWebCookie.js?326a8451-13f1a1f3460-c2a8af96738cc20073a7254c07aedd78&h=www.pages01.net
+
+GET /lp/static/js/iMAWebCookie.js?326a8451-13f1a1f3460-c2a8af96738cc20073a7254c07aedd78&h=www.pages01.net HTTP/1.1
+Host: contentz.mkt912.com
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:31.0) Gecko/20100101 Firefox/31.0 Iceweasel/31.1.0
+Accept: */*
+Accept-Language: ru-ru,ru;q=0.7,uk;q=0.3
+Accept-Encoding: gzip, deflate
+Referer: http://www.topuniversities.com/university-rankings/world-university-rankings/2015
+Connection: keep-alive
+If-Modified-Since: Sat, 26 Sep 2015 12:30:43 GMT
+If-None-Match: "4d501ad-3514-520a5a20bdc64"
+
+HTTP/1.1 304 Not Modified
+Connection: keep-alive
+Date: Mon, 26 Oct 2015 18:20:38 GMT
+Server: Apache
+Etag: "4d501ad-3514-520a5a20bdc64"
+Vary: Accept-Encoding
+Age: 64312
+X-Cache: Hit from cloudfront
+Via: 1.1 b3e93f13273f45a7616243c30a21ede6.cloudfront.net (CloudFront)
+X-Amz-Cf-Id: 8x6BDhuVl5vXkKAsbMPALCbdEzfah1JaymOuf3JZYn0fmzDlhtOJWQ==
+----------------------------------------------------------
+https://tpc.googlesyndication.com/simgad/116585239011730332
+
+GET /simgad/116585239011730332 HTTP/1.1
+Host: tpc.googlesyndication.com
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:31.0) Gecko/20100101 Firefox/31.0 Iceweasel/31.1.0
+Accept: image/png,image/*;q=0.8,*/*;q=0.5
+Accept-Language: ru-ru,ru;q=0.7,uk;q=0.3
+Accept-Encoding: gzip, deflate
+Referer: http://www.topuniversities.com/university-rankings/world-university-rankings/2015
+Connection: keep-alive
+
+HTTP/1.1 200 OK
+Content-Type: image/gif
+Last-Modified: Fri, 17 Apr 2015 15:01:59 GMT
+Access-Control-Allow-Origin: *
+Date: Mon, 05 Oct 2015 21:08:06 GMT
+Expires: Tue, 04 Oct 2016 21:08:06 GMT
+X-Content-Type-Options: nosniff
+Server: sffe
+Content-Length: 24348
+X-XSS-Protection: 1; mode=block
+Cache-Control: public, max-age=31536000
+Age: 1804352
+alternate-protocol: 443:quic,p=1
+alt-svc: quic=":443"; p="1"; ma=604800
+X-Firefox-Spdy: 3.1
+----------------------------------------------------------
+https://cm.g.doubleclick.net/push?client=ca-pub-7436521208680540&srn=gdn
+
+GET /push?client=ca-pub-7436521208680540&srn=gdn HTTP/1.1
+Host: cm.g.doubleclick.net
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:31.0) Gecko/20100101 Firefox/31.0 Iceweasel/31.1.0
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+Accept-Language: ru-ru,ru;q=0.7,uk;q=0.3
+Accept-Encoding: gzip, deflate
+Referer: http://www.topuniversities.com/university-rankings/world-university-rankings/2015
+Cookie: id=22ddc23dc701005e||t=1390162425|et=730|cs=002213fd4817ab64595f82e58e; __gads=ID=e9ae1adf71a03f48:T=1407220765:S=ALNI_MZ8G6ozk3HIwuvn_Vm3qCWlWXVt9Q; _drt_=AL_3zv3-YYH979KSYCwJLRn_0iXvjyf8wyLMqLztzs0thers4W7nvYKKm6GXRkUkqHrtm9Y0q9uxwm9tGf98hr7Mku_LPjySMTaGLx80JkY2xfQ-FKoJ73o; DSID=AL_3zv2jxmw1YCHU8IdJkP-C0BexZJG1gmxII8O-ByM2TIuN2eW5wsVVdDTz5PTv1NUCdsaqeLGwhnI40Kyabgg8OhQb9QrnevFPpiZwEt3Vb2h53BpUbXU
+Connection: keep-alive
+
+HTTP/1.1 204 No Content
+Date: Mon, 26 Oct 2015 18:20:38 GMT
+Content-Type: text/html
+Server: HTTP server (unknown)
+Content-Length: 0
+X-XSS-Protection: 1; mode=block
+X-Firefox-Spdy: 3.1
+----------------------------------------------------------
+https://securepubads.g.doubleclick.net/gampad/ads?gdfp_req=1&correlator=1032056309913272&output=json_html&callback=callbackProxy&impl=fif&eid=108809080&sc=0&sfv=1-0-2&iu=%2F8070%2FTopuni-Web%2Funiversity-rankings%2Fworld-university-rankings%2F2015&sz=300x250%7C300x600&scp=pos%3Dbottom%26URL%3Duniversity-rankings%252Fworld-university-rankings%252F2015&cookie=ID%3De2e9d6ebaa8a8c8b%3AT%3D1438548889%3AS%3DALNI_MamVkphFQADh0TSCBXSGYhByaJaEA&lmt=1445853368&dt=1445883636781&cc=100&frm=20&biw=1346&bih=615&oid=3&adx=906&ady=2339&adk=3026214460&gut=v2&ifi=4&u_tz=120&u_his=3&u_h=768&u_w=1366&u_ah=768&u_aw=1366&u_cd=24&u_nplug=1&u_nmime=2&u_sd=1&flash=11.2.202&url=http%3A%2F%2Fwww.topuniversities.com%2Funiversity-rankings%2Fworld-university-rankings%2F2015%23sorting%3Drank%2Bregion%3D%2Bcountry%3D%2Bfaculty%3D%2Bstars%3Dfalse%2Bsearch%3D&ref=http%3A%2F%2Fwww.topuniversities.com%2Fqs-world-university-rankings&dssz=44&icsg=267361517296&std=1&vrg=74&vrp=74&ga_vid=722318591.1438548886&ga_sid=1445883633&ga_hid=1247184762
+
+GET /gampad/ads?gdfp_req=1&correlator=1032056309913272&output=json_html&callback=callbackProxy&impl=fif&eid=108809080&sc=0&sfv=1-0-2&iu=%2F8070%2FTopuni-Web%2Funiversity-rankings%2Fworld-university-rankings%2F2015&sz=300x250%7C300x600&scp=pos%3Dbottom%26URL%3Duniversity-rankings%252Fworld-university-rankings%252F2015&cookie=ID%3De2e9d6ebaa8a8c8b%3AT%3D1438548889%3AS%3DALNI_MamVkphFQADh0TSCBXSGYhByaJaEA&lmt=1445853368&dt=1445883636781&cc=100&frm=20&biw=1346&bih=615&oid=3&adx=906&ady=2339&adk=3026214460&gut=v2&ifi=4&u_tz=120&u_his=3&u_h=768&u_w=1366&u_ah=768&u_aw=1366&u_cd=24&u_nplug=1&u_nmime=2&u_sd=1&flash=11.2.202&url=http%3A%2F%2Fwww.topuniversities.com%2Funiversity-rankings%2Fworld-university-rankings%2F2015%23sorting%3Drank%2Bregion%3D%2Bcountry%3D%2Bfaculty%3D%2Bstars%3Dfalse%2Bsearch%3D&ref=http%3A%2F%2Fwww.topuniversities.com%2Fqs-world-university-rankings&dssz=44&icsg=267361517296&std=1&vrg=74&vrp=74&ga_vid=722318591.1438548886&ga_sid=1445883633&ga_hid=1247184762 HTTP/1.1
+Host: securepubads.g.doubleclick.net
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:31.0) Gecko/20100101 Firefox/31.0 Iceweasel/31.1.0
+Accept: */*
+Accept-Language: ru-ru,ru;q=0.7,uk;q=0.3
+Accept-Encoding: gzip, deflate
+Referer: http://www.topuniversities.com/university-rankings/world-university-rankings/2015
+Cookie: id=22ddc23dc701005e||t=1390162425|et=730|cs=002213fd4817ab64595f82e58e; __gads=ID=e9ae1adf71a03f48:T=1407220765:S=ALNI_MZ8G6ozk3HIwuvn_Vm3qCWlWXVt9Q; _drt_=AL_3zv3-YYH979KSYCwJLRn_0iXvjyf8wyLMqLztzs0thers4W7nvYKKm6GXRkUkqHrtm9Y0q9uxwm9tGf98hr7Mku_LPjySMTaGLx80JkY2xfQ-FKoJ73o; DSID=AL_3zv2jxmw1YCHU8IdJkP-C0BexZJG1gmxII8O-ByM2TIuN2eW5wsVVdDTz5PTv1NUCdsaqeLGwhnI40Kyabgg8OhQb9QrnevFPpiZwEt3Vb2h53BpUbXU
+Connection: keep-alive
+
+HTTP/1.1 200 OK
+P3P: policyref="https://googleads.g.doubleclick.net/pagead/gcn_p3p_.xml", CP="CURa ADMa DEVa TAIo PSAo PSDo OUR IND UNI PUR INT DEM STA PRE COM NAV OTC NOI DSP COR"
+Google-LineItem-Id: 108845659
+Google-Creative-Id: 78931325899
+Date: Mon, 26 Oct 2015 18:20:38 GMT
+Pragma: no-cache
+Expires: Fri, 01 Jan 1990 00:00:00 GMT
+Cache-Control: no-cache, must-revalidate
+Content-Type: text/javascript; charset=UTF-8
+X-Content-Type-Options: nosniff
+Content-Disposition: attachment; filename="f.txt"
+Content-Encoding: gzip
+Server: cafe
+Content-Length: 10741
+X-XSS-Protection: 1; mode=block
+X-Firefox-Spdy: 3.1
+----------------------------------------------------------
+http://www.google.com/ads/measurement/l?ebcid=ALh7CaROd2nrRgeBzG8ryxPMg-9a7gZkSGwQtnOL4VgXWlnHy_cU0-I1t5WY-1d_Jkih-ODHYfXdId6sMK-qq35zyRJ5jtJF6Q
+
+GET /ads/measurement/l?ebcid=ALh7CaROd2nrRgeBzG8ryxPMg-9a7gZkSGwQtnOL4VgXWlnHy_cU0-I1t5WY-1d_Jkih-ODHYfXdId6sMK-qq35zyRJ5jtJF6Q HTTP/1.1
+Host: www.google.com
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:31.0) Gecko/20100101 Firefox/31.0 Iceweasel/31.1.0
+Accept: image/png,image/*;q=0.8,*/*;q=0.5
+Accept-Language: ru-ru,ru;q=0.7,uk;q=0.3
+Accept-Encoding: gzip, deflate
+Referer: http://www.topuniversities.com/university-rankings/world-university-rankings/2015
+Cookie: TAID=AJHaeXLGSN0GQQ5mj_ezgq3Z8XyWV8ea-oimLODvBMq7yAqYC491yIFeFeEf849QbIOZN7NTOJa_ap09wAavZrHu5zQwQB1bw7T8KfCkPPTN1oy7PO7ttBO01O_91oaDs4mL31A1; AID=AJHaeXJD2qSCx0EnZ4GbM-9N5QUHaDwiCfYiWwzwdzFjURWHM6CdYA; PREF=ID=1111111111111111:LD=en:NR=10:CR=2:TM=1121077994:LM=1445883414:GM=1:SG=2:V=1:S=v_y-Go9fIPPOkMTp; NID=72=P0M7qzG6C4nWCj0wlGxXtwYQ55DcfGSxUAHgTEraB16usfmJG69YsJJdHT8rgoGWm8Yjs5eKNOXuGMRsfSYtCY5Cg3vakMFSkvJkVxbVqozQesqFWydoo6GLg61Kf36Xl61dcWEyyzN6OpGy7sZHTNRAtAiUVT-Qygh9K5Y0p4BNAvIFPaHtyjrdHpJ-OkfA6tZnPel7wQIMqWOX8k5wvKn7PQUU_WPAcSzNyhVVDIWipWlI5BW_fAiOlkZuagtirF9XcHNHzCfVCoKwDDaNmreBeHmcOrvOqp6oEIU; SID=DQAAABQBAADauq8xEztqxXxNtkDXo5B0eGvdf6POwsfMoxZcGZjECnnqzrWLIXbVNrmrUpEhL0ylFaBjYxZMUSMZpBVwhgq6tLrzCXDxvkO6Em-ohg7-Judgo1FcemFCujABFLvvY-d2fcfPnaN1YGV82vQE_ejf8zqeiIcgH9qpuGSn_KEpeqhpu_mZAvczXLOgpcoTci6MtyJTdC7fHPgbvkjH12ubT6TzYpmv1LtHPEYC_wkN6-PcrIWAjTYDMagfoyB1CJSpQPiqZSmeRE5JO1YMeWCTyJtol1zPAeMlh2KRtA8NgTA35qb0k-AK5Iyf0QIZ8VTJzrjJZxyGGpQjDjzER0v2RibFaZSLF-paCFB5GkpI-LJ6djRtyehRfXheZmVTNFI; HSID=A3GuXrrdUxlCfLG0b; APISID=9smRSJJFTXv-1hGR/AWsJnZzPTPFmi3N33
+Connection: keep-alive
+
+HTTP/1.1 204 No Content
+Content-Type: text/html; charset=UTF-8
+X-Content-Type-Options: nosniff
+Date: Mon, 26 Oct 2015 18:20:38 GMT
+Server: jumble_frontend_server
+Content-Length: 0
+X-XSS-Protection: 1; mode=block
+X-Frame-Options: SAMEORIGIN
+Set-Cookie: PREF=ID=1111111111111111:LD=en:NR=10:CR=2:TM=1121077994:LM=1445883638:GM=1:SG=2:V=1:S=4gcVfGYUtaiKS4wC; expires=Thu, 31-Dec-2015 16:02:17 GMT; path=/; domain=.google.com
+----------------------------------------------------------
+https://www.facebook.com/tr/?id=625118064239502&ev=PixelInitialized&dl=http%3A%2F%2Fwww.topuniversities.com%2Funiversity-rankings%2Fworld-university-rankings%2F2015%23sorting%3Drank%2Bregion%3D%2Bcountry%3D%2Bfaculty%3D%2Bstars%3Dfalse%2Bsearch%3D&rl=http%3A%2F%2Fwww.topuniversities.com%2Fqs-world-university-rankings&if=false&ts=1445883636858
+
+GET /tr/?id=625118064239502&ev=PixelInitialized&dl=http%3A%2F%2Fwww.topuniversities.com%2Funiversity-rankings%2Fworld-university-rankings%2F2015%23sorting%3Drank%2Bregion%3D%2Bcountry%3D%2Bfaculty%3D%2Bstars%3Dfalse%2Bsearch%3D&rl=http%3A%2F%2Fwww.topuniversities.com%2Fqs-world-university-rankings&if=false&ts=1445883636858 HTTP/1.1
+Host: www.facebook.com
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:31.0) Gecko/20100101 Firefox/31.0 Iceweasel/31.1.0
+Accept: image/png,image/*;q=0.8,*/*;q=0.5
+Accept-Language: ru-ru,ru;q=0.7,uk;q=0.3
+Accept-Encoding: gzip, deflate
+Referer: http://www.topuniversities.com/university-rankings/world-university-rankings/2015
+Cookie: datr=43nRUwEHEEFiiGBbPtlVMMNO
+Connection: keep-alive
+
+HTTP/1.1 200 OK
+Cache-Control: no-cache, must-revalidate, max-age=0
+Content-Length: 43
+Content-Type: image/gif
+Date: Mon, 26 Oct 2015 18:20:38 GMT
+Expires: Mon, 26 Oct 2015 18:20:38 GMT
+Last-Modified: Fri, 21 Dec 2012 00:00:01 GMT
+Server: proxygen
+X-Firefox-Spdy: 3.1
+----------------------------------------------------------
+https://www.facebook.com/tr/?id=625118064239502&ev=PixelInitialized&dl=http%3A%2F%2Fwww.topuniversities.com%2Funiversity-rankings%2Fworld-university-rankings%2F2015%23sorting%3Drank%2Bregion%3D%2Bcountry%3D%2Bfaculty%3D%2Bstars%3Dfalse%2Bsearch%3D&rl=http%3A%2F%2Fwww.topuniversities.com%2Fqs-world-university-rankings&if=false&ts=1445883636860
+
+GET /tr/?id=625118064239502&ev=PixelInitialized&dl=http%3A%2F%2Fwww.topuniversities.com%2Funiversity-rankings%2Fworld-university-rankings%2F2015%23sorting%3Drank%2Bregion%3D%2Bcountry%3D%2Bfaculty%3D%2Bstars%3Dfalse%2Bsearch%3D&rl=http%3A%2F%2Fwww.topuniversities.com%2Fqs-world-university-rankings&if=false&ts=1445883636860 HTTP/1.1
+Host: www.facebook.com
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:31.0) Gecko/20100101 Firefox/31.0 Iceweasel/31.1.0
+Accept: image/png,image/*;q=0.8,*/*;q=0.5
+Accept-Language: ru-ru,ru;q=0.7,uk;q=0.3
+Accept-Encoding: gzip, deflate
+Referer: http://www.topuniversities.com/university-rankings/world-university-rankings/2015
+Cookie: datr=43nRUwEHEEFiiGBbPtlVMMNO
+Connection: keep-alive
+
+HTTP/1.1 200 OK
+Cache-Control: no-cache, must-revalidate, max-age=0
+Content-Length: 43
+Content-Type: image/gif
+Date: Mon, 26 Oct 2015 18:20:38 GMT
+Expires: Mon, 26 Oct 2015 18:20:38 GMT
+Last-Modified: Fri, 21 Dec 2012 00:00:01 GMT
+Server: proxygen
+X-Firefox-Spdy: 3.1
+----------------------------------------------------------
+https://www.facebook.com/tr/?id=625118064239502&ev=PixelInitialized&dl=http%3A%2F%2Fwww.topuniversities.com%2Funiversity-rankings%2Fworld-university-rankings%2F2015%23sorting%3Drank%2Bregion%3D%2Bcountry%3D%2Bfaculty%3D%2Bstars%3Dfalse%2Bsearch%3D&rl=http%3A%2F%2Fwww.topuniversities.com%2Fqs-world-university-rankings&if=false&ts=1445883636862
+
+GET /tr/?id=625118064239502&ev=PixelInitialized&dl=http%3A%2F%2Fwww.topuniversities.com%2Funiversity-rankings%2Fworld-university-rankings%2F2015%23sorting%3Drank%2Bregion%3D%2Bcountry%3D%2Bfaculty%3D%2Bstars%3Dfalse%2Bsearch%3D&rl=http%3A%2F%2Fwww.topuniversities.com%2Fqs-world-university-rankings&if=false&ts=1445883636862 HTTP/1.1
+Host: www.facebook.com
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:31.0) Gecko/20100101 Firefox/31.0 Iceweasel/31.1.0
+Accept: image/png,image/*;q=0.8,*/*;q=0.5
+Accept-Language: ru-ru,ru;q=0.7,uk;q=0.3
+Accept-Encoding: gzip, deflate
+Referer: http://www.topuniversities.com/university-rankings/world-university-rankings/2015
+Cookie: datr=43nRUwEHEEFiiGBbPtlVMMNO
+Connection: keep-alive
+
+HTTP/1.1 200 OK
+Cache-Control: no-cache, must-revalidate, max-age=0
+Content-Length: 43
+Content-Type: image/gif
+Date: Mon, 26 Oct 2015 18:20:38 GMT
+Expires: Mon, 26 Oct 2015 18:20:38 GMT
+Last-Modified: Fri, 21 Dec 2012 00:00:01 GMT
+Server: proxygen
+X-Firefox-Spdy: 3.1
+----------------------------------------------------------
+https://www.facebook.com/tr/?id=625118064239502&ev=PixelInitialized&dl=http%3A%2F%2Fwww.topuniversities.com%2Funiversity-rankings%2Fworld-university-rankings%2F2015%23sorting%3Drank%2Bregion%3D%2Bcountry%3D%2Bfaculty%3D%2Bstars%3Dfalse%2Bsearch%3D&rl=http%3A%2F%2Fwww.topuniversities.com%2Fqs-world-university-rankings&if=false&ts=1445883636880
+
+GET /tr/?id=625118064239502&ev=PixelInitialized&dl=http%3A%2F%2Fwww.topuniversities.com%2Funiversity-rankings%2Fworld-university-rankings%2F2015%23sorting%3Drank%2Bregion%3D%2Bcountry%3D%2Bfaculty%3D%2Bstars%3Dfalse%2Bsearch%3D&rl=http%3A%2F%2Fwww.topuniversities.com%2Fqs-world-university-rankings&if=false&ts=1445883636880 HTTP/1.1
+Host: www.facebook.com
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:31.0) Gecko/20100101 Firefox/31.0 Iceweasel/31.1.0
+Accept: image/png,image/*;q=0.8,*/*;q=0.5
+Accept-Language: ru-ru,ru;q=0.7,uk;q=0.3
+Accept-Encoding: gzip, deflate
+Referer: http://www.topuniversities.com/university-rankings/world-university-rankings/2015
+Cookie: datr=43nRUwEHEEFiiGBbPtlVMMNO
+Connection: keep-alive
+
+HTTP/1.1 200 OK
+Cache-Control: no-cache, must-revalidate, max-age=0
+Content-Length: 43
+Content-Type: image/gif
+Date: Mon, 26 Oct 2015 18:20:38 GMT
+Expires: Mon, 26 Oct 2015 18:20:38 GMT
+Last-Modified: Fri, 21 Dec 2012 00:00:01 GMT
+Server: proxygen
+X-Firefox-Spdy: 3.1
+----------------------------------------------------------
+https://www.facebook.com/tr/?id=625118064239502&ev=PixelInitialized&dl=http%3A%2F%2Fwww.topuniversities.com%2Funiversity-rankings%2Fworld-university-rankings%2F2015%23sorting%3Drank%2Bregion%3D%2Bcountry%3D%2Bfaculty%3D%2Bstars%3Dfalse%2Bsearch%3D&rl=http%3A%2F%2Fwww.topuniversities.com%2Fqs-world-university-rankings&if=false&ts=1445883636882
+
+GET /tr/?id=625118064239502&ev=PixelInitialized&dl=http%3A%2F%2Fwww.topuniversities.com%2Funiversity-rankings%2Fworld-university-rankings%2F2015%23sorting%3Drank%2Bregion%3D%2Bcountry%3D%2Bfaculty%3D%2Bstars%3Dfalse%2Bsearch%3D&rl=http%3A%2F%2Fwww.topuniversities.com%2Fqs-world-university-rankings&if=false&ts=1445883636882 HTTP/1.1
+Host: www.facebook.com
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:31.0) Gecko/20100101 Firefox/31.0 Iceweasel/31.1.0
+Accept: image/png,image/*;q=0.8,*/*;q=0.5
+Accept-Language: ru-ru,ru;q=0.7,uk;q=0.3
+Accept-Encoding: gzip, deflate
+Referer: http://www.topuniversities.com/university-rankings/world-university-rankings/2015
+Cookie: datr=43nRUwEHEEFiiGBbPtlVMMNO
+Connection: keep-alive
+
+HTTP/1.1 200 OK
+Cache-Control: no-cache, must-revalidate, max-age=0
+Content-Length: 43
+Content-Type: image/gif
+Date: Mon, 26 Oct 2015 18:20:38 GMT
+Expires: Mon, 26 Oct 2015 18:20:38 GMT
+Last-Modified: Fri, 21 Dec 2012 00:00:01 GMT
+Server: proxygen
+X-Firefox-Spdy: 3.1
+----------------------------------------------------------
+https://www.facebook.com/tr/?id=696336430454583&ev=PixelInitialized&dl=http%3A%2F%2Fwww.topuniversities.com%2Funiversity-rankings%2Fworld-university-rankings%2F2015%23sorting%3Drank%2Bregion%3D%2Bcountry%3D%2Bfaculty%3D%2Bstars%3Dfalse%2Bsearch%3D&rl=http%3A%2F%2Fwww.topuniversities.com%2Fqs-world-university-rankings&if=false&ts=1445883636883
+
+GET /tr/?id=696336430454583&ev=PixelInitialized&dl=http%3A%2F%2Fwww.topuniversities.com%2Funiversity-rankings%2Fworld-university-rankings%2F2015%23sorting%3Drank%2Bregion%3D%2Bcountry%3D%2Bfaculty%3D%2Bstars%3Dfalse%2Bsearch%3D&rl=http%3A%2F%2Fwww.topuniversities.com%2Fqs-world-university-rankings&if=false&ts=1445883636883 HTTP/1.1
+Host: www.facebook.com
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:31.0) Gecko/20100101 Firefox/31.0 Iceweasel/31.1.0
+Accept: image/png,image/*;q=0.8,*/*;q=0.5
+Accept-Language: ru-ru,ru;q=0.7,uk;q=0.3
+Accept-Encoding: gzip, deflate
+Referer: http://www.topuniversities.com/university-rankings/world-university-rankings/2015
+Cookie: datr=43nRUwEHEEFiiGBbPtlVMMNO
+Connection: keep-alive
+
+HTTP/1.1 200 OK
+Cache-Control: no-cache, must-revalidate, max-age=0
+Content-Length: 43
+Content-Type: image/gif
+Date: Mon, 26 Oct 2015 18:20:38 GMT
+Expires: Mon, 26 Oct 2015 18:20:38 GMT
+Last-Modified: Fri, 21 Dec 2012 00:00:01 GMT
+Server: proxygen
+X-Firefox-Spdy: 3.1
+----------------------------------------------------------
+https://googleads.g.doubleclick.net/pagead/viewthroughconversion/972477821/?random=1445883636865&cv=8&fst=1445883636865&num=1&fmt=1&guid=ON&u_h=768&u_w=1366&u_ah=768&u_aw=1366&u_cd=24&u_his=3&u_tz=120&u_java=false&u_nplug=1&u_nmime=2&frm=0&url=http%3A//www.topuniversities.com/university-rankings/world-university-rankings/2015%23sorting%3Drank+region%3D+country%3D+faculty%3D+stars%3Dfalse+search%3D&ref=http%3A//www.topuniversities.com/qs-world-university-rankings
+
+GET /pagead/viewthroughconversion/972477821/?random=1445883636865&cv=8&fst=1445883636865&num=1&fmt=1&guid=ON&u_h=768&u_w=1366&u_ah=768&u_aw=1366&u_cd=24&u_his=3&u_tz=120&u_java=false&u_nplug=1&u_nmime=2&frm=0&url=http%3A//www.topuniversities.com/university-rankings/world-university-rankings/2015%23sorting%3Drank+region%3D+country%3D+faculty%3D+stars%3Dfalse+search%3D&ref=http%3A//www.topuniversities.com/qs-world-university-rankings HTTP/1.1
+Host: googleads.g.doubleclick.net
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:31.0) Gecko/20100101 Firefox/31.0 Iceweasel/31.1.0
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+Accept-Language: ru-ru,ru;q=0.7,uk;q=0.3
+Accept-Encoding: gzip, deflate
+Referer: http://www.topuniversities.com/university-rankings/world-university-rankings/2015
+Cookie: id=22ddc23dc701005e||t=1390162425|et=730|cs=002213fd4817ab64595f82e58e; __gads=ID=e9ae1adf71a03f48:T=1407220765:S=ALNI_MZ8G6ozk3HIwuvn_Vm3qCWlWXVt9Q; _drt_=AL_3zv3-YYH979KSYCwJLRn_0iXvjyf8wyLMqLztzs0thers4W7nvYKKm6GXRkUkqHrtm9Y0q9uxwm9tGf98hr7Mku_LPjySMTaGLx80JkY2xfQ-FKoJ73o; DSID=AL_3zv2jxmw1YCHU8IdJkP-C0BexZJG1gmxII8O-ByM2TIuN2eW5wsVVdDTz5PTv1NUCdsaqeLGwhnI40Kyabgg8OhQb9QrnevFPpiZwEt3Vb2h53BpUbXU
+Connection: keep-alive
+
+HTTP/1.1 302 Found
+P3P: policyref="https://googleads.g.doubleclick.net/pagead/gcn_p3p_.xml", CP="CURa ADMa DEVa TAIo PSAo PSDo OUR IND UNI PUR INT DEM STA PRE COM NAV OTC NOI DSP COR"
+Date: Mon, 26 Oct 2015 18:20:38 GMT
+Pragma: no-cache
+Expires: Fri, 01 Jan 1990 00:00:00 GMT
+Cache-Control: no-cache, must-revalidate
+Location: https://www.google.com/ads/user-lists/972477821/?fmt=1&num=1&cv=8&frm=0&url=http%3A//www.topuniversities.com/university-rankings/world-university-rankings/2015%23sorting%3Drank+region%3D+country%3D+faculty%3D+stars%3Dfalse+search%3D&ref=http%3A//www.topuniversities.com/qs-world-university-rankings&random=3755664366
+Content-Type: text/html; charset=UTF-8
+X-Content-Type-Options: nosniff
+Content-Encoding: gzip
+Server: cafe
+Content-Length: 76
+X-XSS-Protection: 1; mode=block
+X-Firefox-Spdy: 3.1
+----------------------------------------------------------
+https://cm.g.doubleclick.net/push?client=ca-pub-7436521208680540&srn=gdn
+
+GET /push?client=ca-pub-7436521208680540&srn=gdn HTTP/1.1
+Host: cm.g.doubleclick.net
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:31.0) Gecko/20100101 Firefox/31.0 Iceweasel/31.1.0
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+Accept-Language: ru-ru,ru;q=0.7,uk;q=0.3
+Accept-Encoding: gzip, deflate
+Referer: http://www.topuniversities.com/university-rankings/world-university-rankings/2015
+Cookie: id=22ddc23dc701005e||t=1390162425|et=730|cs=002213fd4817ab64595f82e58e; __gads=ID=e9ae1adf71a03f48:T=1407220765:S=ALNI_MZ8G6ozk3HIwuvn_Vm3qCWlWXVt9Q; _drt_=AL_3zv3-YYH979KSYCwJLRn_0iXvjyf8wyLMqLztzs0thers4W7nvYKKm6GXRkUkqHrtm9Y0q9uxwm9tGf98hr7Mku_LPjySMTaGLx80JkY2xfQ-FKoJ73o; DSID=AL_3zv2jxmw1YCHU8IdJkP-C0BexZJG1gmxII8O-ByM2TIuN2eW5wsVVdDTz5PTv1NUCdsaqeLGwhnI40Kyabgg8OhQb9QrnevFPpiZwEt3Vb2h53BpUbXU
+Connection: keep-alive
+
+HTTP/1.1 204 No Content
+Date: Mon, 26 Oct 2015 18:20:38 GMT
+Content-Type: text/html
+Server: HTTP server (unknown)
+Content-Length: 0
+X-XSS-Protection: 1; mode=block
+X-Firefox-Spdy: 3.1
+----------------------------------------------------------
+http://pagead2.googlesyndication.com/activeview?id=osdim&avi=B0Mhe8m4uVozzI8y8yAPl1pNgAAAAABABOAHIAQLAAgLgAgDIA5kE4AQBoAYU&cid=5GgUuEFtWAmYEb6qDK8k_Sr2h3c&ti=1&adk=2644944191&p=0,0,0,0&tos=0,0,0,0,0&mtos=0,0,0,0,0&rs=3&ht=0&fp=correlator%3D1032056309913272%26eid%3D108809080%26iu%3D%252F8070%252FTopuni-Web%252Funiversity-rankings%252Fworld-university-rankings%252F2015%26oid%3D3%26url%3Dhttp%253A%252F%252Fwww.topuniversities.com%252Funiversity-rankings%252Fworld-university-rankings%252F2015&afp=%26output%3Djson_html%26impl%3Dfif%26dt%3D1445883632808%26adx%3D134%26ady%3D336%26ifi%3D1%26flash%3D11.2.202&gte=1&tmo=4&tme=4&tdl=24&abd=0-0-1&r=u&bs=1346,615&bos=1362,712&ps=1346,5244&ss=1366,768&tt=472&pt=-1&deb=1-0-3-2-1--1&tvt=3&uc=1&tgt=nf&cl=0
+
+GET /activeview?id=osdim&avi=B0Mhe8m4uVozzI8y8yAPl1pNgAAAAABABOAHIAQLAAgLgAgDIA5kE4AQBoAYU&cid=5GgUuEFtWAmYEb6qDK8k_Sr2h3c&ti=1&adk=2644944191&p=0,0,0,0&tos=0,0,0,0,0&mtos=0,0,0,0,0&rs=3&ht=0&fp=correlator%3D1032056309913272%26eid%3D108809080%26iu%3D%252F8070%252FTopuni-Web%252Funiversity-rankings%252Fworld-university-rankings%252F2015%26oid%3D3%26url%3Dhttp%253A%252F%252Fwww.topuniversities.com%252Funiversity-rankings%252Fworld-university-rankings%252F2015&afp=%26output%3Djson_html%26impl%3Dfif%26dt%3D1445883632808%26adx%3D134%26ady%3D336%26ifi%3D1%26flash%3D11.2.202&gte=1&tmo=4&tme=4&tdl=24&abd=0-0-1&r=u&bs=1346,615&bos=1362,712&ps=1346,5244&ss=1366,768&tt=472&pt=-1&deb=1-0-3-2-1--1&tvt=3&uc=1&tgt=nf&cl=0 HTTP/1.1
+Host: pagead2.googlesyndication.com
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:31.0) Gecko/20100101 Firefox/31.0 Iceweasel/31.1.0
+Accept: image/png,image/*;q=0.8,*/*;q=0.5
+Accept-Language: ru-ru,ru;q=0.7,uk;q=0.3
+Accept-Encoding: gzip, deflate
+Referer: http://www.topuniversities.com/university-rankings/world-university-rankings/2015
+Connection: keep-alive
+
+HTTP/1.1 200 OK
+P3P: policyref="http://www.googleadservices.com/pagead/p3p.xml", CP="NOI DEV PSA PSD IVA IVD OTP OUR OTR IND OTC"
+Access-Control-Allow-Origin: *
+Content-Type: image/gif
+Date: Mon, 26 Oct 2015 18:20:39 GMT
+Pragma: no-cache
+Expires: Fri, 01 Jan 1990 00:00:00 GMT
+Cache-Control: no-cache, must-revalidate
+X-Content-Type-Options: nosniff
+Server: cafe
+Content-Length: 42
+X-XSS-Protection: 1; mode=block
+----------------------------------------------------------
+https://www.google.com/ads/user-lists/972477821/?fmt=1&num=1&cv=8&frm=0&url=http%3A//www.topuniversities.com/university-rankings/world-university-rankings/2015%23sorting%3Drank+region%3D+country%3D+faculty%3D+stars%3Dfalse+search%3D&ref=http%3A//www.topuniversities.com/qs-world-university-rankings&random=3755664366
+
+GET /ads/user-lists/972477821/?fmt=1&num=1&cv=8&frm=0&url=http%3A//www.topuniversities.com/university-rankings/world-university-rankings/2015%23sorting%3Drank+region%3D+country%3D+faculty%3D+stars%3Dfalse+search%3D&ref=http%3A//www.topuniversities.com/qs-world-university-rankings&random=3755664366 HTTP/1.1
+Host: www.google.com
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:31.0) Gecko/20100101 Firefox/31.0 Iceweasel/31.1.0
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+Accept-Language: ru-ru,ru;q=0.7,uk;q=0.3
+Accept-Encoding: gzip, deflate
+Referer: http://www.topuniversities.com/university-rankings/world-university-rankings/2015
+Cookie: AID=AJHaeXJD2qSCx0EnZ4GbM-9N5QUHaDwiCfYiWwzwdzFjURWHM6CdYA; PREF=ID=1111111111111111:LD=en:NR=10:CR=2:TM=1121077994:LM=1445883638:GM=1:SG=2:V=1:S=4gcVfGYUtaiKS4wC; NID=72=P0M7qzG6C4nWCj0wlGxXtwYQ55DcfGSxUAHgTEraB16usfmJG69YsJJdHT8rgoGWm8Yjs5eKNOXuGMRsfSYtCY5Cg3vakMFSkvJkVxbVqozQesqFWydoo6GLg61Kf36Xl61dcWEyyzN6OpGy7sZHTNRAtAiUVT-Qygh9K5Y0p4BNAvIFPaHtyjrdHpJ-OkfA6tZnPel7wQIMqWOX8k5wvKn7PQUU_WPAcSzNyhVVDIWipWlI5BW_fAiOlkZuagtirF9XcHNHzCfVCoKwDDaNmreBeHmcOrvOqp6oEIU; SID=DQAAABQBAADauq8xEztqxXxNtkDXo5B0eGvdf6POwsfMoxZcGZjECnnqzrWLIXbVNrmrUpEhL0ylFaBjYxZMUSMZpBVwhgq6tLrzCXDxvkO6Em-ohg7-Judgo1FcemFCujABFLvvY-d2fcfPnaN1YGV82vQE_ejf8zqeiIcgH9qpuGSn_KEpeqhpu_mZAvczXLOgpcoTci6MtyJTdC7fHPgbvkjH12ubT6TzYpmv1LtHPEYC_wkN6-PcrIWAjTYDMagfoyB1CJSpQPiqZSmeRE5JO1YMeWCTyJtol1zPAeMlh2KRtA8NgTA35qb0k-AK5Iyf0QIZ8VTJzrjJZxyGGpQjDjzER0v2RibFaZSLF-paCFB5GkpI-LJ6djRtyehRfXheZmVTNFI; HSID=A3GuXrrdUxlCfLG0b; SSID=AhWJIriU-mAlWmQeT; APISID=9smRSJJFTXv-1hGR/AWsJnZzPTPFmi3N33; SAPISID=6ECop4BglKd8PYJn/AX0cOL24MXKPGnVi0
+Connection: keep-alive
+
+HTTP/1.1 302 Found
+Location: https://www.google.com.ua/ads/user-lists/972477821/?fmt=1&num=1&cv=8&frm=0&url=http%3A//www.topuniversities.com/university-rankings/world-university-rankings/2015%23sorting%3Drank+region%3D+country%3D+faculty%3D+stars%3Dfalse+search%3D&ref=http%3A//www.topuniversities.com/qs-world-university-rankings&random=3755664366&ipr=y
+Cache-Control: private, max-age=43200
+Date: Mon, 26 Oct 2015 18:20:39 GMT
+Expires: Mon, 26 Oct 2015 18:20:39 GMT
+Content-Type: text/html; charset=UTF-8
+X-Content-Type-Options: nosniff
+Server: adclick_server
+Content-Length: 550
+X-XSS-Protection: 1; mode=block
+X-Firefox-Spdy: 3.1
+----------------------------------------------------------
+https://www.google.com.ua/ads/user-lists/972477821/?fmt=1&num=1&cv=8&frm=0&url=http%3A//www.topuniversities.com/university-rankings/world-university-rankings/2015%23sorting%3Drank+region%3D+country%3D+faculty%3D+stars%3Dfalse+search%3D&ref=http%3A//www.topuniversities.com/qs-world-university-rankings&random=3755664366&ipr=y
+
+GET /ads/user-lists/972477821/?fmt=1&num=1&cv=8&frm=0&url=http%3A//www.topuniversities.com/university-rankings/world-university-rankings/2015%23sorting%3Drank+region%3D+country%3D+faculty%3D+stars%3Dfalse+search%3D&ref=http%3A//www.topuniversities.com/qs-world-university-rankings&random=3755664366&ipr=y HTTP/1.1
+Host: www.google.com.ua
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:31.0) Gecko/20100101 Firefox/31.0 Iceweasel/31.1.0
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+Accept-Language: ru-ru,ru;q=0.7,uk;q=0.3
+Accept-Encoding: gzip, deflate
+Referer: http://www.topuniversities.com/university-rankings/world-university-rankings/2015
+Cookie: NID=67=ryQJ4mDKeBM9wXkJCZJWceq5mxXYWs9Ei9rPhhalBCqUFn9ZV8Xx2am_lCUZ4oeWg8CIzbC_JNpKcv8zGnyY4dgX823LJbFx7Ax03uZ1H_yJCWAlkODuOmh18nCkmgWbmL_nVYJ-VL5-S4lRlGcRYChoK7N76cVRkAfYdSVBtKTthDhgMnU; PREF=ID=1111111111111111:FF=0:LD=en:TM=1412196490:LM=1426944949:S=ghP4XyKH0a9FoxUj; SID=DQAAABQBAADauq8xEztqxXxNtkDXo5B0bm9VDQutbQPWHEku6L_tVG_Xg8NrA9hgvhTglOi-wRzqD8mimYsjSfDY_cm2cFb_rcGWafMDNJ0gtF1KS9YNehvwM2AwuxQpzJhaiBNoIOtQx67WzcP4xRZmGYZOR-Etfhl52u4OuxOsrWMCw6VGTCuRUv5cYJRFPk_tUzCKdXg8D5pQKKh3w1OVnGfArYQIXHIWNbIWI1hkXdOEGU12KgQ_R5rZ3t20gMKgQT9Ea9GPSS8pWd3guNBwKmX5KHml1COOFzlrrxIWUv0V6rkfu4TZKRknLChDyZN2V92WUCKYciG3peCEayEQXSIjR115ocJ-XxlGhCyX_XLQ1-FBF8t1Wgt-9P_I-zYNKAFdCeo; HSID=A0MeufUDSSDBqe7KY; SSID=Aijwxe-Y5t07G_k0Y; APISID=9smRSJJFTXv-1hGR/AWsJnZzPTPFmi3N33; SAPISID=6ECop4BglKd8PYJn/AX0cOL24MXKPGnVi0
+Connection: keep-alive
+
+HTTP/1.1 200 OK
+Date: Mon, 26 Oct 2015 18:20:39 GMT
+Pragma: no-cache
+Expires: Fri, 01 Jan 1990 00:00:00 GMT
+Cache-Control: no-cache, no-store, must-revalidate
+Content-Type: text/html; charset=UTF-8
+X-Content-Type-Options: nosniff
+Content-Encoding: gzip
+Server: adclick_server
+Content-Length: 76
+X-XSS-Protection: 1; mode=block
+X-Firefox-Spdy: 3.1
+----------------------------------------------------------
+http://www.pages01.net/WTS/event.jpeg?accesskey=326a8451-13f1a1f3460-c2a8af96738cc20073a7254c07aedd78&v=1.28&isNewSession=0&type=pageview&isNewVisitor=0&sessionGUID=0a4963e8-06ec-1d89-cdd5-15e7e6dd4219&webSyncID=6c212848-1d6c-e1a2-e56a-d9ac6c09e659&url=http%3A%2F%2Fwww.topuniversities.com%2Funiversity-rankings%2Fworld-university-rankings%2F2015%23sorting%3Drank%2Bregion%3D%2Bcountry%3D%2Bfaculty%3D%2Bstars%3Dfalse%2Bsearch%3D&newSiteVisit=0&referringURL=http%3A%2F%2Fwww.topuniversities.com%2Fqs-world-university-rankings&hostname=www.topuniversities.com&pathname=%2Funiversity-rankings%2Fworld-university-rankings%2F2015&newPageVisit=1&eventKey=bd102660-79d3-bece-eb16-5a7bc33b1c74
+
+GET /WTS/event.jpeg?accesskey=326a8451-13f1a1f3460-c2a8af96738cc20073a7254c07aedd78&v=1.28&isNewSession=0&type=pageview&isNewVisitor=0&sessionGUID=0a4963e8-06ec-1d89-cdd5-15e7e6dd4219&webSyncID=6c212848-1d6c-e1a2-e56a-d9ac6c09e659&url=http%3A%2F%2Fwww.topuniversities.com%2Funiversity-rankings%2Fworld-university-rankings%2F2015%23sorting%3Drank%2Bregion%3D%2Bcountry%3D%2Bfaculty%3D%2Bstars%3Dfalse%2Bsearch%3D&newSiteVisit=0&referringURL=http%3A%2F%2Fwww.topuniversities.com%2Fqs-world-university-rankings&hostname=www.topuniversities.com&pathname=%2Funiversity-rankings%2Fworld-university-rankings%2F2015&newPageVisit=1&eventKey=bd102660-79d3-bece-eb16-5a7bc33b1c74 HTTP/1.1
+Host: www.pages01.net
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:31.0) Gecko/20100101 Firefox/31.0 Iceweasel/31.1.0
+Accept: image/png,image/*;q=0.8,*/*;q=0.5
+Accept-Language: ru-ru,ru;q=0.7,uk;q=0.3
+Accept-Encoding: gzip, deflate
+Referer: http://www.topuniversities.com/university-rankings/world-university-rankings/2015
+Connection: keep-alive
+
+HTTP/1.1 200 OK
+Date: Mon, 26 Oct 2015 18:20:39 GMT
+P3P: CP="CAO PSA OUR"
+Cache-Control: no-cache, no-store, must-revalidate, max-age=0, proxy-revalidate, s-maxage=0
+Pragma: no-cache
+Expires: Thu, 01 Jan 1970 00:00:00 GMT
+Content-Length: 0
+Connection: close
+Content-Type: image/jpeg
+----------------------------------------------------------
+http://bam.nr-data.net/1/8165578c85?a=10345288&pl=1445883630965&v=768.2acc9fa&to=bgdTZEpVWhdVWkEKWldNZEJRGxsNWl1QGxtJCkE%3D&ap=107&be=852&fe=6242&dc=1279&f=%5B%22err%22,%22xhr%22,%22ins%22%5D&perf=%7B%22timing%22:%7B%22of%22:1445883630965,%22n%22:0,%22u%22:420,%22ue%22:445,%22dl%22:420,%22di%22:1963,%22ds%22:2130,%22de%22:2565,%22dc%22:7093,%22l%22:7093,%22le%22:7119,%22r%22:2,%22re%22:2,%22f%22:2,%22dn%22:2,%22dne%22:2,%22c%22:2,%22ce%22:2,%22rq%22:52,%22rp%22:346,%22rpe%22:600%7D,%22navigation%22:%7B%7D%7D&at=QkBQEgJPSRk%3D&jsonp=NREUM.setToken
+
+GET /1/8165578c85?a=10345288&pl=1445883630965&v=768.2acc9fa&to=bgdTZEpVWhdVWkEKWldNZEJRGxsNWl1QGxtJCkE%3D&ap=107&be=852&fe=6242&dc=1279&f=%5B%22err%22,%22xhr%22,%22ins%22%5D&perf=%7B%22timing%22:%7B%22of%22:1445883630965,%22n%22:0,%22u%22:420,%22ue%22:445,%22dl%22:420,%22di%22:1963,%22ds%22:2130,%22de%22:2565,%22dc%22:7093,%22l%22:7093,%22le%22:7119,%22r%22:2,%22re%22:2,%22f%22:2,%22dn%22:2,%22dne%22:2,%22c%22:2,%22ce%22:2,%22rq%22:52,%22rp%22:346,%22rpe%22:600%7D,%22navigation%22:%7B%7D%7D&at=QkBQEgJPSRk%3D&jsonp=NREUM.setToken HTTP/1.1
+Host: bam.nr-data.net
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:31.0) Gecko/20100101 Firefox/31.0 Iceweasel/31.1.0
+Accept: */*
+Accept-Language: ru-ru,ru;q=0.7,uk;q=0.3
+Accept-Encoding: gzip, deflate
+Referer: http://www.topuniversities.com/university-rankings/world-university-rankings/2015
+Cookie: JSESSIONID=71d8a4964a1526f2
+Connection: keep-alive
+
+HTTP/1.1 200 OK
+Content-Type: text/javascript;charset=ISO-8859-1
+Content-Length: 41
+----------------------------------------------------------

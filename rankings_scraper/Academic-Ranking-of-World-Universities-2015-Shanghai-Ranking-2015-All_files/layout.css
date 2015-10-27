@@ -1,0 +1,978 @@
+/*/*Normallizes margin,padding*/
+body, div, form, dl, dd, dt, ul, li, ol, h1, h2, h3, h4, h5, h6, pre, input, p, blockquote, th, td {
+	margin: 0;
+	padding: 0;
+}
+ol, ul {
+	list-style: none;
+}
+form, input, select {
+	border: 0 none;
+}
+input[type="text"]:focus, input[type="password"]:focus, #registerContent input:focus {
+	border: 1px solid #4D90FE;
+	-webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3) inset;
+	-moz-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3) inset;
+	box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3) inset;
+}
+img {
+	border: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+select {
+	border: 0;
+}
+td {
+	border: 1px solid #E5E5E5;
+	margin: 0;
+}
+.clear {
+	width: 100%;
+	height: 0;
+	clear: both;
+}
+.center {
+	text-align: center;
+}
+.top {
+	vertical-align: top;
+}
+.left {
+	text-align: left;
+}
+.right {
+	text-align: right;
+}
+.line {
+	margin: 30px auto;
+	width: 100%;
+}
+.margin10 {
+	margin-bottom: 20px;
+}
+.more {
+	background: url(../image/arrow-right-blue.png) no-repeat right center;
+}
+.more a {
+	font-weight: bold;
+	color: #3d87cb;
+}
+/*Layout css*/
+#toolbar {
+	width: 988px;
+	height: 29px;
+	margin: 0 auto;
+	position: relative;
+}
+#toolbar #socialmedia {
+	width: 120px;
+	height: 29px;
+	float: left;
+}
+.facebook, .twitter, .mail {
+	margin: 4px 15px 0 0;
+}
+#socialmedia >a {
+	width: 22px;
+	height: 22px;
+	display: block;
+	float: left;
+}
+a[class="facebook"] {
+	background: url(../image/icon-buttons.png) no-repeat;
+	background-position: 0px 0px;
+}
+a[class="facebook"]:hover {
+	background: url(../image/icon-buttons.png) no-repeat;
+	background-position: 0px -22px;
+}
+a[class="twitter"] {
+	background: url(../image/icon-buttons.png) no-repeat;
+	background-position: 0px -44px;
+}
+a[class="twitter"]:hover {
+	background: url(../image/icon-buttons.png) no-repeat;
+	background-position: 0px -66px;
+}
+a[class="mail"] {
+	background: url(../image/icon-buttons.png) no-repeat;
+	background-position: 0px -88px;
+}
+a[class="mail"]:hover {
+	background: url(../image/icon-buttons.png) no-repeat;
+	background-position: 0px -110px;
+}
+#toolbar #userarea {
+	float: right;
+	width: 860px;
+	height: 29px;
+	line-height: 29px;
+}
+#toolbar #userarea a {
+	float: left;
+	display: block;
+	text-align: center;
+	margin-left: 10px;
+}
+#toolbar #userarea .cnEntrance {
+	float: right;
+}
+#toolbar div form {
+	position: absolute;
+	right: 550px;
+	top: 4px;
+	height: 22px;
+	width: 220px;
+}
+#toolbar #keywords {
+	float: left;
+	height: 22px;
+	line-height: 18px;
+	outline: medium none;
+	width: 179px;
+	padding: 0 5px;
+}
+#toolbar #search_now_top, #toolbar #search_now_bottom {
+	float: left;
+}
+#toolbar #search_now_top {
+	background: url(../image/search-button.png) no-repeat;
+	width: 26px;
+	height: 22px;
+	border: medium none;
+	vertical-align: middle;
+}
+/*end toolbar*/
+#wrap {
+	width: 988px;
+	margin: 0 auto;
+	position: relative;
+}
+#wrap #branding {
+	height: 103px;
+	padding: 18px 0;
+}
+#wrap #branding h1 {
+	width: 306px;
+	float: left;
+}
+
+#branding div{
+width: 600px;
+height: 100px;
+position: absolute;
+right:0;
+top: 10px;
+
+}
+/*mainnav*/
+.mainnavmenu {
+	width: 988px;
+	height: 40px;
+	margin: 0 auto 8px;
+	background: #2d2e2f;
+	border: 1px solid #000;
+	font-size: 14px;
+	text-shadow: -1px -1px #000;
+}
+.mainnavmenu ul {
+	z-index: 100;
+	margin: 0;
+	padding: 0;
+	list-style-type: none;
+}
+/*Top level list items*/
+.mainnavmenu ul li {
+	position: relative;
+	display: inline;
+	float: left;
+}
+/*Top level menu link items style*/
+.mainnavmenu .firstli a {
+	display: block;
+	padding: 12px 15px;
+	text-decoration: none;
+	_display: inline-block;
+	background: none;
+	color: #fff;
+}
+.mainnavmenu .secondul li a {
+	display: block;
+	padding: 8px 15px;
+	text-decoration: none;
+	_display: inline-block;
+	background: #414141;
+	color: #fff;
+	border-right: 1px solid #333;
+}
+.mainnavmenu ul li a:link, .mainnavmenu ul li a:visited {
+	color: #fff;
+}
+.mainnavmenu ul li a { /*IE6 hack to get sub menu links to behave correctly*/
+	display: inline-block;
+}
+.mainnavmenu ul li a.selected { /*CSS class that's dynamically added to the currently active menu items' LI A element*/
+	_display: inline-block;
+	background: #004a80;
+	color: #fff;
+}
+.mainnavmenu ul li a:hover {
+	_display: inline-block;
+	background: #004a80; /*background of menu items during onmouseover (hover state)*/
+	color: #fff;
+}
+/*1st sub level menu*/
+.mainnavmenu ul li ul {
+	position: absolute;
+	left: 0;
+	display: none; /*collapse all sub menus to begin with*/
+	visibility: hidden;
+}
+/*Sub level menu list items (undo style from Top level List Items)*/
+.mainnavmenu ul li ul li {
+	display: list-item;
+	float: none;
+}
+/*All subsequent sub menu levels vertical offset after 1st level sub menu */
+.mainnavmenu ul li ul li ul {
+	top: 1px;
+}
+/* Sub level menu links style */
+.mainnavmenu ul li ul li a {
+	width: 200px; /*width of sub menus*/
+	padding: 5px;
+	margin: 0;
+	border-top: 1px solid #666;
+	border-bottom: 1px solid #333;
+	font-size: 13px;
+}
+/* Holly Hack for IE \*/
+* html .mainnavmenu {
+	height: 1%;
+} /*Holly Hack for IE7 and below*/
+/* ######### CSS classes applied to down and right arrow images  ######### */
+.downarrowclass {
+	position: absolute;
+	top: 20px;
+	right: 9px;
+}
+.rightarrowclass {
+	position: absolute;
+	top: 12px;
+	right: 5px;
+}
+/* ######### CSS for shadow added to sub menus  ######### */
+.ddshadow { /*important, should not be deleted! shadow for NON CSS3 capable browsers*/
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 0;
+	height: 0;
+}
+.toplevelshadow { /*shadow opacity for NON CSS3 capable browsers. Doesn't work in IE*/
+	opacity: 0.8;
+}
+/* Holly Hack for IE \*/
+* html .mainnavmenu-v ul li {
+	float: left;
+	height: 1%;
+}
+* html .mainnavmenu-v ul li a {
+	height: 1%;
+}
+/*---End mainnav---*/
+/*content*/
+#wrap #content {
+	width: 680px;
+	float: left;
+}
+/*home page top "slid-show" style*/
+#wrap #content #slid {
+	height: 200px;
+	margin-bottom: 10px;
+}
+/*content Left news*/
+#wrap #content #news-show {
+	width: 285px;
+	height: 670px;
+	padding: 5px 10px;
+	float: left;
+}
+/*home news area font style*/
+#wrap #content #news-show h2 {
+	display: block;
+	width: 96%;
+	margin: 0 0 20px 10px;
+	padding: 5px 0;
+	border-bottom: 1px solid #dedede;
+}
+#content #news-show h3 {
+	margin: 10px 0 5px 0;
+	padding: 0 0 0 5px;
+	font-size: 14px;
+	font-weight: normal;
+}
+#wrap #content #news-show p {
+	margin: 0 0 15px 0;
+	padding: 0 0 0 5px;
+	font-size: 13px;
+	line-height: 20px;
+	color: #666;
+}
+/*content middle ranking layout*/
+#wrap #content #ranking-show {
+	width: 362px;
+	float: left;
+	margin-left: 10px;
+}
+#content #ranking-show #arwu-show {
+	float: left;
+	margin-bottom: 10px;
+}
+/*set normal*/
+#arwu-show div {
+	float: left;
+	padding: 10px;
+}
+/*make distance between left list and right list*/
+#arwu-show div ul:first-child, #field-show div ul:first-child, #subject-show div ul:first-child {
+	margin-right: 40px;
+}
+/* left con */
+#ranking-show .sublist {
+	float: left;
+	width: 664px;
+	background: #fff;
+}
+/*sublist */
+#ranking-show .sublist ul {
+	float: left;
+	width: 150px;
+}
+/*#ranking-show #leftcon .sublist ul:first-child {
+	margin-right: 40px;
+}*/
+.sublist ul li {
+	height: 20px;
+	line-height: 20px;
+	font-size: 12px;
+	position: relative;
+	padding: 0 20px 0 30px;
+	margin: 6px 0 0 0;
+}
+/*End tabs ranking*/
+/*-----#content #ranking-show ul-------*/
+#content #arwu-show ul {
+	float: left;
+	width: 150px;
+}
+/*home ranking show area h2 font style*/
+#ranking-show h2 {
+	width: 347px;
+	margin: 0 0 3px 0;
+	line-height: 30px;
+	padding: 5px 0 3px 15px;
+	background: #005fa1;
+	color: #fff;
+}
+#arwu-show ul li {
+	height: 20px;
+	line-height: 20px;
+	margin-top: 6px;
+	overflow: hidden;
+	padding: 0 25px 0 30px;
+	position: relative;
+}
+/*ol list layout*/
+#ranking-show ul li em {
+	display: block;
+	height: 18px;
+	line-height: 18px;
+	position: absolute;
+	text-align: center;
+	left: 0;
+	top: 0;
+	width: 20px;
+	background: #44bdfd;
+	color: #fff;
+}
+#content #ranking-show ul li span {
+	display: block;
+	padding: 4px 0 0 0;
+	position: absolute;
+	right: 0;
+	top: 0;
+}
+/* fs-show */
+#ranking-show .fs-show {
+	margin: 2px auto 10px;
+	position: relative;
+}
+/* tabbtn */
+.tabbtn {
+	height: 30px;
+	background: url(../image/tabbg.gif) repeat-x;
+	border-left: solid 1px #ddd;
+	border-right: solid 1px #ddd;
+}
+.tabbtn li {
+	font-weight: bold;
+	float: left;
+	font-weight: bold;
+	margin: 0 0 0 -1px;
+}
+.tabbtn li a {
+	display: block;
+	float: left;
+	height: 30px;
+	line-height: 30px;
+	overflow: hidden;
+	text-align: center;
+	cursor: pointer;
+}
+#fadetab1 li a {
+	display: block;
+	float: left;
+	line-height: 30px;
+	overflow: hidden;
+	text-align: center;
+	font-size: 12px;
+	cursor: pointer;
+	width: 64px;
+	padding: 0 4px;
+}
+#fadetab2 li a {
+	display: block;
+	float: left;
+	line-height: 30px;
+	overflow: hidden;
+	text-align: center;
+	cursor: pointer;
+	width: 64px;
+	padding: 0 4px;
+}
+.tabbtn li.current {
+	border-left: solid 1px #d5d5d5;
+	border-right: solid 1px #d5d5d5;
+	border-top: solid 1px #c5c5c5;
+}
+.tabbtn li.current a {
+	height: 28px;
+	line-height: 27px;
+	border-top: solid 1px #ff6600;
+	background: #fff;
+	color: #3366cc;
+}
+/* tabcon */
+.tabcon {
+	border-width: 0 1px 1px 1px;
+	position: relative;/*必要元素*/
+	overflow: hidden;
+	border-color: #ddd;
+	border-style: solid;
+}
+.tabcon .sublist {
+	padding: 5px 10px;
+	height: 140px;
+}
+/* sublist */
+.sublist ul {
+	float: left;
+	width: 150px;
+}
+.sublist ul:first-child {
+	margin-right: 40px;
+}
+.sublist ul li {
+	height: 20px;
+	line-height: 20px;
+	font-size: 12px;
+	position: relative;
+	padding: 0 20px 0 30px;
+	margin: 6px 0 0 0;
+}
+/*--end homepage ul show--*/
+#wrap #map {
+	height: 377px;
+	float: left;
+}
+/*content-sub*/
+#wrap #content-sub {
+	width: 300px;
+	float: right;
+}
+#content-sub ul li {
+	margin-bottom: 8px;
+}
+#footer {
+	width: 100%;
+	margin: 10px 0 0 0;
+}
+/*content-category*/
+#site-info {
+	clear: both;
+	text-align: center;
+	width: 100%;
+	padding: 15px 0 15px;
+}
+#site-info a {
+	margin: 0 15px 0 5px;
+}
+#category {
+	width: 988px;
+	height: 240px;
+	margin: 0 auto 0 auto;
+	padding: 20px 0px 0 0px;
+	position: relative;
+}
+#category ul .countrys a {
+	margin: 0 8px 0 0;
+}
+#category-country h2, #category-field h2, #category-subject h2 {
+	display: block;
+	margin-bottom: 15px;
+	padding: 0 0 5px 0;
+}
+#category-country h2 {
+	width: 269px;
+}
+#category-field h2 {
+	width: 280px;
+}
+#category-subject h2 {
+	width: 250px;
+}
+#category div {
+	float: left;
+}
+#category #category-country {
+	width: 350px;
+}
+#category #category-field {
+	width: 320px;
+	margin-left: 30px;
+}
+#category-subject {
+	width: 250px;
+	margin-left: 25px;
+}
+#category #site-search {
+	width: 255px;
+	position: absolute;
+	right: 6px;
+	bottom: 20px;
+}
+#category #site-search form {
+	height: 28px;
+	border: 1px solid #333;
+}
+#category #site-search form input {
+	float: left;
+}
+#category #site-search form #keywords-google {
+	width: 208px;
+	height: 28px;
+	padding: 0 5px 0 5px;
+	line-height: 18px;
+	outline: medium none;
+	color: #999;
+	background: #4d4d4d;
+}
+#category #site-search #search_now_bottom {
+	background: url(../image/search-button-white.png) no-repeat #4d4d4d;
+	width: 33px;
+	height: 28px;
+	border: medium none;
+	vertical-align: middle;
+}
+/*----------blank page model----------*/
+
+#content #blankarea p, #content #rankingarea p {
+	margin: 4px 0 10px;
+}
+#content #blankarea p img {
+	margin: 8px 0;
+}
+#blankarea table {
+	text-align: center;
+}
+#blankarea td {
+	padding: 4px 5px;
+}
+.homenewsUl li ul {
+	padding-left: 12px;
+}
+.homenewsUl li {
+	line-height: 16px;
+}
+.arwuNewsLi span {
+	font-weight: bold;
+	padding: 16px 0 0 12px;
+	display: block;
+}
+/*----------ranking list page----------*/
+#rankingarea h2 {
+	clear: left;
+	margin: 0 0 1px 0;
+	line-height: 40px;
+	letter-spacing: -0.01em;
+}
+#rankingarea h3 {
+	margin: 0 0 1px 0;
+	padding-left: 15px;
+	line-height: 36px;/*letter-spacing: -0.03em;*/
+	color: #fff;
+}
+#rankingarea h4, #blankarea h4 {
+	margin: 0 0 1px 0;
+	padding-left: 13px;
+	font-size: 14px;
+	line-height: 28px;/*letter-spacing: -0.03em;*/
+	background: url(../image/lefticon.gif) left center no-repeat;
+}
+#rankingnav {
+	background: #0a5596;
+	height: 26px;
+	padding-top: 16px;
+	margin-bottom: 1px;
+}
+#rankingarea #rankingnav h3 {
+	font-size: 15px;
+	display: inline; /*height:50px;*/
+	margin: 0;
+	padding: 0;
+	font-weight: normal;
+}
+#rankingnav h3 a {
+	line-height: 26px;
+	background: #3d87cb;
+	color: #fff;
+	padding: 4px 8px 2px;
+	margin-left: 6px;
+	border-radius: 2px 2px 0 0;
+	-moz-border-radius: 2px 2px 0 0;
+	-webkit-border-radius: 2px 2px 0 0;
+}
+#rankingnav h3 .rankingnav_acativ {
+	background: #fefefe;
+	color: #3d87cb;
+	padding: 4px 8px 3px;
+}
+/*Like buttons*/
+#sociamedia_likebuttons {
+	height: 25px;
+	width: 300px;
+	float: right;
+	margin: -27px 0 0 0;
+	text-align: right;
+}
+#sociamedia_likebuttons span {
+	margin: 0 5px 0 10px;
+}
+/*Ranking Table style*/
+#rankingarea table td, #rankingarea table th {
+	padding: 8px 5px;
+}
+#rankingarea table {
+	text-align: center;
+	width: 680px;
+	margin-bottom: 20px;
+}
+#rankingarea table td {
+	text-shadow: 1px 1px #fff;
+}
+#rankingarea table th {
+	background: #6399cb;
+	color: #fff;
+	border: 1px solid #4f84b5;
+	text-shadow: 1px -1px #555;
+}
+#rankingarea #schooltitle {
+	width: 668px;
+	height: 38px;
+	padding-left: 12px;
+	margin: 10px 0 1px 0;
+	font-size: 14px;
+	font-weight: bold;
+	background: #0a5596;
+	color: #fff;
+	line-height: 40px;
+}
+/*title style of analytsis*/
+#rankingarea #analysistitle {
+	text-align: center;
+	width: 64%;
+	margin: 15px auto 5px;
+	font-size: 14px;
+	font-weight: bold;
+}
+/*title style of ARWU country*/
+#rankingarea #countryname {
+	margin: -25px 0 0 0;
+	float: right;
+	font-size: 14px;
+	font-weight: bold;
+}
+#rankingarea #countryname img {
+	margin-left: 5px;
+}
+#rankingarea ul#instruction_lists {
+	margin: 10px 0 20px 0;
+}
+#rankingarea #instruction_lists li {
+	background: url(../image/lefticon.gif) center left no-repeat;
+	padding-left: 15px;
+	line-height: 21px;
+}
+#rankingarea #instruction_lists li a {
+	color: #00663f;
+	font-size: 14px;
+}
+/*ranking page breadcrumb*/
+#breadcrumb {
+	width: 680px;
+	margin-bottom: 9px;
+	color: #e88800;
+}
+#breadcrumb a {
+	color: #666;
+}
+#breadcrumb ul li {
+	display: inline;
+}
+/*ranking page time line*/
+#timeline {
+	width: 680px;
+	background: url(../image/timelinebg.png) repeat-x scroll left 35px;
+	height: 41px;
+	margin: 0 0 20px 0;
+}
+#timeline ul li {
+	float: left;
+	font-weight: bold;
+}
+#timeline ul li a {
+	background: url(../image/yearbg.png) no-repeat scroll center bottom transparent;
+	float: left;
+	width: 51px;
+	height: 43px;
+	display: block;
+	list-style: none outside none;
+	text-align: center;
+	line-height: 41px;
+	color: #0072c6;
+}
+#timeline ul li a:hover {
+	color: #ff9b2f;
+	background: url(../image/yearbgcusrrent.png) no-repeat scroll center bottom transparent;
+}
+#timeline ul li .current {
+	color: #0072c6;
+	background: url(../image/yearbgcurrent.png) no-repeat scroll center bottom transparent;
+}
+/*Tabs fro Indicator*/
+ul.tabs, ul.tabIndicators {
+	float: left;
+	list-style: none;
+	height: 32px;
+	border-bottom: 1px solid #ddd;
+	border-left: 1px solid #ddd;
+	width: 100%;
+}
+ul.tabs li, ul.tabIndicators li {
+	float: left;
+	text-align: center;
+	width: 169px;
+	font-weight: bold;
+	height: 31px;
+	line-height: 31px;
+	border: 1px solid #ddd;
+	border-left: none;
+	background: url(../image/tabbgs.png) repeat-x;
+	overflow: hidden;
+	position: relative;
+}
+ul.tabs li a, ul.tabIndicators li a {
+	text-decoration: none;
+	color: #000;
+	display: block;
+	border: 1px solid #fff;
+	outline: none;
+}
+ul.tabs li a:hover, ul.tabIndicators li a:hover {
+	background: #fff;
+	border-bottom: 1px solid #fff;
+}
+ul.tabs li.active, html ul.tabs li.active a:hover, ul.tabIndicators li.active {
+	background: #fff;
+	border-bottom: 1px solid #fff;
+}
+.tab_container {
+	border: 1px solid #ddd;
+	border-top: none;
+	clear: both;
+	width: 100%;
+	height: 310px;
+	background: #fff;
+	margin-bottom: 20px;
+	overflow: auto;
+}
+#rankingarea .tab_container table {
+	margin-bottom: 0;
+}
+.tab_content {
+	padding: 20px;
+}
+/*.tab_content ul .sort {
+	background: url(../images/newsicon.png) no-repeat left 6px;
+	padding-left: 15px;
+	margin: 0 0 20px 0;
+}
+.tab_content ul .sort .sortmenus {
+	background: url(../images/scoremenus.png) no-repeat left 6px;
+	padding-left: 20px;
+}
+.tab_content ul .sort .sortmenus ul {
+	padding-left: 20px;
+}
+.tab_content ul .sort .sortmenus ul li {
+	background: url(../images/scorelist.png) no-repeat left 6px;
+	margin-left: -15px;
+	padding-left: 16px;
+}*/
+/**/
+.tabIndicator_container {
+	clear: left;
+}
+#rankingarea .tabIndicator_container table {
+	width: 680px;
+}
+.tabIndicator_container table td {
+	text-align: left;
+}
+/**/
+#skipto3 table {
+	text-align: left;
+	margin-bottom: 10px;
+}
+/*------logoinstyle------*/
+/*registor css*/
+
+/*#registerContent {
+	width: 600px;
+}
+#registerContent h3 {
+	color: #0a5596;
+	line-height: 30px;
+	display: block;
+	margin: 0 10px 0 0;
+}
+#registerContent h4 {
+	line-height: 18px;
+}*/
+#registerContent ul {
+	margin: -20px 0 30px 163px;
+}
+#registerContent p {
+	margin: 0 0 25px 0;
+}
+#registerContent li {
+	line-height: 30px;
+	vertical-align: middle;
+}
+#registerContent li input {
+	vertical-align: middle;
+}
+#formContainer input {
+	border: 1px solid #d5d5d5;
+}
+#formContainer div {
+	margin-bottom: 20px;
+}
+.formRow label {
+	display: inline-block;
+	font-size: 13px;
+	font-weight: bold;
+	width: 160px;
+}
+#registerContent input {
+	margin-right: 15px;
+}
+#f20, #myPasswordField, #f19, #cfrom_country {
+	color: #777777;
+	width: 280px;
+}
+#submitButtonFrame input {
+	text-align: center;
+	width: 80px;
+	padding: 5px 0;
+}
+/*---Search A university\Select a University---*/
+#select_a_University {
+	width: 600px;
+	margin: 0 auto;
+}
+#submitGo {
+	margin-left: 380px;
+}
+#searchtext-btn {
+	background: url(../image/search-button.gif) no-repeat left center;
+	border: medium none;
+	cursor: pointer;
+	text-indent: -9999px;
+	margin-left: -5px;
+}
+#rankingarea form[id="searchkeywords"] {
+	margin-top: 30px;
+	margin-bottom: 40px;
+}
+#rankingarea form input[id="searchkeywords"], #registerContent input[id="f20"], #registerContent input[id="myPasswordField"], #registerContent input[id="f19"], #registerContent input[id="otherjob"] {
+	box-shadow: -1px 1px 2px rgba(0, 0, 0, 0.2) inset;
+	-moz-box-shadow: -1px 1px 2px rgba(0, 0, 0, 0.2) inset;
+	-webkit-box-shadow: -1px 1px 2px rgba(0, 0, 0, 0.2) inset;
+	height: 30px;
+	border: 1px solid #d5d5d5;
+	padding: 4px 3px;
+}
+#rankingarea form select[id="dhtmlgoodies_country"], #rankingarea form select[id="dhtmlgoodies_city"], #registerContent form select {
+	box-shadow: -1px 1px 2px rgba(0, 0, 0, 0.2) inset;
+	-moz-box-shadow: -1px 1px 2px rgba(0, 0, 0, 0.2) inset;
+	-webkit-box-shadow: -1px 1px 2px rgba(0, 0, 0, 0.2) inset;
+	border: 1px solid #d5d5d5;
+	height: 38px;
+	margin-bottom: 20px;
+	padding: 7px 3px;
+	width: 288px;
+	margin-bottom: 20px;
+}
+#rankingarea form label {
+	font-weight: bold;
+}
+#rankingarea form select option {
+	padding: 4px 3px;
+}
+/*------backToTop------*/
+#toTop {
+	width: 100px;
+	border: 1px solid #ccc;
+	background: #f5f5f5;
+	text-align: center;
+	padding: 7px 5px;
+	position: fixed; /* this is the magic */
+	bottom: 100px; /* together with this to put the div at the bottom*/
+	right: 1px;
+	cursor: pointer;
+	display: none;
+	color: #666;
+	font-size: 12px;
+	font-weight: bold;
+}
+#toTop span {
+	background: url(../image/go_top.png) no-repeat left center;
+	padding-left: 25px;
+}
+#blankarea .comments_datetime{ color:#888; padding-bottom:15px; margin:10px 0 20px 0; border-bottom:1px solid #d5d5d5;}
+ 

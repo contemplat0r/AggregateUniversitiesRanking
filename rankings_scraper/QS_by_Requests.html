@@ -1,0 +1,1428 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" version="XHTML+RDFa 1.0" dir="ltr" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:dc="http://purl.org/dc/terms/" xmlns:foaf="http://xmlns.com/foaf/0.1/" xmlns:og="http://ogp.me/ns#" xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#" xmlns:sioc="http://rdfs.org/sioc/ns#" xmlns:sioct="http://rdfs.org/sioc/types#" xmlns:skos="http://www.w3.org/2004/02/skos/core#" xmlns:xsd="http://www.w3.org/2001/XMLSchema#" xmlns:schema="http://schema.org/" xmlns:fb="http://ogp.me/ns/fb#" xmlns:article="http://ogp.me/ns/article#" xmlns:book="http://ogp.me/ns/book#" xmlns:profile="http://ogp.me/ns/profile#" xmlns:video="http://ogp.me/ns/video#" xmlns:product="http://ogp.me/ns/product#">
+<head profile="http://www.w3.org/1999/xhtml/vocab">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><script type="text/javascript">(window.NREUM||(NREUM={})).loader_config={xpid:"UwUCVVVTGwIAV1VXBQkP"};window.NREUM||(NREUM={}),__nr_require=function(t,e,n){function r(n){if(!e[n]){var o=e[n]={exports:{}};t[n][0].call(o.exports,function(e){var o=t[n][1][e];return r(o||e)},o,o.exports)}return e[n].exports}if("function"==typeof __nr_require)return __nr_require;for(var o=0;o<n.length;o++)r(n[o]);return r}({QJf3ax:[function(t,e){function n(t){function e(e,n,a){t&&t(e,n,a),a||(a={});for(var c=s(e),f=c.length,u=i(a,o,r),d=0;f>d;d++)c[d].apply(u,n);return u}function a(t,e){f[t]=s(t).concat(e)}function s(t){return f[t]||[]}function c(){return n(e)}var f={};return{on:a,emit:e,create:c,listeners:s,_events:f}}function r(){return{}}var o="nr@context",i=t("gos");e.exports=n()},{gos:"7eSDFh"}],ee:[function(t,e){e.exports=t("QJf3ax")},{}],3:[function(t){function e(t){try{i.console&&console.log(t)}catch(e){}}var n,r=t("ee"),o=t(1),i={};try{n=localStorage.getItem("__nr_flags").split(","),console&&"function"==typeof console.log&&(i.console=!0,-1!==n.indexOf("dev")&&(i.dev=!0),-1!==n.indexOf("nr_dev")&&(i.nrDev=!0))}catch(a){}i.nrDev&&r.on("internal-error",function(t){e(t.stack)}),i.dev&&r.on("fn-err",function(t,n,r){e(r.stack)}),i.dev&&(e("NR AGENT IN DEVELOPMENT MODE"),e("flags: "+o(i,function(t){return t}).join(", ")))},{1:24,ee:"QJf3ax"}],4:[function(t){function e(t,e,n,i,s){try{c?c-=1:r("err",[s||new UncaughtException(t,e,n)])}catch(f){try{r("ierr",[f,(new Date).getTime(),!0])}catch(u){}}return"function"==typeof a?a.apply(this,o(arguments)):!1}function UncaughtException(t,e,n){this.message=t||"Uncaught error with no additional information",this.sourceURL=e,this.line=n}function n(t){r("err",[t,(new Date).getTime()])}var r=t("handle"),o=t(6),i=t("ee"),a=window.onerror,s=!1,c=0;t("loader").features.err=!0,t(5),window.onerror=e;try{throw new Error}catch(f){"stack"in f&&(t(1),t(2),"addEventListener"in window&&t(3),window.XMLHttpRequest&&XMLHttpRequest.prototype&&XMLHttpRequest.prototype.addEventListener&&window.XMLHttpRequest&&XMLHttpRequest.prototype&&XMLHttpRequest.prototype.addEventListener&&!/CriOS/.test(navigator.userAgent)&&t(4),s=!0)}i.on("fn-start",function(){s&&(c+=1)}),i.on("fn-err",function(t,e,r){s&&(this.thrown=!0,n(r))}),i.on("fn-end",function(){s&&!this.thrown&&c>0&&(c-=1)}),i.on("internal-error",function(t){r("ierr",[t,(new Date).getTime(),!0])})},{1:11,2:10,3:8,4:12,5:3,6:25,ee:"QJf3ax",handle:"D5DuLP",loader:"G9z0Bl"}],5:[function(t){if(window.addEventListener){var e=t("handle"),n=t("ee");t(1),window.addEventListener("click",function(){e("inc",["ck"])},!1),window.addEventListener("hashchange",function(){e("inc",["hc"])},!1),n.on("pushState-start",function(){e("inc",["ps"])})}},{1:9,ee:"QJf3ax",handle:"D5DuLP"}],6:[function(t){t("loader").features.ins=!0},{loader:"G9z0Bl"}],7:[function(t){function e(){}if(window.performance&&window.performance.timing&&window.performance.getEntriesByType){var n=t("ee"),r=t("handle"),o=t(1),i=t(2);t("loader").features.stn=!0,t(3);var a=Event;n.on("fn-start",function(t){var e=t[0];e instanceof a&&(this.bstStart=Date.now())}),n.on("fn-end",function(t,e){var n=t[0];n instanceof a&&r("bst",[n,e,this.bstStart,Date.now()])}),o.on("fn-start",function(t,e,n){this.bstStart=Date.now(),this.bstType=n}),o.on("fn-end",function(t,e){r("bstTimer",[e,this.bstStart,Date.now(),this.bstType])}),i.on("fn-start",function(){this.bstStart=Date.now()}),i.on("fn-end",function(t,e){r("bstTimer",[e,this.bstStart,Date.now(),"requestAnimationFrame"])}),n.on("pushState-start",function(){this.time=Date.now(),this.startPath=location.pathname+location.hash}),n.on("pushState-end",function(){r("bstHist",[location.pathname+location.hash,this.startPath,this.time])}),"addEventListener"in window.performance&&(window.performance.addEventListener("webkitresourcetimingbufferfull",function(){r("bstResource",[window.performance.getEntriesByType("resource")]),window.performance.webkitClearResourceTimings()},!1),window.performance.addEventListener("resourcetimingbufferfull",function(){r("bstResource",[window.performance.getEntriesByType("resource")]),window.performance.clearResourceTimings()},!1)),document.addEventListener("scroll",e,!1),document.addEventListener("keypress",e,!1),document.addEventListener("click",e,!1)}},{1:11,2:10,3:9,ee:"QJf3ax",handle:"D5DuLP",loader:"G9z0Bl"}],8:[function(t,e){function n(t){i.inPlace(t,["addEventListener","removeEventListener"],"-",r)}function r(t){return t[1]}var o=t("ee").create(),i=t(1)(o),a=t("gos");if(e.exports=o,n(window),"getPrototypeOf"in Object){for(var s=document;s&&!s.hasOwnProperty("addEventListener");)s=Object.getPrototypeOf(s);s&&n(s);for(var c=XMLHttpRequest.prototype;c&&!c.hasOwnProperty("addEventListener");)c=Object.getPrototypeOf(c);c&&n(c)}else XMLHttpRequest.prototype.hasOwnProperty("addEventListener")&&n(XMLHttpRequest.prototype);o.on("addEventListener-start",function(t,e){function n(){return s}if(t[1]){var r=t[1];if("function"==typeof r){var s=a(r,"nr@wrapped",function(){return i(r,"fn-",n,r.name||"anonymous")});this.wrapped=t[1]=s,o.emit("initEventContext",[t,e],this.wrapped)}else"function"==typeof r.handleEvent&&i.inPlace(r,["handleEvent"],"fn-")}}),o.on("removeEventListener-start",function(t){var e=this.wrapped;e&&(t[1]=e)})},{1:26,ee:"QJf3ax",gos:"7eSDFh"}],9:[function(t,e){var n=t("ee").create(),r=t(1)(n);e.exports=n,r.inPlace(window.history,["pushState","replaceState"],"-")},{1:26,ee:"QJf3ax"}],10:[function(t,e){var n=t("ee").create(),r=t(1)(n);e.exports=n,r.inPlace(window,["requestAnimationFrame","mozRequestAnimationFrame","webkitRequestAnimationFrame","msRequestAnimationFrame"],"raf-"),n.on("raf-start",function(t){t[0]=r(t[0],"fn-")})},{1:26,ee:"QJf3ax"}],11:[function(t,e){function n(t,e,n){t[0]=i(t[0],"fn-",null,n)}function r(t,e,n){function r(){return a}this.ctx={};var a={"nr@context":this.ctx};o.emit("initTimerContext",[t,n],a),t[0]=i(t[0],"fn-",r,n)}var o=t("ee").create(),i=t(1)(o);e.exports=o,i.inPlace(window,["setTimeout","setImmediate"],"setTimer-"),i.inPlace(window,["setInterval"],"setInterval-"),i.inPlace(window,["clearTimeout","clearImmediate"],"clearTimeout-"),o.on("setInterval-start",n),o.on("setTimer-start",r)},{1:26,ee:"QJf3ax"}],12:[function(t,e){function n(){f.inPlace(this,p,"fn-",o)}function r(t,e){f.inPlace(e,["onreadystatechange"],"fn-")}function o(t,e){return e}function i(t,e){for(var n in t)e[n]=t[n];return e}var a=t("ee").create(),s=t(1),c=t(2),f=c(a),u=c(s),d=window.XMLHttpRequest,p=["onload","onerror","onabort","onloadstart","onloadend","onprogress","ontimeout"];e.exports=a,window.XMLHttpRequest=function(t){var e=new d(t);try{a.emit("new-xhr",[],e),e.hasOwnProperty("addEventListener")&&u.inPlace(e,["addEventListener","removeEventListener"],"-",o),e.addEventListener("readystatechange",n,!1)}catch(r){try{a.emit("internal-error",[r])}catch(i){}}return e},i(d,XMLHttpRequest),XMLHttpRequest.prototype=d.prototype,f.inPlace(XMLHttpRequest.prototype,["open","send"],"-xhr-",o),a.on("send-xhr-start",r),a.on("open-xhr-start",r)},{1:8,2:26,ee:"QJf3ax"}],13:[function(t){function e(t){var e=this.params,r=this.metrics;if(!this.ended){this.ended=!0;for(var i=0;c>i;i++)t.removeEventListener(s[i],this.listener,!1);if(!e.aborted){if(r.duration=(new Date).getTime()-this.startTime,4===t.readyState){e.status=t.status;var a=t.responseType,f="arraybuffer"===a||"blob"===a||"json"===a?t.response:t.responseText,u=n(f);if(u&&(r.rxSize=u),this.sameOrigin){var d=t.getResponseHeader("X-NewRelic-App-Data");d&&(e.cat=d.split(", ").pop())}}else e.status=0;r.cbTime=this.cbTime,o("xhr",[e,r,this.startTime])}}}function n(t){if("string"==typeof t&&t.length)return t.length;if("object"!=typeof t)return void 0;if("undefined"!=typeof ArrayBuffer&&t instanceof ArrayBuffer&&t.byteLength)return t.byteLength;if("undefined"!=typeof Blob&&t instanceof Blob&&t.size)return t.size;if("undefined"!=typeof FormData&&t instanceof FormData)return void 0;try{return JSON.stringify(t).length}catch(e){return void 0}}function r(t,e){var n=i(e),r=t.params;r.host=n.hostname+":"+n.port,r.pathname=n.pathname,t.sameOrigin=n.sameOrigin}if(window.XMLHttpRequest&&XMLHttpRequest.prototype&&XMLHttpRequest.prototype.addEventListener&&!/CriOS/.test(navigator.userAgent)){t("loader").features.xhr=!0;var o=t("handle"),i=t(2),a=t("ee"),s=["load","error","abort","timeout"],c=s.length,f=t(1),u=window.XMLHttpRequest;t(4),t(3),a.on("new-xhr",function(){this.totalCbs=0,this.called=0,this.cbTime=0,this.end=e,this.ended=!1,this.xhrGuids={}}),a.on("open-xhr-start",function(t){this.params={method:t[0]},r(this,t[1]),this.metrics={}}),a.on("open-xhr-end",function(t,e){"loader_config"in NREUM&&"xpid"in NREUM.loader_config&&this.sameOrigin&&e.setRequestHeader("X-NewRelic-ID",NREUM.loader_config.xpid)}),a.on("send-xhr-start",function(t,e){var r=this.metrics,o=t[0],i=this;if(r&&o){var f=n(o);f&&(r.txSize=f)}this.startTime=(new Date).getTime(),this.listener=function(t){try{"abort"===t.type&&(i.params.aborted=!0),("load"!==t.type||i.called===i.totalCbs&&(i.onloadCalled||"function"!=typeof e.onload))&&i.end(e)}catch(n){try{a.emit("internal-error",[n])}catch(r){}}};for(var u=0;c>u;u++)e.addEventListener(s[u],this.listener,!1)}),a.on("xhr-cb-time",function(t,e,n){this.cbTime+=t,e?this.onloadCalled=!0:this.called+=1,this.called!==this.totalCbs||!this.onloadCalled&&"function"==typeof n.onload||this.end(n)}),a.on("xhr-load-added",function(t,e){var n=""+f(t)+!!e;this.xhrGuids&&!this.xhrGuids[n]&&(this.xhrGuids[n]=!0,this.totalCbs+=1)}),a.on("xhr-load-removed",function(t,e){var n=""+f(t)+!!e;this.xhrGuids&&this.xhrGuids[n]&&(delete this.xhrGuids[n],this.totalCbs-=1)}),a.on("addEventListener-end",function(t,e){e instanceof u&&"load"===t[0]&&a.emit("xhr-load-added",[t[1],t[2]],e)}),a.on("removeEventListener-end",function(t,e){e instanceof u&&"load"===t[0]&&a.emit("xhr-load-removed",[t[1],t[2]],e)}),a.on("fn-start",function(t,e,n){e instanceof u&&("onload"===n&&(this.onload=!0),("load"===(t[0]&&t[0].type)||this.onload)&&(this.xhrCbStart=(new Date).getTime()))}),a.on("fn-end",function(t,e){this.xhrCbStart&&a.emit("xhr-cb-time",[(new Date).getTime()-this.xhrCbStart,this.onload,e],e)})}},{1:"XL7HBI",2:14,3:12,4:8,ee:"QJf3ax",handle:"D5DuLP",loader:"G9z0Bl"}],14:[function(t,e){e.exports=function(t){var e=document.createElement("a"),n=window.location,r={};e.href=t,r.port=e.port;var o=e.href.split("://");return!r.port&&o[1]&&(r.port=o[1].split("/")[0].split("@").pop().split(":")[1]),r.port&&"0"!==r.port||(r.port="https"===o[0]?"443":"80"),r.hostname=e.hostname||n.hostname,r.pathname=e.pathname,r.protocol=o[0],"/"!==r.pathname.charAt(0)&&(r.pathname="/"+r.pathname),r.sameOrigin=!e.hostname||e.hostname===document.domain&&e.port===n.port&&e.protocol===n.protocol,r}},{}],15:[function(t,e){function n(t){return function(){r(t,[(new Date).getTime()].concat(i(arguments)))}}var r=t("handle"),o=t(1),i=t(2);"undefined"==typeof window.newrelic&&(newrelic=window.NREUM);var a=["setPageViewName","addPageAction","setCustomAttribute","finished","addToTrace","inlineHit","noticeError"];o(a,function(t,e){window.NREUM[e]=n("api-"+e)}),e.exports=window.NREUM},{1:24,2:25,handle:"D5DuLP"}],gos:[function(t,e){e.exports=t("7eSDFh")},{}],"7eSDFh":[function(t,e){function n(t,e,n){if(r.call(t,e))return t[e];var o=n();if(Object.defineProperty&&Object.keys)try{return Object.defineProperty(t,e,{value:o,writable:!0,enumerable:!1}),o}catch(i){}return t[e]=o,o}var r=Object.prototype.hasOwnProperty;e.exports=n},{}],D5DuLP:[function(t,e){function n(t,e,n){return r.listeners(t).length?r.emit(t,e,n):void(r.q&&(r.q[t]||(r.q[t]=[]),r.q[t].push(e)))}var r=t("ee").create();e.exports=n,n.ee=r,r.q={}},{ee:"QJf3ax"}],handle:[function(t,e){e.exports=t("D5DuLP")},{}],XL7HBI:[function(t,e){function n(t){var e=typeof t;return!t||"object"!==e&&"function"!==e?-1:t===window?0:i(t,o,function(){return r++})}var r=1,o="nr@id",i=t("gos");e.exports=n},{gos:"7eSDFh"}],id:[function(t,e){e.exports=t("XL7HBI")},{}],G9z0Bl:[function(t,e){function n(){var t=p.info=NREUM.info,e=f.getElementsByTagName("script")[0];if(t&&t.licenseKey&&t.applicationID&&e){s(d,function(e,n){e in t||(t[e]=n)});var n="https"===u.split(":")[0]||t.sslForHttp;p.proto=n?"https://":"http://",a("mark",["onload",i()]);var r=f.createElement("script");r.src=p.proto+t.agent,e.parentNode.insertBefore(r,e)}}function r(){"complete"===f.readyState&&o()}function o(){a("mark",["domContent",i()])}function i(){return(new Date).getTime()}var a=t("handle"),s=t(1),c=window,f=c.document;t(2);var u=(""+location).split("?")[0],d={beacon:"bam.nr-data.net",errorBeacon:"bam.nr-data.net",agent:"js-agent.newrelic.com/nr-768.min.js"},p=e.exports={offset:i(),origin:u,features:{}};f.addEventListener?(f.addEventListener("DOMContentLoaded",o,!1),c.addEventListener("load",n,!1)):(f.attachEvent("onreadystatechange",r),c.attachEvent("onload",n)),a("mark",["firstbyte",i()])},{1:24,2:15,handle:"D5DuLP"}],loader:[function(t,e){e.exports=t("G9z0Bl")},{}],24:[function(t,e){function n(t,e){var n=[],o="",i=0;for(o in t)r.call(t,o)&&(n[i]=e(o,t[o]),i+=1);return n}var r=Object.prototype.hasOwnProperty;e.exports=n},{}],25:[function(t,e){function n(t,e,n){e||(e=0),"undefined"==typeof n&&(n=t?t.length:0);for(var r=-1,o=n-e||0,i=Array(0>o?0:o);++r<o;)i[r]=t[e+r];return i}e.exports=n},{}],26:[function(t,e){function n(t){return!(t&&"function"==typeof t&&t.apply&&!t[i])}var r=t("ee"),o=t(1),i="nr@original",a=Object.prototype.hasOwnProperty;e.exports=function(t){function e(t,e,r,a){function nrWrapper(){var n,i,s,f;try{i=this,n=o(arguments),s=r&&r(n,i)||{}}catch(d){u([d,"",[n,i,a],s])}c(e+"start",[n,i,a],s);try{return f=t.apply(i,n)}catch(p){throw c(e+"err",[n,i,p],s),p}finally{c(e+"end",[n,i,f],s)}}return n(t)?t:(e||(e=""),nrWrapper[i]=t,f(t,nrWrapper),nrWrapper)}function s(t,r,o,i){o||(o="");var a,s,c,f="-"===o.charAt(0);for(c=0;c<r.length;c++)s=r[c],a=t[s],n(a)||(t[s]=e(a,f?s+o:o,i,s))}function c(e,n,r){try{t.emit(e,n,r)}catch(o){u([o,e,n,r])}}function f(t,e){if(Object.defineProperty&&Object.keys)try{var n=Object.keys(t);return n.forEach(function(n){Object.defineProperty(e,n,{get:function(){return t[n]},set:function(e){return t[n]=e,e}})}),e}catch(r){u([r])}for(var o in t)a.call(t,o)&&(e[o]=t[o]);return e}function u(e){try{t.emit("internal-error",e)}catch(n){}}return t||(t=r),e.inPlace=s,e.flag=i,e}},{1:25,ee:"QJf3ax"}]},{},["G9z0Bl",4,13,7,6,5]);</script>
+<link rel="shortcut icon" href="http://www.topuniversities.com/sites/default/files/favicon_0.png" type="image/png"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+<meta name="generator" content="Drupal 7 (http://drupal.org)"/>
+<link rel="canonical" href="http://www.topuniversities.com/university-rankings/world-university-rankings/2015"/>
+<link rel="shortlink" href="http://www.topuniversities.com/node/299926"/>
+<link rel="author" href="http://plus.google.com/"/>
+<meta property="og:site_name" content="Top Universities"/>
+<meta property="og:type" content="article"/>
+<meta property="og:url" content="http://www.topuniversities.com/university-rankings/world-university-rankings/2015"/>
+<meta property="og:title" content="QS World University Rankings® 2015/16"/>
+<meta property="og:updated_time" content="2015-10-16T12:10:42+01:00"/>
+<meta property="article:published_time" content="2015-09-11T12:25:11+01:00"/>
+<meta property="article:modified_time" content="2015-10-16T12:10:42+01:00"/>
+<title>QS World University Rankings® 2015/16 | Top Universities</title>
+<link rel="apple-touch-icon" href="/sites/all/themes/topuni/assets/images/apple-touch.png"/> <link type="text/css" rel="stylesheet" href="http://www.topuniversities.com/sites/default/files/css/css_kShW4RPmRstZ3SpIC-ZvVGNFVAi0WEMuCnI0ZkYIaFw.css" media="all"/>
+<link type="text/css" rel="stylesheet" href="http://www.topuniversities.com/sites/default/files/css/css_p2x3DFLB0btLsxtlASMFgla_5cNYwE3MVqnhImKY_Ic.css" media="all"/>
+<link type="text/css" rel="stylesheet" href="http://www.topuniversities.com/sites/default/files/css/css_XRgp2hlImjl1QRRlJwoc6-Pxjfr4R67T07FeNXwwlTo.css" media="all"/>
+<link type="text/css" rel="stylesheet" href="http://www.topuniversities.com/sites/default/files/css/css_-E-xQlUOW3CmI0j-E3jFDpPpKUeJXIn2wiAS07KYu-M.css" media="all"/>
+<!--[if lte IE 8]>
+<link type="text/css" rel="stylesheet" href="http://www.topuniversities.com/sites/all/modules/custom/qs_custom_rankings/css/qs_custom_rankings_ie8.css?nwtnko" media="all" />
+<![endif]-->
+<style type="text/css" media="all"><!--/*--><![CDATA[/*><!--*/
+.view-sponsored-articles{background:url(http://www.topuniversities.com/sites/default/files/measurement.jpg) no-repeat scroll center center / cover;}
+
+/*]]>*/-->
+</style>
+<link type="text/css" rel="stylesheet" href="http://www.topuniversities.com/sites/default/files/css/css_DpfS8HLVrIo6PPlHTTJhv8Vj1ZlTpLp9GA_7aYcXWAk.css" media="all" />
+<style type="text/css" media="all">
+<!--/*--><![CDATA[/*><!--*/
+#sliding-popup.sliding-popup-bottom{background:#fada89;}#sliding-popup .popup-content #popup-text h2,#sliding-popup .popup-content #popup-text p{color:#526272 !important;}
+
+/*]]>*/-->
+</style>
+<link type="text/css" rel="stylesheet" href="http://www.topuniversities.com/sites/default/files/css/css_YipexOmt6WmZT2QXx7_n-5L1e-1ivcI-Vst-ELzlUO4.css" media="all" />
+
+<!--[if lt IE 10]>
+<link type="text/css" rel="stylesheet" href="http://www.topuniversities.com/sites/default/files/css/css_47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU.css" media="all" />
+<![endif]-->
+<link type="text/css" rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" media="all" />
+<link type="text/css" rel="stylesheet" href="http://www.topuniversities.com/sites/default/files/css/css_24942n9baLxIEICCJt7GY3WSYN8f5ETJgEz3uNNjpCk.css" media="all" />
+<link type="text/css" rel="stylesheet" href="http://www.topuniversities.com/sites/default/files/css/css_I-3h3bl-LoHUsJb7BoR2t4ro800Ni0ltEdbHtylQ8yQ.css" media="all" />
+<link type="text/css" rel="stylesheet" href="http://www.topuniversities.com/sites/default/files/css/css_47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU.css" media="print" />
+
+<!--[if IE 7]>
+<link type="text/css" rel="stylesheet" href="http://www.topuniversities.com/sites/default/files/css/css_47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU.css" media="all" />
+<![endif]-->
+
+<!--[if IE 8]>
+<link type="text/css" rel="stylesheet" href="http://www.topuniversities.com/sites/default/files/css/css_47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU.css" media="all" />
+<![endif]-->
+
+<!--[if lt IE 10]>
+<link type="text/css" rel="stylesheet" href="http://www.topuniversities.com/sites/default/files/css/css_xtIgRZP2Gb44My8W_9VvE2wpCSlU9zKYB0x0WjwaUzg.css" media="all" />
+<![endif]-->
+<link type="text/css" rel="stylesheet" href="http://www.topuniversities.com/sites/default/files/css/css_OdU8Nu_KR6TbRnaAsxuDjv5v3GFcsZXY5olDKSwtZvg.css" media="all" />
+<style type="text/css" media="all">
+<!--/*--><![CDATA[/*><!--*/
+#hero{background-image:url('http://www.topuniversities.com/sites/default/files/background-images/forum_hero_0.jpg');}
+
+/*]]>*/-->
+</style>
+  <script type="text/javascript" src="http://www.topuniversities.com/sites/default/files/js/js_5reGUAPdPdB_xUFv5MTO6PED8FOQYvVSwCipa15IXMg.js"></script>
+<script type="text/javascript">
+<!--//--><![CDATA[//><!--
+var $sj = jQuery.noConflict();
+//--><!]]>
+</script>
+<script type="text/javascript">
+<!--//--><![CDATA[//><!--
+var $sj = jQuery.noConflict();
+//--><!]]>
+</script>
+<script type="text/javascript" src="http://www.topuniversities.com/sites/default/files/js/js_AFw3vhvmclhqJ3FOYLk7VkyXcbqZIESnF4ZwtAGfJuk.js"></script>
+<script type="text/javascript">
+<!--//--><![CDATA[//><!--
+var googletag = googletag || {};
+googletag.cmd = googletag.cmd || [];
+googletag.slots = googletag.slots || {};
+//--><!]]>
+</script>
+<script type="text/javascript" src="http://www.googletagservices.com/tag/js/gpt.js"></script>
+<script type="text/javascript" src="http://www.topuniversities.com/sites/default/files/js/js_6WNkL1pSBgvtSjGrJy_ofca951YjsexKOSfd2ViluTg.js"></script>
+<script type="text/javascript" src="http://www.topuniversities.com/sites/default/files/js/js_CwA9uD2kYGc1ubylea-Ul8iN5PWYS40GWBA4ue9Bo4w.js"></script>
+<script type="text/javascript">
+<!--//--><![CDATA[//><!--
+var mapping = googletag.sizeMapping()
+  .addSize([0, 320], [300, 50])
+  .addSize([768, 200], [728, 90])
+  .build();
+googletag.slots["rankings_leaderboard_top_no_mpu_"] = googletag.defineSlot("/8070/Topuni-Web/university-rankings/world-university-rankings/2015", [[300, 50], [300, 250]], "dfp-ad-rankings_leaderboard_top_no_mpu_")
+  .addService(googletag.pubads())
+  .setTargeting("pos", "leaderboard")
+  .setTargeting("URL", "university-rankings/world-university-rankings/2015")
+  .defineSizeMapping(mapping);
+//--><!]]>
+</script>
+<script type="text/javascript">
+<!--//--><![CDATA[//><!--
+var mapping = googletag.sizeMapping()
+  .addSize([0, 320], [[300, 250], [300, 50]])
+  .addSize([768, 200], [728, 90])
+  .build();
+googletag.slots["site_wide_728_x_90_2"] = googletag.defineSlot("/8070/Topuni-Web/university-rankings/world-university-rankings/2015", [[728, 90], [300, 50], [300, 250]], "dfp-ad-site_wide_728_x_90_2")
+  .addService(googletag.pubads())
+  .setTargeting("pos", "leaderboard")
+  .setTargeting("URL", "university-rankings/world-university-rankings/2015")
+  .defineSizeMapping(mapping);
+//--><!]]>
+</script>
+<script type="text/javascript">
+<!--//--><![CDATA[//><!--
+var mapping = googletag.sizeMapping()
+  .addSize([0, 320], [[300, 250], [300, 50]])
+  .addSize([768, 200], [[300, 250], [300, 600]])
+  .build();
+googletag.slots["site_wide_300_x_250"] = googletag.defineSlot("/8070/Topuni-Web/university-rankings/world-university-rankings/2015", [[300, 250], [300, 600]], "dfp-ad-site_wide_300_x_250")
+  .addService(googletag.pubads())
+  .setTargeting("pos", "top")
+  .setTargeting("URL", "university-rankings/world-university-rankings/2015")
+  .setTargeting("AgeYear", "2015")
+  .defineSizeMapping(mapping);
+//--><!]]>
+</script>
+<script type="text/javascript">
+<!--//--><![CDATA[//><!--
+googletag.slots["site_wide_2_300_x_250"] = googletag.defineSlot("/8070/Topuni-Web/university-rankings/world-university-rankings/2015", [[300, 250], [300, 600]], "dfp-ad-site_wide_2_300_x_250")
+  .addService(googletag.pubads())
+  .setTargeting("pos", "bottom")
+  .setTargeting("URL", "university-rankings/world-university-rankings/2015");
+//--><!]]>
+</script>
+<script type="text/javascript" src="http://www.topuniversities.com/sites/default/files/js/js_eYtqeAfolcNAQDztCru3ceAhrWGELimEkv-ZBlazmKY.js"></script>
+<script type="text/javascript">
+<!--//--><![CDATA[//><!--
+document.createElement( "picture" );
+//--><!]]>
+</script>
+<script type="text/javascript" src="http://www.topuniversities.com/sites/default/files/js/js_XA6wGSvwqqwordi-wTwtcXzzPhDH59LQeSvla7kRZhY.js"></script>
+<script type="text/javascript">
+<!--//--><![CDATA[//><!--
+googletag.cmd.push(function() {
+  googletag.pubads().enableAsyncRendering();
+  googletag.pubads().collapseEmptyDivs();
+});
+
+googletag.enableServices();
+//--><!]]>
+</script>
+<script type="text/javascript" src="http://www.topuniversities.com/sites/default/files/js/js_Q-cJF0ASeIap-Drr-SF3XJLnC6QIUjzTKXOlezIXXLc.js"></script>
+<script type="text/javascript">
+<!--//--><![CDATA[//><!--
+(function(i,s,o,g,r,a,m){i["GoogleAnalyticsObject"]=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,"script","//www.google-analytics.com/analytics.js","ga");ga("create", "UA-37767707-2", {"cookieDomain":"auto"});ga("require", "displayfeatures");ga("set", "dimension1", "anonymous user");ga("send", "pageview");
+//--><!]]>
+</script>
+<script type="text/javascript" src="http://www.topuniversities.com/sites/default/files/js/js_wsJk38YLWYfcjoEc0Qvb-2j_fDu1jMjQOeN87YlzrVw.js"></script>
+<script type="text/javascript" src="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="http://www.topuniversities.com/sites/default/files/js/js_jAQ_q1Z3kg2-vlKxXmPtk-AWiV9aUGSXSUP-qu6ypB4.js"></script>
+<script type="text/javascript" src="http://www.topuniversities.com/sites/default/files/js/js_9133YdmhfnskirWrpXgvDZiGYyCFaq1pGxozxzfmIKo.js"></script>
+<script type="text/javascript" src="http://www.topuniversities.com/sites/default/files/js/js_AUuuNJwZH0hNueaBxnds38CtijUJAO_gRPRbWUyp3ew.js"></script>
+<script type="text/javascript">
+<!--//--><![CDATA[//><!--
+jQuery.extend(Drupal.settings, {"basePath":"\/","pathPrefix":"","ajaxPageState":{"theme":"topuni","theme_token":"c1HoSATg09zrSGfaKWUGUSl1EoZKPjDK2gp_jgaaSrE","jquery_version":"1.7","js":{"sites\/all\/modules\/contrib\/picture\/picturefill2\/picturefill.min.js":1,"sites\/all\/modules\/contrib\/picture\/picture.min.js":1,"sites\/all\/modules\/contrib\/menu_minipanels\/js\/menu_minipanels.js":1,"sites\/all\/libraries\/qtip\/jquery.qtip-1.0.0-rc3.min.js":1,"sites\/all\/modules\/contrib\/eu_cookie_compliance\/js\/eu_cookie_compliance.js":1,"profiles\/panopoly\/modules\/panopoly\/panopoly_widgets\/panopoly-widgets.js":1,"profiles\/panopoly\/modules\/panopoly\/panopoly_widgets\/panopoly-widgets-spotlight.js":1,"sites\/all\/modules\/custom\/qs_city_rankings\/js\/1.9.0\/jquery.min.js":1,"sites\/all\/modules\/custom\/qs_custom_rankings\/js\/1.9.0\/jquery.min.js":1,"0":1,"1":1,"profiles\/panopoly\/modules\/contrib\/jquery_update\/replace\/jquery\/1.7\/jquery.min.js":1,"misc\/jquery.once.js":1,"2":1,"http:\/\/www.googletagservices.com\/tag\/js\/gpt.js":1,"misc\/drupal.js":1,"sites\/all\/libraries\/fitvids\/jquery.fitvids.js":1,"profiles\/panopoly\/modules\/contrib\/jquery_update\/replace\/ui\/ui\/minified\/jquery.ui.core.min.js":1,"profiles\/panopoly\/modules\/contrib\/jquery_update\/replace\/ui\/ui\/minified\/jquery.ui.widget.min.js":1,"profiles\/panopoly\/modules\/contrib\/jquery_update\/replace\/ui\/ui\/minified\/jquery.ui.tabs.min.js":1,"profiles\/panopoly\/modules\/contrib\/jquery_update\/replace\/ui\/ui\/minified\/jquery.ui.accordion.min.js":1,"3":1,"4":1,"5":1,"6":1,"profiles\/panopoly\/modules\/contrib\/jquery_update\/replace\/ui\/external\/jquery.cookie.js":1,"misc\/ajax.js":1,"profiles\/panopoly\/modules\/contrib\/jquery_update\/js\/jquery_update.js":1,"7":1,"profiles\/panopoly\/modules\/panopoly\/panopoly_images\/panopoly-images.js":1,"sites\/all\/modules\/contrib\/fitvids\/fitvids.js":1,"profiles\/panopoly\/modules\/panopoly\/panopoly_admin\/panopoly-admin.js":1,"profiles\/panopoly\/modules\/panopoly\/panopoly_theme\/js\/panopoly-accordion.js":1,"sites\/all\/modules\/custom\/qs_custom_search\/qs_custom_search.js":1,"sites\/all\/modules\/custom\/qs_event_registration\/qs_event_registration.js":1,"sites\/all\/modules\/custom\/qs_users\/qs_users.js":1,"sites\/all\/modules\/custom\/qs_webform_overrides\/qs_webform_overrides.js":1,"profiles\/panopoly\/modules\/contrib\/caption_filter\/js\/caption-filter.js":1,"8":1,"profiles\/panopoly\/libraries\/jquery.imagesloaded\/jquery.imagesloaded.min.js":1,"sites\/all\/modules\/custom\/qs_custom_rankings\/js\/jquery.mousewheel.js":1,"sites\/all\/modules\/custom\/qs_custom_rankings\/js\/jScrollPane.js":1,"sites\/all\/modules\/custom\/qs_custom_rankings\/js\/SelectBox.js":1,"sites\/all\/modules\/custom\/qs_custom_rankings\/js\/qs_custom_rankings_wur_2015.js":1,"sites\/all\/modules\/contrib\/google_analytics\/googleanalytics.js":1,"9":1,"sites\/all\/modules\/contrib\/menu_minipanels\/js\/menu_minipanels.callbacks.js":1,"sites\/all\/libraries\/neat_scrollbar\/jquery.mCustomScrollbar.min.js":1,"sites\/all\/libraries\/mousewheel\/jquery.mousewheel.min.js":1,"sites\/all\/modules\/contrib\/neat_scrollbar\/js\/neat_scrollbar_default.js":1,"sites\/all\/modules\/custom\/qs_instant_registration\/js\/qs_instant_registration.js":1,"profiles\/panopoly\/modules\/contrib\/field_group\/field_group.js":1,"http:\/\/netdna.bootstrapcdn.com\/bootstrap\/3.1.1\/js\/bootstrap.min.js":1,"sites\/all\/themes\/radix\/assets\/javascripts\/modernizr.js":1,"misc\/progress.js":1,"sites\/all\/modules\/contrib\/fancy_login\/js\/fancy_login.js":1,"sites\/all\/themes\/radix\/assets\/javascripts\/radix-script.js":1,"sites\/all\/themes\/topuni\/assets\/javascripts\/script.js":1,"sites\/all\/themes\/topuni\/assets\/javascripts\/jasny-bootstrap.min.js":1,"sites\/all\/themes\/topuni\/assets\/javascripts\/jcf.js":1,"sites\/all\/themes\/radix\/assets\/javascripts\/radix-progress.js":1},"css":{"modules\/system\/system.base.css":1,"modules\/system\/system.messages.css":1,"modules\/system\/system.theme.css":1,"misc\/ui\/jquery.ui.theme.css":1,"misc\/ui\/jquery.ui.accordion.css":1,"modules\/comment\/comment.css":1,"profiles\/panopoly\/modules\/contrib\/date\/date_api\/date.css":1,"profiles\/panopoly\/modules\/contrib\/date\/date_popup\/themes\/datepicker.1.7.css":1,"modules\/field\/theme\/field.css":1,"sites\/all\/modules\/contrib\/fitvids\/fitvids.css":1,"sites\/all\/modules\/contrib\/logintoboggan\/logintoboggan.css":1,"modules\/node\/node.css":1,"profiles\/panopoly\/modules\/panopoly\/panopoly_admin\/panopoly-admin-navbar.css":1,"profiles\/panopoly\/modules\/panopoly\/panopoly_core\/css\/panopoly-dropbutton.css":1,"profiles\/panopoly\/modules\/panopoly\/panopoly_theme\/css\/panopoly-featured.css":1,"profiles\/panopoly\/modules\/panopoly\/panopoly_theme\/css\/panopoly-accordian.css":1,"profiles\/panopoly\/modules\/panopoly\/panopoly_theme\/css\/panopoly-layouts.css":1,"profiles\/panopoly\/modules\/panopoly\/panopoly_widgets\/panopoly-widgets.css":1,"profiles\/panopoly\/modules\/panopoly\/panopoly_widgets\/panopoly-widgets-spotlight.css":1,"profiles\/panopoly\/modules\/panopoly\/panopoly_wysiwyg\/panopoly-wysiwyg.css":1,"sites\/all\/modules\/contrib\/picture\/picture_wysiwyg.css":1,"sites\/all\/modules\/custom\/qs_custom_search\/qs_custom_search.css":1,"sites\/all\/modules\/custom\/qs_form_alter\/qs_form_alter.css":1,"sites\/all\/modules\/custom\/qs_layouts\/qs_layouts.css":1,"profiles\/panopoly\/modules\/contrib\/radix_layouts\/radix_layouts.css":1,"modules\/search\/search.css":1,"modules\/user\/user.css":1,"modules\/forum\/forum.css":1,"profiles\/panopoly\/modules\/contrib\/views\/css\/views.css":1,"profiles\/panopoly\/modules\/contrib\/caption_filter\/caption-filter.css":1,"profiles\/panopoly\/modules\/contrib\/ctools\/css\/ctools.css":1,"sites\/all\/modules\/contrib\/facebook_pull\/facebook_pull.css":1,"profiles\/panopoly\/modules\/contrib\/panels\/css\/panels.css":1,"sites\/all\/modules\/contrib\/tagadelic\/tagadelic.css":1,"sites\/all\/modules\/contrib\/tagclouds\/tagclouds.css":1,"sites\/all\/modules\/custom\/qs_custom_rankings\/css\/font-awesome.min.css":1,"sites\/all\/modules\/custom\/qs_custom_rankings\/css\/jquery.jscrollpane.css":1,"sites\/all\/modules\/custom\/qs_custom_rankings\/css\/customSelectBox.css":1,"sites\/all\/modules\/custom\/qs_custom_rankings\/css\/qs_custom_rankings.css":1,"sites\/all\/modules\/custom\/qs_custom_rankings\/css\/qs_custom_rankings_ie8.css":1,"0":1,"profiles\/panopoly\/modules\/contrib\/panels\/plugins\/layouts\/flexible\/flexible.css":1,"1":1,"sites\/all\/modules\/contrib\/eu_cookie_compliance\/css\/eu_cookie_compliance.css":1,"sites\/all\/modules\/contrib\/menu_minipanels\/css\/menu_minipanels.css":1,"sites\/all\/libraries\/neat_scrollbar\/jquery.mCustomScrollbar.css":1,"profiles\/panopoly\/modules\/contrib\/field_group\/field_group.css":1,"profiles\/panopoly\/modules\/contrib\/field_group\/field_group.field_ui.css":1,"sites\/all\/modules\/custom\/qs_instant_registration\/css\/qs_instant_registration.css":1,"sites\/default\/files\/honeypot\/honeypot.css":1,"public:\/\/ctools\/css\/d41d8cd98f00b204e9800998ecf8427e.css":1,"\/\/maxcdn.bootstrapcdn.com\/font-awesome\/4.3.0\/css\/font-awesome.min.css":1,"sites\/all\/modules\/contrib\/fancy_login\/css\/fancy_login.css":1,"public:\/\/how\/how_you.css":1,"public:\/\/ctools\/css\/85ddfe516509dd9a0ca09b3b8392fd33.css":1,"sites\/all\/themes\/topuni\/assets\/stylesheets\/jcf.css":1,"sites\/all\/themes\/topuni\/assets\/stylesheets\/jcarousel-default.css":1,"sites\/all\/themes\/topuni\/assets\/stylesheets\/screen.css":1,"sites\/all\/themes\/topuni\/assets\/stylesheets\/form-controls.css":1,"sites\/all\/themes\/topuni\/assets\/stylesheets\/jasny-bootstrap.min.css":1,"sites\/all\/themes\/topuni\/assets\/stylesheets\/print.css":1,"sites\/all\/themes\/radix\/assets\/stylesheets\/ie.css":1,"sites\/all\/themes\/topuni\/assets\/stylesheets\/ie7.css":1,"sites\/all\/themes\/topuni\/assets\/stylesheets\/ie8.css":1,"sites\/all\/themes\/topuni\/assets\/stylesheets\/ie.css":1,"profiles\/panopoly\/modules\/panopoly\/panopoly_images\/panopoly-images.css":1,"2":1}},"jcarousel":{"ajaxPath":"\/jcarousel\/ajax\/views"},"qs_custom_rankings":{"locations":{"6":{"name":"Africa","tid":"6","children":{"21":{"name":"Egypt","tid":"21","parent":"6"},"28":{"name":"Ghana","tid":"28","parent":"6"},"31":{"name":"Kenya","tid":"31","parent":"6"},"54":{"name":"South Africa","tid":"54","parent":"6"},"58":{"name":"Tanzania, United Republic of","tid":"58","parent":"6"},"61":{"name":"Uganda","tid":"61","parent":"6"}}},"71":{"name":"Asia","tid":"71","children":{"74":{"name":"Israel","tid":"74","parent":"71"},"77":{"name":"Saudi Arabia","tid":"77","parent":"71"},"80":{"name":"Azerbaijan","tid":"80","parent":"71"},"81":{"name":"Bahrain","tid":"81","parent":"71"},"82":{"name":"Bangladesh","tid":"82","parent":"71"},"87":{"name":"China","tid":"87","parent":"71"},"94":{"name":"Hong Kong","tid":"94","parent":"71"},"96":{"name":"India","tid":"96","parent":"71"},"97":{"name":"Indonesia","tid":"97","parent":"71"},"98":{"name":"Iran, Islamic Republic of","tid":"98","parent":"71"},"99":{"name":"Iraq","tid":"99","parent":"71"},"100":{"name":"Japan","tid":"100","parent":"71"},"103":{"name":"Jordan","tid":"103","parent":"71"},"104":{"name":"Kazakhstan","tid":"104","parent":"71"},"106":{"name":"South Korea","tid":"106","parent":"71"},"108":{"name":"Kuwait","tid":"108","parent":"71"},"111":{"name":"Lebanon","tid":"111","parent":"71"},"112":{"name":"Macao S.A.R., China","tid":"112","parent":"71"},"113":{"name":"Malaysia","tid":"113","parent":"71"},"119":{"name":"Oman","tid":"119","parent":"71"},"120":{"name":"Pakistan","tid":"120","parent":"71"},"122":{"name":"Philippines","tid":"122","parent":"71"},"123":{"name":"Qatar","tid":"123","parent":"71"},"124":{"name":"Singapore","tid":"124","parent":"71"},"126":{"name":"Sri Lanka","tid":"126","parent":"71"},"128":{"name":"Taiwan","tid":"128","parent":"71"},"131":{"name":"Thailand","tid":"131","parent":"71"},"134":{"name":"Turkey","tid":"134","parent":"71"},"136":{"name":"United Arab Emirates","tid":"136","parent":"71"}}},"140":{"name":"Europe","tid":"140","children":{"143":{"name":"Austria","tid":"143","parent":"140"},"145":{"name":"Belarus","tid":"145","parent":"140"},"146":{"name":"Belgium","tid":"146","parent":"140"},"149":{"name":"Bulgaria","tid":"149","parent":"140"},"150":{"name":"Croatia","tid":"150","parent":"140"},"151":{"name":"Czech Republic","tid":"151","parent":"140"},"152":{"name":"Denmark","tid":"152","parent":"140"},"154":{"name":"Estonia","tid":"154","parent":"140"},"156":{"name":"Finland","tid":"156","parent":"140"},"158":{"name":"France","tid":"158","parent":"140"},"162":{"name":"Germany","tid":"162","parent":"140"},"166":{"name":"Greece","tid":"166","parent":"140"},"169":{"name":"Hungary","tid":"169","parent":"140"},"171":{"name":"Ireland","tid":"171","parent":"140"},"174":{"name":"Italy","tid":"174","parent":"140"},"178":{"name":"Latvia","tid":"178","parent":"140"},"180":{"name":"Lithuania","tid":"180","parent":"140"},"187":{"name":"Netherlands","tid":"187","parent":"140"},"189":{"name":"Norway","tid":"189","parent":"140"},"190":{"name":"Poland","tid":"190","parent":"140"},"191":{"name":"Portugal","tid":"191","parent":"140"},"192":{"name":"Romania","tid":"192","parent":"140"},"193":{"name":"Russia","tid":"193","parent":"140"},"196":{"name":"Serbia","tid":"196","parent":"140"},"197":{"name":"Slovakia","tid":"197","parent":"140"},"198":{"name":"Slovenia","tid":"198","parent":"140"},"199":{"name":"Spain","tid":"199","parent":"140"},"203":{"name":"Sweden","tid":"203","parent":"140"},"205":{"name":"Switzerland","tid":"205","parent":"140"},"207":{"name":"Ukraine","tid":"207","parent":"140"},"208":{"name":"United Kingdom","tid":"208","parent":"140"}}},"213":{"name":"North America","tid":"213","children":{"222":{"name":"Canada","tid":"222","parent":"213"},"227":{"name":"Costa Rica","tid":"227","parent":"213"},"228":{"name":"Cuba","tid":"228","parent":"213"},"241":{"name":"Mexico","tid":"241","parent":"213"},"247":{"name":"Puerto Rico","tid":"247","parent":"213"},"257":{"name":"United States","tid":"257","parent":"213"}}},"317":{"name":"Oceania","tid":"317","children":{"319":{"name":"Australia","tid":"319","parent":"317"},"334":{"name":"New Zealand","tid":"334","parent":"317"}}},"349":{"name":"South America","tid":"349","children":{"350":{"name":"Argentina","tid":"350","parent":"349"},"353":{"name":"Brazil","tid":"353","parent":"349"},"355":{"name":"Chile","tid":"355","parent":"349"},"357":{"name":"Colombia","tid":"357","parent":"349"},"358":{"name":"Ecuador","tid":"358","parent":"349"},"363":{"name":"Peru","tid":"363","parent":"349"},"365":{"name":"Uruguay","tid":"365","parent":"349"},"366":{"name":"Venezuela","tid":"366","parent":"349"}}}},"flat_file":"http:\/\/www.topuniversities.com\/sites\/default\/files\/qs-custom-rankings\/299926.txt","criteria_definition":{"2453333":{"field_prefix":"field_ranking_scores_","item_id":"2453333","short_name":"academic-reputation","full_name":"Academic Reputation","type":"survey_indices","ranking_id":"299926"},"2453334":{"field_prefix":"field_ranking_scores_","item_id":"2453334","short_name":"employer-reputation","full_name":"Employer Reputation","type":"survey_indices","ranking_id":"299926"},"2453335":{"field_prefix":"field_ranking_scores_","item_id":"2453335","short_name":"faculty-student","full_name":"Faculty Student","type":"survey_indices","ranking_id":"299926"},"2453336":{"field_prefix":"field_ranking_scores_","item_id":"2453336","short_name":"international-faculty","full_name":"International Faculty","type":"survey_indices","ranking_id":"299926"},"2453337":{"field_prefix":"field_ranking_scores_","item_id":"2453337","short_name":"international-students","full_name":"International Students","type":"survey_indices","ranking_id":"299926"},"2453338":{"field_prefix":"field_ranking_scores_","item_id":"2453338","short_name":"citations-per-faculty","full_name":"Citations per Faculty","type":"survey_indices","ranking_id":"299926"},"2453339":{"field_prefix":"field_ranking_scores_","item_id":"2453339","short_name":"arts-and-humanities","full_name":"Arts and Humanities","type":"faculty_areas","ranking_id":"299926"},"2453340":{"field_prefix":"field_ranking_scores_","item_id":"2453340","short_name":"engineering-and-technology","full_name":"Engineering and Technology","type":"faculty_areas","ranking_id":"299926"},"2453341":{"field_prefix":"field_ranking_scores_","item_id":"2453341","short_name":"life-sciences-and-medicine","full_name":"Life Sciences and Medicine","type":"faculty_areas","ranking_id":"299926"},"2453342":{"field_prefix":"field_ranking_scores_","item_id":"2453342","short_name":"natural-science","full_name":"Natural Science","type":"faculty_areas","ranking_id":"299926"},"2453343":{"field_prefix":"field_ranking_scores_","item_id":"2453343","short_name":"social-sciences-and-management","full_name":"Social Sciences and Management","type":"faculty_areas","ranking_id":"299926"}},"current_release_set":"299926","imgpath":"\/sites\/all\/modules\/custom\/qs_custom_rankings\/img\/","column_definition":[{"nid":"hidden"},{"rank":"hidden"},{"score_overall":"Score"},{"rank_display":"Rank"},{"title":"School Name"},{"link":"Link"},{"logo":"University Logo"},{"country_tid":"Country"},{"region_tid":"Region"},{"qs_stars":"QS Stars"},{"2453333":"Academic Reputation"},{"2453334":"Employer Reputation"},{"2453335":"Faculty Student"},{"2453336":"International Faculty"},{"2453337":"International Students"},{"2453338":"Citations per Faculty"},{"2453339":"Arts and Humanities"},{"2453340":"Engineering and Technology"},{"2453341":"Life Sciences and Medicine"},{"2453342":"Natural Science"},{"2453343":"Social Sciences and Management"}],"flag_lookup":{"350":"AR","319":"AU","143":"AT","80":"AZ","81":"BH","82":"BD","145":"BY","146":"BE","353":"BR","149":"BG","222":"CA","355":"CL","87":"CN","357":"CO","227":"CR","150":"HR","228":"CU","151":"CZ","152":"DK","358":"EC","21":"EG","154":"EE","156":"FI","158":"FR","162":"DE","28":"GH","166":"GR","94":"HK","169":"HU","96":"IN","97":"ID","99":"IQ","171":"IE","74":"IL","174":"IT","100":"JP","103":"JO","104":"KZ","31":"KE","108":"KW","178":"LV","111":"LB","180":"LT","112":"MO","113":"MY","241":"MX","187":"NL","334":"NZ","189":"NO","119":"OM","120":"PK","363":"PE","122":"PH","190":"PL","191":"PT","247":"PR","123":"QA","192":"RO","193":"RU","77":"SA","196":"RS","124":"SG","197":"SK","198":"SI","54":"ZA","106":"KR","199":"ES","126":"LK","203":"SE","205":"CH","128":"TW","58":"TZ","131":"TH","134":"TR","61":"UG","207":"UA","136":"AE","208":"GB","257":"US","365":"UY","366":"VE"}},"better_exposed_filters":{"views":{"sponsored_articles":{"displays":{"panel_pane_1":{"filters":[]}}},"newsletter_signup":{"displays":{"block":{"filters":[]}}},"recent_articles":{"displays":{"block":{"filters":[]}}}}},"urlIsAjaxTrusted":{"\/university-rankings\/university-subject-rankings\/2015\/medicine":true,"\/search\/node":true,"\/university-rankings\/world-university-rankings\/2015":true,"https:\/\/www.topuniversities.com\/university-rankings\/world-university-rankings\/2015?destination=node\/299926":true},"eu_cookie_compliance":{"popup_enabled":1,"popup_agreed_enabled":0,"popup_hide_agreed":0,"popup_clicking_confirmation":0,"popup_html_info":"\u003Cdiv\u003E\n  \u003Cdiv class =\u0022popup-content info\u0022\u003E\n    \u003Cdiv id=\u0022popup-text\u0022\u003E\n      \u003Cp\u003EThis site uses cookies. By continuing to browse the site you are agreeing to our use of cookies.\u003Cbr \/\u003E Review our \u003Ca href=\u0022\/cookies-policy\u0022 target=\u0022_blank\u0022\u003Ecookies information\u003C\/a\u003E for more details.\u003C\/p\u003E\n    \u003C\/div\u003E\n    \u003Cdiv id=\u0022popup-buttons\u0022\u003E\n      \u003Cbutton type=\u0022button\u0022 class=\u0022agree-button\u0022\u003EOK, I agree\u003C\/button\u003E\n      \u003Cbutton type=\u0022button\u0022 class=\u0022find-more-button\u0022\u003ENo, give me more info\u003C\/button\u003E\n    \u003C\/div\u003E\n  \u003C\/div\u003E\n\u003C\/div\u003E\n","popup_html_agreed":"\u003Cdiv\u003E\n  \u003Cdiv class =\u0022popup-content agreed\u0022\u003E\n    \u003Cdiv id=\u0022popup-text\u0022\u003E\n      \u003Ch2\u003EThank you for accepting cookies\u003C\/h2\u003E\n\u003Cp\u003EYou can now hide this message or find out more about cookies.\u003C\/p\u003E\n    \u003C\/div\u003E\n    \u003Cdiv id=\u0022popup-buttons\u0022\u003E\n      \u003Cbutton type=\u0022button\u0022 class=\u0022hide-popup-button\u0022\u003EHide\u003C\/button\u003E\n      \u003Cbutton type=\u0022button\u0022 class=\u0022find-more-button\u0022 \u003EMore info\u003C\/button\u003E\n    \u003C\/div\u003E\n  \u003C\/div\u003E\n\u003C\/div\u003E","popup_height":"auto","popup_width":"100%","popup_delay":1000,"popup_link":"\/cookies-policy","popup_link_new_window":1,"popup_position":null,"popup_language":"en","domain":""},"fitvids":{"custom_domains":[],"selectors":["body"],"simplifymarkup":true},"googleanalytics":{"trackOutbound":1,"trackMailto":1,"trackDownload":1,"trackDownloadExtensions":"7z|aac|arc|arj|asf|asx|avi|bin|csv|doc(x|m)?|dot(x|m)?|exe|flv|gif|gz|gzip|hqx|jar|jpe?g|js|mp(2|3|4|e?g)|mov(ie)?|msi|msp|pdf|phps|png|ppt(x|m)?|pot(x|m)?|pps(x|m)?|ppam|sld(x|m)?|thmx|qtm?|ra(m|r)?|sea|sit|tar|tgz|torrent|txt|wav|wma|wmv|wpd|xls(x|m|b)?|xlt(x|m)|xlam|xml|z|zip"},"menuMinipanels":{"panels":{"panel_3756":{"position":{"target":"false","target_custom":"","type":"absolute","corner":{"target":"bottomLeft","tooltip":"topLeft"}},"show":{"delay":"0","when":{"event":"mouseover"},"effect":{"type":"false","length":"0"}},"hide":{"delay":"0","effect":{"type":"false","length":"0"}},"style":{"name":"light","width":{"min":"215","max":"430"},"border":{"width":"3","color":"#d3d3d3","radius":"0"}},"mlid":"3756"},"panel_50779":{"position":{"target":"false","target_custom":"","type":"absolute","corner":{"target":"bottomLeft","tooltip":"topLeft"}},"show":{"delay":"0","when":{"event":"mouseover"},"effect":{"type":"false","length":"0"}},"hide":{"delay":"0","effect":{"type":"false","length":"0"}},"style":{"name":"light","width":{"min":"0","max":"430"},"border":{"width":"3","color":"#d3d3d3","radius":"0"}},"mlid":"50779"},"panel_5295":{"position":{"target":"false","target_custom":"","type":"absolute","corner":{"target":"bottomLeft","tooltip":"topLeft"}},"show":{"delay":"0","when":{"event":"mouseover"},"effect":{"type":"false","length":"0"}},"hide":{"delay":"0","effect":{"type":"false","length":"0"}},"style":{"name":"light","width":{"min":"0","max":"430"},"border":{"width":"3","color":"#d3d3d3","radius":"0"}},"mlid":"5295"},"panel_5315":{"position":{"target":"false","target_custom":"","type":"absolute","corner":{"target":"bottomLeft","tooltip":"topLeft"}},"show":{"delay":"0","when":{"event":"mouseover"},"effect":{"type":"false","length":"0"}},"hide":{"delay":"0","effect":{"type":"false","length":"0"}},"style":{"name":"light","width":{"min":"0","max":"430"},"border":{"width":"3","color":"#d3d3d3","radius":"0"}},"mlid":"5315"},"panel_5326":{"position":{"target":"false","target_custom":"","type":"absolute","corner":{"target":"bottomLeft","tooltip":"topLeft"}},"show":{"delay":"0","when":{"event":"mouseover"},"effect":{"type":"false","length":"0"}},"hide":{"delay":"0","effect":{"type":"false","length":"0"}},"style":{"name":"light","width":{"min":"0","max":"430"},"border":{"width":"3","color":"#d3d3d3","radius":"0"}},"mlid":"5326"},"panel_5330":{"position":{"target":"false","target_custom":"","type":"absolute","corner":{"target":"bottomLeft","tooltip":"topLeft"}},"show":{"delay":"0","when":{"event":"mouseover"},"effect":{"type":"false","length":"0"}},"hide":{"delay":"0","effect":{"type":"false","length":"0"}},"style":{"name":"light","width":{"min":"0","max":"430"},"border":{"width":"3","color":"#d3d3d3","radius":"0"}},"mlid":"5330"},"panel_5316":{"position":{"target":"false","target_custom":"","type":"absolute","corner":{"target":"bottomLeft","tooltip":"topLeft"}},"show":{"delay":"0","when":{"event":"mouseover"},"effect":{"type":"false","length":"0"}},"hide":{"delay":"0","effect":{"type":"false","length":"0"}},"style":{"name":"light","width":{"min":"0","max":"430"},"border":{"width":"3","color":"#d3d3d3","radius":"0"}},"mlid":"5316"},"panel_4020":{"position":{"target":"false","target_custom":"","type":"absolute","corner":{"target":"bottomRight","tooltip":"topRight"}},"show":{"delay":"0","when":{"event":"mouseover"},"effect":{"type":"false","length":"0"}},"hide":{"delay":"0","effect":{"type":"false","length":"0"}},"style":{"name":"light","width":{"min":"0","max":"430"},"border":{"width":"3","color":"#d3d3d3","radius":"0"}},"mlid":"4020"}}},"neatScrollbarSet":{"theme":"dark","buttons":1,"round_dragger":0,"inertia":"0","autohide":0,"dragger_status":1,"mousewheel_status":1,"touch_status":1,"default_stylesheet":0,"nodes":0,"blocks":0,"vertical_css":"","horizontal_css":"","browser_resize":1,"content_resize":0,"autoscroll":0},"fancyLogin":{"screenFadeColor":"white","screenFadeZIndex":"10","loginBoxBackgroundColor":"white","loginBoxTextColor":"black","loginBoxBorderColor":"black","loginBoxBorderWidth":"3px","loginBoxBorderStyle":"solid","loginPath":"user\/login","dimFadeSpeed":0,"boxFadeSpeed":0,"hideObjects":0,"disableRegistration":0}});
+//--><!]]>
+</script>
+  <!--QS Facebook Remarketing code ‚Äì every page of the website--><script>(function() { var _fbq = window._fbq || (window._fbq = []); if (!_fbq.loaded) {var fbds = document.createElement("script");fbds.async = true; fbds.src = "//connect.facebook.net/en_US/fbds.js";var s = document.getElementsByTagName("script")[0];s.parentNode.insertBefore(fbds, s);_fbq.loaded = true;}_fbq.push(["addPixelId", "625118064239502"]);})();window._fbq = window._fbq || [];window._fbq.push(["track", "PixelInitialized", {}]);</script><noscript><img height="1" width="1" alt="" style="display:none" src="https://www.facebook.com/tr?id=625118064239502&amp;ev=NoScript" /></noscript>  <!--[if lt IE 9]>
+  <script>
+    document.createElement('header');
+    document.createElement('nav');
+    document.createElement('section');
+    document.createElement('article');
+    document.createElement('aside');
+    document.createElement('footer');
+  </script>
+  <![endif]-->
+      <script type="application/ld+json">
+    {  "@context" : "http://schema.org",
+       "@type" : "WebSite",
+       "name" : "Top Universities",
+       "alternateName" : "Top Universities",
+       "url" : "http://www.topuniversities.com"
+    }
+    </script>
+</head>
+<body class="html not-front not-logged-in no-sidebars page-node page-node- page-node-299926 node-type-ranking-set-release region-content panel-layout-qs_burr_flipped panel-region-contentmain panel-region-sidebar" >
+<!-- Google Tag Manager -->
+<noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-W4T4GS" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<script type="text/javascript">(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0];var j=d.createElement(s);var dl=l!='dataLayer'?'&l='+l:'';j.src='//www.googletagmanager.com/gtm.js?id='+i+dl;j.type='text/javascript';j.async=true;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-W4T4GS');</script>
+<!-- End Google Tag Manager -->
+<h2 class="element-invisible">You are here</h2><div  class="breadcrumb"><span itemscope itemtype="http://data-vocabulary.org/Breadcrumb"><a href="/" class="" itemprop="url"><span itemprop="title">Home</span></a></span><span class="crumbs-separator"> &gt; </span><span itemscope itemtype="http://data-vocabulary.org/Breadcrumb"><a href="/university-rankings" class="" itemprop="url"><span itemprop="title">Rankings</span></a></span><span class="crumbs-separator"> &gt; </span><span itemscope itemtype="http://data-vocabulary.org/Breadcrumb"><a href="/university-rankings/world-university-rankings" class="" itemprop="url"><span itemprop="title">World University Rankings</span></a></span><span class="crumbs-separator"> &gt; </span><span itemscope itemtype="http://data-vocabulary.org/Breadcrumb"><a href="/university-rankings/world-university-rankings/2015" itemprop="url" class="active"><span itemprop="title">QS World University Rankings® 2015/16</span></a></span></div><header id="header" class="header" role="header">
+<div id="skip-link">
+  <a href="#main-content" class="element-invisible element-focusable">Skip to main content</a>
+</div>
+
+
+<div class="main_header">
+  <div class="container">
+    <div class="site_logo"> <a href="/" id="logo"> <img width="102" height="95" alt="Top Universities" src="http://www.topuniversities.com/sites/all/themes/topuni/logo.png">
+      <div class="site_logo_text">
+        <h1>
+          Top<span>Universities</span>        </h1>
+        Worldwide university rankings, guides &amp; events </div>
+      </a> </div>
+    <div class="studies"><span><a href="/undergraduate-studies" class="hat">Undergraduate Studies</a></span><span><a href="/postgraduate-studies" class="hat">Postgraduate Studies</a></span></div>
+    <div class="social_login_btns">
+      <ul>
+        <li><a href="https://www.pinterest.com/topuniversities/" target="_blank" rel="nofollow"><i class="fa fa-pinterest-p"></i></a></li>
+        <li><a href="https://instagram.com/topunis/" target="_blank" rel="nofollow"><i class="fa fa-instagram"></i></a></li>
+        <li><a href="http://www.youtube.com/qstopuniversities?sub_confirmation=1" target="_blank" rel="nofollow"><i class="fa fa-youtube"></i></a></li>
+        <li><a href="https://plus.google.com/113074138589353724717/posts" target="_blank" rel="nofollow"><i class="fa fa-google-plus"></i></a></li>
+        <li><a href="http://www.linkedin.com/groups?gid=64115" target="_blank" rel="nofollow"><i class="fa fa-linkedin"></i></a></li>
+        <li><a href="https://twitter.com/TopUnis" target="_blank" rel="nofollow"><i class="fa fa-twitter"></i></a></li>
+        <li><a href="https://www.facebook.com/topuniversities" target="_blank" rel="nofollow"><i class="fa fa-facebook"></i></a></li>
+      </ul>
+                  <div class="buttons"> <a class="btn btn-default btn_orrange" href="/user/register?destination=node/299926">Join</a>
+        <div class="btn-group">
+          <button id="login_form" class="btn btn-default btn_blue_light dropdown-toggle" type="button">Login &nbsp;&nbsp;&nbsp;<span class="fa fa-angle-down"></span></button>
+          <div id="login_form_dropdown" class="dropdown-menu login_">
+            <div id="fancy_login_user_login_block_wrapper"><form action="https://www.topuniversities.com/university-rankings/world-university-rankings/2015?destination=node/299926" method="post" id="user-login-form_1" accept-charset="UTF-8" role="form"><div><input type="hidden" name="form_build_id" value="form-8gP2MDPC5c2ydTF4SJ1qXIt--nUBtcoz54BqRzxLLTs" />
+<input type="hidden" name="form_id" value="fancy_login_user_login_block" />
+<div class="edit-how-you-wrapper"><div class="form-item form-type-textfield form-item-how-you form-group">
+  <label for="edit-how-you--4">how you </label>
+ <input placeholder="how you"  class="form-control form-text" type="text" id="edit-how-you--4" name="how_you" value="" size="20" maxlength="128" />
+<span class="help-block">How are you today?</span>
+</div>
+</div><div class="form-item form-type-textfield form-item-mail form-group">
+  <label for="edit-mail--3">Email <span class="form-required" title="This field is required.">*</span></label>
+ <input placeholder="Email"  class="form-control form-text required" type="text" id="edit-mail--3" name="mail" value="" size="60" maxlength="60" />
+</div>
+<div class="form-item form-type-password form-item-pass form-group">
+  <label for="edit-pass--4">Password </label>
+ <input placeholder="Password" class="form-control form-text" type="password" id="edit-pass--4" name="pass" size="15" maxlength="128" />
+</div>
+<div class="forgot_password"><a href="/user/password">Forgot your password?</a></div><div class="form-actions form-wrapper" id="edit-actions--4"><input class="btn_orrange form-submit btn btn-default btn-primary" type="submit" id="edit-submit--5" name="op" value="Submit" /></div><div class="join_now">If you are not registered yet, click <a href="/user/register?destination=node/299926">here to join.</a></div></div></form></div>          </div>
+        </div>
+      </div>
+        </div>
+</div>
+</div>
+<div class="top_nav">
+  <div class="container">
+    <div class="navbar navbar-default"> 
+      <!-- Brand and toggle get grouped for better mobile display -->
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="offcanvas" data-target=".navbar-offcanvas" data-canvas="body"> <span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>
+      </div>
+      <!-- /.navbar-header --> 
+      
+      <!-- Collect the nav links, forms, and other content for toggling -->
+      <div class="navmenu-fixed-left navbar-offcanvas offcanvas">
+                <ul id="main-menu" class="menu nav navbar-nav">
+          <li class="first expanded dropdown"><a href="/where-to-study/home" class="dropdown-toggle menu-minipanel menu-minipanel-3756">Where to Study<span class="caret"></span></a><ul class="dropdown-menu"><li class="first leaf"><a href="/where-to-study/region/usa-canada/guide">Study in the US &amp; Canada</a></li>
+<li class="leaf"><a href="/where-to-study/region/europe/guide">Study in Europe</a></li>
+<li class="leaf"><a href="/where-to-study/region/asia/guide">Study in Asia</a></li>
+<li class="leaf"><a href="/where-to-study/region/australia-and-new-zealand/guide">Study in Australia &amp; New Zealand</a></li>
+<li class="leaf"><a href="/where-to-study/region/latin-america/guide">Study in Latin America</a></li>
+<li class="leaf"><a href="/where-to-study/region/middle-east/guide">Study in the Middle East</a></li>
+<li class="leaf"><a href="/where-to-study/region/africa/guide">Study in Africa</a></li>
+<li class="last leaf"><a href="/where-to-study/home">Where to Study overview</a></li>
+</ul></li>
+<li class="expanded dropdown"><a href="/universities" class="dropdown-toggle menu-minipanel menu-minipanel-50779">Universities<span class="caret"></span></a><ul class="dropdown-menu"><li class="first leaf"><a href="/universities/region/6">Universities in Africa</a></li>
+<li class="leaf"><a href="/universities/region/71">Universities in Asia</a></li>
+<li class="leaf"><a href="/universities/region/140">Universities in Europe</a></li>
+<li class="leaf"><a href="/universities/region/213">Universities in North America</a></li>
+<li class="leaf"><a href="/universities/region/349">Universities in South America</a></li>
+<li class="leaf"><a href="/universities/region/317">Universities in Oceania</a></li>
+<li class="last leaf"><a href="http://www.topuniversities.com/universities">Universities overview</a></li>
+</ul></li>
+<li class="expanded dropdown"><a href="/courses" class="dropdown-toggle menu-minipanel menu-minipanel-5295">Course Guides<span class="caret"></span></a><ul class="dropdown-menu"><li class="first leaf"><a href="/courses/arts-humanities/guide">Arts &amp; Humanities</a></li>
+<li class="leaf"><a href="/courses/business-management/guide">Business &amp; Management</a></li>
+<li class="leaf"><a href="/courses/engineering/guide">Engineering &amp; Technology</a></li>
+<li class="leaf"><a href="/courses/life-sciences-medicine/guide">Life Sciences &amp; Medicine</a></li>
+<li class="leaf"><a href="/courses/natural-sciences/guide">Natural Sciences</a></li>
+<li class="leaf"><a href="/courses/social-sciences/guide">Social Sciences</a></li>
+<li class="last leaf"><a href="/courses">Courses overview</a></li>
+</ul></li>
+<li class="expanded dropdown"><a href="/university-rankings" class="dropdown-toggle menu-minipanel menu-minipanel-5315">University Rankings<span class="caret"></span></a><ul class="dropdown-menu"><li class="first leaf"><a href="/qs-world-university-rankings">QS World University Rankings</a></li>
+<li class="leaf"><a href="/subject-rankings/2015">QS World University Rankings by Subject</a></li>
+<li class="leaf"><a href="/faculty-rankings">QS World University Rankings by Faculty</a></li>
+<li class="leaf"><a href="/regional-rankings">QS University Rankings by Region</a></li>
+<li class="leaf"><a href="/best-student-cities">QS Best Student Cities</a></li>
+<li class="leaf"><a href="/top-50-under-50">QS Top 50 Under 50</a></li>
+<li class="leaf"><a href="/university-rankings/world-university-rankings">Related articles</a></li>
+<li class="last leaf"><a href="/university-rankings">Rankings overview</a></li>
+</ul></li>
+<li class="expanded dropdown"><a href="/events" class="dropdown-toggle menu-minipanel menu-minipanel-5326">Events<span class="caret"></span></a><ul class="dropdown-menu"><li class="first leaf"><a href="/events/qs-world-grad-school-tour">QS World Grad School Tour</a></li>
+<li class="leaf"><a href="/events/qs-world-university-tour">QS World University Tour</a></li>
+<li class="last leaf"><a href="/events">Events overview</a></li>
+</ul></li>
+<li class="expanded dropdown"><a href="/qs-stars/home" class="dropdown-toggle menu-minipanel menu-minipanel-5330">QS Stars<span class="caret"></span></a><ul class="dropdown-menu"><li class="first leaf"><a href="/qs-stars">QS Stars University Ratings</a></li>
+<li class="leaf"><a href="/qs-stars/qs-stars-methodology">QS Stars Methodology</a></li>
+<li class="last leaf"><a href="http://www.topuniversities.com/qs-stars/home">QS Stars overview</a></li>
+</ul></li>
+<li class="expanded dropdown"><a href="/student-info" class="dropdown-toggle menu-minipanel menu-minipanel-5316">Student Info<span class="caret"></span></a><ul class="dropdown-menu"><li class="first leaf"><a href="/scholarships">QS Scholarships</a></li>
+<li class="leaf"><a href="/student-info/scholarship-advice">Scholarship Advice</a></li>
+<li class="leaf"><a href="/student-info/qs-guides">QS Guides</a></li>
+<li class="leaf"><a href="/student-info/choosing-university">Choosing a University</a></li>
+<li class="leaf"><a href="/student-info/admissions-advice">Admissions Advice</a></li>
+<li class="leaf"><a href="/student-info/student-finance">Student Finance</a></li>
+<li class="leaf"><a href="/student-info/careers-advice">Careers Advice</a></li>
+<li class="leaf"><a href="/student-info/studying-abroad">Studying Abroad</a></li>
+<li class="leaf"><a href="/student-info/university-news">University News</a></li>
+<li class="last leaf"><a href="/student-info">Student Info overview</a></li>
+</ul></li>
+<li class="last expanded dropdown"><a href="/community" class="dropdown-toggle menu-minipanel menu-minipanel-4020">Forum & Blog<span class="caret"></span></a><ul class="dropdown-menu"><li class="first leaf"><a href="/forum">Forum</a></li>
+<li class="leaf"><a href="/blog">Blog</a></li>
+<li class="last leaf"><a href="/community">Forums &amp; Blog overview</a></li>
+</ul></li>
+        </ul>
+                        <div class="user-register-mob"><a href="/user/register?destination=node/299926">Join Now / Login</a></div>
+                      </div>
+      <!-- /.navbar-collapse -->
+ 
+            <a data-target=".nav-search" data-toggle="collapse" class="collapsed"><i class="fa fa-search"></i></a>
+      <div class="nav-search collapse"><form class="search-form navbar-form navbar-right" action="/search/node" method="post" id="search-form" accept-charset="UTF-8" role="form"><div><div class="container-inline form-inline form-wrapper" id="edit-basic"><div class="form-item form-type-textfield form-item-keys form-group">
+  <label class="element-invisible" for="edit-keys">Search </label>
+ <input placeholder="Search"  placeholder="Search" class="form-control form-text" type="text" id="edit-keys" name="keys" value="" size="20" maxlength="255" />
+</div>
+<input type="submit" id="edit-submit--3" name="op" value="Search" class="form-submit btn btn-default btn-primary" /></div><input type="hidden" name="form_build_id" value="form-RYkQpkfADDTkpDqFTBOuQMa9PU_C4UX0LQ-n5bMvRs4" />
+<input type="hidden" name="form_id" value="search_form" />
+</div></form></div>
+            <!--Mobile login form-->
+            <div class="btn-group mobile"> <a id="login_form_mob" class="dropdown-toggle" type="button"><i class="fa fa-user"></i></a>
+        <div id="dropdown-menu-mob-dropdown" class="dropdown-menu-mob login_" style="display:none"> <form action="/university-rankings/world-university-rankings/2015" method="post" id="user-login-form_1" accept-charset="UTF-8" role="form"><div><input type="hidden" name="form_build_id" value="form-z2qs_5yvMrdCCz71j5vENGfV_-3eqwRQB2_Mpe-X1Wc" />
+<input type="hidden" name="form_id" value="user_login" />
+<div class="edit-how-you-wrapper"><div class="form-item form-type-textfield form-item-how-you form-group">
+  <label for="edit-how-you--5">how you </label>
+ <input placeholder="how you"  class="form-control form-text" type="text" id="edit-how-you--5" name="how_you" value="" size="20" maxlength="128" />
+<span class="help-block">How are you today?</span>
+</div>
+</div><div class="form-item form-type-textfield form-item-mail form-group">
+ <input  placeholder="Email" class="form-control form-text required" type="text" id="edit-mail--4" name="mail" value="" size="60" maxlength="128" />
+<span class="help-block">Yours email is safe with us.<br>We will never send you unwanted emails.</span>
+</div>
+<div class="form-item form-type-password form-item-pass form-group">
+ <input placeholder="Password" class="form-control form-text required" type="password" id="edit-pass--5" name="pass" size="60" maxlength="128" />
+<span class="help-block">For safety reasons please use at least six characters and one numeral.</span>
+</div>
+<div class="form-item form-type-checkbox form-item-copy checkbox">
+  <label class="option" for="edit-copy--2"><input type="checkbox" id="edit-copy--2" name="copy" value="1" class="form-checkbox" /></label><div class="checkbox-title">Show password (to verify) </div>
+</div>
+<div class="forgot_password"><a href="/user/password">Forgot your password?</a></div><div class="form-actions form-wrapper" id="edit-actions--5"><input class="btn_orrange form-submit btn btn-default btn-primary" type="submit" id="edit-submit--6" name="op" value="Submit" /></div><div class="join_now">If you are not registered yet, click <a href="/user/register?destination=node/299926">here to join.</a></div></div></form> </div>
+      </div>
+          </div>
+  </div>
+  <!-- /.container --> 
+</div>
+</header>
+
+<div id="main-wrapper">
+  <div id="main" class="main">
+        
+    <div id="content" class="">   <div class="region region-content">
+    <div id="block-system-main" class="block block-system">
+
+    
+  <div class="content">
+    
+<div class="panel-display qs-burr-flipped clearfix qs-burr-flipped" >
+  <div class="container">
+      <div class="main_contents panel-panel">
+            <div class="site_contents">
+                <div class="panel-panel-inner"> <div class="panel-pane pane-node-title" >
+  
+      
+  
+  <div class="pane-content">
+    <h1>QS World University Rankings® 2015/16</h1>
+  </div>
+
+  
+  </div>
+<div class="panel-separator"></div>
+<div class="panel-pane pane-block pane-block-7 pane-node-field-article-date" >
+            <div class="pane-content">
+    <div class="pane-qs-social-share"><div class="qs-shares"><span class="count-number">28,877</span><span class="text"> shares</span><span class="fb"><a href="https://www.facebook.com/sharer/sharer.php?u=http://www.topuniversities.com/university-rankings/world-university-rankings/2015" target="_blank" onclick="ga(&#039;send&#039;, &#039;event&#039;, &#039;Social share&#039;,  &#039;http://www.topuniversities.com/university-rankings/world-university-rankings/2015&#039;, &#039;Facebook&#039;)"><i class="fa fa-facebook"></i></a> </span><span class="tw"><a href="https://twitter.com/intent/tweet?url=http://www.topuniversities.com/university-rankings/world-university-rankings/2015" target="_blank" onclick="ga(&#039;send&#039;, &#039;event&#039;, &#039;Social share&#039;,  &#039;http://www.topuniversities.com/university-rankings/world-university-rankings/2015&#039;, &#039;Twitter&#039;)"><i class="fa fa-twitter"></i></a> </span><span class="in"><a href="http://www.linkedin.com/shareArticle?mini=true&amp;url=http://www.topuniversities.com/university-rankings/world-university-rankings/2015" target="_blank" onclick="ga(&#039;send&#039;, &#039;event&#039;, &#039;Social share&#039;,  &#039;http://www.topuniversities.com/university-rankings/world-university-rankings/2015&#039;, &#039;LinkedIn&#039;)"><i class="fa fa-linkedin"></i></a> </span><span class="go"><a href="https://plus.google.com/share?url=http://www.topuniversities.com/university-rankings/world-university-rankings/2015" target="_blank" onclick="ga(&#039;send&#039;, &#039;event&#039;, &#039;Social share&#039;,  &#039;http://www.topuniversities.com/university-rankings/world-university-rankings/2015&#039;, &#039;Google+&#039;)"><i class="fa fa-google-plus"></i></a> </span><span class="pin"><a href="https://www.pinterest.com/pin/find/?url=http://www.topuniversities.com/university-rankings/world-university-rankings/2015" target="_blank" onclick="ga(&#039;send&#039;, &#039;event&#039;, &#039;Social share&#039;,  &#039;http://www.topuniversities.com/university-rankings/world-university-rankings/2015&#039;,  &#039;Pinterest&#039;)"><i class="fa fa-pinterest-p"></i></a> </span></div></div>    
+        <div class="pane-qs-wur-app">
+    <a href="https://itunes.apple.com/us/app/qs-world-university-rankings/id924021289?ls=1&amp;mt=8" ><img src="/sites/all/themes/topuni/assets/images/iphone-App_1.png" alt="" title="" class="media-image" height="39" width="100"></a><a href="https://play.google.com/store/apps/details?id=com.qs.qsrankings"> <img src="/sites/all/themes/topuni/assets/images/Android_0.png" alt="" title="" class="media-image" height="39" width="100"></a>
+    </div>
+      
+  </div>
+    </div>
+<div class="panel-separator"></div><div class="panel-pane pane-block pane-dfp-17b4f1830c1759111a034efa7c80c989" >
+  
+      
+  
+  <div class="pane-content">
+    <div id="dfp-ad-rankings_leaderboard_top_no_mpu_-wrapper" class="dfp-tag-wrapper">
+<div  id="dfp-ad-rankings_leaderboard_top_no_mpu_" class="dfp-tag-wrapper">
+    <script type="text/javascript">
+    googletag.cmd.push(function() {
+      googletag.display("dfp-ad-rankings_leaderboard_top_no_mpu_");
+    });
+  </script>
+</div>
+</div>  </div>
+
+  
+  </div>
+<div class="panel-separator"></div><div class="panel-pane pane-entity-field pane-node-field-release-description" >
+  
+      
+  
+  <div class="pane-content">
+    
+  <div class="field-release-description">
+    <p>Welcome to the <strong>QS World University Rankings® 2015/16</strong>. Use the interactive ranking table to explore the world’s top universities, with options to sort the results by country, region and subject area. You can also sort the ranking results based on the six individual indicators used (see the full methodology <a href="http://www.topuniversities.com/university-rankings-articles/world-university-rankings/qs-world-university-rankings-methodology">here</a>). For alerts about the latest rankings releases, <a href="https://www.topuniversities.com/user/register?destination=node/299926">sign up to our newsletter</a>.</p>  </div>
+  </div>
+
+  
+  </div>
+<div class="panel-separator"></div><div class="panel-pane pane-qs-custom-rankings-pane" >
+  
+      
+  
+  <div class="pane-content">
+    
+<div id="ranking-wp">
+  <div class="main-tooltip tooltip">
+    <p class="l12 gray"></p>
+  </div>
+  <div class="row ranking-wrapper">
+    <h2 class="blue-bg desktop-only">QS World University Rankings&reg; <span class="ireg"><span>iReg approved</span></span> and QS Stars</h2>
+    <div class="ranking-container">
+      <!--mobile version filter-->
+    <div class="mobile-only filtercolaps">
+      <h3 id="shotog">Filter, Sort and Search</h3>
+      </div>      
+      <!--End mobile version filter--> 
+    
+      <div class="filter mobile-collaps-filter">
+        <div class="row">
+          <select id="filter-region" class="white-bg left">
+            <option value="">Filter by region</option>
+          </select>
+          <select id="filter-country" class="white-bg left">
+            <option value="">Filter by location</option>
+          </select>
+          <a href="#" id="reset-region" class="blue right">reset</a> </div>
+        <div class="row">
+          <select id="filter-faculty" class="white-bg left">
+            <option value="">Filter by faculty</option>
+          </select>
+          <span class="small gray left">Note: Filtering by subject area will<br />
+          also resort the list by subject-area scores.</span> <a href="#" id="reset-faculty" class="blue right">reset</a> </div>
+      </div>
+      <div class="row table-container">
+        <div class="widget-pointer"></div>
+        <div class="social-pointer"></div>
+          <div class="rankings-header">
+            <div class="rank-headers">
+              <span class="n11 brown"> <span class="rank">Rank</span> <span class="uni">University&nbsp;&nbsp;<i class="icon-spinner icon-spin icon-large"></i></span> <span class="country">Location</span><span class="rating">QS Stars <a href="/qs-stars/home" target="_blank" id="qs-stars-help" class="help">?</a></span> </span>
+            </div>
+            <div class="rank-filters">
+              <div class="rank"><div class="bright-blue-bg">
+                  <select id="order-values" class="yellow-bg">
+                    <option value="rank">Overall Score</option>
+                  </select>
+                </div>
+              </div>
+              <div class="uni"><div class="blue-bg">
+                  <div>
+                    <input type="text" id="search-uni" class="gray-bg left" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Search for universities...'" placeholder="Search for universities..." />
+                    <a href="#" class="search-reset"><span>Reset</span></a> <a href="#" class="search-enter"><span>Search</span></a> </div>
+                </div>
+              </div>
+              <div class="country"><div class="bright-blue-bg"></div></div>
+              <div class="rating"><div class="yellow-bg">
+                  <input id="check-stars" type="checkbox" />
+                  <label for="check-stars" class="checkbox-label">Show only</label>
+                </div>
+              </div>
+            </div>
+          </div>
+        <table id="ranking-table">
+          <tbody>
+            <tr class="item hidde">
+              <td class="rank"><div class="gray-bg">
+                  <div class="bright-blue-bg"> <span class="dark-blue-bg"></span> <span class="ranking">1</span> <span class="result l11">100.0</span> </div>
+                </div></td>
+              <td class="uni"><div class="dark-gray-bg">
+                  <div> <span class="logo-wrapper"><span class="logo"><img class="hide" /></span></span> <span class="l12 gray"></span> </div>
+                </div></td>
+              <td class="country"><div class="gray-bg"> <img src="" class="flag" /> </div></td>
+              <td class="rating"><div class="gray-bg"> <span class="qsstar"></span> <span class="qsstar"></span> <span class="qsstar"></span> <span class="qsstar"></span> <span class="qsstar"></span> </div></td>
+            </tr>
+            <tr class="hide empty">
+              <td colspan="5" class="dark-gray-bg"><p class="l12 gray"></p></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+  <p class="text-center"><a href="#" class="get-more btn dark-gray-bg">Show more ranks</a></p>
+</div>
+<script>
+$( "h3" ).click(function() {
+  $( "div.filter" ).toggle();
+  $("div.rank-filters div.rank").toggle();
+  $("div.rank-filters div.uni").toggle();
+  $("div.rank-filters div.rating").toggle();
+});
+</script>  </div>
+
+  
+  </div>
+<div class="panel-separator"></div><div class="panel-pane pane-block pane-dfp-site-wide-728-x-90-2 mobile-tablet" >
+  
+      
+  
+  <div class="pane-content">
+    <div id="dfp-ad-site_wide_728_x_90_2-wrapper" class="dfp-tag-wrapper">
+<div  id="dfp-ad-site_wide_728_x_90_2" class="dfp-tag-wrapper">
+    <script type="text/javascript">
+    googletag.cmd.push(function() {
+      googletag.display("dfp-ad-site_wide_728_x_90_2");
+    });
+  </script>
+</div>
+</div>  </div>
+
+  
+  </div>
+<div class="panel-separator"></div><div class="panel-pane pane-block pane-block-18" >
+  
+      
+  
+  <div class="pane-content">
+    <p><span style="padding-bottom: 8px;">Download the official QS World University Rankings App</span><br><a href="https://itunes.apple.com/us/app/qs-world-university-rankings/id924021289?ls=1&amp;mt=8" style="padding-right: 10px;"><img src="/sites/all/themes/topuni/assets/images/iphone-App_1.png" alt="" title="" class="media-image" height="39" width="120"></a><a href="https://play.google.com/store/apps/details?id=com.qs.qsrankings"> <img src="/sites/all/themes/topuni/assets/images/Android_0.png" alt="" title="" class="media-image" height="39" width="120"></a></p>  </div>
+
+  
+  </div>
+ </div>
+            </div>
+      </div>
+      <div class="sidebar panel-panel">
+        <div class="panel-panel-inner"> <div class="panel-pane pane-views-panes pane-sponsored-articles-panel-pane-1" >
+  
+      
+  
+  <div class="pane-content">
+    <div class="view view-sponsored-articles view-id-sponsored_articles view-display-id-panel_pane_1 pane-sponsored-articles view-dom-id-cbd896d336a7ae59281f102ea285d6c2">
+        
+  
+  
+      <div class="view-content">
+          <ul>          <li class="">  
+  <div class="global">        <span><div>
+<span class="views-label views-label-field-multi-tagging">Featured Article</span>
+<div class="title"><h2><a href="/university-rankings-articles/world-university-rankings/changes-qs-world-university-rankings-methodology">Changes to the QS World University Rankings Methodology</a></h2></div>
+<div class="abstract">
+  
+    Find out about refinements being made to the QS World University Rankings® methodology this...</div>
+<div class="read-now"><a href="/university-rankings-articles/world-university-rankings/changes-qs-world-university-rankings-methodology">Read now</a></div>
+</div></span>    
+  </div>
+</li>
+      </ul>    </div>
+  
+  
+  
+  
+  
+  
+</div>  </div>
+
+  
+  </div>
+<div class="panel-separator"></div><div class="panel-pane pane-block pane-dfp-site-wide-300-x-250 desktop-only" >
+  
+      
+  
+  <div class="pane-content">
+    <div id="dfp-ad-site_wide_300_x_250-wrapper" class="dfp-tag-wrapper">
+<div  id="dfp-ad-site_wide_300_x_250" class="dfp-tag-wrapper">
+    <script type="text/javascript">
+    googletag.cmd.push(function() {
+      googletag.display("dfp-ad-site_wide_300_x_250");
+    });
+  </script>
+</div>
+</div>  </div>
+
+  
+  </div>
+<div class="panel-separator"></div><div class="panel-pane pane-block pane-block-18" >
+  
+      
+  
+  <div class="pane-content">
+    <p><span style="padding-bottom: 8px;">Download the official QS World University Rankings App</span><br><a href="https://itunes.apple.com/us/app/qs-world-university-rankings/id924021289?ls=1&amp;mt=8" style="padding-right: 10px;"><img src="/sites/all/themes/topuni/assets/images/iphone-App_1.png" alt="" title="" class="media-image" height="39" width="120"></a><a href="https://play.google.com/store/apps/details?id=com.qs.qsrankings"> <img src="/sites/all/themes/topuni/assets/images/Android_0.png" alt="" title="" class="media-image" height="39" width="120"></a></p>  </div>
+
+  
+  </div>
+<div class="panel-separator"></div><div class="panel-pane pane-views pane-newsletter-signup" >
+  
+        <h4 class="pane-title">Our monthly newsletter</h4>
+    
+  
+  <div class="pane-content">
+    <div class="view view-newsletter-signup view-id-newsletter_signup view-display-id-block view-dom-id-ceff5df1b37b65d96cf64c00f3c88a2e">
+        
+  
+  
+      <div class="view-content">
+        <div class="views-row views-row-1 views-row-odd views-row-first views-row-last">
+      
+          
+  <div class="field-newsletter-background-imag">
+    <img typeof="foaf:Image" src="http://www.topuniversities.com/sites/default/files/newsletter.jpg" width="300" height="318" alt="" />  </div>
+    
+          
+  <div class="field-newsletter-short-descripti">
+    <p>Sign up to our <strong>monthly newsletter</strong> to receive regular content highlights direct to your inbox.</p>  </div>
+    
+            <!-- Button trigger -->
+  <a class="qs-reg-popup btn btn-default btn-orrange" href="#">Sign up now!</a>
+  
+  <!-- Overlay --> 
+  <div id="login-overlay">
+    <div class="panel-pane pane-qs-reg-pane news-letter">
+      <h4 class="pane-title newsletter-title">
+          <span>This feature is only available to registered users</span>
+          <a href="#" id="close-login"><i class="icon icon-remove"></i></a>
+      </h4>
+      <div class="pane-content newsletter-body">
+          <div id="custom-qs-register-cta">
+<div class="entity entity-bean bean-member-benefits clearfix" about="/block/-member-benefits-block-test" typeof="">
+  <div class="content">
+    
+  <div class="field-text-body">
+    <div class="register-side-heading">Becoming a member on <br>TopUniversities has many benefits.</div><p class="register-side-subheading">It's totally free, and allows you to...</p><ol><li>Compare universities worldwide</li><li>Personalize rankings</li><li>Access premium rankings data</li><li>Apply for exclusive scholarships</li><li>Attend global university events</li><li>Connect via student forums</li><li>Download top research reports</li><li>Receive expert admissions advice</li></ol>  </div>
+    <div class="user-info">
+      <div class="quote">
+  <div class="field-quote">
+    TopUniversities helped me find my dream university.  </div>
+</div><div class="name-age-location">Susanna, 28<br />from Montreal</div><div class="image"></div>    </div>
+  </div>
+</div>
+</div>
+          <div id="custom-qs-reg-login-block">
+              <div class="field-basic-text-text">
+                  <h1 class="join-now">Join TopUniversities now.</h1>
+              </div><h3>Already a member?</h3>
+          <div class="custom-ranking-overview-text">Login from the top right-hand corner</div>
+            <form class="user-info-from-cookie" enctype="multipart/form-data" action="/university-rankings/university-subject-rankings/2015/medicine" method="post" id="user-register-form" accept-charset="UTF-8" role="form"><div><input type="hidden" value="TOPUNI-newsletter" />
+<div id="edit-account" class="form-wrapper"><div class="form-item form-type-textfield form-item-mail form-group">
+  <label for="edit-mail">Email * <span class="form-required" title="This field is required.">*</span></label>
+ <input placeholder="Email *"  class="qs-instant-registration-mail form-control form-text required" type="text" id="edit-mail" name="mail" value="" size="60" maxlength="254" />
+<span class="help-block"><div class="email-desc">Your email is safe with us. <br>We will never send you unwanted emails.</div></span>
+</div>
+<div class="form-item form-type-password form-item-pass form-group">
+ <input placeholder="Password *" class="qs-instant-registration-pass form-control form-text required" type="password" id="edit-pass" name="pass" size="25" maxlength="128" />
+<span class="help-block"><div class="pass-desc">For safety reasons please use at least six characters and one numeral.</div></span>
+</div>
+<div class="form-item form-type-checkbox form-item-copy checkbox">
+  <label class="option" for="edit-copy"><input type="checkbox" id="edit-copy" name="copy" value="1" class="form-checkbox" /></label><div class="checkbox-title">Show password (to verify) </div>
+</div>
+<input placeholder="Username" class="qs-instant-registration-name" type="hidden" name="name" value="D8WU4pUAXu" />
+<input type="hidden" name="timezone" value="Europe/London" />
+</div><input type="hidden" name="form_build_id" value="form-WGTT2QQj8Doqanr806KHTW5GIbgxp4UtzVwlsqr971g" />
+<input type="hidden" name="form_id" value="user_register_form" />
+<div class="edit-how-you-wrapper"><div class="form-item form-type-textfield form-item-how-you form-group">
+  <label for="edit-how-you">how you </label>
+ <input placeholder="how you"  class="form-control form-text" type="text" id="edit-how-you" name="how_you" value="" size="20" maxlength="128" />
+<span class="help-block">How are you today?</span>
+</div>
+</div><div class="field-type-text field-name-field-first-name field-widget-text-textfield form-wrapper" id="edit-field-first-name"><div id="field-first-name-add-more-wrapper"><div class="form-item form-type-textfield form-item-field-first-name-und-0-value form-group">
+  <label for="edit-field-first-name-und-0-value">First name * <span class="form-required" title="This field is required.">*</span></label>
+ <input placeholder="First name *"  class="text-full form-control form-text required" type="text" id="edit-field-first-name-und-0-value" name="field_first_name[und][0][value]" value="" size="60" maxlength="255" />
+</div>
+</div></div><div class="field-type-text field-name-field-last-name field-widget-text-textfield form-wrapper" id="edit-field-last-name"><div id="field-last-name-add-more-wrapper"><div class="form-item form-type-textfield form-item-field-last-name-und-0-value form-group">
+  <label for="edit-field-last-name-und-0-value">Last name * <span class="form-required" title="This field is required.">*</span></label>
+ <input placeholder="Last name *"  class="text-full form-control form-text required" type="text" id="edit-field-last-name-und-0-value" name="field_last_name[und][0][value]" value="" size="60" maxlength="255" />
+</div>
+</div></div><div class="field-type-list-text field-name-field-country-of-residence field-widget-options-select form-wrapper" id="edit-field-country-of-residence"><div class="form-item form-type-select form-item-field-country-of-residence-und form-group">
+  <label for="edit-field-country-of-residence-und">Country of residence <span class="form-required" title="This field is required.">*</span></label>
+ <select class="form-control form-select required" id="edit-field-country-of-residence-und" name="field_country_of_residence[und]" jcf="{&quot;wrapNative&quot;: false, &quot;wrapNativeOnMobile&quot;: false}"><option value="_none">Country of residence *</option><option value="Afghanistan">Afghanistan</option><option value="Aland Islands">Aland Islands</option><option value="Albania">Albania</option><option value="Algeria">Algeria</option><option value="American Samoa">American Samoa</option><option value="Andorra">Andorra</option><option value="Angola">Angola</option><option value="Anguilla">Anguilla</option><option value="Antarctica">Antarctica</option><option value="Antigua and Barbuda">Antigua and Barbuda</option><option value="Argentina">Argentina</option><option value="Armenia">Armenia</option><option value="Aruba">Aruba</option><option value="Australia">Australia</option><option value="Austria">Austria</option><option value="Azerbaijan">Azerbaijan</option><option value="Bahamas">Bahamas</option><option value="Bahrain">Bahrain</option><option value="Bangladesh">Bangladesh</option><option value="Barbados">Barbados</option><option value="Belarus">Belarus</option><option value="Belgium">Belgium</option><option value="Belize">Belize</option><option value="Benin">Benin</option><option value="Bermuda">Bermuda</option><option value="Bhutan">Bhutan</option><option value="Bolivia">Bolivia</option><option value="Bosnia and Herzegovina">Bosnia and Herzegovina</option><option value="Botswana">Botswana</option><option value="Bouvet Island">Bouvet Island</option><option value="Brazil">Brazil</option><option value="British Indian Ocean Territory">British Indian Ocean Territory</option><option value="British Virgin Islands">British Virgin Islands</option><option value="Brunei">Brunei</option><option value="Bulgaria">Bulgaria</option><option value="Burkina Faso">Burkina Faso</option><option value="Burundi">Burundi</option><option value="Cambodia">Cambodia</option><option value="Cameroon">Cameroon</option><option value="Canada">Canada</option><option value="Cape Verde">Cape Verde</option><option value="Cayman Islands">Cayman Islands</option><option value="Central African Republic">Central African Republic</option><option value="Chad">Chad</option><option value="Chile">Chile</option><option value="China">China</option><option value="Christmas Island">Christmas Island</option><option value="Cocos (Keeling) Islands">Cocos (Keeling) Islands</option><option value="Colombia">Colombia</option><option value="Comoros">Comoros</option><option value="Congo (Brazzaville)">Congo (Brazzaville)</option><option value="Congo (Kinshasa)">Congo (Kinshasa)</option><option value="Cook Islands">Cook Islands</option><option value="Costa Rica">Costa Rica</option><option value="Croatia">Croatia</option><option value="Cuba">Cuba</option><option value="Curaçao">Curaçao</option><option value="Cyprus">Cyprus</option><option value="Czech Republic">Czech Republic</option><option value="Denmark">Denmark</option><option value="Djibouti">Djibouti</option><option value="Dominica">Dominica</option><option value="Dominican Republic">Dominican Republic</option><option value="Ecuador">Ecuador</option><option value="Egypt">Egypt</option><option value="El Salvador">El Salvador</option><option value="Equatorial Guinea">Equatorial Guinea</option><option value="Eritrea">Eritrea</option><option value="Estonia">Estonia</option><option value="Ethiopia">Ethiopia</option><option value="Falkland Islands">Falkland Islands</option><option value="Faroe Islands">Faroe Islands</option><option value="Fiji">Fiji</option><option value="Finland">Finland</option><option value="France">France</option><option value="French Guiana">French Guiana</option><option value="French Polynesia">French Polynesia</option><option value="French Southern Territories">French Southern Territories</option><option value="Gabon">Gabon</option><option value="Gambia">Gambia</option><option value="Georgia">Georgia</option><option value="Germany">Germany</option><option value="Ghana">Ghana</option><option value="Gibraltar">Gibraltar</option><option value="Greece">Greece</option><option value="Greenland">Greenland</option><option value="Grenada">Grenada</option><option value="Guadeloupe">Guadeloupe</option><option value="Guam">Guam</option><option value="Guatemala">Guatemala</option><option value="Guernsey">Guernsey</option><option value="Guinea">Guinea</option><option value="Guinea-Bissau">Guinea-Bissau</option><option value="Guyana">Guyana</option><option value="Haiti">Haiti</option><option value="Heard Island and McDonald Islands">Heard Island and McDonald Islands</option><option value="Honduras">Honduras</option><option value="Hong Kong S.A.R., China">Hong Kong S.A.R., China</option><option value="Hungary">Hungary</option><option value="Iceland">Iceland</option><option value="India">India</option><option value="Indonesia">Indonesia</option><option value="Iran">Iran</option><option value="Iraq">Iraq</option><option value="Ireland">Ireland</option><option value="Isle of Man">Isle of Man</option><option value="Israel">Israel</option><option value="Italy">Italy</option><option value="Ivory Coast">Ivory Coast</option><option value="Jamaica">Jamaica</option><option value="Japan">Japan</option><option value="Jersey">Jersey</option><option value="Jordan">Jordan</option><option value="Kazakhstan">Kazakhstan</option><option value="Kenya">Kenya</option><option value="Kiribati">Kiribati</option><option value="Kuwait">Kuwait</option><option value="Kyrgyzstan">Kyrgyzstan</option><option value="Laos">Laos</option><option value="Latvia">Latvia</option><option value="Lebanon">Lebanon</option><option value="Lesotho">Lesotho</option><option value="Liberia">Liberia</option><option value="Libya">Libya</option><option value="Liechtenstein">Liechtenstein</option><option value="Lithuania">Lithuania</option><option value="Luxembourg">Luxembourg</option><option value="Macao S.A.R., China">Macao S.A.R., China</option><option value="Macedonia">Macedonia</option><option value="Madagascar">Madagascar</option><option value="Malawi">Malawi</option><option value="Malaysia">Malaysia</option><option value="Maldives">Maldives</option><option value="Mali">Mali</option><option value="Malta">Malta</option><option value="Marshall Islands">Marshall Islands</option><option value="Martinique">Martinique</option><option value="Mauritania">Mauritania</option><option value="Mauritius">Mauritius</option><option value="Mayotte">Mayotte</option><option value="Mexico">Mexico</option><option value="Micronesia">Micronesia</option><option value="Moldova">Moldova</option><option value="Monaco">Monaco</option><option value="Mongolia">Mongolia</option><option value="Montenegro">Montenegro</option><option value="Montserrat">Montserrat</option><option value="Morocco">Morocco</option><option value="Mozambique">Mozambique</option><option value="Myanmar">Myanmar</option><option value="Namibia">Namibia</option><option value="Nauru">Nauru</option><option value="Nepal">Nepal</option><option value="Netherlands">Netherlands</option><option value="Netherlands Antilles">Netherlands Antilles</option><option value="New Caledonia">New Caledonia</option><option value="New Zealand">New Zealand</option><option value="Nicaragua">Nicaragua</option><option value="Niger">Niger</option><option value="Nigeria">Nigeria</option><option value="Niue">Niue</option><option value="Norfolk Island">Norfolk Island</option><option value="Northern Mariana Islands">Northern Mariana Islands</option><option value="North Korea">North Korea</option><option value="Norway">Norway</option><option value="Oman">Oman</option><option value="Pakistan">Pakistan</option><option value="Palau">Palau</option><option value="Palestinian Territory">Palestinian Territory</option><option value="Panama">Panama</option><option value="Papua New Guinea">Papua New Guinea</option><option value="Paraguay">Paraguay</option><option value="Peru">Peru</option><option value="Philippines">Philippines</option><option value="Pitcairn">Pitcairn</option><option value="Poland">Poland</option><option value="Portugal">Portugal</option><option value="Puerto Rico">Puerto Rico</option><option value="Qatar">Qatar</option><option value="Reunion">Reunion</option><option value="Romania">Romania</option><option value="Russia">Russia</option><option value="Rwanda">Rwanda</option><option value="Saint Barthélemy">Saint Barthélemy</option><option value="Saint Helena">Saint Helena</option><option value="Saint Kitts and Nevis">Saint Kitts and Nevis</option><option value="Saint Lucia">Saint Lucia</option><option value="Saint Martin (French part)">Saint Martin (French part)</option><option value="Saint Pierre and Miquelon">Saint Pierre and Miquelon</option><option value="Saint Vincent and the Grenadines">Saint Vincent and the Grenadines</option><option value="Samoa">Samoa</option><option value="San Marino">San Marino</option><option value="Sao Tome and Principe">Sao Tome and Principe</option><option value="Saudi Arabia">Saudi Arabia</option><option value="Senegal">Senegal</option><option value="Serbia">Serbia</option><option value="Seychelles">Seychelles</option><option value="Sierra Leone">Sierra Leone</option><option value="Singapore">Singapore</option><option value="Slovakia">Slovakia</option><option value="Slovenia">Slovenia</option><option value="Solomon Islands">Solomon Islands</option><option value="Somalia">Somalia</option><option value="South Africa">South Africa</option><option value="South Georgia and the South Sandwich Islands">South Georgia and the South Sandwich Islands</option><option value="South Korea">South Korea</option><option value="Spain">Spain</option><option value="Sri Lanka">Sri Lanka</option><option value="Sudan">Sudan</option><option value="Suriname">Suriname</option><option value="Svalbard and Jan Mayen">Svalbard and Jan Mayen</option><option value="Swaziland">Swaziland</option><option value="Sweden">Sweden</option><option value="Switzerland">Switzerland</option><option value="Syria">Syria</option><option value="Taiwan">Taiwan</option><option value="Tajikistan">Tajikistan</option><option value="Tanzania">Tanzania</option><option value="Thailand">Thailand</option><option value="Timor-Leste">Timor-Leste</option><option value="Togo">Togo</option><option value="Tokelau">Tokelau</option><option value="Tonga">Tonga</option><option value="Trinidad and Tobago">Trinidad and Tobago</option><option value="Tunisia">Tunisia</option><option value="Turkey">Turkey</option><option value="Turkmenistan">Turkmenistan</option><option value="Turks and Caicos Islands">Turks and Caicos Islands</option><option value="Tuvalu">Tuvalu</option><option value="U.S. Virgin Islands">U.S. Virgin Islands</option><option value="Uganda">Uganda</option><option value="Ukraine">Ukraine</option><option value="United Arab Emirates">United Arab Emirates</option><option value="United Kingdom">United Kingdom</option><option value="United States">United States</option><option value="United States Minor Outlying Islands">United States Minor Outlying Islands</option><option value="Uruguay">Uruguay</option><option value="Uzbekistan">Uzbekistan</option><option value="Vanuatu">Vanuatu</option><option value="Vatican">Vatican</option><option value="Venezuela">Venezuela</option><option value="Vietnam">Vietnam</option><option value="Wallis and Futuna">Wallis and Futuna</option><option value="Western Sahara">Western Sahara</option><option value="Yemen">Yemen</option><option value="Zambia">Zambia</option><option value="Zimbabwe">Zimbabwe</option></select>
+</div>
+</div><div class="field-type-list-text field-name-field-study-level-of-interest field-widget-options-select form-wrapper" id="edit-field-study-level-of-interest"><div class="form-item form-type-select form-item-field-study-level-of-interest-und form-group">
+  <label for="edit-field-study-level-of-interest-und">Study level of interest <span class="form-required" title="This field is required.">*</span></label>
+ <select class="form-control form-select required" id="edit-field-study-level-of-interest-und" name="field_study_level_of_interest[und]" jcf="{&quot;wrapNative&quot;: false, &quot;wrapNativeOnMobile&quot;: false}"><option value="_none">Study level of interest *</option><option value="Master">Masters</option><option value="Research">Research</option><option value="Certificate_Diploma">Certificate/ Diploma</option><option value="Bachelor_degree">Bachelor&#039;s degree</option><option value="MBA">MBA</option><option value="PhD">PhD</option></select>
+</div>
+</div><div class="field-type-list-text field-name-field-subjects-of-interest field-widget-options-select form-wrapper" id="edit-field-subjects-of-interest"><div class="form-item form-type-select form-item-field-subjects-of-interest-und form-group">
+  <label for="edit-field-subjects-of-interest-und">Subjects of Interest* <span class="form-required" title="This field is required.">*</span></label>
+ <select multiple="multiple" name="field_subjects_of_interest[und][]" class="form-control form-select required" id="edit-field-subjects-of-interest-und" jcf="{&quot;wrapNative&quot;: false, &quot;wrapNativeOnMobile&quot;: false, &quot;useCustomScroll&quot;: true, &quot;multipleCompactStyle&quot;: true}" placeholder="Subjects of Interest*"><option value="Accounting &amp; Finance">Accounting &amp; Finance</option><option value="Agriculture &amp; Forestry">Agriculture &amp; Forestry</option><option value="Anatomy &amp; Physiology">Anatomy &amp; Physiology</option><option value="Anthropology">Anthropology</option><option value="Architecture">Architecture</option><option value="Area Studies">Area Studies</option><option value="Art &amp; Design">Art &amp; Design</option><option value="Biological Sciences">Biological Sciences</option><option value="Built Environment">Built Environment</option><option value="Business &amp; Management Studies">Business &amp; Management Studies</option><option value="Chemistry">Chemistry</option><option value="Classics &amp; Ancient History">Classics &amp; Ancient History</option><option value="Communication &amp; Media Studies">Communication &amp; Media Studies</option><option value="Computer Science &amp; Information Systems">Computer Science &amp; Information Systems</option><option value="Dentistry">Dentistry</option><option value="Development Studies">Development Studies</option><option value="Earth &amp; Marine Sciences">Earth &amp; Marine Sciences</option><option value="Economics &amp; Econometrics">Economics &amp; Econometrics</option><option value="Education / Training">Education / Training</option><option value="Engineering - Chemical">Engineering - Chemical</option><option value="Engineering - Civil &amp; Structural">Engineering - Civil &amp; Structural</option><option value="Engineering - Electrical &amp; Electronic">Engineering - Electrical &amp; Electronic</option><option value="Engineering - General">Engineering - General</option><option value="Engineering - Manufacturing &amp; Production">Engineering - Manufacturing &amp; Production</option><option value="Engineering - Mechanical &amp; Aeronautical">Engineering - Mechanical &amp; Aeronautical</option><option value="Engineering - Mineral &amp; Mining">Engineering - Mineral &amp; Mining</option><option value="English Language &amp; Literature">English Language &amp; Literature</option><option value="Environmental Sciences">Environmental Sciences</option><option value="Ethnicity, Gender and Diversity">Ethnicity, Gender and Diversity</option><option value="Geography">Geography</option><option value="History &amp; Archaeology">History &amp; Archaeology</option><option value="Hospitality &amp; Leisure Management">Hospitality &amp; Leisure Management</option><option value="Human Resources Management">Human Resources Management</option><option value="International Relations / Studies / Affairs">International Relations / Studies / Affairs</option><option value="Law / Legal Studies">Law / Legal Studies</option><option value="Library &amp; Information Management">Library &amp; Information Management</option><option value="Linguistics">Linguistics</option><option value="Logistics / Supply Chain Management">Logistics / Supply Chain Management</option><option value="Marketing">Marketing</option><option value="Materials Sciences">Materials Sciences</option><option value="Mathematics">Mathematics</option><option value="Medicine">Medicine</option><option value="Medicine Related Studies">Medicine Related Studies</option><option value="Modern Languages">Modern Languages</option><option value="Nursing">Nursing</option><option value="Performing Arts">Performing Arts</option><option value="Pharmacy &amp; Pharmacology">Pharmacy &amp; Pharmacology</option><option value="Philosophy">Philosophy</option><option value="Physics &amp; Astronomy">Physics &amp; Astronomy</option><option value="Politics">Politics</option><option value="Psychology">Psychology</option><option value="Public Policy">Public Policy</option><option value="Sociology &amp; Social Studies">Sociology &amp; Social Studies</option><option value="Sports-related Subjects">Sports-related Subjects</option><option value="Statistics &amp; Operational Research">Statistics &amp; Operational Research</option><option value="Theology, Divinity &amp; Religious Studies">Theology, Divinity &amp; Religious Studies</option><option value="Urban Planning">Urban Planning</option><option value="Veterinary Science">Veterinary Science</option><option value="Zoology">Zoology</option></select>
+</div>
+</div><div class="field-type-list-boolean field-name-field-cm121-optin field-widget-options-onoff form-wrapper" id="edit-field-cm121-optin"><div class="form-item form-type-checkbox form-item-field-cm121-optin-und checkbox">
+  <label class="option" for="edit-field-cm121-optin-und"><input type="checkbox" id="edit-field-cm121-optin-und" name="field_cm121_optin[und]" value="1" checked="checked" class="form-checkbox" /></label><div class="checkbox-title">I wish to receive information about 1-2-1 interviews and participating institutions. </div>
+</div>
+</div><div class="field-type-list-boolean field-name-field-partner-optin field-widget-options-onoff form-wrapper" id="edit-field-partner-optin"><div class="form-item form-type-checkbox form-item-field-partner-optin-und checkbox">
+  <label class="option" for="edit-field-partner-optin-und"><input type="checkbox" id="edit-field-partner-optin-und" name="field_partner_optin[und]" value="1" checked="checked" class="form-checkbox" /></label><div class="checkbox-title">I would like to be considered for careers, test preps, admissions and other third party opportunities. </div>
+</div>
+</div><div class="field-type-list-boolean field-name-field-newsletter-optin field-widget-options-onoff form-wrapper" id="edit-field-newsletter-optin"><div class="form-item form-type-checkbox form-item-field-newsletter-optin-und checkbox">
+  <label class="option" for="edit-field-newsletter-optin-und"><input type="checkbox" id="edit-field-newsletter-optin-und" name="field_newsletter_optin[und]" value="1" checked="checked" class="form-checkbox" /></label><div class="checkbox-title">I wish to register for newsletters and up-to-date information on QS Products, Careers and Global Institutions. </div>
+</div>
+</div><div class="form-actions form-wrapper" id="edit-actions"><input class="btn_orrange form-submit btn btn-default btn-primary" type="submit" id="edit-submit" name="op" value="Join now" /></div><div class="about-textfield"><div class="form-item form-type-textfield form-item-about form-group">
+  <label for="edit-about">Leave this field blank </label>
+ <input placeholder="Leave this field blank"  autocomplete="off" class="form-control form-text" type="text" id="edit-about" name="about" value="" size="20" maxlength="128" />
+</div>
+</div></div></form>          </div>
+      </div>
+    </div>
+  </div>
+
+  
+    </div>
+    </div>
+  
+  
+  
+  
+  
+  
+</div>  </div>
+
+  
+  </div>
+<div class="panel-separator"></div><div class="panel-pane pane-views pane-recent-articles" >
+  
+        <h4 class="pane-title">Recent Articles</h4>
+    
+  
+  <div class="pane-content">
+    <div class="view view-recent-articles view-id-recent_articles view-display-id-block view-dom-id-73042c53c99794de1463b92b8890716e">
+        
+  
+  
+      <div class="view-content">
+      <div class="item-list">    <ol>          <li class="views-row views-row-1 views-row-odd views-row-first">  
+  <div class="views-field views-field-field-article-lead-image">        <div class="field-content"><a href="/student-info/scholarship-advice/international-scholarships-chinese-students"><img class="recent-article" typeof="foaf:Image" src="http://www.topuniversities.com/sites/default/files/styles/recent_article/public/articles/lead-images/scholarships_for_chinese_students.jpg?itok=9IHBtyZX" width="45" height="45" alt="Scholarships for Chinese students" title="Scholarships for Chinese students" /></a></div>  </div>  
+  <div class="views-field views-field-title">        <span class="field-content"><a href="/student-info/scholarship-advice/international-scholarships-chinese-students">International Scholarships for Chinese Students</a></span>  </div></li>
+          <li class="views-row views-row-2 views-row-even">  
+  <div class="views-field views-field-field-article-lead-image">        <div class="field-content"><a href="/university-rankings-articles/eeca-university-rankings/qs-university-rankings-eeca-2015-out-now"><img class="recent-article" typeof="foaf:Image" src="http://www.topuniversities.com/sites/default/files/styles/recent_article/public/articles/lead-images/lmsu.jpg?itok=qSImGHTD" width="45" height="45" alt="QS University Rankings: EECA 2015 – Out Now main image" title="QS University Rankings: EECA 2015 – Out Now main image" /></a></div>  </div>  
+  <div class="views-field views-field-title">        <span class="field-content"><a href="/university-rankings-articles/eeca-university-rankings/qs-university-rankings-eeca-2015-out-now">QS University Rankings: EECA 2015 – Out Now</a></span>  </div></li>
+          <li class="views-row views-row-3 views-row-odd">  
+  <div class="views-field views-field-field-article-lead-image">        <div class="field-content"><a href="/university-rankings-articles/eeca-university-rankings/qs-university-rankings-eeca-methodology"><img class="recent-article" typeof="foaf:Image" src="http://www.topuniversities.com/sites/default/files/styles/recent_article/public/articles/lead-images/eeca_homepage_background.jpg?itok=Bd7G22k4" width="45" height="45" alt="QS University Rankings: EECA – Methodology main image" title="QS University Rankings: EECA – Methodology main image" /></a></div>  </div>  
+  <div class="views-field views-field-title">        <span class="field-content"><a href="/university-rankings-articles/eeca-university-rankings/qs-university-rankings-eeca-methodology">QS University Rankings: EECA – Methodology</a></span>  </div></li>
+          <li class="views-row views-row-4 views-row-even views-row-last">  
+  <div class="views-field views-field-field-article-lead-image">        <div class="field-content"><a href="/student-info/admissions-advice/how-impress-admissions-officers"><img class="recent-article" typeof="foaf:Image" src="http://www.topuniversities.com/sites/default/files/styles/recent_article/public/articles/lead-images/admissions_main_image.jpg?itok=7EirPmvC" width="45" height="45" alt="Admissions main image" title="Admissions main image" /></a></div>  </div>  
+  <div class="views-field views-field-title">        <span class="field-content"><a href="/student-info/admissions-advice/how-impress-admissions-officers">How to Impress Admissions Officers </a></span>  </div></li>
+      </ol></div>    </div>
+  
+  
+  
+  
+  
+  
+</div>  </div>
+
+  
+  </div>
+<div class="panel-separator"></div><div class="panel-pane pane-block pane-qs-social-counters-qs-follow-us" >
+  
+        <h4 class="pane-title"><span class="fl">Follow TOP<span>UNIVERSITIES</span></span></h4>
+    
+  
+  <div class="pane-content">
+    
+<div class="widget-wrap">
+  <div class="socialbox-widget" id="socialbox">
+    <ul>
+      <li id="soc-1">
+        <div class="socall">
+          <span class="socim"><a target="_blank" title="Like on Facebook" href="https://www.facebook.com/topuniversities" class="socim fb"><i class="fa fa-facebook"></i></a></span>
+          <span class="counter"><span class="socnums">128959</span><span class="soctyp"> Fans</span></span>
+          <span><a target="_blank" title="Like on Facebook" class="socialbox-button facebook btn btn_orrange" href="https://www.facebook.com/topuniversities"> Like </a></span></div>
+      </li>
+      <li id="soc-2">
+        <div class="socall">
+          <span class="socim"><a target="_blank" title="Follow on Twitter" href="https://twitter.com/TopUnis" class="socim tw"><i class="fa fa-twitter"></i></a></span>
+          <span class="counter"><span class="socnums">10492</span><span class="soctyp"> Followers</span></span>
+          <span><a target="_blank" title="Follow on Twitter" class="socialbox-button twitter btn btn_orrange" href="https://twitter.com/TopUnis"> Follow </a></span></div>
+      </li>
+      <li id="soc-3">
+        <div class="socall">
+          <span class="socim"><a target="_blank" title="Linked In" href="http://www.linkedin.com/groups?home=&gid=64115" class="socim in"><i class="fa fa-linkedin"></i></a></span>
+          <span class="counter"><span class="socnums">3815</span><span class="soctyp"> Members</span></span>
+          <span><a target="_blank" title="Linked In" class="socialbox-button linkedin btn btn_orrange" href="http://www.linkedin.com/groups?home=&gid=64115">Join</a></span></div>
+      </li>
+      <li id="soc-4">
+        <div class="socall">
+          <span class="socim"><a target="_blank" title="GPLUS" href="https://plus.google.com/113074138589353724717" class="socim gp"><i class="fa fa-google-plus"></i></a></span>
+          <span class="counter"><span class="socnums">2784</span><span class="soctyp"> in Circles</span></span>
+          <span><a target="_blank" title="GPLUS" class="socialbox-button gplus btn btn_orrange" href="https://plus.google.com/113074138589353724717">Circle</a></span></div>
+      </li>
+      <li id="soc-5">
+        <div class="socall">
+          <span class="socim"><a target="_blank" title="Youtube" href="http://www.youtube.com/qstopuniversities" class="socim yt"><i class="fa fa-youtube"></i></a></span>
+          <span class="counter"><span class="socnums">1303</span><span class="soctyp"> Subscribers</span></span>
+          <span><a target="_blank" title="Youtube" class="socialbox-button yt btn btn_orrange" href="http://www.youtube.com/qstopuniversities">Subscribe</a></span></div>
+      </li>
+      <li id="soc-6">
+        <div class="socall">
+          <span class="socim"><a target="_blank" title="Pinterest" href="https://www.pinterest.com/topuniversities" class="socim pin"><i class="fa fa-pinterest-p"></i></a></span>
+          <span class="counter"><span class="socnums">751</span><span class="soctyp"> Followers</span></span>
+          <span><a target="_blank" title="Pinterest" class="socialbox-button pin btn btn_orrange" href="https://www.pinterest.com/topuniversities">Follow</a></span></div>
+      </li>
+      <li id="soc-7">
+        <div class="socall">
+          <span class="socim"><a target="_blank" title="Instagram" href="https://instagram.com/topunis" class="socim ins"><i class="fa fa-instagram"></i></a></span>
+          <span class="counter"><span class="socnums">987</span><span class="soctyp"> Followers</span></span>
+          <span><a target="_blank" title="Instagram" class="socialbox-button ins btn btn_orrange" href="https://instagram.com/topunis">Follow</a></span></div>
+      </li>
+    </ul>
+  </div>
+</div>  </div>
+
+  
+  </div>
+<div class="panel-separator"></div><div class="panel-pane pane-block pane-dfp-site-wide-2-300-x-250 desktop-only" >
+  
+      
+  
+  <div class="pane-content">
+    <div id="dfp-ad-site_wide_2_300_x_250-wrapper" class="dfp-tag-wrapper">
+<div  id="dfp-ad-site_wide_2_300_x_250" class="dfp-tag-wrapper">
+    <script type="text/javascript">
+    googletag.cmd.push(function() {
+      googletag.display("dfp-ad-site_wide_2_300_x_250");
+    });
+  </script>
+</div>
+</div>  </div>
+
+  
+  </div>
+ </div>
+      </div>
+  </div>
+</div>
+<!-- /.burr-flipped --> 
+  </div>
+</div>
+  </div>
+ </div>
+  </div>
+  <!-- /#main --> 
+</div>
+<!-- /#main-wrapper -->
+
+<footer id="footer" class="footer" role="footer">
+  <div class="container">   <div class="region region-footer">
+    <div id="block-panels-mini-footer-mba-resources" class="block block-panels-mini">
+
+    
+  <div class="content">
+    <div class="panel-flexible panels-flexible-665 clearfix" id="mini-panel-footer_mba_resources">
+<div class="panel-flexible-inside panels-flexible-665-inside">
+<div class="panels-flexible-region panels-flexible-region-665-1st panels-flexible-region-first ">
+  <div class="inside panels-flexible-region-inside panels-flexible-region-665-1st-inside panels-flexible-region-inside-first">
+<div class="panel-pane pane-block pane-menu-menu-footer-where-to-study-eve" >
+  
+      
+  
+  <div class="pane-content">
+    <ul class="menu nav"><li class="first last expanded dropdown"><a href="/where-to-study/home" class="dropdown-toggle">Where to Study<span class="caret"></span></a><ul class="dropdown-menu"><li class="first leaf"><a href="/where-to-study/region/usa-canada/guide">US &amp; Canada</a></li>
+<li class="leaf"><a href="/where-to-study/region/europe/guide">Europe</a></li>
+<li class="leaf"><a href="/where-to-study/region/asia/guide">Asia</a></li>
+<li class="leaf"><a href="/where-to-study/region/australia-and-new-zealand/guide">Australia &amp; New Zealand</a></li>
+<li class="leaf"><a href="/where-to-study/region/latin-america/guide">Latin America</a></li>
+<li class="leaf"><a href="/where-to-study/region/middle-east/guide">Middle East</a></li>
+<li class="last leaf"><a href="/where-to-study/region/africa/guide">Africa</a></li>
+</ul></li>
+</ul>  </div>
+
+  
+  </div>
+<div class="panel-separator"></div><div class="panel-pane pane-block pane-menu-block-17 dropdown-menu" >
+  
+        <h4 class="pane-title"><a href="/universities" class="dropdown-toggle"> Universities</a></h4>
+    
+  
+  <div class="pane-content">
+    <div class="menu-block-wrapper menu-block-17 menu-name-main-menu parent-mlid-50779 menu-level-1">
+  <ul class="menu nav nav-pills nav-stacked"><li class="first leaf menu-mlid-50780"><a href="/universities/region/6">Universities in Africa</a></li>
+<li class="leaf menu-mlid-50781"><a href="/universities/region/71">Universities in Asia</a></li>
+<li class="leaf menu-mlid-50782"><a href="/universities/region/140">Universities in Europe</a></li>
+<li class="leaf menu-mlid-50783"><a href="/universities/region/213">Universities in North America</a></li>
+<li class="leaf menu-mlid-50784"><a href="/universities/region/349">Universities in South America</a></li>
+<li class="leaf menu-mlid-50785"><a href="/universities/region/317">Universities in Oceania</a></li>
+<li class="last leaf menu-mlid-50786"><a href="http://www.topuniversities.com/universities">Universities overview</a></li>
+</ul></div>
+  </div>
+
+  
+  </div>
+  </div>
+</div>
+<div class="panels-flexible-region panels-flexible-region-665-2nd ">
+  <div class="inside panels-flexible-region-inside panels-flexible-region-665-2nd-inside">
+<div class="panel-pane pane-block pane-menu-menu-footer-choosing-an-mba" >
+  
+      
+  
+  <div class="pane-content">
+    <ul class="menu nav"><li class="first expanded dropdown"><a href="/courses" class="dropdown-toggle">Courses<span class="caret"></span></a><ul class="dropdown-menu"><li class="first leaf"><a href="/courses/arts-humanities/guide">Arts &amp; Humanities</a></li>
+<li class="leaf"><a href="/courses/business-management/guide">Business &amp; Management</a></li>
+<li class="leaf"><a href="/courses/engineering/guide">Engineering &amp; Technology</a></li>
+<li class="leaf"><a href="/courses/life-sciences-medicine/guide">Life Sciences &amp; Medicine</a></li>
+<li class="leaf"><a href="/courses/natural-sciences/guide">Natural Sciences</a></li>
+<li class="last leaf"><a href="/courses/social-sciences/guide">Social Sciences</a></li>
+</ul></li>
+<li class="expanded dropdown"><a href="/university-rankings" class="dropdown-toggle">University Rankings<span class="caret"></span></a><ul class="dropdown-menu"><li class="first leaf"><a href="/qs-world-university-rankings">QS World University Rankings</a></li>
+<li class="leaf"><a href="/subject-rankings">QS World University Rankings by Subject</a></li>
+<li class="leaf"><a href="/faculty-rankings">QS World University Rankings by Faculty</a></li>
+<li class="leaf"><a href="/regional-rankings">QS University Rankings by Region</a></li>
+<li class="leaf"><a href="/best-student-cities">QS Best Student Cities</a></li>
+<li class="last leaf"><a href="/top-50-under-50">QS Top 50 Under 50</a></li>
+</ul></li>
+<li class="last expanded dropdown"><a href="/events" class="dropdown-toggle">Events<span class="caret"></span></a><ul class="dropdown-menu"><li class="first leaf"><a href="/events/qs-world-grad-school-tour">QS World Grad School Tour</a></li>
+<li class="last leaf"><a href="/events/qs-world-university-tour">QS World University Tour</a></li>
+</ul></li>
+</ul>  </div>
+
+  
+  </div>
+  </div>
+</div>
+<div class="panels-flexible-region panels-flexible-region-665-3rd ">
+  <div class="inside panels-flexible-region-inside panels-flexible-region-665-3rd-inside">
+<div class="panel-pane pane-block pane-menu-menu-footer-mba-admissions" >
+  
+      
+  
+  <div class="pane-content">
+    <ul class="menu nav"><li class="first expanded dropdown"><a href="/qs-stars/home" class="dropdown-toggle">QS Stars<span class="caret"></span></a><ul class="dropdown-menu"><li class="first leaf"><a href="/qs-stars">QS Stars University Ratings</a></li>
+<li class="last leaf"><a href="/qs-stars/qs-stars-methodology">QS Stars Methodology</a></li>
+</ul></li>
+<li class="last expanded dropdown"><a href="/student-info" class="dropdown-toggle">Student Info<span class="caret"></span></a><ul class="dropdown-menu"><li class="first leaf"><a href="/scholarships">QS Scholarships</a></li>
+<li class="leaf"><a href="/student-info/scholarship-advice">Scholarship Advice</a></li>
+<li class="leaf"><a href="/student-info/qs-guides">QS Guides</a></li>
+<li class="leaf"><a href="/qsadvance">Application Assistance</a></li>
+<li class="leaf"><a href="/student-info/choosing-university">Choosing a University</a></li>
+<li class="leaf"><a href="/student-info/admissions-advice">Admissions Advice</a></li>
+<li class="leaf"><a href="/student-info/student-finance">Student Finance</a></li>
+<li class="leaf"><a href="/student-info/careers-advice">Careers Advice</a></li>
+<li class="leaf"><a href="/student-info/studying-abroad">Studying Abroad</a></li>
+<li class="last leaf"><a href="/student-info/university-news">University News</a></li>
+</ul></li>
+</ul>  </div>
+
+  
+  </div>
+  </div>
+</div>
+<div class="panels-flexible-region panels-flexible-region-665-4th panels-flexible-region-last ">
+  <div class="inside panels-flexible-region-inside panels-flexible-region-665-4th-inside panels-flexible-region-inside-last">
+<div class="panel-pane pane-block pane-menu-menu-footer-mba-graduates" >
+  
+      
+  
+  <div class="pane-content">
+    <ul class="menu nav"><li class="first expanded dropdown"><a href="/community" class="dropdown-toggle">Forum & Blog<span class="caret"></span></a><ul class="dropdown-menu"><li class="first leaf"><a href="/forum">Forum</a></li>
+<li class="last leaf"><a href="/blog">Blog</a></li>
+</ul></li>
+<li class="last expanded dropdown"><a href="/user" class="dropdown-toggle">Members<span class="caret"></span></a><ul class="dropdown-menu"><li class="first leaf"><a href="/user">Join Now</a></li>
+<li class="leaf"><a href="/user">My Account</a></li>
+<li class="last leaf"><a href="/user">Login</a></li>
+</ul></li>
+</ul>  </div>
+
+  
+  </div>
+  </div>
+</div>
+</div>
+</div>
+  </div>
+</div>
+  </div>
+    <div class="bottom_footer">
+            <div class="copyright pull-left">
+        <div class="footer_nav"> <a href="/about-qs">About</a> <a href="/contact-us">Contact</a> <a href="/privacy-policy">Privacy</a> <a href="/user-agreement">Users</a> <a href="/cookies-policy">Cookies</a> <a href="/partners">Media Partners</a>
+ </div>
+        <p><span>© <span>QS Quacquarelli Symonds Limited 1994 - 2015. All rights reserved.</span></span></p> </div>
+            <div class="social_login_btns footer">
+              </div>
+    </div>
+      </div>
+    <div id="login-overlay">
+    <div class="panel-pane pane-qs-reg-pane">
+      <h4 class="pane-title"><span>This feature is only available to registered users</span><a href="#" id="close-login"><i class="icon icon-remove"></i></a></h4><div class="pane-content">  <div id="custom-qs-reg-login-block"><div class="field-basic-text-text"><h1 class="join-now">Join TopUniversities now.</h1></div><h3>Already a member?</h3><div class="custom-ranking-overview-text">Login from the top right-hand corner</div> <form class="user-info-from-cookie" enctype="multipart/form-data" action="/university-rankings/world-university-rankings/2015" method="post" id="user-register-form" accept-charset="UTF-8" role="form"><div><div id="edit-account" class="form-wrapper"><div class="form-item form-type-textfield form-item-mail form-group">
+  <label for="edit-mail--2">Email * <span class="form-required" title="This field is required.">*</span></label>
+ <input placeholder="Email *"  class="qs-instant-registration-mail form-control form-text required" type="text" id="edit-mail--2" name="mail" value="" size="60" maxlength="254" />
+<span class="help-block"><div class="email-desc">Your email is safe with us. <br>We will never send you unwanted emails.</div></span>
+</div>
+<div class="form-item form-type-password form-item-pass form-group">
+ <input placeholder="Password *" class="qs-instant-registration-pass form-control form-text required" type="password" id="edit-pass--3" name="pass" size="25" maxlength="128" />
+<span class="help-block"><div class="pass-desc">For safety reasons please use at least six characters and one numeral.</div></span>
+</div>
+<div class="form-item form-type-checkbox form-item-copy checkbox">
+  <label class="option" for="edit-copy"><input type="checkbox" id="edit-copy" name="copy" value="1" class="form-checkbox" /></label><div class="checkbox-title">Show password (to verify) </div>
+</div>
+<input placeholder="Username" class="qs-instant-registration-name" type="hidden" name="name" value="ASpyvvYMPc" />
+<input type="hidden" name="timezone" value="Europe/London" />
+</div><input type="hidden" name="form_build_id" value="form-l5EKEkPHvG2YT3701WY4C8FgB6Ew05_NvGDYSPvYD_E" />
+<input type="hidden" name="form_id" value="user_register_form" />
+<div class="edit-how-you-wrapper"><div class="form-item form-type-textfield form-item-how-you form-group">
+  <label for="edit-how-you--3">how you </label>
+ <input placeholder="how you"  class="form-control form-text" type="text" id="edit-how-you--3" name="how_you" value="" size="20" maxlength="128" />
+<span class="help-block">How are you today?</span>
+</div>
+</div><div class="field-type-text field-name-field-first-name field-widget-text-textfield form-wrapper" id="edit-field-first-name"><div id="field-first-name-add-more-wrapper"><div class="form-item form-type-textfield form-item-field-first-name-und-0-value form-group">
+  <label for="edit-field-first-name-und-0-value">First name * <span class="form-required" title="This field is required.">*</span></label>
+ <input placeholder="First name *"  class="text-full form-control form-text required" type="text" id="edit-field-first-name-und-0-value" name="field_first_name[und][0][value]" value="" size="60" maxlength="255" />
+</div>
+</div></div><div class="field-type-text field-name-field-last-name field-widget-text-textfield form-wrapper" id="edit-field-last-name"><div id="field-last-name-add-more-wrapper"><div class="form-item form-type-textfield form-item-field-last-name-und-0-value form-group">
+  <label for="edit-field-last-name-und-0-value">Last name * <span class="form-required" title="This field is required.">*</span></label>
+ <input placeholder="Last name *"  class="text-full form-control form-text required" type="text" id="edit-field-last-name-und-0-value" name="field_last_name[und][0][value]" value="" size="60" maxlength="255" />
+</div>
+</div></div><div class="field-type-list-text field-name-field-country-of-residence field-widget-options-select form-wrapper" id="edit-field-country-of-residence"><div class="form-item form-type-select form-item-field-country-of-residence-und form-group">
+  <label for="edit-field-country-of-residence-und">Country of residence <span class="form-required" title="This field is required.">*</span></label>
+ <select class="form-control form-select required" id="edit-field-country-of-residence-und" name="field_country_of_residence[und]" jcf="{&quot;wrapNative&quot;: false, &quot;wrapNativeOnMobile&quot;: false}"><option value="_none">Country of residence *</option><option value="Afghanistan">Afghanistan</option><option value="Aland Islands">Aland Islands</option><option value="Albania">Albania</option><option value="Algeria">Algeria</option><option value="American Samoa">American Samoa</option><option value="Andorra">Andorra</option><option value="Angola">Angola</option><option value="Anguilla">Anguilla</option><option value="Antarctica">Antarctica</option><option value="Antigua and Barbuda">Antigua and Barbuda</option><option value="Argentina">Argentina</option><option value="Armenia">Armenia</option><option value="Aruba">Aruba</option><option value="Australia">Australia</option><option value="Austria">Austria</option><option value="Azerbaijan">Azerbaijan</option><option value="Bahamas">Bahamas</option><option value="Bahrain">Bahrain</option><option value="Bangladesh">Bangladesh</option><option value="Barbados">Barbados</option><option value="Belarus">Belarus</option><option value="Belgium">Belgium</option><option value="Belize">Belize</option><option value="Benin">Benin</option><option value="Bermuda">Bermuda</option><option value="Bhutan">Bhutan</option><option value="Bolivia">Bolivia</option><option value="Bosnia and Herzegovina">Bosnia and Herzegovina</option><option value="Botswana">Botswana</option><option value="Bouvet Island">Bouvet Island</option><option value="Brazil">Brazil</option><option value="British Indian Ocean Territory">British Indian Ocean Territory</option><option value="British Virgin Islands">British Virgin Islands</option><option value="Brunei">Brunei</option><option value="Bulgaria">Bulgaria</option><option value="Burkina Faso">Burkina Faso</option><option value="Burundi">Burundi</option><option value="Cambodia">Cambodia</option><option value="Cameroon">Cameroon</option><option value="Canada">Canada</option><option value="Cape Verde">Cape Verde</option><option value="Cayman Islands">Cayman Islands</option><option value="Central African Republic">Central African Republic</option><option value="Chad">Chad</option><option value="Chile">Chile</option><option value="China">China</option><option value="Christmas Island">Christmas Island</option><option value="Cocos (Keeling) Islands">Cocos (Keeling) Islands</option><option value="Colombia">Colombia</option><option value="Comoros">Comoros</option><option value="Congo (Brazzaville)">Congo (Brazzaville)</option><option value="Congo (Kinshasa)">Congo (Kinshasa)</option><option value="Cook Islands">Cook Islands</option><option value="Costa Rica">Costa Rica</option><option value="Croatia">Croatia</option><option value="Cuba">Cuba</option><option value="Curaçao">Curaçao</option><option value="Cyprus">Cyprus</option><option value="Czech Republic">Czech Republic</option><option value="Denmark">Denmark</option><option value="Djibouti">Djibouti</option><option value="Dominica">Dominica</option><option value="Dominican Republic">Dominican Republic</option><option value="Ecuador">Ecuador</option><option value="Egypt">Egypt</option><option value="El Salvador">El Salvador</option><option value="Equatorial Guinea">Equatorial Guinea</option><option value="Eritrea">Eritrea</option><option value="Estonia">Estonia</option><option value="Ethiopia">Ethiopia</option><option value="Falkland Islands">Falkland Islands</option><option value="Faroe Islands">Faroe Islands</option><option value="Fiji">Fiji</option><option value="Finland">Finland</option><option value="France">France</option><option value="French Guiana">French Guiana</option><option value="French Polynesia">French Polynesia</option><option value="French Southern Territories">French Southern Territories</option><option value="Gabon">Gabon</option><option value="Gambia">Gambia</option><option value="Georgia">Georgia</option><option value="Germany">Germany</option><option value="Ghana">Ghana</option><option value="Gibraltar">Gibraltar</option><option value="Greece">Greece</option><option value="Greenland">Greenland</option><option value="Grenada">Grenada</option><option value="Guadeloupe">Guadeloupe</option><option value="Guam">Guam</option><option value="Guatemala">Guatemala</option><option value="Guernsey">Guernsey</option><option value="Guinea">Guinea</option><option value="Guinea-Bissau">Guinea-Bissau</option><option value="Guyana">Guyana</option><option value="Haiti">Haiti</option><option value="Heard Island and McDonald Islands">Heard Island and McDonald Islands</option><option value="Honduras">Honduras</option><option value="Hong Kong S.A.R., China">Hong Kong S.A.R., China</option><option value="Hungary">Hungary</option><option value="Iceland">Iceland</option><option value="India">India</option><option value="Indonesia">Indonesia</option><option value="Iran">Iran</option><option value="Iraq">Iraq</option><option value="Ireland">Ireland</option><option value="Isle of Man">Isle of Man</option><option value="Israel">Israel</option><option value="Italy">Italy</option><option value="Ivory Coast">Ivory Coast</option><option value="Jamaica">Jamaica</option><option value="Japan">Japan</option><option value="Jersey">Jersey</option><option value="Jordan">Jordan</option><option value="Kazakhstan">Kazakhstan</option><option value="Kenya">Kenya</option><option value="Kiribati">Kiribati</option><option value="Kuwait">Kuwait</option><option value="Kyrgyzstan">Kyrgyzstan</option><option value="Laos">Laos</option><option value="Latvia">Latvia</option><option value="Lebanon">Lebanon</option><option value="Lesotho">Lesotho</option><option value="Liberia">Liberia</option><option value="Libya">Libya</option><option value="Liechtenstein">Liechtenstein</option><option value="Lithuania">Lithuania</option><option value="Luxembourg">Luxembourg</option><option value="Macao S.A.R., China">Macao S.A.R., China</option><option value="Macedonia">Macedonia</option><option value="Madagascar">Madagascar</option><option value="Malawi">Malawi</option><option value="Malaysia">Malaysia</option><option value="Maldives">Maldives</option><option value="Mali">Mali</option><option value="Malta">Malta</option><option value="Marshall Islands">Marshall Islands</option><option value="Martinique">Martinique</option><option value="Mauritania">Mauritania</option><option value="Mauritius">Mauritius</option><option value="Mayotte">Mayotte</option><option value="Mexico">Mexico</option><option value="Micronesia">Micronesia</option><option value="Moldova">Moldova</option><option value="Monaco">Monaco</option><option value="Mongolia">Mongolia</option><option value="Montenegro">Montenegro</option><option value="Montserrat">Montserrat</option><option value="Morocco">Morocco</option><option value="Mozambique">Mozambique</option><option value="Myanmar">Myanmar</option><option value="Namibia">Namibia</option><option value="Nauru">Nauru</option><option value="Nepal">Nepal</option><option value="Netherlands">Netherlands</option><option value="Netherlands Antilles">Netherlands Antilles</option><option value="New Caledonia">New Caledonia</option><option value="New Zealand">New Zealand</option><option value="Nicaragua">Nicaragua</option><option value="Niger">Niger</option><option value="Nigeria">Nigeria</option><option value="Niue">Niue</option><option value="Norfolk Island">Norfolk Island</option><option value="Northern Mariana Islands">Northern Mariana Islands</option><option value="North Korea">North Korea</option><option value="Norway">Norway</option><option value="Oman">Oman</option><option value="Pakistan">Pakistan</option><option value="Palau">Palau</option><option value="Palestinian Territory">Palestinian Territory</option><option value="Panama">Panama</option><option value="Papua New Guinea">Papua New Guinea</option><option value="Paraguay">Paraguay</option><option value="Peru">Peru</option><option value="Philippines">Philippines</option><option value="Pitcairn">Pitcairn</option><option value="Poland">Poland</option><option value="Portugal">Portugal</option><option value="Puerto Rico">Puerto Rico</option><option value="Qatar">Qatar</option><option value="Reunion">Reunion</option><option value="Romania">Romania</option><option value="Russia">Russia</option><option value="Rwanda">Rwanda</option><option value="Saint Barthélemy">Saint Barthélemy</option><option value="Saint Helena">Saint Helena</option><option value="Saint Kitts and Nevis">Saint Kitts and Nevis</option><option value="Saint Lucia">Saint Lucia</option><option value="Saint Martin (French part)">Saint Martin (French part)</option><option value="Saint Pierre and Miquelon">Saint Pierre and Miquelon</option><option value="Saint Vincent and the Grenadines">Saint Vincent and the Grenadines</option><option value="Samoa">Samoa</option><option value="San Marino">San Marino</option><option value="Sao Tome and Principe">Sao Tome and Principe</option><option value="Saudi Arabia">Saudi Arabia</option><option value="Senegal">Senegal</option><option value="Serbia">Serbia</option><option value="Seychelles">Seychelles</option><option value="Sierra Leone">Sierra Leone</option><option value="Singapore">Singapore</option><option value="Slovakia">Slovakia</option><option value="Slovenia">Slovenia</option><option value="Solomon Islands">Solomon Islands</option><option value="Somalia">Somalia</option><option value="South Africa">South Africa</option><option value="South Georgia and the South Sandwich Islands">South Georgia and the South Sandwich Islands</option><option value="South Korea">South Korea</option><option value="Spain">Spain</option><option value="Sri Lanka">Sri Lanka</option><option value="Sudan">Sudan</option><option value="Suriname">Suriname</option><option value="Svalbard and Jan Mayen">Svalbard and Jan Mayen</option><option value="Swaziland">Swaziland</option><option value="Sweden">Sweden</option><option value="Switzerland">Switzerland</option><option value="Syria">Syria</option><option value="Taiwan">Taiwan</option><option value="Tajikistan">Tajikistan</option><option value="Tanzania">Tanzania</option><option value="Thailand">Thailand</option><option value="Timor-Leste">Timor-Leste</option><option value="Togo">Togo</option><option value="Tokelau">Tokelau</option><option value="Tonga">Tonga</option><option value="Trinidad and Tobago">Trinidad and Tobago</option><option value="Tunisia">Tunisia</option><option value="Turkey">Turkey</option><option value="Turkmenistan">Turkmenistan</option><option value="Turks and Caicos Islands">Turks and Caicos Islands</option><option value="Tuvalu">Tuvalu</option><option value="U.S. Virgin Islands">U.S. Virgin Islands</option><option value="Uganda">Uganda</option><option value="Ukraine">Ukraine</option><option value="United Arab Emirates">United Arab Emirates</option><option value="United Kingdom">United Kingdom</option><option value="United States">United States</option><option value="United States Minor Outlying Islands">United States Minor Outlying Islands</option><option value="Uruguay">Uruguay</option><option value="Uzbekistan">Uzbekistan</option><option value="Vanuatu">Vanuatu</option><option value="Vatican">Vatican</option><option value="Venezuela">Venezuela</option><option value="Vietnam">Vietnam</option><option value="Wallis and Futuna">Wallis and Futuna</option><option value="Western Sahara">Western Sahara</option><option value="Yemen">Yemen</option><option value="Zambia">Zambia</option><option value="Zimbabwe">Zimbabwe</option></select>
+</div>
+</div><div class="field-type-list-text field-name-field-study-level-of-interest field-widget-options-select form-wrapper" id="edit-field-study-level-of-interest"><div class="form-item form-type-select form-item-field-study-level-of-interest-und form-group">
+  <label for="edit-field-study-level-of-interest-und">Study level of interest <span class="form-required" title="This field is required.">*</span></label>
+ <select class="form-control form-select required" id="edit-field-study-level-of-interest-und" name="field_study_level_of_interest[und]" jcf="{&quot;wrapNative&quot;: false, &quot;wrapNativeOnMobile&quot;: false}"><option value="_none">Study level of interest *</option><option value="Master">Masters</option><option value="Research">Research</option><option value="Certificate_Diploma">Certificate/ Diploma</option><option value="Bachelor_degree">Bachelor&#039;s degree</option><option value="MBA">MBA</option><option value="PhD">PhD</option></select>
+</div>
+</div><div class="field-type-list-text field-name-field-subjects-of-interest field-widget-options-select form-wrapper" id="edit-field-subjects-of-interest"><div class="form-item form-type-select form-item-field-subjects-of-interest-und form-group">
+  <label for="edit-field-subjects-of-interest-und">Subjects of Interest* <span class="form-required" title="This field is required.">*</span></label>
+ <select multiple="multiple" name="field_subjects_of_interest[und][]" class="form-control form-select required" id="edit-field-subjects-of-interest-und" jcf="{&quot;wrapNative&quot;: false, &quot;wrapNativeOnMobile&quot;: false, &quot;useCustomScroll&quot;: true, &quot;multipleCompactStyle&quot;: true}" placeholder="Subjects of Interest*"><option value="Accounting &amp; Finance">Accounting &amp; Finance</option><option value="Agriculture &amp; Forestry">Agriculture &amp; Forestry</option><option value="Anatomy &amp; Physiology">Anatomy &amp; Physiology</option><option value="Anthropology">Anthropology</option><option value="Architecture">Architecture</option><option value="Area Studies">Area Studies</option><option value="Art &amp; Design">Art &amp; Design</option><option value="Biological Sciences">Biological Sciences</option><option value="Built Environment">Built Environment</option><option value="Business &amp; Management Studies">Business &amp; Management Studies</option><option value="Chemistry">Chemistry</option><option value="Classics &amp; Ancient History">Classics &amp; Ancient History</option><option value="Communication &amp; Media Studies">Communication &amp; Media Studies</option><option value="Computer Science &amp; Information Systems">Computer Science &amp; Information Systems</option><option value="Dentistry">Dentistry</option><option value="Development Studies">Development Studies</option><option value="Earth &amp; Marine Sciences">Earth &amp; Marine Sciences</option><option value="Economics &amp; Econometrics">Economics &amp; Econometrics</option><option value="Education / Training">Education / Training</option><option value="Engineering - Chemical">Engineering - Chemical</option><option value="Engineering - Civil &amp; Structural">Engineering - Civil &amp; Structural</option><option value="Engineering - Electrical &amp; Electronic">Engineering - Electrical &amp; Electronic</option><option value="Engineering - General">Engineering - General</option><option value="Engineering - Manufacturing &amp; Production">Engineering - Manufacturing &amp; Production</option><option value="Engineering - Mechanical &amp; Aeronautical">Engineering - Mechanical &amp; Aeronautical</option><option value="Engineering - Mineral &amp; Mining">Engineering - Mineral &amp; Mining</option><option value="English Language &amp; Literature">English Language &amp; Literature</option><option value="Environmental Sciences">Environmental Sciences</option><option value="Ethnicity, Gender and Diversity">Ethnicity, Gender and Diversity</option><option value="Geography">Geography</option><option value="History &amp; Archaeology">History &amp; Archaeology</option><option value="Hospitality &amp; Leisure Management">Hospitality &amp; Leisure Management</option><option value="Human Resources Management">Human Resources Management</option><option value="International Relations / Studies / Affairs">International Relations / Studies / Affairs</option><option value="Law / Legal Studies">Law / Legal Studies</option><option value="Library &amp; Information Management">Library &amp; Information Management</option><option value="Linguistics">Linguistics</option><option value="Logistics / Supply Chain Management">Logistics / Supply Chain Management</option><option value="Marketing">Marketing</option><option value="Materials Sciences">Materials Sciences</option><option value="Mathematics">Mathematics</option><option value="Medicine">Medicine</option><option value="Medicine Related Studies">Medicine Related Studies</option><option value="Modern Languages">Modern Languages</option><option value="Nursing">Nursing</option><option value="Performing Arts">Performing Arts</option><option value="Pharmacy &amp; Pharmacology">Pharmacy &amp; Pharmacology</option><option value="Philosophy">Philosophy</option><option value="Physics &amp; Astronomy">Physics &amp; Astronomy</option><option value="Politics">Politics</option><option value="Psychology">Psychology</option><option value="Public Policy">Public Policy</option><option value="Sociology &amp; Social Studies">Sociology &amp; Social Studies</option><option value="Sports-related Subjects">Sports-related Subjects</option><option value="Statistics &amp; Operational Research">Statistics &amp; Operational Research</option><option value="Theology, Divinity &amp; Religious Studies">Theology, Divinity &amp; Religious Studies</option><option value="Urban Planning">Urban Planning</option><option value="Veterinary Science">Veterinary Science</option><option value="Zoology">Zoology</option></select>
+</div>
+</div><div class="field-type-list-boolean field-name-field-cm121-optin field-widget-options-onoff form-wrapper" id="edit-field-cm121-optin"><div class="form-item form-type-checkbox form-item-field-cm121-optin-und checkbox">
+  <label class="option" for="edit-field-cm121-optin-und"><input type="checkbox" id="edit-field-cm121-optin-und" name="field_cm121_optin[und]" value="1" checked="checked" class="form-checkbox" /></label><div class="checkbox-title">I wish to receive information about 1-2-1 interviews and participating institutions. </div>
+</div>
+</div><div class="field-type-list-boolean field-name-field-partner-optin field-widget-options-onoff form-wrapper" id="edit-field-partner-optin"><div class="form-item form-type-checkbox form-item-field-partner-optin-und checkbox">
+  <label class="option" for="edit-field-partner-optin-und"><input type="checkbox" id="edit-field-partner-optin-und" name="field_partner_optin[und]" value="1" checked="checked" class="form-checkbox" /></label><div class="checkbox-title">I would like to be considered for careers, test preps, admissions and other third party opportunities. </div>
+</div>
+</div><div class="field-type-list-boolean field-name-field-newsletter-optin field-widget-options-onoff form-wrapper" id="edit-field-newsletter-optin"><div class="form-item form-type-checkbox form-item-field-newsletter-optin-und checkbox">
+  <label class="option" for="edit-field-newsletter-optin-und"><input type="checkbox" id="edit-field-newsletter-optin-und" name="field_newsletter_optin[und]" value="1" checked="checked" class="form-checkbox" /></label><div class="checkbox-title">I wish to register for newsletters and up-to-date information on QS Products, Careers and Global Institutions. </div>
+</div>
+</div><div class="form-actions form-wrapper" id="edit-actions--3"><input class="btn_orrange form-submit btn btn-default btn-primary" type="submit" id="edit-submit--4" name="op" value="Join now" /></div><div class="about-textfield"><div class="form-item form-type-textfield form-item-about form-group">
+  <label for="edit-about">Leave this field blank </label>
+ <input placeholder="Leave this field blank"  autocomplete="off" class="form-control form-text" type="text" id="edit-about" name="about" value="" size="20" maxlength="128" />
+</div>
+</div></div></form></div><div id="custom-qs-register-cta">
+<div class="entity entity-bean bean-member-benefits clearfix" about="/block/-member-benefits-block-test" typeof="">
+  <div class="content">
+    
+  <div class="field-text-body">
+    <div class="register-side-heading">Becoming a member on <br>TopUniversities has many benefits.</div><p class="register-side-subheading">It's totally free, and allows you to...</p><ol><li>Compare universities worldwide</li><li>Personalize rankings</li><li>Access premium rankings data</li><li>Apply for exclusive scholarships</li><li>Attend global university events</li><li>Connect via student forums</li><li>Download top research reports</li><li>Receive expert admissions advice</li></ol>  </div>
+    <div class="user-info">
+      <div class="quote">
+  <div class="field-quote">
+    TopUniversities helped me find my dream university.  </div>
+</div><div class="name-age-location">Susanna, 28<br />from Montreal</div><div class="image"></div>    </div>
+  </div>
+</div>
+</div></div>
+    </div>
+  </div>
+  </footer>
+
+<!--<script src="//platform.twitter.com/oct.js" type="text/javascript"></script>
+<script type="text/javascript">
+twttr.conversion.trackPid('l4mrp');
+</script>
+<noscript>
+<img height="1" width="1" style="display:none;" alt="" src="https://analytics.twitter.com/i/adsct?txn_id=l4mrp&p_id=Twitter" />
+<img height="1" width="1" style="display:none;" alt="" src="//t.co/i/adsct?txn_id=l4mrp&p_id=Twitter" />
+</noscript>--><div id="fancy_login_dim_screen"></div><div id="fancy_login_login_box"><div id="fancy_login_form_contents"><a href="#" id="fancy_login_close_button">X</a><div id="fancy_login_user_login_block_wrapper"><form action="https://www.topuniversities.com/university-rankings/world-university-rankings/2015?destination=node/299926" method="post" id="user-login-form_1" accept-charset="UTF-8" role="form"><div><input type="hidden" name="form_build_id" value="form-9yj4NIObzs9mcunQ5MnGIZqFNa-tbDxo0L8IsP2fRqM" />
+<input type="hidden" name="form_id" value="fancy_login_user_login_block" />
+<div class="edit-how-you-wrapper"><div class="form-item form-type-textfield form-item-how-you form-group">
+  <label for="edit-how-you--2">how you </label>
+ <input placeholder="how you"  class="form-control form-text" type="text" id="edit-how-you--2" name="how_you" value="" size="20" maxlength="128" />
+<span class="help-block">How are you today?</span>
+</div>
+</div><div class="form-item form-type-textfield form-item-mail form-group">
+  <label for="edit-mail">Email <span class="form-required" title="This field is required.">*</span></label>
+ <input placeholder="Email"  class="form-control form-text required" type="text" id="edit-mail" name="mail" value="" size="60" maxlength="60" />
+</div>
+<div class="form-item form-type-password form-item-pass form-group">
+  <label for="edit-pass--2">Password </label>
+ <input placeholder="Password" class="form-control form-text" type="password" id="edit-pass--2" name="pass" size="15" maxlength="128" />
+</div>
+<div class="forgot_password"><a href="/user/password">Forgot your password?</a></div><div class="form-actions form-wrapper" id="edit-actions--2"><input class="btn_orrange form-submit btn btn-default btn-primary" type="submit" id="edit-submit--2" name="op" value="Submit" /></div><div class="join_now">If you are not registered yet, click <a href="/user/register?destination=node/299926">here to join.</a></div></div></form></div></div></div><div class="menu-minipanels menu-minipanel-3756">
+<div class="panel-display phelan clearfix qs-phelan" id="mini-panel-where_to_study_menu">
+
+
+  <div class="column1 panel-panel">
+    <div class="panel-panel-inner">
+      <div class="panel-pane pane-block pane-menu-block-3" >
+  
+      
+  
+  <div class="pane-content">
+    <div class="menu-block-wrapper menu-block-3 menu-name-main-menu parent-mlid-3756 menu-level-1">
+  <ul class="menu nav nav-pills nav-stacked"><li class="first leaf menu-mlid-6315"><a href="/where-to-study/region/usa-canada/guide">Study in the US &amp; Canada</a></li>
+<li class="leaf menu-mlid-7439"><a href="/where-to-study/region/europe/guide">Study in Europe</a></li>
+<li class="leaf menu-mlid-6317"><a href="/where-to-study/region/asia/guide">Study in Asia</a></li>
+<li class="leaf menu-mlid-6318"><a href="/where-to-study/region/australia-and-new-zealand/guide">Study in Australia &amp; New Zealand</a></li>
+<li class="leaf menu-mlid-6319"><a href="/where-to-study/region/latin-america/guide">Study in Latin America</a></li>
+<li class="leaf menu-mlid-6320"><a href="/where-to-study/region/middle-east/guide">Study in the Middle East</a></li>
+<li class="leaf menu-mlid-50890"><a href="/where-to-study/region/africa/guide">Study in Africa</a></li>
+<li class="last leaf menu-mlid-5293"><a href="/where-to-study/home">Where to Study overview</a></li>
+</ul></div>
+  </div>
+
+  
+  </div>
+    </div>
+  </div>
+  <div class="column2 panel-panel">
+    <div class="panel-panel-inner">
+      <div class="panel-pane pane-custom pane-3" >
+  
+      
+  
+  <div class="pane-content">
+    <p><img class="media-element file-default panopoly-image-original" typeof="foaf:Image" src="http://www.topuniversities.com/sites/default/files/styles/panopoly_image_original/public/where_to_study.jpg?itok=VOijmFWu" alt=""></p><h3>Find your perfect study destination</h3><p>Get all the information you need with our country guides.</p><p><strong><a href="http://www.topuniversities.com/where-to-study/home">Explore destinations worldwide &gt;</a></strong></p>  </div>
+
+  
+  </div>
+    </div>
+  </div>
+
+
+</div><!-- /.phelan -->
+</div><div class="menu-minipanels menu-minipanel-50779">
+<div class="panel-display phelan clearfix qs-phelan" id="mini-panel-universities_menu_item">
+
+
+  <div class="column1 panel-panel">
+    <div class="panel-panel-inner">
+      <div class="panel-pane pane-block pane-menu-block-17" >
+  
+      
+  
+  <div class="pane-content">
+    <div class="menu-block-wrapper menu-block-17 menu-name-main-menu parent-mlid-50779 menu-level-1">
+  <ul class="menu nav nav-pills nav-stacked"><li class="first leaf menu-mlid-50780"><a href="/universities/region/6">Universities in Africa</a></li>
+<li class="leaf menu-mlid-50781"><a href="/universities/region/71">Universities in Asia</a></li>
+<li class="leaf menu-mlid-50782"><a href="/universities/region/140">Universities in Europe</a></li>
+<li class="leaf menu-mlid-50783"><a href="/universities/region/213">Universities in North America</a></li>
+<li class="leaf menu-mlid-50784"><a href="/universities/region/349">Universities in South America</a></li>
+<li class="leaf menu-mlid-50785"><a href="/universities/region/317">Universities in Oceania</a></li>
+<li class="last leaf menu-mlid-50786"><a href="http://www.topuniversities.com/universities">Universities overview</a></li>
+</ul></div>
+  </div>
+
+  
+  </div>
+    </div>
+  </div>
+  <div class="column2 panel-panel">
+    <div class="panel-panel-inner">
+      <div class="panel-pane pane-fieldable-panels-pane pane-uuid-095bc8da-e89c-4e1c-921c-31a047aeda25 pane-bundle-text" >
+  
+      
+  
+  <div class="pane-content">
+    <div class="fieldable-panels-pane">
+    
+  <div class="field-basic-text-text">
+    <p><img class="media-element file-default panopoly-image-original" typeof="foaf:Image" src="http://www.topuniversities.com/sites/default/files/styles/panopoly_image_original/public/university_search.jpg?itok=sdVYxFqL" alt="" /></p>
+<h3>Search universities around the world</h3>
+<p>Find your perfect institution with our search tool.</p>
+<p><a href=" http://www.topuniversities.com/universities">Start searching now</a></p>
+  </div>
+</div>
+  </div>
+
+  
+  </div>
+    </div>
+  </div>
+
+
+</div><!-- /.phelan -->
+</div><div class="menu-minipanels menu-minipanel-5295">
+<div class="panel-display phelan clearfix qs-phelan" id="mini-panel-courses_menu">
+
+
+  <div class="column1 panel-panel">
+    <div class="panel-panel-inner">
+      <div class="panel-pane pane-block pane-menu-block-9" >
+  
+      
+  
+  <div class="pane-content">
+    <div class="menu-block-wrapper menu-block-9 menu-name-main-menu parent-mlid-5295 menu-level-1">
+  <ul class="menu nav nav-pills nav-stacked"><li class="first leaf menu-mlid-6347"><a href="/courses/arts-humanities/guide">Arts &amp; Humanities</a></li>
+<li class="leaf menu-mlid-6348"><a href="/courses/business-management/guide">Business &amp; Management</a></li>
+<li class="leaf menu-mlid-6349"><a href="/courses/engineering/guide">Engineering &amp; Technology</a></li>
+<li class="leaf menu-mlid-6350"><a href="/courses/life-sciences-medicine/guide">Life Sciences &amp; Medicine</a></li>
+<li class="leaf menu-mlid-6351"><a href="/courses/natural-sciences/guide">Natural Sciences</a></li>
+<li class="leaf menu-mlid-6352"><a href="/courses/social-sciences/guide">Social Sciences</a></li>
+<li class="last leaf menu-mlid-5314"><a href="/courses">Courses overview</a></li>
+</ul></div>
+  </div>
+
+  
+  </div>
+    </div>
+  </div>
+  <div class="column2 panel-panel">
+    <div class="panel-panel-inner">
+      <div class="panel-pane pane-custom pane-3" >
+  
+      
+  
+  <div class="pane-content">
+    <p><img alt="QS World University Rankings by Subject 2015" title="QS World University Rankings by Subject 2015" class="media-element file-default panopoly-image-original" typeof="foaf:Image" src="http://www.topuniversities.com/sites/default/files/styles/panopoly_image_original/public/subject_rankings_dropdown.jpg?itok=gN-_xLU9"></p><h3>QS World University Rankings by Subject 2015</h3><p>Discover the world’s top universities in 36 subjects.</p><p><a href="/subject-rankings/2015">See the ranking</a></p>  </div>
+
+  
+  </div>
+    </div>
+  </div>
+
+
+</div><!-- /.phelan -->
+</div><div class="menu-minipanels menu-minipanel-5315">
+<div class="panel-display phelan clearfix qs-phelan" id="mini-panel-university_rankigs_menu">
+
+
+  <div class="column1 panel-panel">
+    <div class="panel-panel-inner">
+      <div class="panel-pane pane-block pane-menu-block-11" >
+  
+      
+  
+  <div class="pane-content">
+    <div class="menu-block-wrapper menu-block-11 menu-name-main-menu parent-mlid-5315 menu-level-1">
+  <ul class="menu nav nav-pills nav-stacked"><li class="first leaf menu-mlid-6302"><a href="/qs-world-university-rankings">QS World University Rankings</a></li>
+<li class="leaf menu-mlid-5318"><a href="/subject-rankings/2015">QS World University Rankings by Subject</a></li>
+<li class="leaf menu-mlid-5319"><a href="/faculty-rankings">QS World University Rankings by Faculty</a></li>
+<li class="leaf menu-mlid-50729"><a href="/regional-rankings">QS University Rankings by Region</a></li>
+<li class="leaf menu-mlid-5323"><a href="/best-student-cities">QS Best Student Cities</a></li>
+<li class="leaf menu-mlid-7440"><a href="/top-50-under-50">QS Top 50 Under 50</a></li>
+<li class="leaf menu-mlid-16896"><a href="/university-rankings-articles/world-university-rankings">Related articles</a></li>
+<li class="last leaf menu-mlid-5325"><a href="/university-rankings">Rankings overview</a></li>
+</ul></div>
+  </div>
+
+  
+  </div>
+    </div>
+  </div>
+  <div class="column2 panel-panel">
+    <div class="panel-panel-inner">
+      <div class="panel-pane pane-fieldable-panels-pane pane-uuid-039d356e-e193-4420-a236-fd2eb927773f pane-bundle-text" >
+  
+      
+  
+  <div class="pane-content">
+    <div class="fieldable-panels-pane">
+    
+  <div class="field-basic-text-text">
+    <p><img class="media-element file-default panopoly-image-original" typeof="foaf:Image" src="http://www.topuniversities.com/sites/default/files/styles/panopoly_image_original/public/eeca_0.jpg?itok=dRUWwzOc" alt=""></p><h3>QS University Rankings: EECA 2015</h3><p>Top universities in Emerging Europe &amp; Central Asia</p><p><a href="http://www.topuniversities.com/eeca-rankings">See the ranking</a></p>  </div>
+</div>
+  </div>
+
+  
+  </div>
+    </div>
+  </div>
+
+
+</div><!-- /.phelan -->
+</div><div class="menu-minipanels menu-minipanel-5326">
+<div class="panel-display phelan clearfix qs-phelan" id="mini-panel-events_menu">
+
+
+  <div class="column1 panel-panel">
+    <div class="panel-panel-inner">
+      <div class="panel-pane pane-block pane-menu-block-12" >
+  
+      
+  
+  <div class="pane-content">
+    <div class="menu-block-wrapper menu-block-12 menu-name-main-menu parent-mlid-5326 menu-level-1">
+  <ul class="menu nav nav-pills nav-stacked"><li class="first leaf menu-mlid-5327"><a href="/events/qs-world-grad-school-tour">QS World Grad School Tour</a></li>
+<li class="leaf menu-mlid-5328"><a href="/events/qs-world-university-tour">QS World University Tour</a></li>
+<li class="last leaf menu-mlid-5329"><a href="/events">Events overview</a></li>
+</ul></div>
+  </div>
+
+  
+  </div>
+    </div>
+  </div>
+  <div class="column2 panel-panel">
+    <div class="panel-panel-inner">
+      <div class="panel-pane pane-custom pane-4" >
+  
+      
+  
+  <div class="pane-content">
+    <p><img class="media-element file-default panopoly-image-original" typeof="foaf:Image" src="http://www.topuniversities.com/sites/default/files/styles/panopoly_image_original/public/events.jpg?itok=ttAZNxPz" alt=""></p><h3>Meet the universities</h3><p>Meet university admissions directors from around the world, at a QS event near you.</p><p><a href="/events">Find your nearest event</a></p>  </div>
+
+  
+  </div>
+    </div>
+  </div>
+
+
+</div><!-- /.phelan -->
+</div><div class="menu-minipanels menu-minipanel-5330">
+<div class="panel-display phelan clearfix qs-phelan" id="mini-panel-qs_stars_menu">
+
+
+  <div class="column1 panel-panel">
+    <div class="panel-panel-inner">
+      <div class="panel-pane pane-block pane-menu-block-14" >
+  
+      
+  
+  <div class="pane-content">
+    <div class="menu-block-wrapper menu-block-14 menu-name-main-menu parent-mlid-5330 menu-level-1">
+  <ul class="menu nav nav-pills nav-stacked"><li class="first leaf menu-mlid-5332"><a href="/qs-stars">QS Stars University Ratings</a></li>
+<li class="leaf menu-mlid-6356"><a href="/qs-stars/qs-stars-methodology">QS Stars Methodology</a></li>
+<li class="last leaf menu-mlid-5334"><a href="http://www.topuniversities.com/qs-stars/home">QS Stars overview</a></li>
+</ul></div>
+  </div>
+
+  
+  </div>
+    </div>
+  </div>
+  <div class="column2 panel-panel">
+    <div class="panel-panel-inner">
+      <div class="panel-pane pane-custom pane-5" >
+  
+      
+  
+  <div class="pane-content">
+    <h3><a href="http://www.topuniversities.com/qs-stars/home"><img class="media-element file-default panopoly-image-original" typeof="foaf:Image" src="http://www.topuniversities.com/sites/default/files/styles/panopoly_image_original/public/qsstar_0.jpg?itok=Tx5IuokG" alt=""></a></h3><h3>QS Stars</h3><p>QS Stars is an in-depth rating system for universities.</p><p><a href="http://www.topuniversities.com/qs-stars/home">Find out more</a></p>  </div>
+
+  
+  </div>
+    </div>
+  </div>
+
+
+</div><!-- /.phelan -->
+</div><div class="menu-minipanels menu-minipanel-5316">
+<div class="panel-display phelan clearfix qs-phelan" id="mini-panel-student_info_menu">
+
+
+  <div class="column1 panel-panel">
+    <div class="panel-panel-inner">
+      <div class="panel-pane pane-block pane-menu-block-15" >
+  
+      
+  
+  <div class="pane-content">
+    <div class="menu-block-wrapper menu-block-15 menu-name-main-menu parent-mlid-5316 menu-level-1">
+  <ul class="menu nav nav-pills nav-stacked"><li class="first leaf menu-mlid-5335"><a href="/scholarships">QS Scholarships</a></li>
+<li class="leaf menu-mlid-5336"><a href="/student-info/scholarship-advice">Scholarship Advice</a></li>
+<li class="leaf menu-mlid-5337"><a href="/student-info/qs-guides">QS Guides</a></li>
+<li class="leaf menu-mlid-5339"><a href="/student-info/choosing-university">Choosing a University</a></li>
+<li class="leaf menu-mlid-5340"><a href="/student-info/admissions-advice">Admissions Advice</a></li>
+<li class="leaf menu-mlid-5341"><a href="/student-info/student-finance">Student Finance</a></li>
+<li class="leaf menu-mlid-5342"><a href="/student-info/careers-advice">Careers Advice</a></li>
+<li class="leaf menu-mlid-5343"><a href="/student-info/studying-abroad">Studying Abroad</a></li>
+<li class="leaf menu-mlid-5344"><a href="/student-info/university-news">University News</a></li>
+<li class="last leaf menu-mlid-5345"><a href="/student-info">Student Info overview</a></li>
+</ul></div>
+  </div>
+
+  
+  </div>
+    </div>
+  </div>
+  <div class="column2 panel-panel">
+    <div class="panel-panel-inner">
+      <div class="panel-pane pane-custom pane-6" >
+  
+      
+  
+  <div class="pane-content">
+    <p><img class="media-element file-default panopoly-image-original" typeof="foaf:Image" src="http://www.topuniversities.com/sites/default/files/styles/panopoly_image_original/public/student_info_scholarship.jpg?itok=ewEja1lV" alt=""></p><h3>QS Scholarships</h3><p>Find out about $1.7 million of scholarship funding available to selected candidates.</p><p><a href="/scholarships">Find out more</a></p>  </div>
+
+  
+  </div>
+    </div>
+  </div>
+
+
+</div><!-- /.phelan -->
+</div><div class="menu-minipanels menu-minipanel-4020">
+<div class="panel-display phelan clearfix qs-phelan" id="mini-panel-forums_blogs_menu">
+
+
+  <div class="column1 panel-panel">
+    <div class="panel-panel-inner">
+      <div class="panel-pane pane-block pane-menu-block-16" >
+  
+      
+  
+  <div class="pane-content">
+    <div class="menu-block-wrapper menu-block-16 menu-name-main-menu parent-mlid-4020 menu-level-1">
+  <ul class="menu nav nav-pills nav-stacked"><li class="first leaf menu-mlid-5346"><a href="/forum">Forum</a></li>
+<li class="leaf menu-mlid-4100"><a href="/blog">Blog</a></li>
+<li class="last leaf menu-mlid-5347"><a href="/community">Forums &amp; Blog overview</a></li>
+</ul></div>
+  </div>
+
+  
+  </div>
+    </div>
+  </div>
+  <div class="column2 panel-panel">
+    <div class="panel-panel-inner">
+      <div class="panel-pane pane-custom pane-7" >
+  
+      
+  
+  <div class="pane-content">
+    <p><img class="media-element file-default panopoly-image-original" typeof="foaf:Image" src="http://www.topuniversities.com/sites/default/files/styles/panopoly_image_original/public/forum_blog.jpg?itok=PaLlr0Zm" alt=""></p><h3>International Student Forum</h3><p>Get advice from other students around the world in our international student forums.</p><p><a href="/forum">Join the discussion</a></p>  </div>
+
+  
+  </div>
+    </div>
+  </div>
+
+
+</div><!-- /.phelan -->
+</div><script type="text/javascript" src="http://www.topuniversities.com/sites/default/files/js/js_7Ukqb3ierdBEL0eowfOKzTkNu-Le97OPm-UqTS5NENU.js"></script>
+<script type="text/javascript" src="http://www.topuniversities.com/sites/default/files/js/js_F0q1k94b2MyE45J6wSYh8F07N5QJ37I2ypzEnLvL_qQ.js"></script>
+<script type="text/javascript">window.NREUM||(NREUM={});NREUM.info={"beacon":"bam.nr-data.net","licenseKey":"8165578c85","applicationID":"10345288","transactionName":"bgdTZEpVWhdVWkEKWldNZEJRGxsNWl1QGxtJCkE=","queueTime":0,"applicationTime":107,"ttGuid":"","agentToken":"","atts":"QkBQEgJPSRk=","errorBeacon":"bam.nr-data.net","agent":"js-agent.newrelic.com\/nr-768.min.js"}</script></body>
+</html>

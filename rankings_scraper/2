@@ -1,0 +1,573 @@
+http://www.google-analytics.com/collect?v=1&_v=j39&a=1247184762&t=event&_s=3&dl=http%3A%2F%2Fwww.topuniversities.com%2Funiversity-rankings%2Fworld-university-rankings%2F2015&ul=ru-ru&de=UTF-8&dt=QS%20World%20University%20Rankings%C2%AE%202015%2F16%20%7C%20Top%20Universities&sd=24-bit&sr=1366x768&vp=1346x615&je=0&fl=11.2%20r202&ec=table&ea=rankings&el=more&_u=SCCAgEAB~&jid=&cid=722318591.1438548886&tid=UA-37767707-2&cd1=anonymous%20user&z=1114878446
+
+GET /collect?v=1&_v=j39&a=1247184762&t=event&_s=3&dl=http%3A%2F%2Fwww.topuniversities.com%2Funiversity-rankings%2Fworld-university-rankings%2F2015&ul=ru-ru&de=UTF-8&dt=QS%20World%20University%20Rankings%C2%AE%202015%2F16%20%7C%20Top%20Universities&sd=24-bit&sr=1366x768&vp=1346x615&je=0&fl=11.2%20r202&ec=table&ea=rankings&el=more&_u=SCCAgEAB~&jid=&cid=722318591.1438548886&tid=UA-37767707-2&cd1=anonymous%20user&z=1114878446 HTTP/1.1
+Host: www.google-analytics.com
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:31.0) Gecko/20100101 Firefox/31.0 Iceweasel/31.1.0
+Accept: image/png,image/*;q=0.8,*/*;q=0.5
+Accept-Language: ru-ru,ru;q=0.7,uk;q=0.3
+Accept-Encoding: gzip, deflate
+Referer: http://www.topuniversities.com/university-rankings/world-university-rankings/2015
+Connection: keep-alive
+
+HTTP/1.1 200 OK
+Access-Control-Allow-Origin: *
+Date: Thu, 22 Oct 2015 16:09:31 GMT
+Pragma: no-cache
+Expires: Mon, 01 Jan 1990 00:00:00 GMT
+Last-Modified: Sun, 17 May 1998 03:00:00 GMT
+X-Content-Type-Options: nosniff
+Content-Type: image/gif
+Server: Golfe2
+Content-Length: 35
+Cache-Control: no-cache, no-store, must-revalidate
+Age: 355053
+----------------------------------------------------------
+http://www.topuniversities.com/sites/default/files/profiles/logos/689_small.jpg
+
+GET /sites/default/files/profiles/logos/689_small.jpg HTTP/1.1
+Host: www.topuniversities.com
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:31.0) Gecko/20100101 Firefox/31.0 Iceweasel/31.1.0
+Accept: image/png,image/*;q=0.8,*/*;q=0.5
+Accept-Language: ru-ru,ru;q=0.7,uk;q=0.3
+Accept-Encoding: gzip, deflate
+Referer: http://www.topuniversities.com/university-rankings/world-university-rankings/2015
+Cookie: __cfduid=df5463dce42ef2694b0abe21fe31968541438548886; _ga=GA1.2.722318591.1438548886; __gads=ID=e2e9d6ebaa8a8c8b:T=1438548889:S=ALNI_MamVkphFQADh0TSCBXSGYhByaJaEA; com.silverpop.iMAWebCookie=6c212848-1d6c-e1a2-e56a-d9ac6c09e659; cookie-agreed=2; has_js=1; _gat=1
+Connection: keep-alive
+
+HTTP/1.1 200 OK
+Date: Mon, 26 Oct 2015 18:47:04 GMT
+Content-Type: image/jpeg
+Content-Length: 866
+Connection: keep-alive
+Cache-Control: max-age=604800
+Cf-Bgj: imgq:85
+Etag: "55e26a8d-326f"
+Expires: Tue, 27 Oct 2015 03:42:20 GMT
+Last-Modified: Sun, 30 Aug 2015 02:29:33 GMT
+Via: 1.1 varnish
+X-Pantheon-Endpoint: 378a6234-08e2-4486-b084-571cf0ed85d3
+X-Pantheon-Styx-Hostname: styx234000e4
+X-Styx-Build-Date: Tue Sep  8 20:14:49 UTC 2015
+X-Styx-Build-Num: 975
+X-Styx-Build-Sha: 75058451cd2e622496298f556cda4ba5248e3ab6
+X-Styx-Req-Id: styx-a9f75afd4e98dd58ab6b95a6c7b97a3e
+X-Styx-Version: StyxGo
+X-Varnish: 15392335
+CF-Cache-Status: HIT
+Vary: Accept-Encoding
+Accept-Ranges: bytes
+Server: cloudflare-nginx
+CF-RAY: 23b853df22592aeb-WAW
+----------------------------------------------------------
+http://www.topuniversities.com/sites/all/libraries/flags/RU.jpg
+
+GET /sites/all/libraries/flags/RU.jpg HTTP/1.1
+Host: www.topuniversities.com
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:31.0) Gecko/20100101 Firefox/31.0 Iceweasel/31.1.0
+Accept: image/png,image/*;q=0.8,*/*;q=0.5
+Accept-Language: ru-ru,ru;q=0.7,uk;q=0.3
+Accept-Encoding: gzip, deflate
+Referer: http://www.topuniversities.com/university-rankings/world-university-rankings/2015
+Cookie: __cfduid=df5463dce42ef2694b0abe21fe31968541438548886; _ga=GA1.2.722318591.1438548886; __gads=ID=e2e9d6ebaa8a8c8b:T=1438548889:S=ALNI_MamVkphFQADh0TSCBXSGYhByaJaEA; com.silverpop.iMAWebCookie=6c212848-1d6c-e1a2-e56a-d9ac6c09e659; cookie-agreed=2; has_js=1; _gat=1
+Connection: keep-alive
+
+HTTP/1.1 200 OK
+Date: Mon, 26 Oct 2015 18:47:04 GMT
+Content-Type: image/jpeg
+Content-Length: 474
+Connection: keep-alive
+Cache-Control: max-age=604800
+Etag: "56261c36-1da"
+Expires: Thu, 29 Oct 2015 12:26:12 GMT
+Last-Modified: Tue, 20 Oct 2015 10:49:26 GMT
+X-Pantheon-Endpoint: 0227bed7-0ebd-4887-868f-4f377b5fd6b3
+X-Pantheon-Styx-Hostname: styx112b8753
+X-Styx-Build-Date: Tue Sep  8 20:14:49 UTC 2015
+X-Styx-Build-Num: 975
+X-Styx-Build-Sha: 75058451cd2e622496298f556cda4ba5248e3ab6
+X-Styx-Req-Id: styx-66d73a5369a34fdace86e9f6c7c23472
+X-Styx-Version: StyxGo
+X-Varnish: 773401138 796198314
+Via: 1.1 varnish-v4
+CF-Cache-Status: HIT
+Vary: Accept-Encoding
+Accept-Ranges: bytes
+Server: cloudflare-nginx
+CF-RAY: 23b853df2a2f2ac7-WAW
+----------------------------------------------------------
+http://www.topuniversities.com/sites/default/files/profiles/logos/aarhus-university_6_small_2.jpeg
+
+GET /sites/default/files/profiles/logos/aarhus-university_6_small_2.jpeg HTTP/1.1
+Host: www.topuniversities.com
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:31.0) Gecko/20100101 Firefox/31.0 Iceweasel/31.1.0
+Accept: image/png,image/*;q=0.8,*/*;q=0.5
+Accept-Language: ru-ru,ru;q=0.7,uk;q=0.3
+Accept-Encoding: gzip, deflate
+Referer: http://www.topuniversities.com/university-rankings/world-university-rankings/2015
+Cookie: __cfduid=df5463dce42ef2694b0abe21fe31968541438548886; _ga=GA1.2.722318591.1438548886; __gads=ID=e2e9d6ebaa8a8c8b:T=1438548889:S=ALNI_MamVkphFQADh0TSCBXSGYhByaJaEA; com.silverpop.iMAWebCookie=6c212848-1d6c-e1a2-e56a-d9ac6c09e659; cookie-agreed=2; has_js=1; _gat=1
+Connection: keep-alive
+
+HTTP/1.1 200 OK
+Date: Mon, 26 Oct 2015 18:47:04 GMT
+Content-Type: image/jpeg
+Content-Length: 1453
+Connection: keep-alive
+Cache-Control: max-age=604800
+Cf-Bgj: imgq:85
+Etag: "5624cac7-938"
+Expires: Tue, 27 Oct 2015 11:36:00 GMT
+Last-Modified: Mon, 19 Oct 2015 10:49:43 GMT
+Via: 1.1 varnish
+X-Pantheon-Endpoint: e97959bf-fb25-4cb6-bf79-e70cbe3c1627
+X-Pantheon-Styx-Hostname: styx234000e4
+X-Styx-Build-Date: Tue Sep  8 20:14:49 UTC 2015
+X-Styx-Build-Num: 975
+X-Styx-Build-Sha: 75058451cd2e622496298f556cda4ba5248e3ab6
+X-Styx-Req-Id: styx-b5cba7549be074fcaa5eb8653bb4b068
+X-Styx-Version: StyxGo
+X-Varnish: 36304512 34477143
+CF-Cache-Status: HIT
+Vary: Accept-Encoding
+Accept-Ranges: bytes
+Server: cloudflare-nginx
+CF-RAY: 23b853df26102aeb-WAW
+----------------------------------------------------------
+http://www.topuniversities.com/sites/default/files/profiles/logos/technical-university-of-denmark_597_small_0.jpg
+
+GET /sites/default/files/profiles/logos/technical-university-of-denmark_597_small_0.jpg HTTP/1.1
+Host: www.topuniversities.com
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:31.0) Gecko/20100101 Firefox/31.0 Iceweasel/31.1.0
+Accept: image/png,image/*;q=0.8,*/*;q=0.5
+Accept-Language: ru-ru,ru;q=0.7,uk;q=0.3
+Accept-Encoding: gzip, deflate
+Referer: http://www.topuniversities.com/university-rankings/world-university-rankings/2015
+Cookie: __cfduid=df5463dce42ef2694b0abe21fe31968541438548886; _ga=GA1.2.722318591.1438548886; __gads=ID=e2e9d6ebaa8a8c8b:T=1438548889:S=ALNI_MamVkphFQADh0TSCBXSGYhByaJaEA; com.silverpop.iMAWebCookie=6c212848-1d6c-e1a2-e56a-d9ac6c09e659; cookie-agreed=2; has_js=1; _gat=1
+Connection: keep-alive
+
+HTTP/1.1 200 OK
+Date: Mon, 26 Oct 2015 18:47:04 GMT
+Content-Type: image/jpeg
+Content-Length: 1350
+Connection: keep-alive
+Cache-Control: max-age=604800
+Cf-Bgj: imgq:85
+Etag: "561e0003-51b2"
+Expires: Tue, 27 Oct 2015 11:34:42 GMT
+Last-Modified: Wed, 14 Oct 2015 07:10:59 GMT
+Via: 1.1 varnish
+X-Pantheon-Endpoint: 36234664-8913-4aec-b6dd-0dd1f4642920
+X-Pantheon-Styx-Hostname: styx803cea0c
+X-Styx-Build-Date: Tue Sep  8 20:14:49 UTC 2015
+X-Styx-Build-Num: 975
+X-Styx-Build-Sha: 75058451cd2e622496298f556cda4ba5248e3ab6
+X-Styx-Req-Id: styx-85d8f215488583c8ef7e87ab68f634cc
+X-Styx-Version: StyxGo
+X-Varnish: 3708431328 3707340612
+CF-Cache-Status: HIT
+Vary: Accept-Encoding
+Accept-Ranges: bytes
+Server: cloudflare-nginx
+CF-RAY: 23b853df34ae2ac7-WAW
+----------------------------------------------------------
+http://www.topuniversities.com/sites/default/files/profiles/logos/359_small_0.png
+
+GET /sites/default/files/profiles/logos/359_small_0.png HTTP/1.1
+Host: www.topuniversities.com
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:31.0) Gecko/20100101 Firefox/31.0 Iceweasel/31.1.0
+Accept: image/png,image/*;q=0.8,*/*;q=0.5
+Accept-Language: ru-ru,ru;q=0.7,uk;q=0.3
+Accept-Encoding: gzip, deflate
+Referer: http://www.topuniversities.com/university-rankings/world-university-rankings/2015
+Cookie: __cfduid=df5463dce42ef2694b0abe21fe31968541438548886; _ga=GA1.2.722318591.1438548886; __gads=ID=e2e9d6ebaa8a8c8b:T=1438548889:S=ALNI_MamVkphFQADh0TSCBXSGYhByaJaEA; com.silverpop.iMAWebCookie=6c212848-1d6c-e1a2-e56a-d9ac6c09e659; cookie-agreed=2; has_js=1; _gat=1
+Connection: keep-alive
+
+HTTP/1.1 200 OK
+Date: Mon, 26 Oct 2015 18:47:04 GMT
+Content-Type: image/png
+Content-Length: 566
+Connection: keep-alive
+Cache-Control: max-age=604800
+Cf-Bgj: imgq:85
+Etag: "55e26a8d-d8d"
+Expires: Thu, 29 Oct 2015 12:26:17 GMT
+Last-Modified: Sun, 30 Aug 2015 02:29:33 GMT
+Via: 1.1 varnish
+X-Pantheon-Endpoint: d10315d8-9380-4dd1-9986-67344171affa
+X-Pantheon-Styx-Hostname: styx803cea0c
+X-Styx-Build-Date: Tue Sep  8 20:14:49 UTC 2015
+X-Styx-Build-Num: 975
+X-Styx-Build-Sha: 75058451cd2e622496298f556cda4ba5248e3ab6
+X-Styx-Req-Id: styx-361276972c7fc84f3c888f24dbf6189c
+X-Styx-Version: StyxGo
+X-Varnish: 3325855986 3324819157
+CF-Cache-Status: HIT
+Vary: Accept-Encoding
+Accept-Ranges: bytes
+Server: cloudflare-nginx
+CF-RAY: 23b853df268e2abb-WAW
+----------------------------------------------------------
+http://www.topuniversities.com/sites/default/files/profiles/logos/10_small.jpg
+
+GET /sites/default/files/profiles/logos/10_small.jpg HTTP/1.1
+Host: www.topuniversities.com
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:31.0) Gecko/20100101 Firefox/31.0 Iceweasel/31.1.0
+Accept: image/png,image/*;q=0.8,*/*;q=0.5
+Accept-Language: ru-ru,ru;q=0.7,uk;q=0.3
+Accept-Encoding: gzip, deflate
+Referer: http://www.topuniversities.com/university-rankings/world-university-rankings/2015
+Cookie: __cfduid=df5463dce42ef2694b0abe21fe31968541438548886; _ga=GA1.2.722318591.1438548886; __gads=ID=e2e9d6ebaa8a8c8b:T=1438548889:S=ALNI_MamVkphFQADh0TSCBXSGYhByaJaEA; com.silverpop.iMAWebCookie=6c212848-1d6c-e1a2-e56a-d9ac6c09e659; cookie-agreed=2; has_js=1; _gat=1
+Connection: keep-alive
+
+HTTP/1.1 200 OK
+Date: Mon, 26 Oct 2015 18:47:04 GMT
+Content-Type: image/jpeg
+Content-Length: 1385
+Connection: keep-alive
+Cache-Control: max-age=604800
+Cf-Bgj: imgq:85
+Etag: "55e26a8d-1018"
+Expires: Thu, 29 Oct 2015 12:27:34 GMT
+Last-Modified: Sun, 30 Aug 2015 02:29:33 GMT
+Via: 1.1 varnish
+X-Pantheon-Endpoint: ac2870ad-1724-49bf-903b-8374427d2fc2
+X-Pantheon-Styx-Hostname: styxe3d2930f
+X-Styx-Build-Date: Tue Sep  8 20:14:49 UTC 2015
+X-Styx-Build-Num: 975
+X-Styx-Build-Sha: 75058451cd2e622496298f556cda4ba5248e3ab6
+X-Styx-Req-Id: styx-b5bac45c45912d72023b811e6858ff50
+X-Styx-Version: StyxGo
+X-Varnish: 2846292336 2845080020
+CF-Cache-Status: HIT
+Vary: Accept-Encoding
+Accept-Ranges: bytes
+Server: cloudflare-nginx
+CF-RAY: 23b853df3d9d2abb-WAW
+----------------------------------------------------------
+http://www.topuniversities.com/sites/all/libraries/flags/AR.jpg
+
+GET /sites/all/libraries/flags/AR.jpg HTTP/1.1
+Host: www.topuniversities.com
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:31.0) Gecko/20100101 Firefox/31.0 Iceweasel/31.1.0
+Accept: image/png,image/*;q=0.8,*/*;q=0.5
+Accept-Language: ru-ru,ru;q=0.7,uk;q=0.3
+Accept-Encoding: gzip, deflate
+Referer: http://www.topuniversities.com/university-rankings/world-university-rankings/2015
+Cookie: __cfduid=df5463dce42ef2694b0abe21fe31968541438548886; _ga=GA1.2.722318591.1438548886; __gads=ID=e2e9d6ebaa8a8c8b:T=1438548889:S=ALNI_MamVkphFQADh0TSCBXSGYhByaJaEA; com.silverpop.iMAWebCookie=6c212848-1d6c-e1a2-e56a-d9ac6c09e659; cookie-agreed=2; has_js=1; _gat=1
+Connection: keep-alive
+
+HTTP/1.1 200 OK
+Date: Mon, 26 Oct 2015 18:47:04 GMT
+Content-Type: image/jpeg
+Content-Length: 468
+Connection: keep-alive
+Cache-Control: max-age=604800
+Etag: "56261c39-1d4"
+Expires: Thu, 29 Oct 2015 12:28:02 GMT
+Last-Modified: Tue, 20 Oct 2015 10:49:29 GMT
+X-Pantheon-Endpoint: 378a6234-08e2-4486-b084-571cf0ed85d3
+X-Pantheon-Styx-Hostname: styx37bdde9b
+X-Styx-Build-Date: Tue Sep  8 20:14:49 UTC 2015
+X-Styx-Build-Num: 975
+X-Styx-Build-Sha: 75058451cd2e622496298f556cda4ba5248e3ab6
+X-Styx-Req-Id: styx-f7ac27933203c9360267b8372a6de4b2
+X-Styx-Version: StyxGo
+X-Varnish: 786665728 707913221
+Via: 1.1 varnish-v4
+CF-Cache-Status: HIT
+Vary: Accept-Encoding
+Accept-Ranges: bytes
+Server: cloudflare-nginx
+CF-RAY: 23b853df52602aeb-WAW
+----------------------------------------------------------
+http://www.topuniversities.com/sites/all/libraries/flags/NO.jpg
+
+GET /sites/all/libraries/flags/NO.jpg HTTP/1.1
+Host: www.topuniversities.com
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:31.0) Gecko/20100101 Firefox/31.0 Iceweasel/31.1.0
+Accept: image/png,image/*;q=0.8,*/*;q=0.5
+Accept-Language: ru-ru,ru;q=0.7,uk;q=0.3
+Accept-Encoding: gzip, deflate
+Referer: http://www.topuniversities.com/university-rankings/world-university-rankings/2015
+Cookie: __cfduid=df5463dce42ef2694b0abe21fe31968541438548886; _ga=GA1.2.722318591.1438548886; __gads=ID=e2e9d6ebaa8a8c8b:T=1438548889:S=ALNI_MamVkphFQADh0TSCBXSGYhByaJaEA; com.silverpop.iMAWebCookie=6c212848-1d6c-e1a2-e56a-d9ac6c09e659; cookie-agreed=2; has_js=1; _gat=1
+Connection: keep-alive
+
+HTTP/1.1 200 OK
+Date: Mon, 26 Oct 2015 18:47:04 GMT
+Content-Type: image/jpeg
+Content-Length: 1115
+Connection: keep-alive
+Cache-Control: max-age=604800
+Cf-Bgj: imgq:85
+Etag: "56261c36-1659"
+Expires: Thu, 29 Oct 2015 12:27:10 GMT
+Last-Modified: Tue, 20 Oct 2015 10:49:26 GMT
+Via: 1.1 varnish-v4
+X-Pantheon-Endpoint: 319822b7-3cfa-4506-a1e6-c7a268b8e1ce
+X-Pantheon-Styx-Hostname: styx00443c21
+X-Styx-Build-Date: Tue Sep  8 20:14:49 UTC 2015
+X-Styx-Build-Num: 975
+X-Styx-Build-Sha: 75058451cd2e622496298f556cda4ba5248e3ab6
+X-Styx-Req-Id: styx-ad06ae50a8a37654d8e6a57b8d3479ac
+X-Styx-Version: StyxGo
+X-Varnish: 777374728 811373001
+CF-Cache-Status: HIT
+Vary: Accept-Encoding
+Accept-Ranges: bytes
+Server: cloudflare-nginx
+CF-RAY: 23b853df5a3b2ac7-WAW
+----------------------------------------------------------
+http://www.topuniversities.com/sites/all/libraries/flags/MY.jpg
+
+GET /sites/all/libraries/flags/MY.jpg HTTP/1.1
+Host: www.topuniversities.com
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:31.0) Gecko/20100101 Firefox/31.0 Iceweasel/31.1.0
+Accept: image/png,image/*;q=0.8,*/*;q=0.5
+Accept-Language: ru-ru,ru;q=0.7,uk;q=0.3
+Accept-Encoding: gzip, deflate
+Referer: http://www.topuniversities.com/university-rankings/world-university-rankings/2015
+Cookie: __cfduid=df5463dce42ef2694b0abe21fe31968541438548886; _ga=GA1.2.722318591.1438548886; __gads=ID=e2e9d6ebaa8a8c8b:T=1438548889:S=ALNI_MamVkphFQADh0TSCBXSGYhByaJaEA; com.silverpop.iMAWebCookie=6c212848-1d6c-e1a2-e56a-d9ac6c09e659; cookie-agreed=2; has_js=1; _gat=1
+Connection: keep-alive
+
+HTTP/1.1 200 OK
+Date: Mon, 26 Oct 2015 18:47:04 GMT
+Content-Type: image/jpeg
+Content-Length: 625
+Connection: keep-alive
+Cache-Control: max-age=604800
+Etag: "56259467-271"
+Expires: Tue, 27 Oct 2015 03:42:20 GMT
+Last-Modified: Tue, 20 Oct 2015 01:09:59 GMT
+X-Pantheon-Endpoint: e97959bf-fb25-4cb6-bf79-e70cbe3c1627
+X-Pantheon-Styx-Hostname: styx234000e4
+X-Styx-Build-Date: Tue Sep  8 20:14:49 UTC 2015
+X-Styx-Build-Num: 975
+X-Styx-Build-Sha: 75058451cd2e622496298f556cda4ba5248e3ab6
+X-Styx-Req-Id: styx-68f8453cf18c7e3ed690e582e55e881e
+X-Styx-Version: StyxGo
+X-Varnish: 15392592
+Via: 1.1 varnish
+CF-Cache-Status: HIT
+Vary: Accept-Encoding
+Accept-Ranges: bytes
+Server: cloudflare-nginx
+CF-RAY: 23b853df54b32ac7-WAW
+----------------------------------------------------------
+http://www.topuniversities.com/sites/all/libraries/flags/BR.jpg
+
+GET /sites/all/libraries/flags/BR.jpg HTTP/1.1
+Host: www.topuniversities.com
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:31.0) Gecko/20100101 Firefox/31.0 Iceweasel/31.1.0
+Accept: image/png,image/*;q=0.8,*/*;q=0.5
+Accept-Language: ru-ru,ru;q=0.7,uk;q=0.3
+Accept-Encoding: gzip, deflate
+Referer: http://www.topuniversities.com/university-rankings/world-university-rankings/2015
+Cookie: __cfduid=df5463dce42ef2694b0abe21fe31968541438548886; _ga=GA1.2.722318591.1438548886; __gads=ID=e2e9d6ebaa8a8c8b:T=1438548889:S=ALNI_MamVkphFQADh0TSCBXSGYhByaJaEA; com.silverpop.iMAWebCookie=6c212848-1d6c-e1a2-e56a-d9ac6c09e659; cookie-agreed=2; has_js=1; _gat=1
+Connection: keep-alive
+
+HTTP/1.1 200 OK
+Date: Mon, 26 Oct 2015 18:47:04 GMT
+Content-Type: image/jpeg
+Content-Length: 713
+Connection: keep-alive
+Cache-Control: max-age=604800
+Etag: "56261c38-2c9"
+Expires: Thu, 29 Oct 2015 12:27:42 GMT
+Last-Modified: Tue, 20 Oct 2015 10:49:28 GMT
+X-Pantheon-Endpoint: 198e35aa-5df3-4296-8a5b-116c91184dfb
+X-Pantheon-Styx-Hostname: styx112b8753
+X-Styx-Build-Date: Tue Sep  8 20:14:49 UTC 2015
+X-Styx-Build-Num: 975
+X-Styx-Build-Sha: 75058451cd2e622496298f556cda4ba5248e3ab6
+X-Styx-Req-Id: styx-ab1a934ea0d42a849d807ebb777107a6
+X-Styx-Version: StyxGo
+X-Varnish: 807962197 789513102
+Via: 1.1 varnish-v4
+CF-Cache-Status: HIT
+Vary: Accept-Encoding
+Accept-Ranges: bytes
+Server: cloudflare-nginx
+CF-RAY: 23b853df561d2aeb-WAW
+----------------------------------------------------------
+http://www.topuniversities.com/sites/all/libraries/flags/IN.jpg
+
+GET /sites/all/libraries/flags/IN.jpg HTTP/1.1
+Host: www.topuniversities.com
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:31.0) Gecko/20100101 Firefox/31.0 Iceweasel/31.1.0
+Accept: image/png,image/*;q=0.8,*/*;q=0.5
+Accept-Language: ru-ru,ru;q=0.7,uk;q=0.3
+Accept-Encoding: gzip, deflate
+Referer: http://www.topuniversities.com/university-rankings/world-university-rankings/2015
+Cookie: __cfduid=df5463dce42ef2694b0abe21fe31968541438548886; _ga=GA1.2.722318591.1438548886; __gads=ID=e2e9d6ebaa8a8c8b:T=1438548889:S=ALNI_MamVkphFQADh0TSCBXSGYhByaJaEA; com.silverpop.iMAWebCookie=6c212848-1d6c-e1a2-e56a-d9ac6c09e659; cookie-agreed=2; has_js=1; _gat=1
+Connection: keep-alive
+
+HTTP/1.1 200 OK
+Date: Mon, 26 Oct 2015 18:47:04 GMT
+Content-Type: image/jpeg
+Content-Length: 577
+Connection: keep-alive
+Cache-Control: max-age=604800
+Etag: "56261c38-241"
+Expires: Thu, 29 Oct 2015 12:27:01 GMT
+Last-Modified: Tue, 20 Oct 2015 10:49:28 GMT
+X-Pantheon-Endpoint: ac2870ad-1724-49bf-903b-8374427d2fc2
+X-Pantheon-Styx-Hostname: styx00443c21
+X-Styx-Build-Date: Tue Sep  8 20:14:49 UTC 2015
+X-Styx-Build-Num: 975
+X-Styx-Build-Sha: 75058451cd2e622496298f556cda4ba5248e3ab6
+X-Styx-Req-Id: styx-f494ef80f7828d827e39917c33fa6037
+X-Styx-Version: StyxGo
+X-Varnish: 833854403 815432558
+Via: 1.1 varnish-v4
+CF-Cache-Status: HIT
+Vary: Accept-Encoding
+Accept-Ranges: bytes
+Server: cloudflare-nginx
+CF-RAY: 23b853df66a32abb-WAW
+----------------------------------------------------------
+http://www.topuniversities.com/sites/all/libraries/flags/IL.jpg
+
+GET /sites/all/libraries/flags/IL.jpg HTTP/1.1
+Host: www.topuniversities.com
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:31.0) Gecko/20100101 Firefox/31.0 Iceweasel/31.1.0
+Accept: image/png,image/*;q=0.8,*/*;q=0.5
+Accept-Language: ru-ru,ru;q=0.7,uk;q=0.3
+Accept-Encoding: gzip, deflate
+Referer: http://www.topuniversities.com/university-rankings/world-university-rankings/2015
+Cookie: __cfduid=df5463dce42ef2694b0abe21fe31968541438548886; _ga=GA1.2.722318591.1438548886; __gads=ID=e2e9d6ebaa8a8c8b:T=1438548889:S=ALNI_MamVkphFQADh0TSCBXSGYhByaJaEA; com.silverpop.iMAWebCookie=6c212848-1d6c-e1a2-e56a-d9ac6c09e659; cookie-agreed=2; has_js=1; _gat=1
+Connection: keep-alive
+
+HTTP/1.1 200 OK
+Date: Mon, 26 Oct 2015 18:47:04 GMT
+Content-Type: image/jpeg
+Content-Length: 655
+Connection: keep-alive
+Cache-Control: max-age=604800
+Etag: "56261c36-28f"
+Expires: Thu, 29 Oct 2015 12:28:14 GMT
+Last-Modified: Tue, 20 Oct 2015 10:49:26 GMT
+X-Pantheon-Endpoint: 0227bed7-0ebd-4887-868f-4f377b5fd6b3
+X-Pantheon-Styx-Hostname: styx112b8753
+X-Styx-Build-Date: Tue Sep  8 20:14:49 UTC 2015
+X-Styx-Build-Num: 975
+X-Styx-Build-Sha: 75058451cd2e622496298f556cda4ba5248e3ab6
+X-Styx-Req-Id: styx-b2ff50849d5b174366b053c3afd73605
+X-Styx-Version: StyxGo
+X-Varnish: 765677955 779393269
+Via: 1.1 varnish-v4
+CF-Cache-Status: HIT
+Vary: Accept-Encoding
+Accept-Ranges: bytes
+Server: cloudflare-nginx
+CF-RAY: 23b853df6dae2abb-WAW
+----------------------------------------------------------
+http://www.topuniversities.com/sites/default/files/profiles/logos/chalmers-university-of-technology_116_small_0.jpg
+
+GET /sites/default/files/profiles/logos/chalmers-university-of-technology_116_small_0.jpg HTTP/1.1
+Host: www.topuniversities.com
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:31.0) Gecko/20100101 Firefox/31.0 Iceweasel/31.1.0
+Accept: image/png,image/*;q=0.8,*/*;q=0.5
+Accept-Language: ru-ru,ru;q=0.7,uk;q=0.3
+Accept-Encoding: gzip, deflate
+Referer: http://www.topuniversities.com/university-rankings/world-university-rankings/2015
+Cookie: __cfduid=df5463dce42ef2694b0abe21fe31968541438548886; _ga=GA1.2.722318591.1438548886; __gads=ID=e2e9d6ebaa8a8c8b:T=1438548889:S=ALNI_MamVkphFQADh0TSCBXSGYhByaJaEA; com.silverpop.iMAWebCookie=6c212848-1d6c-e1a2-e56a-d9ac6c09e659; cookie-agreed=2; has_js=1; _gat=1
+Connection: keep-alive
+
+HTTP/1.1 200 OK
+Date: Mon, 26 Oct 2015 18:47:04 GMT
+Content-Type: image/jpeg
+Content-Length: 1313
+Connection: keep-alive
+Cache-Control: max-age=604800
+Cf-Bgj: imgq:85
+Etag: "561df32f-a2f"
+Expires: Tue, 27 Oct 2015 13:00:44 GMT
+Last-Modified: Wed, 14 Oct 2015 06:16:15 GMT
+Via: 1.1 varnish
+X-Pantheon-Endpoint: ae649a8b-7389-4791-9f8e-2060021392c0
+X-Pantheon-Styx-Hostname: styx234000e4
+X-Styx-Build-Date: Tue Sep  8 20:14:49 UTC 2015
+X-Styx-Build-Num: 975
+X-Styx-Build-Sha: 75058451cd2e622496298f556cda4ba5248e3ab6
+X-Styx-Req-Id: styx-2198e21255340ff8b9f5c146f8e90acc
+X-Styx-Version: StyxGo
+X-Varnish: 39910359 38998876
+CF-Cache-Status: HIT
+Vary: Accept-Encoding
+Accept-Ranges: bytes
+Server: cloudflare-nginx
+CF-RAY: 23b853df7a482ac7-WAW
+----------------------------------------------------------
+http://www.topuniversities.com/sites/default/files/profiles/logos/cardiff-university_99_small_1.jpg
+
+GET /sites/default/files/profiles/logos/cardiff-university_99_small_1.jpg HTTP/1.1
+Host: www.topuniversities.com
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:31.0) Gecko/20100101 Firefox/31.0 Iceweasel/31.1.0
+Accept: image/png,image/*;q=0.8,*/*;q=0.5
+Accept-Language: ru-ru,ru;q=0.7,uk;q=0.3
+Accept-Encoding: gzip, deflate
+Referer: http://www.topuniversities.com/university-rankings/world-university-rankings/2015
+Cookie: __cfduid=df5463dce42ef2694b0abe21fe31968541438548886; _ga=GA1.2.722318591.1438548886; __gads=ID=e2e9d6ebaa8a8c8b:T=1438548889:S=ALNI_MamVkphFQADh0TSCBXSGYhByaJaEA; com.silverpop.iMAWebCookie=6c212848-1d6c-e1a2-e56a-d9ac6c09e659; cookie-agreed=2; has_js=1; _gat=1
+Connection: keep-alive
+
+HTTP/1.1 200 OK
+Date: Mon, 26 Oct 2015 18:47:04 GMT
+Content-Type: image/jpeg
+Content-Length: 1720
+Connection: keep-alive
+Cache-Control: max-age=604800
+Cf-Bgj: imgq:85
+Etag: "561df25d-ad0"
+Expires: Tue, 27 Oct 2015 11:34:50 GMT
+Last-Modified: Wed, 14 Oct 2015 06:12:45 GMT
+Via: 1.1 varnish
+X-Pantheon-Endpoint: 9e8d767f-a18b-4bcb-8007-9713bfb71da2
+X-Pantheon-Styx-Hostname: styx803cea0c
+X-Styx-Build-Date: Tue Sep  8 20:14:49 UTC 2015
+X-Styx-Build-Num: 975
+X-Styx-Build-Sha: 75058451cd2e622496298f556cda4ba5248e3ab6
+X-Styx-Req-Id: styx-c04e9605f86b909c65244a0893c2410a
+X-Styx-Version: StyxGo
+X-Varnish: 3709905159 3707346069
+CF-Cache-Status: HIT
+Vary: Accept-Encoding
+Accept-Ranges: bytes
+Server: cloudflare-nginx
+CF-RAY: 23b853df72672aeb-WAW
+----------------------------------------------------------
+http://www.topuniversities.com/sites/default/files/profiles/logos/7_small_1.jpg
+
+GET /sites/default/files/profiles/logos/7_small_1.jpg HTTP/1.1
+Host: www.topuniversities.com
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:31.0) Gecko/20100101 Firefox/31.0 Iceweasel/31.1.0
+Accept: image/png,image/*;q=0.8,*/*;q=0.5
+Accept-Language: ru-ru,ru;q=0.7,uk;q=0.3
+Accept-Encoding: gzip, deflate
+Referer: http://www.topuniversities.com/university-rankings/world-university-rankings/2015
+Cookie: __cfduid=df5463dce42ef2694b0abe21fe31968541438548886; _ga=GA1.2.722318591.1438548886; __gads=ID=e2e9d6ebaa8a8c8b:T=1438548889:S=ALNI_MamVkphFQADh0TSCBXSGYhByaJaEA; com.silverpop.iMAWebCookie=6c212848-1d6c-e1a2-e56a-d9ac6c09e659; cookie-agreed=2; has_js=1; _gat=1
+Connection: keep-alive
+
+HTTP/1.1 200 OK
+Date: Mon, 26 Oct 2015 18:47:04 GMT
+Content-Type: image/jpeg
+Content-Length: 1125
+Connection: keep-alive
+Cache-Control: max-age=604800
+Cf-Bgj: imgq:85
+Etag: "55d5ef2d-ed2"
+Expires: Thu, 29 Oct 2015 12:29:03 GMT
+Last-Modified: Thu, 20 Aug 2015 15:15:57 GMT
+Via: 1.1 varnish-v4
+X-Pantheon-Endpoint: e97959bf-fb25-4cb6-bf79-e70cbe3c1627
+X-Pantheon-Styx-Hostname: styx00443c21
+X-Styx-Build-Date: Tue Sep  8 20:14:49 UTC 2015
+X-Styx-Build-Num: 975
+X-Styx-Build-Sha: 75058451cd2e622496298f556cda4ba5248e3ab6
+X-Styx-Req-Id: styx-995f3cda49c53b863e9de735925fd912
+X-Styx-Version: StyxGo
+X-Varnish: 846168634 830015472
+CF-Cache-Status: HIT
+Vary: Accept-Encoding
+Accept-Ranges: bytes
+Server: cloudflare-nginx
+CF-RAY: 23b853df84bf2ac7-WAW
+----------------------------------------------------------

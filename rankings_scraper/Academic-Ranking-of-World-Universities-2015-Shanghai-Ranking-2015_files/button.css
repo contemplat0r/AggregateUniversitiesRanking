@@ -1,0 +1,61 @@
+.button a {
+	color: #fff;
+	text-decoration: none;
+}
+.button {
+	display: inline-block;
+	text-decoration: none;
+	font-size: 12px;
+	font-weight: bold;
+	color: #fff;
+	padding: 3px 8px;
+	margin: 5px 5px 2px 0;
+}
+/*.solid {
+	border-style: solid;
+	border-width: 1px;
+}
+.orangebtn {
+	background: #ffb668;
+	border-color: #f48a17;
+}
+.orangebtn:hover{
+	background: #ffa33f;
+	border-color: #f48a17;
+}
+.redbtn {
+	background: #da4d42;
+	border-color: #a44f36;
+}
+.bluebtn {
+	background: #0072c6;
+	border-color: #3663a4;
+}
+.bluebtn:hover{	background: #4297da;
+	border-color: #3663a4;}*/
+	
+.blue {
+	color:#fff;
+	border:solid 1px #3663a4;
+	background:#4297da;
+	
+ }
+.blue:hover {
+	color:#fff;
+	border:solid 1px #3663a4;
+	background:#0072c6;
+}
+.green {
+	color:#fff;
+	border:solid 1px #6399cb;
+	background:#a0ca58;
+ }
+.green:hover {
+	color:#fff;
+	border:solid 1px #9cc854;
+	background:#cfe986;
+	/*background: -webkit-gradient(linear, left top, left bottom, from(#a0ca58), to(#cfe986))!important;
+	background: -moz-linear-gradient(top, #a0ca58, #cfe986)!important;
+	background: -o-linear-gradient(top, #a0ca58, #cfe986)!important;
+ 	filter:  progid:DXImageTransform.Microsoft.gradient(startColorstr='#a0ca58', endColorstr='#cfe986')!important;*/
+}

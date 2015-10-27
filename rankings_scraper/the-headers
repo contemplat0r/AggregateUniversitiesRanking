@@ -1,0 +1,1920 @@
+https://www.timeshighereducation.com/world-university-rankings/2016/world-ranking
+
+GET /world-university-rankings/2016/world-ranking HTTP/1.1
+Host: www.timeshighereducation.com
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:31.0) Gecko/20100101 Firefox/31.0 Iceweasel/31.1.0
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+Accept-Language: ru-ru,ru;q=0.7,uk;q=0.3
+Accept-Encoding: gzip, deflate
+Referer: https://www.timeshighereducation.com/
+Cookie: __gads=ID=de98fb896e154198:T=1445534556:S=ALNI_MbVmls_JsAfLr_c9_gC7_ePKs96og; s_fid=706D12FF930FCE57-2BA1759401CC59B8; _ga=GA1.2.100575766.1445534553; __tesu=150abc53-0abc-4c68-8a05-75bed2c5f704; has_js=1; csrf=69e51d844bba444a22ceb24d3c351d68; s_cc=true; __tesv=2744a45b-d14c-4e5d-859c-e360a253d33d; __tess=home%7C%7C5; s_sq=tsltsltimeshigher%3D%2526pid%253Dhttps%25253A%25252F%25252Fwww.timeshighereducation.com%25252F%2526oid%253Dhttps%25253A%25252F%25252Fwww.timeshighereducation.com%25252Fworld-university-rankings%25252F2016%25252Fworld-ranking%2526ot%253DA; _gat=1
+Connection: keep-alive
+If-None-Match: "1445892895-1"
+
+HTTP/1.1 304 Not Modified
+Date: Mon, 26 Oct 2015 21:24:01 GMT
+Via: 1.1 varnish
+Cache-Control: public, max-age=0, s-maxage=3600, stale-while-revalidate=86400, stale-if-error=259200
+Etag: "1445892895-1"
+Expires: Sun, 19 Nov 1978 05:00:00 GMT
+Age: 353
+Connection: keep-alive
+X-Served-By: cache-fra1232-FRA
+X-Cache: HIT
+X-Cache-Hits: 3
+Vary: Cookie, Accept-Encoding
+----------------------------------------------------------
+https://pagead2.googlesyndication.com/activeview?id=osdtos&avi=BpxKaxJkuVqq0AY__ZfiXuNAFAAAAABABOAHIAQPAAgLgAgDIA5kE4AQBoAYU&cid=5Gi5z7H-E1nD-4udjyEtB-9eFgA&ti=1&adk=1684274482&p=403,903,653,1203&tos=43242,0,0,0,0&mtos=43242,43242,43242,43242,43242&rs=3&ht=0&tfs=408&tls=43650&fp=correlator%3D2633814551989934%26eid%3D108809080%252C108809034%26iu%3D%252F2884%252FTHE_%252FHome%26oid%3D3%26url%3Dhttps%253A%252F%252Fwww.timeshighereducation.com%252F&afp=%26output%3Djson_html%26impl%3Dfif%26dt%3D1445894593894%26adx%3D903%26ady%3D403%26ifi%3D6%26flash%3D11.2.202&tmo=6&tme=407&tdl=7&tcl=296&abd=3-0-50&r=u&bs=1346,615&bos=1362,712&ps=1346,5112&ss=1366,768&tt=42907&pt=746&deb=1-5-5-43-53-8&tvt=43551&uc=50&tgt=IMG&cl=1
+
+GET /activeview?id=osdtos&avi=BpxKaxJkuVqq0AY__ZfiXuNAFAAAAABABOAHIAQPAAgLgAgDIA5kE4AQBoAYU&cid=5Gi5z7H-E1nD-4udjyEtB-9eFgA&ti=1&adk=1684274482&p=403,903,653,1203&tos=43242,0,0,0,0&mtos=43242,43242,43242,43242,43242&rs=3&ht=0&tfs=408&tls=43650&fp=correlator%3D2633814551989934%26eid%3D108809080%252C108809034%26iu%3D%252F2884%252FTHE_%252FHome%26oid%3D3%26url%3Dhttps%253A%252F%252Fwww.timeshighereducation.com%252F&afp=%26output%3Djson_html%26impl%3Dfif%26dt%3D1445894593894%26adx%3D903%26ady%3D403%26ifi%3D6%26flash%3D11.2.202&tmo=6&tme=407&tdl=7&tcl=296&abd=3-0-50&r=u&bs=1346,615&bos=1362,712&ps=1346,5112&ss=1366,768&tt=42907&pt=746&deb=1-5-5-43-53-8&tvt=43551&uc=50&tgt=IMG&cl=1 HTTP/1.1
+Host: pagead2.googlesyndication.com
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:31.0) Gecko/20100101 Firefox/31.0 Iceweasel/31.1.0
+Accept: image/png,image/*;q=0.8,*/*;q=0.5
+Accept-Language: ru-ru,ru;q=0.7,uk;q=0.3
+Accept-Encoding: gzip, deflate
+Referer: https://www.timeshighereducation.com/
+Connection: keep-alive
+
+HTTP/1.1 200 OK
+p3p: policyref="https://www.googleadservices.com/pagead/p3p.xml", CP="NOI DEV PSA PSD IVA IVD OTP OUR OTR IND OTC"
+Access-Control-Allow-Origin: *
+Content-Type: image/gif
+Date: Mon, 26 Oct 2015 21:24:01 GMT
+Pragma: no-cache
+Expires: Fri, 01 Jan 1990 00:00:00 GMT
+Cache-Control: no-cache, must-revalidate
+x-content-type-options: nosniff
+Server: cafe
+Content-Length: 42
+X-XSS-Protection: 1; mode=block
+X-Firefox-Spdy: 3.1
+----------------------------------------------------------
+https://pagead2.googlesyndication.com/activeview?id=osdim&avi=Bx9ByxJkuVu3lAYuDZs_ohsgKAAAAABABOAHIAQPAAgLgAgDIA5kE4AQBoAYU&cid=5Gjp_R0A1wblOMTCaQUs4Pv5UdI&ti=1&adk=37923197&p=4638,103,4728,831&tos=0,0,0,0,0&mtos=0,0,0,0,0&rs=3&ht=0&fp=correlator%3D2633814551989934%26eid%3D108809080%252C108809034%26iu%3D%252F2884%252FTHE_%252FHome%26oid%3D3%26url%3Dhttps%253A%252F%252Fwww.timeshighereducation.com%252F&afp=%26output%3Djson_html%26impl%3Dfif%26dt%3D1445894593992%26adx%3D103%26ady%3D4638%26ifi%3D12%26flash%3D11.2.202&tmo=6&tme=603&tdl=8&tcl=8&abd=4-0-49&r=u&bs=1346,615&bos=1362,712&ps=1346,5112&ss=1366,768&tt=42907&pt=746&deb=1-5-5-43-53-8&tvt=43551&uc=49&tgt=IMG&cl=1
+
+GET /activeview?id=osdim&avi=Bx9ByxJkuVu3lAYuDZs_ohsgKAAAAABABOAHIAQPAAgLgAgDIA5kE4AQBoAYU&cid=5Gjp_R0A1wblOMTCaQUs4Pv5UdI&ti=1&adk=37923197&p=4638,103,4728,831&tos=0,0,0,0,0&mtos=0,0,0,0,0&rs=3&ht=0&fp=correlator%3D2633814551989934%26eid%3D108809080%252C108809034%26iu%3D%252F2884%252FTHE_%252FHome%26oid%3D3%26url%3Dhttps%253A%252F%252Fwww.timeshighereducation.com%252F&afp=%26output%3Djson_html%26impl%3Dfif%26dt%3D1445894593992%26adx%3D103%26ady%3D4638%26ifi%3D12%26flash%3D11.2.202&tmo=6&tme=603&tdl=8&tcl=8&abd=4-0-49&r=u&bs=1346,615&bos=1362,712&ps=1346,5112&ss=1366,768&tt=42907&pt=746&deb=1-5-5-43-53-8&tvt=43551&uc=49&tgt=IMG&cl=1 HTTP/1.1
+Host: pagead2.googlesyndication.com
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:31.0) Gecko/20100101 Firefox/31.0 Iceweasel/31.1.0
+Accept: image/png,image/*;q=0.8,*/*;q=0.5
+Accept-Language: ru-ru,ru;q=0.7,uk;q=0.3
+Accept-Encoding: gzip, deflate
+Referer: https://www.timeshighereducation.com/
+Connection: keep-alive
+
+HTTP/1.1 200 OK
+p3p: policyref="https://www.googleadservices.com/pagead/p3p.xml", CP="NOI DEV PSA PSD IVA IVD OTP OUR OTR IND OTC"
+Access-Control-Allow-Origin: *
+Content-Type: image/gif
+Date: Mon, 26 Oct 2015 21:24:01 GMT
+Pragma: no-cache
+Expires: Fri, 01 Jan 1990 00:00:00 GMT
+Cache-Control: no-cache, must-revalidate
+x-content-type-options: nosniff
+Server: cafe
+Content-Length: 42
+X-XSS-Protection: 1; mode=block
+X-Firefox-Spdy: 3.1
+----------------------------------------------------------
+https://www.googletagservices.com/tag/js/gpt.js
+
+GET /tag/js/gpt.js HTTP/1.1
+Host: www.googletagservices.com
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:31.0) Gecko/20100101 Firefox/31.0 Iceweasel/31.1.0
+Accept: */*
+Accept-Language: ru-ru,ru;q=0.7,uk;q=0.3
+Accept-Encoding: gzip, deflate
+Referer: https://www.timeshighereducation.com/world-university-rankings/2016/world-ranking
+Connection: keep-alive
+If-None-Match: 6884280029814835323
+
+HTTP/1.1 304 Not Modified
+p3p: policyref="https://www.googleadservices.com/pagead/p3p.xml", CP="NOI DEV PSA PSD IVA IVD OTP OUR OTR IND OTC"
+Date: Mon, 26 Oct 2015 21:24:13 GMT
+Expires: Mon, 26 Oct 2015 21:24:13 GMT
+Cache-Control: private, max-age=900
+Timing-Allow-Origin: *
+x-content-type-options: nosniff
+Server: cafe
+X-XSS-Protection: 1; mode=block
+X-Firefox-Spdy: 3.1
+----------------------------------------------------------
+https://www.timeshighereducation.com/sites/default/files/datatables_json/the_wur_datatables-panel_pane_1-70709e4847e059f6ab494aaec30cf38e.json
+
+GET /sites/default/files/datatables_json/the_wur_datatables-panel_pane_1-70709e4847e059f6ab494aaec30cf38e.json HTTP/1.1
+Host: www.timeshighereducation.com
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:31.0) Gecko/20100101 Firefox/31.0 Iceweasel/31.1.0
+Accept: application/json, text/javascript, */*; q=0.01
+Accept-Language: ru-ru,ru;q=0.7,uk;q=0.3
+Accept-Encoding: gzip, deflate
+X-Requested-With: XMLHttpRequest
+Referer: https://www.timeshighereducation.com/world-university-rankings/2016/world-ranking
+Cookie: __gads=ID=de98fb896e154198:T=1445534556:S=ALNI_MbVmls_JsAfLr_c9_gC7_ePKs96og; s_fid=706D12FF930FCE57-2BA1759401CC59B8; _ga=GA1.2.100575766.1445534553; __tesu=150abc53-0abc-4c68-8a05-75bed2c5f704; has_js=1; csrf=69e51d844bba444a22ceb24d3c351d68; s_cc=true; __tesv=2744a45b-d14c-4e5d-859c-e360a253d33d; __tess=home%7C%7C5; s_sq=tsltsltimeshigher%3D%2526pid%253Dhttps%25253A%25252F%25252Fwww.timeshighereducation.com%25252F%2526oid%253Dhttps%25253A%25252F%25252Fwww.timeshighereducation.com%25252Fworld-university-rankings%25252F2016%25252Fworld-ranking%2526ot%253DA; _gat=1
+Connection: keep-alive
+If-Modified-Since: Sun, 25 Oct 2015 22:07:14 GMT
+If-None-Match: "562d5292-856ce"
+
+HTTP/1.1 304 Not Modified
+Via: 1.1 varnish, 1.1 varnish
+Etag: "562d5292-856ce"
+Age: 82969
+Fastly-Debug-Digest: 1155661ec965eb165be7a9833a192a7b1de19fcb087d2236e4f755e0f39e682e
+Accept-Ranges: bytes
+Date: Mon, 26 Oct 2015 21:24:13 GMT
+Connection: keep-alive
+X-Served-By: cache-lcy1132-LCY, cache-fra1232-FRA
+X-Cache: HIT, MISS
+X-Cache-Hits: 6, 0
+----------------------------------------------------------
+https://platform.twitter.com/widgets.js
+
+GET /widgets.js HTTP/1.1
+Host: platform.twitter.com
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:31.0) Gecko/20100101 Firefox/31.0 Iceweasel/31.1.0
+Accept: */*
+Accept-Language: ru-ru,ru;q=0.7,uk;q=0.3
+Accept-Encoding: gzip, deflate
+Referer: https://www.timeshighereducation.com/world-university-rankings/2016/world-ranking
+Cookie: guest_id=v1%3A139011815832362037; _ga=GA1.2.1467542933.1405802811
+Connection: keep-alive
+If-Modified-Since: Tue, 20 Oct 2015 21:10:49 GMT
+If-None-Match: "b8c490cc31f15b5d15f584816c174031+gzip"
+
+HTTP/1.1 304 Not Modified
+Date: Mon, 26 Oct 2015 21:24:13 GMT
+Server: Apache
+Via: 1.1 varnish
+Cache-Control: public, max-age=1800
+Etag: "b8c490cc31f15b5d15f584816c174031+gzip"
+Age: 597
+X-Served-By: cache-tw-fra1-cr1-18-TWFRA1
+X-Cache: HIT
+X-Cache-Hits: 269814
+X-Timer: S1445894653.670858,VS0,VE0
+Vary: Accept-Encoding,Host
+p3p: CP="CAO DSP LAW CURa ADMa DEVa TAIa PSAa PSDa IVAa IVDa OUR BUS IND UNI COM NAV INT"
+Content-Length: 0
+Keep-Alive: timeout=7, max=50
+Connection: Keep-Alive
+----------------------------------------------------------
+https://www.google-analytics.com/analytics.js
+
+GET /analytics.js HTTP/1.1
+Host: www.google-analytics.com
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:31.0) Gecko/20100101 Firefox/31.0 Iceweasel/31.1.0
+Accept: */*
+Accept-Language: ru-ru,ru;q=0.7,uk;q=0.3
+Accept-Encoding: gzip, deflate
+Referer: https://www.timeshighereducation.com/world-university-rankings/2016/world-ranking
+Connection: keep-alive
+If-Modified-Since: Thu, 10 Sep 2015 10:52:20 GMT
+
+HTTP/1.1 304 Not Modified
+Date: Mon, 26 Oct 2015 20:09:35 GMT
+Expires: Mon, 26 Oct 2015 22:09:35 GMT
+Age: 4478
+Server: GFE/2.0
+alternate-protocol: 443:quic,p=1
+alt-svc: quic=":443"; p="1"; ma=604800
+X-Firefox-Spdy: 3.1
+----------------------------------------------------------
+https://www.timeshighereducation.com/et
+
+POST /et HTTP/1.1
+Host: www.timeshighereducation.com
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:31.0) Gecko/20100101 Firefox/31.0 Iceweasel/31.1.0
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+Accept-Language: ru-ru,ru;q=0.7,uk;q=0.3
+Accept-Encoding: gzip, deflate
+Content-Type: application/json; charset=UTF-8
+Referer: https://www.timeshighereducation.com/world-university-rankings/2016/world-ranking
+Content-Length: 380
+Cookie: __gads=ID=de98fb896e154198:T=1445534556:S=ALNI_MbVmls_JsAfLr_c9_gC7_ePKs96og; s_fid=706D12FF930FCE57-2BA1759401CC59B8; _ga=GA1.2.100575766.1445534553; __tesu=150abc53-0abc-4c68-8a05-75bed2c5f704; has_js=1; csrf=69e51d844bba444a22ceb24d3c351d68; s_cc=true; __tesv=2744a45b-d14c-4e5d-859c-e360a253d33d; __tess=home%7C%7C5; s_sq=tsltsltimeshigher%3D%2526pid%253Dhttps%25253A%25252F%25252Fwww.timeshighereducation.com%25252F%2526oid%253Dhttps%25253A%25252F%25252Fwww.timeshighereducation.com%25252Fworld-university-rankings%25252F2016%25252Fworld-ranking%2526ot%253DA; _gat=1
+Connection: keep-alive
+Pragma: no-cache
+Cache-Control: no-cache
+{"event":"view","asset":{"type":"rankings","id":"133819"},"userId":0,"referrer":"https://www.timeshighereducation.com/","url":"https://www.timeshighereducation.com/world-university-rankings/2016/world-ranking#!/page/0/length/25","cid":"","page":{"id":"133819","section":"rankings","type":"rankings","pagename":"world university rankings 2015-2016"},"user":{"id":0},"eventData":{}}
+HTTP/1.1 200 OK
+Content-Encoding: gzip
+Content-Type: text/html; charset=utf-8
+Server: openresty
+Set-Cookie: __tesu=150abc53-0abc-4c68-8a05-75bed2c5f704; Max-Age=31536000; Domain=.timeshighereducation.com; Path=/; Expires=Tue, 25 Oct 2016 21:24:13 GMT
+Set-Cookie: __tesv=2744a45b-d14c-4e5d-859c-e360a253d33d; Max-Age=1800; Domain=.timeshighereducation.com; Path=/; Expires=Mon, 26 Oct 2015 21:54:13 GMT
+Set-Cookie: __tess=home%7C%7C6; Domain=.timeshighereducation.com; Path=/; HttpOnly
+Set-Cookie: geoCountry=UA; Domain=.tes.com; Path=/
+Set-Cookie: siteCountry=GB; Max-Age=63072000; Domain=.tes.com; Path=/
+strict-transport-security: max-age=10886400; includeSubDomains; preload
+x-content-type-options: nosniff
+X-Download-Options: noopen
+X-Frame-Options: SAMEORIGIN
+x-static|bundle-version: 262
+X-Tracer: 1445894653.8222694616
+X-XSS-Protection: 1; mode=block
+Accept-Ranges: bytes, bytes
+Via: 1.1 varnish, 1.1 varnish
+Fastly-Debug-Digest: 0b5deae95b1fd326373a6de0a9d971a60796389225bff7a8add1c0f07837439e
+Content-Length: 25
+Date: Mon, 26 Oct 2015 21:24:13 GMT
+Connection: keep-alive
+X-Served-By: cache-lcy1133-LCY, cache-fra1232-FRA
+X-Cache: MISS, MISS
+X-Cache-Hits: 0, 0
+Vary: Accept-Encoding
+----------------------------------------------------------
+https://tsleducation.112.2o7.net/b/ss/tsltsltimeshigher/1/JS-1.3.2/s95550914610652?AQB=1&ndh=1&t=26%2F9%2F2015%2023%3A24%3A11%201%20-120&fid=706D12FF930FCE57-2BA1759401CC59B8&ce=UTF-8&ns=tsleducation&cdp=3&g=https%3A%2F%2Fwww.timeshighereducation.com%2Fworld-university-rankings%2F2016%2Fworld-ranking%23%21%2Fpage%2F0%2Flength%2F25&r=https%3A%2F%2Fwww.timeshighereducation.com%2F&c.&urlhost=https%3A%2F%2Fwww.timeshighereducation.com&urlpath=%2Fworld-university-rankings%2F2016%2Fworld-ranking&linktointernalfilters=javascript%3A%2Ctimeshighereducation.com&pagename=rankings%3A133819&pagetitle=world%20university%20rankings%202015-2016%20%7C%20times%20higher%20education&channel=rankings&internalorigin=undetermined&.c&cc=GBP&pid=https%3A%2F%2Fwww.timeshighereducation.com%2F&oid=https%3A%2F%2Fwww.timeshighereducation.com%2Fworld-university-rankings%2F2016%2Fworld-ranking&ot=A&s=1366x768&c=24&j=1.8.5&v=N&k=Y&bw=1362&bh=615&p=Shockwave%20Flash%3B&AQE=1
+
+GET /b/ss/tsltsltimeshigher/1/JS-1.3.2/s95550914610652?AQB=1&ndh=1&t=26%2F9%2F2015%2023%3A24%3A11%201%20-120&fid=706D12FF930FCE57-2BA1759401CC59B8&ce=UTF-8&ns=tsleducation&cdp=3&g=https%3A%2F%2Fwww.timeshighereducation.com%2Fworld-university-rankings%2F2016%2Fworld-ranking%23%21%2Fpage%2F0%2Flength%2F25&r=https%3A%2F%2Fwww.timeshighereducation.com%2F&c.&urlhost=https%3A%2F%2Fwww.timeshighereducation.com&urlpath=%2Fworld-university-rankings%2F2016%2Fworld-ranking&linktointernalfilters=javascript%3A%2Ctimeshighereducation.com&pagename=rankings%3A133819&pagetitle=world%20university%20rankings%202015-2016%20%7C%20times%20higher%20education&channel=rankings&internalorigin=undetermined&.c&cc=GBP&pid=https%3A%2F%2Fwww.timeshighereducation.com%2F&oid=https%3A%2F%2Fwww.timeshighereducation.com%2Fworld-university-rankings%2F2016%2Fworld-ranking&ot=A&s=1366x768&c=24&j=1.8.5&v=N&k=Y&bw=1362&bh=615&p=Shockwave%20Flash%3B&AQE=1 HTTP/1.1
+Host: tsleducation.112.2o7.net
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:31.0) Gecko/20100101 Firefox/31.0 Iceweasel/31.1.0
+Accept: image/png,image/*;q=0.8,*/*;q=0.5
+Accept-Language: ru-ru,ru;q=0.7,uk;q=0.3
+Accept-Encoding: gzip, deflate
+Referer: https://www.timeshighereducation.com/world-university-rankings/2016/world-ranking
+Cookie: s_vi=[CS]v1|2ADF42DB851905F0-6000060F40029828[CE]
+Connection: keep-alive
+
+HTTP/1.1 200 OK
+Date: Mon, 26 Oct 2015 21:24:14 GMT
+Server: Omniture DC/2.0.0
+Access-Control-Allow-Origin: *
+Set-Cookie: s_vi=[CS]v1|2ADF42DB851905F0-6000060F40029828[CE]; Expires=Wed, 25 Oct 2017 21:24:14 GMT; Domain=tsleducation.112.2o7.net; Path=/
+X-C: ms-4.9.8
+Expires: Sun, 25 Oct 2015 21:24:14 GMT
+Last-Modified: Tue, 27 Oct 2015 21:24:14 GMT
+Cache-Control: no-cache, no-store, max-age=0, no-transform, private
+Pragma: no-cache
+Etag: "562E99FE-8D8E-7F25DDA0"
+Vary: *
+p3p: policyref="/w3c/p3p.xml", CP="NOI DSP COR NID PSA OUR IND COM NAV STA"
+xserver: www133
+Content-Length: 43
+Keep-Alive: timeout=15
+Connection: Keep-Alive
+Content-Type: image/gif
+----------------------------------------------------------
+https://securepubads.g.doubleclick.net/gampad/ads?gdfp_req=1&correlator=2254801506600807&output=json_html&callback=callbackProxy&impl=fifs&json_a=1&eid=108809080%2C108809035&sc=1&sfv=1-0-2&iu_parts=2884%2CTHE_WUR%2CWORLD_UNI_RANKINGS&enc_prev_ius=%2F0%2F1%2F2&prev_iu_szs=300x100&prev_scp=position%3D1&cookie=ID%3Dde98fb896e154198%3AT%3D1445534556%3AS%3DALNI_MbVmls_JsAfLr_c9_gC7_ePKs96og&lmt=1445892895&dt=1445894652594&cc=100&frm=20&biw=1346&bih=615&oid=3&adks=643327796&gut=v2&ifi=3&u_tz=120&u_his=3&u_h=768&u_w=1366&u_ah=768&u_aw=1366&u_cd=24&u_nplug=1&u_nmime=2&u_sd=1&flash=11.2.202&url=https%3A%2F%2Fwww.timeshighereducation.com%2Fworld-university-rankings%2F2016%2Fworld-ranking%23!%2Fpage%2F0%2Flength%2F25&ref=https%3A%2F%2Fwww.timeshighereducation.com%2F&dssz=32&icsg=12386063&std=5&vrg=74&vrp=74&ga_vid=100575766.1445534553&ga_sid=1445894653&ga_hid=1325325964
+
+GET /gampad/ads?gdfp_req=1&correlator=2254801506600807&output=json_html&callback=callbackProxy&impl=fifs&json_a=1&eid=108809080%2C108809035&sc=1&sfv=1-0-2&iu_parts=2884%2CTHE_WUR%2CWORLD_UNI_RANKINGS&enc_prev_ius=%2F0%2F1%2F2&prev_iu_szs=300x100&prev_scp=position%3D1&cookie=ID%3Dde98fb896e154198%3AT%3D1445534556%3AS%3DALNI_MbVmls_JsAfLr_c9_gC7_ePKs96og&lmt=1445892895&dt=1445894652594&cc=100&frm=20&biw=1346&bih=615&oid=3&adks=643327796&gut=v2&ifi=3&u_tz=120&u_his=3&u_h=768&u_w=1366&u_ah=768&u_aw=1366&u_cd=24&u_nplug=1&u_nmime=2&u_sd=1&flash=11.2.202&url=https%3A%2F%2Fwww.timeshighereducation.com%2Fworld-university-rankings%2F2016%2Fworld-ranking%23!%2Fpage%2F0%2Flength%2F25&ref=https%3A%2F%2Fwww.timeshighereducation.com%2F&dssz=32&icsg=12386063&std=5&vrg=74&vrp=74&ga_vid=100575766.1445534553&ga_sid=1445894653&ga_hid=1325325964 HTTP/1.1
+Host: securepubads.g.doubleclick.net
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:31.0) Gecko/20100101 Firefox/31.0 Iceweasel/31.1.0
+Accept: */*
+Accept-Language: ru-ru,ru;q=0.7,uk;q=0.3
+Accept-Encoding: gzip, deflate
+Referer: https://www.timeshighereducation.com/world-university-rankings/2016/world-ranking
+Cookie: id=22ddc23dc701005e||t=1390162425|et=730|cs=002213fd4817ab64595f82e58e; __gads=ID=e9ae1adf71a03f48:T=1407220765:S=ALNI_MZ8G6ozk3HIwuvn_Vm3qCWlWXVt9Q; _drt_=AL_3zv3-YYH979KSYCwJLRn_0iXvjyf8wyLMqLztzs0thers4W7nvYKKm6GXRkUkqHrtm9Y0q9uxwm9tGf98hr7Mku_LPjySMTaGLx80JkY2xfQ-FKoJ73o; DSID=AL_3zv2jxmw1YCHU8IdJkP-C0BexZJG1gmxII8O-ByM2TIuN2eW5wsVVdDTz5PTv1NUCdsaqeLGwhnI40Kyabgg8OhQb9QrnevFPpiZwEt3Vb2h53BpUbXU
+Connection: keep-alive
+
+HTTP/1.1 200 OK
+p3p: policyref="https://googleads.g.doubleclick.net/pagead/gcn_p3p_.xml", CP="CURa ADMa DEVa TAIo PSAo PSDo OUR IND UNI PUR INT DEM STA PRE COM NAV OTC NOI DSP COR"
+google-lineitem-id: 57833154
+google-creative-id: 55994268354
+Date: Mon, 26 Oct 2015 21:24:14 GMT
+Pragma: no-cache
+Expires: Fri, 01 Jan 1990 00:00:00 GMT
+Cache-Control: no-cache, must-revalidate
+Content-Type: text/javascript; charset=UTF-8
+x-content-type-options: nosniff
+Content-Disposition: attachment; filename="f.txt"
+Content-Encoding: gzip
+Server: cafe
+Content-Length: 10757
+X-XSS-Protection: 1; mode=block
+X-Firefox-Spdy: 3.1
+----------------------------------------------------------
+https://securepubads.g.doubleclick.net/gampad/ads?gdfp_req=1&correlator=2254801506600807&output=json_html&callback=callbackProxy&impl=fifs&json_a=1&eid=108809080%2C108809035&sc=1&sfv=1-0-2&iu_parts=2884%2CTHE_WUR%2CWORLD_UNI_RANKINGS&enc_prev_ius=%2F0%2F1%2F2&prev_iu_szs=728x90%7C970x90&prev_scp=position%3D1&cookie=ID%3Dde98fb896e154198%3AT%3D1445534556%3AS%3DALNI_MbVmls_JsAfLr_c9_gC7_ePKs96og&lmt=1445892895&dt=1445894652552&cc=100&frm=20&biw=1346&bih=615&oid=3&adks=2925318313&gut=v2&ifi=1&u_tz=120&u_his=3&u_h=768&u_w=1366&u_ah=768&u_aw=1366&u_cd=24&u_nplug=1&u_nmime=2&u_sd=1&flash=11.2.202&url=https%3A%2F%2Fwww.timeshighereducation.com%2Fworld-university-rankings%2F2016%2Fworld-ranking%23!%2Fpage%2F0%2Flength%2F25&ref=https%3A%2F%2Fwww.timeshighereducation.com%2F&dssz=32&icsg=12386063&std=5&vrg=74&vrp=74&ga_vid=100575766.1445534553&ga_sid=1445894653&ga_hid=1325325964
+
+GET /gampad/ads?gdfp_req=1&correlator=2254801506600807&output=json_html&callback=callbackProxy&impl=fifs&json_a=1&eid=108809080%2C108809035&sc=1&sfv=1-0-2&iu_parts=2884%2CTHE_WUR%2CWORLD_UNI_RANKINGS&enc_prev_ius=%2F0%2F1%2F2&prev_iu_szs=728x90%7C970x90&prev_scp=position%3D1&cookie=ID%3Dde98fb896e154198%3AT%3D1445534556%3AS%3DALNI_MbVmls_JsAfLr_c9_gC7_ePKs96og&lmt=1445892895&dt=1445894652552&cc=100&frm=20&biw=1346&bih=615&oid=3&adks=2925318313&gut=v2&ifi=1&u_tz=120&u_his=3&u_h=768&u_w=1366&u_ah=768&u_aw=1366&u_cd=24&u_nplug=1&u_nmime=2&u_sd=1&flash=11.2.202&url=https%3A%2F%2Fwww.timeshighereducation.com%2Fworld-university-rankings%2F2016%2Fworld-ranking%23!%2Fpage%2F0%2Flength%2F25&ref=https%3A%2F%2Fwww.timeshighereducation.com%2F&dssz=32&icsg=12386063&std=5&vrg=74&vrp=74&ga_vid=100575766.1445534553&ga_sid=1445894653&ga_hid=1325325964 HTTP/1.1
+Host: securepubads.g.doubleclick.net
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:31.0) Gecko/20100101 Firefox/31.0 Iceweasel/31.1.0
+Accept: */*
+Accept-Language: ru-ru,ru;q=0.7,uk;q=0.3
+Accept-Encoding: gzip, deflate
+Referer: https://www.timeshighereducation.com/world-university-rankings/2016/world-ranking
+Cookie: id=22ddc23dc701005e||t=1390162425|et=730|cs=002213fd4817ab64595f82e58e; __gads=ID=e9ae1adf71a03f48:T=1407220765:S=ALNI_MZ8G6ozk3HIwuvn_Vm3qCWlWXVt9Q; _drt_=AL_3zv3-YYH979KSYCwJLRn_0iXvjyf8wyLMqLztzs0thers4W7nvYKKm6GXRkUkqHrtm9Y0q9uxwm9tGf98hr7Mku_LPjySMTaGLx80JkY2xfQ-FKoJ73o; DSID=AL_3zv2jxmw1YCHU8IdJkP-C0BexZJG1gmxII8O-ByM2TIuN2eW5wsVVdDTz5PTv1NUCdsaqeLGwhnI40Kyabgg8OhQb9QrnevFPpiZwEt3Vb2h53BpUbXU
+Connection: keep-alive
+
+HTTP/1.1 200 OK
+p3p: policyref="https://googleads.g.doubleclick.net/pagead/gcn_p3p_.xml", CP="CURa ADMa DEVa TAIo PSAo PSDo OUR IND UNI PUR INT DEM STA PRE COM NAV OTC NOI DSP COR"
+google-lineitem-id: 60949914
+google-creative-id: 56603995434
+Date: Mon, 26 Oct 2015 21:24:14 GMT
+Pragma: no-cache
+Expires: Fri, 01 Jan 1990 00:00:00 GMT
+Cache-Control: no-cache, must-revalidate
+Content-Type: text/javascript; charset=UTF-8
+x-content-type-options: nosniff
+Content-Disposition: attachment; filename="f.txt"
+Content-Encoding: gzip
+Server: cafe
+Content-Length: 10751
+X-XSS-Protection: 1; mode=block
+X-Firefox-Spdy: 3.1
+----------------------------------------------------------
+https://securepubads.g.doubleclick.net/gampad/ads?gdfp_req=1&correlator=2254801506600807&output=json_html&callback=callbackProxy&impl=fifs&json_a=1&eid=108809080%2C108809035&sc=1&sfv=1-0-2&iu_parts=2884%2CTHE_WUR%2CWORLD_UNI_RANKINGS&enc_prev_ius=%2F0%2F1%2F2&prev_iu_szs=300x100&prev_scp=position%3D2&cookie=ID%3Dde98fb896e154198%3AT%3D1445534556%3AS%3DALNI_MbVmls_JsAfLr_c9_gC7_ePKs96og&lmt=1445892895&dt=1445894652684&cc=100&frm=20&biw=1346&bih=615&oid=3&adks=643327797&gut=v2&ifi=9&u_tz=120&u_his=3&u_h=768&u_w=1366&u_ah=768&u_aw=1366&u_cd=24&u_nplug=1&u_nmime=2&u_sd=1&flash=11.2.202&url=https%3A%2F%2Fwww.timeshighereducation.com%2Fworld-university-rankings%2F2016%2Fworld-ranking%23!%2Fpage%2F0%2Flength%2F25&ref=https%3A%2F%2Fwww.timeshighereducation.com%2F&dssz=32&icsg=12386063&std=5&vrg=74&vrp=74&ga_vid=100575766.1445534553&ga_sid=1445894653&ga_hid=1325325964
+
+GET /gampad/ads?gdfp_req=1&correlator=2254801506600807&output=json_html&callback=callbackProxy&impl=fifs&json_a=1&eid=108809080%2C108809035&sc=1&sfv=1-0-2&iu_parts=2884%2CTHE_WUR%2CWORLD_UNI_RANKINGS&enc_prev_ius=%2F0%2F1%2F2&prev_iu_szs=300x100&prev_scp=position%3D2&cookie=ID%3Dde98fb896e154198%3AT%3D1445534556%3AS%3DALNI_MbVmls_JsAfLr_c9_gC7_ePKs96og&lmt=1445892895&dt=1445894652684&cc=100&frm=20&biw=1346&bih=615&oid=3&adks=643327797&gut=v2&ifi=9&u_tz=120&u_his=3&u_h=768&u_w=1366&u_ah=768&u_aw=1366&u_cd=24&u_nplug=1&u_nmime=2&u_sd=1&flash=11.2.202&url=https%3A%2F%2Fwww.timeshighereducation.com%2Fworld-university-rankings%2F2016%2Fworld-ranking%23!%2Fpage%2F0%2Flength%2F25&ref=https%3A%2F%2Fwww.timeshighereducation.com%2F&dssz=32&icsg=12386063&std=5&vrg=74&vrp=74&ga_vid=100575766.1445534553&ga_sid=1445894653&ga_hid=1325325964 HTTP/1.1
+Host: securepubads.g.doubleclick.net
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:31.0) Gecko/20100101 Firefox/31.0 Iceweasel/31.1.0
+Accept: */*
+Accept-Language: ru-ru,ru;q=0.7,uk;q=0.3
+Accept-Encoding: gzip, deflate
+Referer: https://www.timeshighereducation.com/world-university-rankings/2016/world-ranking
+Cookie: id=22ddc23dc701005e||t=1390162425|et=730|cs=002213fd4817ab64595f82e58e; __gads=ID=e9ae1adf71a03f48:T=1407220765:S=ALNI_MZ8G6ozk3HIwuvn_Vm3qCWlWXVt9Q; _drt_=AL_3zv3-YYH979KSYCwJLRn_0iXvjyf8wyLMqLztzs0thers4W7nvYKKm6GXRkUkqHrtm9Y0q9uxwm9tGf98hr7Mku_LPjySMTaGLx80JkY2xfQ-FKoJ73o; DSID=AL_3zv2jxmw1YCHU8IdJkP-C0BexZJG1gmxII8O-ByM2TIuN2eW5wsVVdDTz5PTv1NUCdsaqeLGwhnI40Kyabgg8OhQb9QrnevFPpiZwEt3Vb2h53BpUbXU
+Connection: keep-alive
+
+HTTP/1.1 200 OK
+p3p: policyref="https://googleads.g.doubleclick.net/pagead/gcn_p3p_.xml", CP="CURa ADMa DEVa TAIo PSAo PSDo OUR IND UNI PUR INT DEM STA PRE COM NAV OTC NOI DSP COR"
+google-lineitem-id: 58733514
+google-creative-id: 51989409714
+Date: Mon, 26 Oct 2015 21:24:14 GMT
+Pragma: no-cache
+Expires: Fri, 01 Jan 1990 00:00:00 GMT
+Cache-Control: no-cache, must-revalidate
+Content-Type: text/javascript; charset=UTF-8
+x-content-type-options: nosniff
+Content-Disposition: attachment; filename="f.txt"
+Content-Encoding: gzip
+Server: cafe
+Content-Length: 10623
+X-XSS-Protection: 1; mode=block
+X-Firefox-Spdy: 3.1
+----------------------------------------------------------
+https://securepubads.g.doubleclick.net/gampad/ads?gdfp_req=1&correlator=2254801506600807&output=json_html&callback=callbackProxy&impl=fifs&json_a=1&eid=108809080%2C108809035%2C108809007&sc=1&sfv=1-0-2&iu_parts=2884%2CTHE_WUR%2CWORLD_UNI_RANKINGS&enc_prev_ius=%2F0%2F1%2F2&prev_iu_szs=300x250%7C300x600&prev_scp=position%3D1&cookie=ID%3Dde98fb896e154198%3AT%3D1445534556%3AS%3DALNI_MbVmls_JsAfLr_c9_gC7_ePKs96og&lmt=1445892895&dt=1445894652624&cc=100&frm=20&biw=1346&bih=615&oid=3&adks=470738246&gut=v2&ifi=5&u_tz=120&u_his=3&u_h=768&u_w=1366&u_ah=768&u_aw=1366&u_cd=24&u_nplug=1&u_nmime=2&u_sd=1&flash=11.2.202&url=https%3A%2F%2Fwww.timeshighereducation.com%2Fworld-university-rankings%2F2016%2Fworld-ranking%23!%2Fpage%2F0%2Flength%2F25&ref=https%3A%2F%2Fwww.timeshighereducation.com%2F&dssz=32&icsg=12386063&std=5&vrg=74&vrp=74&ga_vid=100575766.1445534553&ga_sid=1445894653&ga_hid=1325325964
+
+GET /gampad/ads?gdfp_req=1&correlator=2254801506600807&output=json_html&callback=callbackProxy&impl=fifs&json_a=1&eid=108809080%2C108809035%2C108809007&sc=1&sfv=1-0-2&iu_parts=2884%2CTHE_WUR%2CWORLD_UNI_RANKINGS&enc_prev_ius=%2F0%2F1%2F2&prev_iu_szs=300x250%7C300x600&prev_scp=position%3D1&cookie=ID%3Dde98fb896e154198%3AT%3D1445534556%3AS%3DALNI_MbVmls_JsAfLr_c9_gC7_ePKs96og&lmt=1445892895&dt=1445894652624&cc=100&frm=20&biw=1346&bih=615&oid=3&adks=470738246&gut=v2&ifi=5&u_tz=120&u_his=3&u_h=768&u_w=1366&u_ah=768&u_aw=1366&u_cd=24&u_nplug=1&u_nmime=2&u_sd=1&flash=11.2.202&url=https%3A%2F%2Fwww.timeshighereducation.com%2Fworld-university-rankings%2F2016%2Fworld-ranking%23!%2Fpage%2F0%2Flength%2F25&ref=https%3A%2F%2Fwww.timeshighereducation.com%2F&dssz=32&icsg=12386063&std=5&vrg=74&vrp=74&ga_vid=100575766.1445534553&ga_sid=1445894653&ga_hid=1325325964 HTTP/1.1
+Host: securepubads.g.doubleclick.net
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:31.0) Gecko/20100101 Firefox/31.0 Iceweasel/31.1.0
+Accept: */*
+Accept-Language: ru-ru,ru;q=0.7,uk;q=0.3
+Accept-Encoding: gzip, deflate
+Referer: https://www.timeshighereducation.com/world-university-rankings/2016/world-ranking
+Cookie: id=22ddc23dc701005e||t=1390162425|et=730|cs=002213fd4817ab64595f82e58e; __gads=ID=e9ae1adf71a03f48:T=1407220765:S=ALNI_MZ8G6ozk3HIwuvn_Vm3qCWlWXVt9Q; _drt_=AL_3zv3-YYH979KSYCwJLRn_0iXvjyf8wyLMqLztzs0thers4W7nvYKKm6GXRkUkqHrtm9Y0q9uxwm9tGf98hr7Mku_LPjySMTaGLx80JkY2xfQ-FKoJ73o; DSID=AL_3zv2jxmw1YCHU8IdJkP-C0BexZJG1gmxII8O-ByM2TIuN2eW5wsVVdDTz5PTv1NUCdsaqeLGwhnI40Kyabgg8OhQb9QrnevFPpiZwEt3Vb2h53BpUbXU
+Connection: keep-alive
+
+HTTP/1.1 200 OK
+p3p: policyref="https://googleads.g.doubleclick.net/pagead/gcn_p3p_.xml", CP="CURa ADMa DEVa TAIo PSAo PSDo OUR IND UNI PUR INT DEM STA PRE COM NAV OTC NOI DSP COR"
+google-lineitem-id: 59415954
+google-creative-id: 53553762834
+Date: Mon, 26 Oct 2015 21:24:14 GMT
+Pragma: no-cache
+Expires: Fri, 01 Jan 1990 00:00:00 GMT
+Cache-Control: no-cache, must-revalidate
+Content-Type: text/javascript; charset=UTF-8
+x-content-type-options: nosniff
+Content-Disposition: attachment; filename="f.txt"
+Content-Encoding: gzip
+Server: cafe
+Content-Length: 11310
+X-XSS-Protection: 1; mode=block
+X-Firefox-Spdy: 3.1
+----------------------------------------------------------
+https://securepubads.g.doubleclick.net/gampad/ads?gdfp_req=1&correlator=2254801506600807&output=json_html&callback=callbackProxy&impl=fifs&json_a=1&eid=108809080%2C108809035&sc=1&sfv=1-0-2&iu_parts=2884%2CTHE_WUR%2CWORLD_UNI_RANKINGS&enc_prev_ius=%2F0%2F1%2F2&prev_iu_szs=300x100&prev_scp=position%3D3&cookie=ID%3Dde98fb896e154198%3AT%3D1445534556%3AS%3DALNI_MbVmls_JsAfLr_c9_gC7_ePKs96og&lmt=1445892895&dt=1445894652715&cc=100&frm=20&biw=1346&bih=615&oid=3&adks=643327794&gut=v2&ifi=11&u_tz=120&u_his=3&u_h=768&u_w=1366&u_ah=768&u_aw=1366&u_cd=24&u_nplug=1&u_nmime=2&u_sd=1&flash=11.2.202&url=https%3A%2F%2Fwww.timeshighereducation.com%2Fworld-university-rankings%2F2016%2Fworld-ranking%23!%2Fpage%2F0%2Flength%2F25&ref=https%3A%2F%2Fwww.timeshighereducation.com%2F&dssz=32&icsg=12386063&std=5&vrg=74&vrp=74&ga_vid=100575766.1445534553&ga_sid=1445894653&ga_hid=1325325964
+
+GET /gampad/ads?gdfp_req=1&correlator=2254801506600807&output=json_html&callback=callbackProxy&impl=fifs&json_a=1&eid=108809080%2C108809035&sc=1&sfv=1-0-2&iu_parts=2884%2CTHE_WUR%2CWORLD_UNI_RANKINGS&enc_prev_ius=%2F0%2F1%2F2&prev_iu_szs=300x100&prev_scp=position%3D3&cookie=ID%3Dde98fb896e154198%3AT%3D1445534556%3AS%3DALNI_MbVmls_JsAfLr_c9_gC7_ePKs96og&lmt=1445892895&dt=1445894652715&cc=100&frm=20&biw=1346&bih=615&oid=3&adks=643327794&gut=v2&ifi=11&u_tz=120&u_his=3&u_h=768&u_w=1366&u_ah=768&u_aw=1366&u_cd=24&u_nplug=1&u_nmime=2&u_sd=1&flash=11.2.202&url=https%3A%2F%2Fwww.timeshighereducation.com%2Fworld-university-rankings%2F2016%2Fworld-ranking%23!%2Fpage%2F0%2Flength%2F25&ref=https%3A%2F%2Fwww.timeshighereducation.com%2F&dssz=32&icsg=12386063&std=5&vrg=74&vrp=74&ga_vid=100575766.1445534553&ga_sid=1445894653&ga_hid=1325325964 HTTP/1.1
+Host: securepubads.g.doubleclick.net
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:31.0) Gecko/20100101 Firefox/31.0 Iceweasel/31.1.0
+Accept: */*
+Accept-Language: ru-ru,ru;q=0.7,uk;q=0.3
+Accept-Encoding: gzip, deflate
+Referer: https://www.timeshighereducation.com/world-university-rankings/2016/world-ranking
+Cookie: id=22ddc23dc701005e||t=1390162425|et=730|cs=002213fd4817ab64595f82e58e; __gads=ID=e9ae1adf71a03f48:T=1407220765:S=ALNI_MZ8G6ozk3HIwuvn_Vm3qCWlWXVt9Q; _drt_=AL_3zv3-YYH979KSYCwJLRn_0iXvjyf8wyLMqLztzs0thers4W7nvYKKm6GXRkUkqHrtm9Y0q9uxwm9tGf98hr7Mku_LPjySMTaGLx80JkY2xfQ-FKoJ73o; DSID=AL_3zv2jxmw1YCHU8IdJkP-C0BexZJG1gmxII8O-ByM2TIuN2eW5wsVVdDTz5PTv1NUCdsaqeLGwhnI40Kyabgg8OhQb9QrnevFPpiZwEt3Vb2h53BpUbXU
+Connection: keep-alive
+
+HTTP/1.1 200 OK
+p3p: policyref="https://googleads.g.doubleclick.net/pagead/gcn_p3p_.xml", CP="CURa ADMa DEVa TAIo PSAo PSDo OUR IND UNI PUR INT DEM STA PRE COM NAV OTC NOI DSP COR"
+google-lineitem-id: 60275754
+google-creative-id: 55722652914
+Date: Mon, 26 Oct 2015 21:24:14 GMT
+Pragma: no-cache
+Expires: Fri, 01 Jan 1990 00:00:00 GMT
+Cache-Control: no-cache, must-revalidate
+Content-Type: text/javascript; charset=UTF-8
+x-content-type-options: nosniff
+Content-Disposition: attachment; filename="f.txt"
+Content-Encoding: gzip
+Server: cafe
+Content-Length: 10620
+X-XSS-Protection: 1; mode=block
+X-Firefox-Spdy: 3.1
+----------------------------------------------------------
+https://securepubads.g.doubleclick.net/gampad/ads?gdfp_req=1&correlator=2254801506600807&output=json_html&callback=callbackProxy&impl=fifs&json_a=1&eid=108809080%2C108809035&sc=1&sfv=1-0-2&iu_parts=2884%2CTHE_WUR%2CWORLD_UNI_RANKINGS&enc_prev_ius=%2F0%2F1%2F2&prev_iu_szs=300x100&prev_scp=position%3D5&cookie=ID%3Dde98fb896e154198%3AT%3D1445534556%3AS%3DALNI_MbVmls_JsAfLr_c9_gC7_ePKs96og&lmt=1445892895&dt=1445894652773&cc=100&frm=20&biw=1346&bih=615&oid=3&adks=643327792&gut=v2&ifi=15&u_tz=120&u_his=3&u_h=768&u_w=1366&u_ah=768&u_aw=1366&u_cd=24&u_nplug=1&u_nmime=2&u_sd=1&flash=11.2.202&url=https%3A%2F%2Fwww.timeshighereducation.com%2Fworld-university-rankings%2F2016%2Fworld-ranking%23!%2Fpage%2F0%2Flength%2F25&ref=https%3A%2F%2Fwww.timeshighereducation.com%2F&dssz=32&icsg=12386063&std=5&vrg=74&vrp=74&ga_vid=100575766.1445534553&ga_sid=1445894653&ga_hid=1325325964
+
+GET /gampad/ads?gdfp_req=1&correlator=2254801506600807&output=json_html&callback=callbackProxy&impl=fifs&json_a=1&eid=108809080%2C108809035&sc=1&sfv=1-0-2&iu_parts=2884%2CTHE_WUR%2CWORLD_UNI_RANKINGS&enc_prev_ius=%2F0%2F1%2F2&prev_iu_szs=300x100&prev_scp=position%3D5&cookie=ID%3Dde98fb896e154198%3AT%3D1445534556%3AS%3DALNI_MbVmls_JsAfLr_c9_gC7_ePKs96og&lmt=1445892895&dt=1445894652773&cc=100&frm=20&biw=1346&bih=615&oid=3&adks=643327792&gut=v2&ifi=15&u_tz=120&u_his=3&u_h=768&u_w=1366&u_ah=768&u_aw=1366&u_cd=24&u_nplug=1&u_nmime=2&u_sd=1&flash=11.2.202&url=https%3A%2F%2Fwww.timeshighereducation.com%2Fworld-university-rankings%2F2016%2Fworld-ranking%23!%2Fpage%2F0%2Flength%2F25&ref=https%3A%2F%2Fwww.timeshighereducation.com%2F&dssz=32&icsg=12386063&std=5&vrg=74&vrp=74&ga_vid=100575766.1445534553&ga_sid=1445894653&ga_hid=1325325964 HTTP/1.1
+Host: securepubads.g.doubleclick.net
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:31.0) Gecko/20100101 Firefox/31.0 Iceweasel/31.1.0
+Accept: */*
+Accept-Language: ru-ru,ru;q=0.7,uk;q=0.3
+Accept-Encoding: gzip, deflate
+Referer: https://www.timeshighereducation.com/world-university-rankings/2016/world-ranking
+Cookie: id=22ddc23dc701005e||t=1390162425|et=730|cs=002213fd4817ab64595f82e58e; __gads=ID=e9ae1adf71a03f48:T=1407220765:S=ALNI_MZ8G6ozk3HIwuvn_Vm3qCWlWXVt9Q; _drt_=AL_3zv3-YYH979KSYCwJLRn_0iXvjyf8wyLMqLztzs0thers4W7nvYKKm6GXRkUkqHrtm9Y0q9uxwm9tGf98hr7Mku_LPjySMTaGLx80JkY2xfQ-FKoJ73o; DSID=AL_3zv2jxmw1YCHU8IdJkP-C0BexZJG1gmxII8O-ByM2TIuN2eW5wsVVdDTz5PTv1NUCdsaqeLGwhnI40Kyabgg8OhQb9QrnevFPpiZwEt3Vb2h53BpUbXU
+Connection: keep-alive
+
+HTTP/1.1 200 OK
+p3p: policyref="https://googleads.g.doubleclick.net/pagead/gcn_p3p_.xml", CP="CURa ADMa DEVa TAIo PSAo PSDo OUR IND UNI PUR INT DEM STA PRE COM NAV OTC NOI DSP COR"
+google-lineitem-id: 57834234
+google-creative-id: 55994187714
+Date: Mon, 26 Oct 2015 21:24:14 GMT
+Pragma: no-cache
+Expires: Fri, 01 Jan 1990 00:00:00 GMT
+Cache-Control: no-cache, must-revalidate
+Content-Type: text/javascript; charset=UTF-8
+x-content-type-options: nosniff
+Content-Disposition: attachment; filename="f.txt"
+Content-Encoding: gzip
+Server: cafe
+Content-Length: 10615
+X-XSS-Protection: 1; mode=block
+X-Firefox-Spdy: 3.1
+----------------------------------------------------------
+https://securepubads.g.doubleclick.net/gampad/ads?gdfp_req=1&correlator=2254801506600807&output=json_html&callback=callbackProxy&impl=fifs&json_a=1&eid=108809080%2C108809035&sc=1&sfv=1-0-2&iu_parts=2884%2CTHE_WUR%2CWORLD_UNI_RANKINGS&enc_prev_ius=%2F0%2F1%2F2&prev_iu_szs=300x250%7C300x600&prev_scp=position%3D2&cookie=ID%3Dde98fb896e154198%3AT%3D1445534556%3AS%3DALNI_MbVmls_JsAfLr_c9_gC7_ePKs96og&lmt=1445892895&dt=1445894652654&cc=100&frm=20&biw=1346&bih=615&oid=3&adks=470738241&gut=v2&ifi=7&u_tz=120&u_his=3&u_h=768&u_w=1366&u_ah=768&u_aw=1366&u_cd=24&u_nplug=1&u_nmime=2&u_sd=1&flash=11.2.202&url=https%3A%2F%2Fwww.timeshighereducation.com%2Fworld-university-rankings%2F2016%2Fworld-ranking%23!%2Fpage%2F0%2Flength%2F25&ref=https%3A%2F%2Fwww.timeshighereducation.com%2F&dssz=32&icsg=12386063&std=5&vrg=74&vrp=74&ga_vid=100575766.1445534553&ga_sid=1445894653&ga_hid=1325325964
+
+GET /gampad/ads?gdfp_req=1&correlator=2254801506600807&output=json_html&callback=callbackProxy&impl=fifs&json_a=1&eid=108809080%2C108809035&sc=1&sfv=1-0-2&iu_parts=2884%2CTHE_WUR%2CWORLD_UNI_RANKINGS&enc_prev_ius=%2F0%2F1%2F2&prev_iu_szs=300x250%7C300x600&prev_scp=position%3D2&cookie=ID%3Dde98fb896e154198%3AT%3D1445534556%3AS%3DALNI_MbVmls_JsAfLr_c9_gC7_ePKs96og&lmt=1445892895&dt=1445894652654&cc=100&frm=20&biw=1346&bih=615&oid=3&adks=470738241&gut=v2&ifi=7&u_tz=120&u_his=3&u_h=768&u_w=1366&u_ah=768&u_aw=1366&u_cd=24&u_nplug=1&u_nmime=2&u_sd=1&flash=11.2.202&url=https%3A%2F%2Fwww.timeshighereducation.com%2Fworld-university-rankings%2F2016%2Fworld-ranking%23!%2Fpage%2F0%2Flength%2F25&ref=https%3A%2F%2Fwww.timeshighereducation.com%2F&dssz=32&icsg=12386063&std=5&vrg=74&vrp=74&ga_vid=100575766.1445534553&ga_sid=1445894653&ga_hid=1325325964 HTTP/1.1
+Host: securepubads.g.doubleclick.net
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:31.0) Gecko/20100101 Firefox/31.0 Iceweasel/31.1.0
+Accept: */*
+Accept-Language: ru-ru,ru;q=0.7,uk;q=0.3
+Accept-Encoding: gzip, deflate
+Referer: https://www.timeshighereducation.com/world-university-rankings/2016/world-ranking
+Cookie: id=22ddc23dc701005e||t=1390162425|et=730|cs=002213fd4817ab64595f82e58e; __gads=ID=e9ae1adf71a03f48:T=1407220765:S=ALNI_MZ8G6ozk3HIwuvn_Vm3qCWlWXVt9Q; _drt_=AL_3zv3-YYH979KSYCwJLRn_0iXvjyf8wyLMqLztzs0thers4W7nvYKKm6GXRkUkqHrtm9Y0q9uxwm9tGf98hr7Mku_LPjySMTaGLx80JkY2xfQ-FKoJ73o; DSID=AL_3zv2jxmw1YCHU8IdJkP-C0BexZJG1gmxII8O-ByM2TIuN2eW5wsVVdDTz5PTv1NUCdsaqeLGwhnI40Kyabgg8OhQb9QrnevFPpiZwEt3Vb2h53BpUbXU
+Connection: keep-alive
+
+HTTP/1.1 200 OK
+p3p: policyref="https://googleads.g.doubleclick.net/pagead/gcn_p3p_.xml", CP="CURa ADMa DEVa TAIo PSAo PSDo OUR IND UNI PUR INT DEM STA PRE COM NAV OTC NOI DSP COR"
+google-lineitem-id: 60655554
+google-creative-id: 56338688634
+Date: Mon, 26 Oct 2015 21:24:14 GMT
+Pragma: no-cache
+Expires: Fri, 01 Jan 1990 00:00:00 GMT
+Cache-Control: no-cache, must-revalidate
+Content-Type: text/javascript; charset=UTF-8
+x-content-type-options: nosniff
+Content-Disposition: attachment; filename="f.txt"
+Content-Encoding: gzip
+Server: cafe
+Content-Length: 9425
+X-XSS-Protection: 1; mode=block
+X-Firefox-Spdy: 3.1
+----------------------------------------------------------
+https://securepubads.g.doubleclick.net/gampad/ads?gdfp_req=1&correlator=2254801506600807&output=json_html&callback=callbackProxy&impl=fifs&json_a=1&eid=108809080%2C108809035&sc=1&sfv=1-0-2&iu_parts=2884%2CTHE_WUR%2CWORLD_UNI_RANKINGS&enc_prev_ius=%2F0%2F1%2F2&prev_iu_szs=300x100&prev_scp=position%3D4&cookie=ID%3Dde98fb896e154198%3AT%3D1445534556%3AS%3DALNI_MbVmls_JsAfLr_c9_gC7_ePKs96og&lmt=1445892895&dt=1445894652745&cc=100&frm=20&biw=1346&bih=615&oid=3&adks=643327795&gut=v2&ifi=13&u_tz=120&u_his=3&u_h=768&u_w=1366&u_ah=768&u_aw=1366&u_cd=24&u_nplug=1&u_nmime=2&u_sd=1&flash=11.2.202&url=https%3A%2F%2Fwww.timeshighereducation.com%2Fworld-university-rankings%2F2016%2Fworld-ranking%23!%2Fpage%2F0%2Flength%2F25&ref=https%3A%2F%2Fwww.timeshighereducation.com%2F&dssz=32&icsg=12386063&std=5&vrg=74&vrp=74&ga_vid=100575766.1445534553&ga_sid=1445894653&ga_hid=1325325964
+
+GET /gampad/ads?gdfp_req=1&correlator=2254801506600807&output=json_html&callback=callbackProxy&impl=fifs&json_a=1&eid=108809080%2C108809035&sc=1&sfv=1-0-2&iu_parts=2884%2CTHE_WUR%2CWORLD_UNI_RANKINGS&enc_prev_ius=%2F0%2F1%2F2&prev_iu_szs=300x100&prev_scp=position%3D4&cookie=ID%3Dde98fb896e154198%3AT%3D1445534556%3AS%3DALNI_MbVmls_JsAfLr_c9_gC7_ePKs96og&lmt=1445892895&dt=1445894652745&cc=100&frm=20&biw=1346&bih=615&oid=3&adks=643327795&gut=v2&ifi=13&u_tz=120&u_his=3&u_h=768&u_w=1366&u_ah=768&u_aw=1366&u_cd=24&u_nplug=1&u_nmime=2&u_sd=1&flash=11.2.202&url=https%3A%2F%2Fwww.timeshighereducation.com%2Fworld-university-rankings%2F2016%2Fworld-ranking%23!%2Fpage%2F0%2Flength%2F25&ref=https%3A%2F%2Fwww.timeshighereducation.com%2F&dssz=32&icsg=12386063&std=5&vrg=74&vrp=74&ga_vid=100575766.1445534553&ga_sid=1445894653&ga_hid=1325325964 HTTP/1.1
+Host: securepubads.g.doubleclick.net
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:31.0) Gecko/20100101 Firefox/31.0 Iceweasel/31.1.0
+Accept: */*
+Accept-Language: ru-ru,ru;q=0.7,uk;q=0.3
+Accept-Encoding: gzip, deflate
+Referer: https://www.timeshighereducation.com/world-university-rankings/2016/world-ranking
+Cookie: id=22ddc23dc701005e||t=1390162425|et=730|cs=002213fd4817ab64595f82e58e; __gads=ID=e9ae1adf71a03f48:T=1407220765:S=ALNI_MZ8G6ozk3HIwuvn_Vm3qCWlWXVt9Q; _drt_=AL_3zv3-YYH979KSYCwJLRn_0iXvjyf8wyLMqLztzs0thers4W7nvYKKm6GXRkUkqHrtm9Y0q9uxwm9tGf98hr7Mku_LPjySMTaGLx80JkY2xfQ-FKoJ73o; DSID=AL_3zv2jxmw1YCHU8IdJkP-C0BexZJG1gmxII8O-ByM2TIuN2eW5wsVVdDTz5PTv1NUCdsaqeLGwhnI40Kyabgg8OhQb9QrnevFPpiZwEt3Vb2h53BpUbXU
+Connection: keep-alive
+
+HTTP/1.1 200 OK
+p3p: policyref="https://googleads.g.doubleclick.net/pagead/gcn_p3p_.xml", CP="CURa ADMa DEVa TAIo PSAo PSDo OUR IND UNI PUR INT DEM STA PRE COM NAV OTC NOI DSP COR"
+google-lineitem-id: 61110714
+google-creative-id: 56961965754
+Date: Mon, 26 Oct 2015 21:24:14 GMT
+Pragma: no-cache
+Expires: Fri, 01 Jan 1990 00:00:00 GMT
+Cache-Control: no-cache, must-revalidate
+Content-Type: text/javascript; charset=UTF-8
+x-content-type-options: nosniff
+Content-Disposition: attachment; filename="f.txt"
+Content-Encoding: gzip
+Server: cafe
+Content-Length: 10683
+X-XSS-Protection: 1; mode=block
+X-Firefox-Spdy: 3.1
+----------------------------------------------------------
+https://www.google-analytics.com/collect?v=1&_v=j39&a=1325325964&t=pageview&_s=1&dl=https%3A%2F%2Fwww.timeshighereducation.com%2Fworld-university-rankings%2F2016%2Fworld-ranking&dp=%2Fworld-university-rankings%2F2016%2Fworld-ranking&ul=ru-ru&de=UTF-8&dt=rankings&sd=24-bit&sr=1366x768&vp=1346x615&je=0&fl=11.2%20r202&_u=AACAAEABI~&jid=&cid=100575766.1445534553&tid=UA-35881683-1&z=468674796
+
+GET /collect?v=1&_v=j39&a=1325325964&t=pageview&_s=1&dl=https%3A%2F%2Fwww.timeshighereducation.com%2Fworld-university-rankings%2F2016%2Fworld-ranking&dp=%2Fworld-university-rankings%2F2016%2Fworld-ranking&ul=ru-ru&de=UTF-8&dt=rankings&sd=24-bit&sr=1366x768&vp=1346x615&je=0&fl=11.2%20r202&_u=AACAAEABI~&jid=&cid=100575766.1445534553&tid=UA-35881683-1&z=468674796 HTTP/1.1
+Host: www.google-analytics.com
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:31.0) Gecko/20100101 Firefox/31.0 Iceweasel/31.1.0
+Accept: image/png,image/*;q=0.8,*/*;q=0.5
+Accept-Language: ru-ru,ru;q=0.7,uk;q=0.3
+Accept-Encoding: gzip, deflate
+Referer: https://www.timeshighereducation.com/world-university-rankings/2016/world-ranking
+Connection: keep-alive
+
+HTTP/1.1 200 OK
+Access-Control-Allow-Origin: *
+Date: Thu, 22 Oct 2015 16:09:31 GMT
+Pragma: no-cache
+Expires: Mon, 01 Jan 1990 00:00:00 GMT
+Last-Modified: Sun, 17 May 1998 03:00:00 GMT
+x-content-type-options: nosniff
+Content-Type: image/gif
+Server: Golfe2
+Content-Length: 35
+Cache-Control: no-cache, no-store, must-revalidate
+Age: 364483
+alternate-protocol: 443:quic,p=1
+alt-svc: quic=":443"; p="1"; ma=604800
+X-Firefox-Spdy: 3.1
+----------------------------------------------------------
+https://cm.g.doubleclick.net/push?client=ca-pub-0738930858216991&srn=gdn
+
+GET /push?client=ca-pub-0738930858216991&srn=gdn HTTP/1.1
+Host: cm.g.doubleclick.net
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:31.0) Gecko/20100101 Firefox/31.0 Iceweasel/31.1.0
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+Accept-Language: ru-ru,ru;q=0.7,uk;q=0.3
+Accept-Encoding: gzip, deflate
+Referer: https://www.timeshighereducation.com/world-university-rankings/2016/world-ranking
+Cookie: id=22ddc23dc701005e||t=1390162425|et=730|cs=002213fd4817ab64595f82e58e; __gads=ID=e9ae1adf71a03f48:T=1407220765:S=ALNI_MZ8G6ozk3HIwuvn_Vm3qCWlWXVt9Q; _drt_=AL_3zv3-YYH979KSYCwJLRn_0iXvjyf8wyLMqLztzs0thers4W7nvYKKm6GXRkUkqHrtm9Y0q9uxwm9tGf98hr7Mku_LPjySMTaGLx80JkY2xfQ-FKoJ73o; DSID=AL_3zv2jxmw1YCHU8IdJkP-C0BexZJG1gmxII8O-ByM2TIuN2eW5wsVVdDTz5PTv1NUCdsaqeLGwhnI40Kyabgg8OhQb9QrnevFPpiZwEt3Vb2h53BpUbXU
+Connection: keep-alive
+
+HTTP/1.1 204 No Content
+Date: Mon, 26 Oct 2015 21:24:15 GMT
+Content-Type: text/html
+Server: HTTP server (unknown)
+Content-Length: 0
+X-XSS-Protection: 1; mode=block
+X-Firefox-Spdy: 3.1
+----------------------------------------------------------
+https://tpc.googlesyndication.com/simgad/13078996732151277744
+
+GET /simgad/13078996732151277744 HTTP/1.1
+Host: tpc.googlesyndication.com
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:31.0) Gecko/20100101 Firefox/31.0 Iceweasel/31.1.0
+Accept: image/png,image/*;q=0.8,*/*;q=0.5
+Accept-Language: ru-ru,ru;q=0.7,uk;q=0.3
+Accept-Encoding: gzip, deflate
+Referer: https://www.timeshighereducation.com/world-university-rankings/2016/world-ranking
+Connection: keep-alive
+
+HTTP/1.1 200 OK
+Content-Type: image/jpeg
+Last-Modified: Wed, 02 Sep 2015 10:52:15 GMT
+Access-Control-Allow-Origin: *
+Date: Sun, 06 Sep 2015 03:47:40 GMT
+Expires: Mon, 05 Sep 2016 03:47:40 GMT
+x-content-type-options: nosniff
+Server: sffe
+Content-Length: 13756
+X-XSS-Protection: 1; mode=block
+Cache-Control: public, max-age=31536000
+Age: 4383395
+alternate-protocol: 443:quic,p=1
+alt-svc: quic=":443"; p="1"; ma=604800
+X-Firefox-Spdy: 3.1
+----------------------------------------------------------
+https://tpc.googlesyndication.com/simgad/14407378427896216041
+
+GET /simgad/14407378427896216041 HTTP/1.1
+Host: tpc.googlesyndication.com
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:31.0) Gecko/20100101 Firefox/31.0 Iceweasel/31.1.0
+Accept: image/png,image/*;q=0.8,*/*;q=0.5
+Accept-Language: ru-ru,ru;q=0.7,uk;q=0.3
+Accept-Encoding: gzip, deflate
+Referer: https://www.timeshighereducation.com/world-university-rankings/2016/world-ranking
+Connection: keep-alive
+
+HTTP/1.1 200 OK
+Content-Type: image/gif
+Last-Modified: Wed, 09 Sep 2015 10:38:50 GMT
+Access-Control-Allow-Origin: *
+Date: Mon, 05 Oct 2015 16:36:48 GMT
+Expires: Tue, 04 Oct 2016 16:36:48 GMT
+x-content-type-options: nosniff
+Server: sffe
+Content-Length: 29426
+X-XSS-Protection: 1; mode=block
+Cache-Control: public, max-age=31536000
+Age: 1831647
+alternate-protocol: 443:quic,p=1
+alt-svc: quic=":443"; p="1"; ma=604800
+X-Firefox-Spdy: 3.1
+----------------------------------------------------------
+https://www.google.com/ads/measurement/l?ebcid=ALh7CaTiHhHYUi9z5O9O_EdqQvXw0v-YNoGV26iq1aSzhxG27C4k3B1M6Jbpqg1BE2JDZfwZFJzTZfQGovhS8pTLWZOy4k8MFg
+
+GET /ads/measurement/l?ebcid=ALh7CaTiHhHYUi9z5O9O_EdqQvXw0v-YNoGV26iq1aSzhxG27C4k3B1M6Jbpqg1BE2JDZfwZFJzTZfQGovhS8pTLWZOy4k8MFg HTTP/1.1
+Host: www.google.com
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:31.0) Gecko/20100101 Firefox/31.0 Iceweasel/31.1.0
+Accept: image/png,image/*;q=0.8,*/*;q=0.5
+Accept-Language: ru-ru,ru;q=0.7,uk;q=0.3
+Accept-Encoding: gzip, deflate
+Referer: https://www.timeshighereducation.com/world-university-rankings/2016/world-ranking
+Cookie: TAID=AJHaeXLGSN0GQQ5mj_ezgq3Z8XyWV8ea-oimLODvBMq7yAqYC491yIFeFeEf849QbIOZN7NTOJa_ap09wAavZrHu5zQwQB1bw7T8KfCkPPTN1oy7PO7ttBO01O_91oaDs4mL31A1; AID=AJHaeXJD2qSCx0EnZ4GbM-9N5QUHaDwiCfYiWwzwdzFjURWHM6CdYA; PREF=ID=1111111111111111:LD=en:NR=10:CR=2:TM=1121077994:LM=1445894596:GM=1:SG=2:V=1:S=OXhj2D8uVZkOb8F9; NID=72=P0M7qzG6C4nWCj0wlGxXtwYQ55DcfGSxUAHgTEraB16usfmJG69YsJJdHT8rgoGWm8Yjs5eKNOXuGMRsfSYtCY5Cg3vakMFSkvJkVxbVqozQesqFWydoo6GLg61Kf36Xl61dcWEyyzN6OpGy7sZHTNRAtAiUVT-Qygh9K5Y0p4BNAvIFPaHtyjrdHpJ-OkfA6tZnPel7wQIMqWOX8k5wvKn7PQUU_WPAcSzNyhVVDIWipWlI5BW_fAiOlkZuagtirF9XcHNHzCfVCoKwDDaNmreBeHmcOrvOqp6oEIU; SID=DQAAABQBAADauq8xEztqxXxNtkDXo5B0eGvdf6POwsfMoxZcGZjECnnqzrWLIXbVNrmrUpEhL0ylFaBjYxZMUSMZpBVwhgq6tLrzCXDxvkO6Em-ohg7-Judgo1FcemFCujABFLvvY-d2fcfPnaN1YGV82vQE_ejf8zqeiIcgH9qpuGSn_KEpeqhpu_mZAvczXLOgpcoTci6MtyJTdC7fHPgbvkjH12ubT6TzYpmv1LtHPEYC_wkN6-PcrIWAjTYDMagfoyB1CJSpQPiqZSmeRE5JO1YMeWCTyJtol1zPAeMlh2KRtA8NgTA35qb0k-AK5Iyf0QIZ8VTJzrjJZxyGGpQjDjzER0v2RibFaZSLF-paCFB5GkpI-LJ6djRtyehRfXheZmVTNFI; HSID=A3GuXrrdUxlCfLG0b; SSID=AhWJIriU-mAlWmQeT; APISID=9smRSJJFTXv-1hGR/AWsJnZzPTPFmi3N33; SAPISID=6ECop4BglKd8PYJn/AX0cOL24MXKPGnVi0
+Connection: keep-alive
+
+HTTP/1.1 204 No Content
+Content-Type: text/html; charset=UTF-8
+x-content-type-options: nosniff
+Date: Mon, 26 Oct 2015 21:24:15 GMT
+Server: jumble_frontend_server
+Content-Length: 0
+X-XSS-Protection: 1; mode=block
+X-Frame-Options: SAMEORIGIN
+Set-Cookie: PREF=ID=1111111111111111:LD=en:NR=10:CR=2:TM=1121077994:LM=1445894655:GM=1:SG=2:V=1:S=kTjJv89fmhhb0lg8; expires=Thu, 31-Dec-2015 16:02:17 GMT; path=/; domain=.google.com
+X-Firefox-Spdy: 3.1
+----------------------------------------------------------
+https://s0.2mdn.net/879366/iframe_buster_200_86.js
+
+GET /879366/iframe_buster_200_86.js HTTP/1.1
+Host: s0.2mdn.net
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:31.0) Gecko/20100101 Firefox/31.0 Iceweasel/31.1.0
+Accept: */*
+Accept-Language: ru-ru,ru;q=0.7,uk;q=0.3
+Accept-Encoding: gzip, deflate
+Referer: https://www.timeshighereducation.com/world-university-rankings/2016/world-ranking
+Connection: keep-alive
+
+HTTP/1.1 200 OK
+Vary: Accept-Encoding
+Content-Encoding: gzip
+Content-Type: text/javascript
+Access-Control-Allow-Origin: *
+Date: Mon, 26 Oct 2015 21:01:15 GMT
+Expires: Tue, 27 Oct 2015 21:01:15 GMT
+Last-Modified: Fri, 19 Jun 2015 16:17:25 GMT
+x-content-type-options: nosniff
+Server: sffe
+Content-Length: 25234
+X-XSS-Protection: 1; mode=block
+Cache-Control: public, max-age=86400
+Age: 1380
+X-Firefox-Spdy: 3.1
+----------------------------------------------------------
+https://tpc.googlesyndication.com/pagead/imgad?id=CICAgKDTwbGslwEQARgBMghAyx570rXMOw
+
+GET /pagead/imgad?id=CICAgKDTwbGslwEQARgBMghAyx570rXMOw HTTP/1.1
+Host: tpc.googlesyndication.com
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:31.0) Gecko/20100101 Firefox/31.0 Iceweasel/31.1.0
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+Accept-Language: ru-ru,ru;q=0.7,uk;q=0.3
+Accept-Encoding: gzip, deflate
+Referer: https://www.timeshighereducation.com/world-university-rankings/2016/world-ranking
+Connection: keep-alive
+
+HTTP/1.1 200 OK
+p3p: policyref="https://www.googleadservices.com/pagead/p3p.xml", CP="NOI DEV PSA PSD IVA IVD OTP OUR OTR IND OTC"
+Content-Type: application/x-shockwave-flash
+Date: Mon, 26 Oct 2015 21:24:15 GMT
+Expires: Mon, 02 Nov 2015 21:24:15 GMT
+Cache-Control: public, max-age=604800
+x-content-type-options: nosniff
+Server: cafe
+Content-Length: 44882
+X-XSS-Protection: 1; mode=block
+alternate-protocol: 443:quic,p=1
+alt-svc: quic=":443"; p="1"; ma=604800
+X-Firefox-Spdy: 3.1
+----------------------------------------------------------
+https://cm.g.doubleclick.net/push?client=ca-pub-0738930858216991&srn=gdn
+
+GET /push?client=ca-pub-0738930858216991&srn=gdn HTTP/1.1
+Host: cm.g.doubleclick.net
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:31.0) Gecko/20100101 Firefox/31.0 Iceweasel/31.1.0
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+Accept-Language: ru-ru,ru;q=0.7,uk;q=0.3
+Accept-Encoding: gzip, deflate
+Referer: https://www.timeshighereducation.com/world-university-rankings/2016/world-ranking
+Cookie: id=22ddc23dc701005e||t=1390162425|et=730|cs=002213fd4817ab64595f82e58e; __gads=ID=e9ae1adf71a03f48:T=1407220765:S=ALNI_MZ8G6ozk3HIwuvn_Vm3qCWlWXVt9Q; _drt_=AL_3zv3-YYH979KSYCwJLRn_0iXvjyf8wyLMqLztzs0thers4W7nvYKKm6GXRkUkqHrtm9Y0q9uxwm9tGf98hr7Mku_LPjySMTaGLx80JkY2xfQ-FKoJ73o; DSID=AL_3zv2jxmw1YCHU8IdJkP-C0BexZJG1gmxII8O-ByM2TIuN2eW5wsVVdDTz5PTv1NUCdsaqeLGwhnI40Kyabgg8OhQb9QrnevFPpiZwEt3Vb2h53BpUbXU
+Connection: keep-alive
+
+HTTP/1.1 204 No Content
+Date: Mon, 26 Oct 2015 21:24:15 GMT
+Content-Type: text/html
+Server: HTTP server (unknown)
+Content-Length: 0
+X-XSS-Protection: 1; mode=block
+X-Firefox-Spdy: 3.1
+----------------------------------------------------------
+https://syndication.twitter.com/i/jot/syndication?l=%7B%22_category_%22%3A%22syndicated_impression%22%2C%22triggered_on%22%3A1445894653789%2C%22dnt%22%3Afalse%2C%22event_namespace%22%3A%7B%22client%22%3A%22tfw%22%2C%22page%22%3A%22timeline%22%2C%22action%22%3A%22impression%22%7D%7D
+
+GET /i/jot/syndication?l=%7B%22_category_%22%3A%22syndicated_impression%22%2C%22triggered_on%22%3A1445894653789%2C%22dnt%22%3Afalse%2C%22event_namespace%22%3A%7B%22client%22%3A%22tfw%22%2C%22page%22%3A%22timeline%22%2C%22action%22%3A%22impression%22%7D%7D HTTP/1.1
+Host: syndication.twitter.com
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:31.0) Gecko/20100101 Firefox/31.0 Iceweasel/31.1.0
+Accept: image/png,image/*;q=0.8,*/*;q=0.5
+Accept-Language: ru-ru,ru;q=0.7,uk;q=0.3
+Accept-Encoding: gzip, deflate
+Referer: https://www.timeshighereducation.com/world-university-rankings/2016/world-ranking
+Cookie: metrics_token="v1:14446703341711728612044155"; guest_id=v1%3A139011815832362037; _ga=GA1.2.1467542933.1405802811; lang=en
+Connection: keep-alive
+
+HTTP/1.1 200 OK
+Cache-Control: no-cache, no-store, must-revalidate, pre-check=0, post-check=0
+Content-Encoding: gzip
+Content-Length: 65
+Content-Type: image/gif;charset=utf-8
+Date: Mon, 26 Oct 2015 21:24:15 GMT
+Expires: Tue, 31 Mar 1981 05:00:00 GMT
+Last-Modified: Mon, 26 Oct 2015 21:24:15 GMT
+Pragma: no-cache
+Server: tsa_b
+Set-Cookie: pid=; Expires=Thu, 01 Jan 1970 00:00:00 GMT; Path=/; Domain=.twitter.com
+Status: 200 OK
+strict-transport-security: max-age=631138519
+x-connection-hash: 1ea8ef7cb5ec30024b9243ea70549f80
+x-content-type-options: nosniff
+X-Frame-Options: SAMEORIGIN
+x-response-time: 7
+x-transaction: 76e941bbf4ba8d3c
+x-twitter-response-tags: BouncerCompliant
+X-XSS-Protection: 1; mode=block
+X-Firefox-Spdy: 3.1
+----------------------------------------------------------
+https://cdn.syndication.twimg.com/widgets/timelines/538076200229277697?callback=__twttr.callbacks.tl_538076200229277697_i0&dnt=false&domain=www.timeshighereducation.com&lang=en&suppress_response_codes=true&t=1606549
+
+GET /widgets/timelines/538076200229277697?callback=__twttr.callbacks.tl_538076200229277697_i0&dnt=false&domain=www.timeshighereducation.com&lang=en&suppress_response_codes=true&t=1606549 HTTP/1.1
+Host: cdn.syndication.twimg.com
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:31.0) Gecko/20100101 Firefox/31.0 Iceweasel/31.1.0
+Accept: */*
+Accept-Language: ru-ru,ru;q=0.7,uk;q=0.3
+Accept-Encoding: gzip, deflate
+Referer: https://www.timeshighereducation.com/world-university-rankings/2016/world-ranking
+Cookie: lang=en
+Connection: keep-alive
+If-Modified-Since: Mon, 26 Oct 2015 21:23:04 GMT
+
+HTTP/1.1 200 OK
+Cache-Control: must-revalidate, max-age=60
+Content-Disposition: attachment; filename=jsonp.jsonp
+Content-Encoding: gzip
+Content-Length: 7596
+Content-Type: application/javascript;charset=utf-8
+Date: Mon, 26 Oct 2015 21:24:15 GMT
+Expires: Mon, 26 Oct 2015 21:25:15 GMT
+Last-Modified: Mon, 26 Oct 2015 21:24:15 GMT
+Server: tsa_b
+strict-transport-security: max-age=631138519
+Timing-Allow-Origin: *
+x-connection-hash: 6a2de0e83a0acac25735894d1736d293
+x-content-type-options: nosniff
+X-Frame-Options: SAMEORIGIN
+x-response-time: 76
+x-transaction: 434726cb155fd62d
+X-XSS-Protection: 1; mode=block
+X-Firefox-Spdy: 3.1
+----------------------------------------------------------
+https://s0.2mdn.net/ads/richmedia/studio/creative/37061561/37073573_3435a7b3f1ae5325938e07af58decca8_creative_def.js
+
+GET /ads/richmedia/studio/creative/37061561/37073573_3435a7b3f1ae5325938e07af58decca8_creative_def.js HTTP/1.1
+Host: s0.2mdn.net
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:31.0) Gecko/20100101 Firefox/31.0 Iceweasel/31.1.0
+Accept: */*
+Accept-Language: ru-ru,ru;q=0.7,uk;q=0.3
+Accept-Encoding: gzip, deflate
+Referer: https://www.timeshighereducation.com/world-university-rankings/2016/world-ranking
+Connection: keep-alive
+
+HTTP/1.1 200 OK
+Vary: Accept-Encoding
+Content-Encoding: gzip
+Content-Type: text/javascript
+Access-Control-Allow-Origin: *
+Date: Mon, 26 Oct 2015 21:01:19 GMT
+Expires: Tue, 27 Oct 2015 21:01:19 GMT
+Last-Modified: Wed, 17 Jun 2015 07:53:30 GMT
+x-content-type-options: nosniff
+Server: sffe
+Content-Length: 3506
+X-XSS-Protection: 1; mode=block
+Cache-Control: public, max-age=86400
+Age: 1376
+X-Firefox-Spdy: 3.1
+----------------------------------------------------------
+https://s0.2mdn.net/879366/html_expanding_rendering_lib_200_86.js
+
+GET /879366/html_expanding_rendering_lib_200_86.js HTTP/1.1
+Host: s0.2mdn.net
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:31.0) Gecko/20100101 Firefox/31.0 Iceweasel/31.1.0
+Accept: */*
+Accept-Language: ru-ru,ru;q=0.7,uk;q=0.3
+Accept-Encoding: gzip, deflate
+Referer: https://www.timeshighereducation.com/world-university-rankings/2016/world-ranking
+Connection: keep-alive
+
+HTTP/1.1 200 OK
+Vary: Accept-Encoding
+Content-Encoding: gzip
+Content-Type: text/javascript
+Access-Control-Allow-Origin: *
+Date: Mon, 26 Oct 2015 21:01:19 GMT
+Expires: Tue, 27 Oct 2015 21:01:19 GMT
+Last-Modified: Fri, 19 Jun 2015 16:17:19 GMT
+x-content-type-options: nosniff
+Server: sffe
+Content-Length: 54963
+X-XSS-Protection: 1; mode=block
+Cache-Control: public, max-age=86400
+Age: 1376
+X-Firefox-Spdy: 3.1
+----------------------------------------------------------
+https://cm.g.doubleclick.net/push?client=ca-pub-0738930858216991&srn=gdn
+
+GET /push?client=ca-pub-0738930858216991&srn=gdn HTTP/1.1
+Host: cm.g.doubleclick.net
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:31.0) Gecko/20100101 Firefox/31.0 Iceweasel/31.1.0
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+Accept-Language: ru-ru,ru;q=0.7,uk;q=0.3
+Accept-Encoding: gzip, deflate
+Referer: https://www.timeshighereducation.com/world-university-rankings/2016/world-ranking
+Cookie: id=22ddc23dc701005e||t=1390162425|et=730|cs=002213fd4817ab64595f82e58e; __gads=ID=e9ae1adf71a03f48:T=1407220765:S=ALNI_MZ8G6ozk3HIwuvn_Vm3qCWlWXVt9Q; _drt_=AL_3zv3-YYH979KSYCwJLRn_0iXvjyf8wyLMqLztzs0thers4W7nvYKKm6GXRkUkqHrtm9Y0q9uxwm9tGf98hr7Mku_LPjySMTaGLx80JkY2xfQ-FKoJ73o; DSID=AL_3zv2jxmw1YCHU8IdJkP-C0BexZJG1gmxII8O-ByM2TIuN2eW5wsVVdDTz5PTv1NUCdsaqeLGwhnI40Kyabgg8OhQb9QrnevFPpiZwEt3Vb2h53BpUbXU
+Connection: keep-alive
+
+HTTP/1.1 204 No Content
+Date: Mon, 26 Oct 2015 21:24:15 GMT
+Content-Type: text/html
+Server: HTTP server (unknown)
+Content-Length: 0
+X-XSS-Protection: 1; mode=block
+X-Firefox-Spdy: 3.1
+----------------------------------------------------------
+https://cm.g.doubleclick.net/push?client=ca-pub-0738930858216991&srn=gdn
+
+GET /push?client=ca-pub-0738930858216991&srn=gdn HTTP/1.1
+Host: cm.g.doubleclick.net
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:31.0) Gecko/20100101 Firefox/31.0 Iceweasel/31.1.0
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+Accept-Language: ru-ru,ru;q=0.7,uk;q=0.3
+Accept-Encoding: gzip, deflate
+Referer: https://www.timeshighereducation.com/world-university-rankings/2016/world-ranking
+Cookie: id=22ddc23dc701005e||t=1390162425|et=730|cs=002213fd4817ab64595f82e58e; __gads=ID=e9ae1adf71a03f48:T=1407220765:S=ALNI_MZ8G6ozk3HIwuvn_Vm3qCWlWXVt9Q; _drt_=AL_3zv3-YYH979KSYCwJLRn_0iXvjyf8wyLMqLztzs0thers4W7nvYKKm6GXRkUkqHrtm9Y0q9uxwm9tGf98hr7Mku_LPjySMTaGLx80JkY2xfQ-FKoJ73o; DSID=AL_3zv2jxmw1YCHU8IdJkP-C0BexZJG1gmxII8O-ByM2TIuN2eW5wsVVdDTz5PTv1NUCdsaqeLGwhnI40Kyabgg8OhQb9QrnevFPpiZwEt3Vb2h53BpUbXU
+Connection: keep-alive
+
+HTTP/1.1 204 No Content
+Date: Mon, 26 Oct 2015 21:24:16 GMT
+Content-Type: text/html
+Server: HTTP server (unknown)
+Content-Length: 0
+X-XSS-Protection: 1; mode=block
+X-Firefox-Spdy: 3.1
+----------------------------------------------------------
+https://s0.2mdn.net/ads/richmedia/studio/pv2/37061561/20150616100921871/the-june16th/index.html?e=69&renderingType=2&leftOffset=0&topOffset=0&c=k5YrdocK2W&t=1
+
+GET /ads/richmedia/studio/pv2/37061561/20150616100921871/the-june16th/index.html?e=69&renderingType=2&leftOffset=0&topOffset=0&c=k5YrdocK2W&t=1 HTTP/1.1
+Host: s0.2mdn.net
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:31.0) Gecko/20100101 Firefox/31.0 Iceweasel/31.1.0
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+Accept-Language: ru-ru,ru;q=0.7,uk;q=0.3
+Accept-Encoding: gzip, deflate
+Referer: https://www.timeshighereducation.com/world-university-rankings/2016/world-ranking
+Connection: keep-alive
+
+HTTP/1.1 200 OK
+Vary: Accept-Encoding
+Content-Encoding: gzip
+Content-Type: text/html
+Access-Control-Allow-Origin: *
+Date: Mon, 26 Oct 2015 21:24:16 GMT
+Expires: Tue, 27 Oct 2015 21:24:16 GMT
+Cache-Control: public, max-age=86400
+Last-Modified: Tue, 16 Jun 2015 17:09:23 GMT
+x-content-type-options: nosniff
+Server: sffe
+Content-Length: 5367
+X-XSS-Protection: 1; mode=block
+X-Firefox-Spdy: 3.1
+----------------------------------------------------------
+https://cm.g.doubleclick.net/push?client=ca-pub-0738930858216991&srn=gdn
+
+GET /push?client=ca-pub-0738930858216991&srn=gdn HTTP/1.1
+Host: cm.g.doubleclick.net
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:31.0) Gecko/20100101 Firefox/31.0 Iceweasel/31.1.0
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+Accept-Language: ru-ru,ru;q=0.7,uk;q=0.3
+Accept-Encoding: gzip, deflate
+Referer: https://www.timeshighereducation.com/world-university-rankings/2016/world-ranking
+Cookie: id=22ddc23dc701005e||t=1390162425|et=730|cs=002213fd4817ab64595f82e58e; __gads=ID=e9ae1adf71a03f48:T=1407220765:S=ALNI_MZ8G6ozk3HIwuvn_Vm3qCWlWXVt9Q; _drt_=AL_3zv3-YYH979KSYCwJLRn_0iXvjyf8wyLMqLztzs0thers4W7nvYKKm6GXRkUkqHrtm9Y0q9uxwm9tGf98hr7Mku_LPjySMTaGLx80JkY2xfQ-FKoJ73o; DSID=AL_3zv2jxmw1YCHU8IdJkP-C0BexZJG1gmxII8O-ByM2TIuN2eW5wsVVdDTz5PTv1NUCdsaqeLGwhnI40Kyabgg8OhQb9QrnevFPpiZwEt3Vb2h53BpUbXU
+Connection: keep-alive
+
+HTTP/1.1 204 No Content
+Date: Mon, 26 Oct 2015 21:24:16 GMT
+Content-Type: text/html
+Server: HTTP server (unknown)
+Content-Length: 0
+X-XSS-Protection: 1; mode=block
+X-Firefox-Spdy: 3.1
+----------------------------------------------------------
+https://pagead2.googlesyndication.com/activeview?id=osdim&avi=B1SV-_pkuVqbzLpSpYPvEhegEAAAAABABOAHIAQnAAgLgAgDgBAGgBi8&cid=5GjJYtGnnMZZ-LeKO63HCl6jf4U&ti=1&adk=470738246&p=0,0,0,0&tos=0,0,0,0,0&mtos=0,0,0,0,0&rs=3&ht=0&fp=correlator%3D2254801506600807%26eid%3D108809080%252C108809035%26iu%3D%252F2884%252FTHE_WUR%252FWORLD_UNI_RANKINGS%26oid%3D3%26url%3Dhttps%253A%252F%252Fwww.timeshighereducation.com%252Fworld-university-rankings%252F2016%252Fworld-ranking%2523!%252Fpage%252F0%252Flength%252F25&afp=%26output%3Djson_html%26impl%3Dfif%26dt%3D1445894652632%26adx%3D913%26ady%3D736%26ifi%3D6%26flash%3D11.2.202&tmo=6&tme=154&tdl=165&abd=3-0-1&r=u&bs=1346,615&bos=1362,712&ps=1346,4146&ss=1366,768&tt=526&pt=-1&deb=1-0-8-4-4--1&tvt=459&uc=1&tgt=nf&cl=0
+
+GET /activeview?id=osdim&avi=B1SV-_pkuVqbzLpSpYPvEhegEAAAAABABOAHIAQnAAgLgAgDgBAGgBi8&cid=5GjJYtGnnMZZ-LeKO63HCl6jf4U&ti=1&adk=470738246&p=0,0,0,0&tos=0,0,0,0,0&mtos=0,0,0,0,0&rs=3&ht=0&fp=correlator%3D2254801506600807%26eid%3D108809080%252C108809035%26iu%3D%252F2884%252FTHE_WUR%252FWORLD_UNI_RANKINGS%26oid%3D3%26url%3Dhttps%253A%252F%252Fwww.timeshighereducation.com%252Fworld-university-rankings%252F2016%252Fworld-ranking%2523!%252Fpage%252F0%252Flength%252F25&afp=%26output%3Djson_html%26impl%3Dfif%26dt%3D1445894652632%26adx%3D913%26ady%3D736%26ifi%3D6%26flash%3D11.2.202&tmo=6&tme=154&tdl=165&abd=3-0-1&r=u&bs=1346,615&bos=1362,712&ps=1346,4146&ss=1366,768&tt=526&pt=-1&deb=1-0-8-4-4--1&tvt=459&uc=1&tgt=nf&cl=0 HTTP/1.1
+Host: pagead2.googlesyndication.com
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:31.0) Gecko/20100101 Firefox/31.0 Iceweasel/31.1.0
+Accept: image/png,image/*;q=0.8,*/*;q=0.5
+Accept-Language: ru-ru,ru;q=0.7,uk;q=0.3
+Accept-Encoding: gzip, deflate
+Referer: https://www.timeshighereducation.com/world-university-rankings/2016/world-ranking
+Connection: keep-alive
+
+HTTP/1.1 200 OK
+p3p: policyref="https://www.googleadservices.com/pagead/p3p.xml", CP="NOI DEV PSA PSD IVA IVD OTP OUR OTR IND OTC"
+Access-Control-Allow-Origin: *
+Content-Type: image/gif
+Date: Mon, 26 Oct 2015 21:24:16 GMT
+Pragma: no-cache
+Expires: Fri, 01 Jan 1990 00:00:00 GMT
+Cache-Control: no-cache, must-revalidate
+x-content-type-options: nosniff
+Server: cafe
+Content-Length: 42
+X-XSS-Protection: 1; mode=block
+X-Firefox-Spdy: 3.1
+----------------------------------------------------------
+https://syndication.twitter.com/i/jot?l=%7B%22widget_origin%22%3A%22https%3A%2F%2Fwww.timeshighereducation.com%2Fworld-university-rankings%2F2016%2Fworld-ranking%22%2C%22widget_frame%22%3Afalse%2C%22widget_id%22%3A%22538076200229277697%22%2C%22message%22%3Anull%2C%22query%22%3Anull%2C%22profile_id%22%3A%2223602600%22%2C%22item_ids%22%3A%5B%22658753763306409985%22%2C%22658738656669134848%22%2C%22658723546508595200%22%2C%22658708462356926465%22%2C%22658702190488502272%22%2C%22658689617412014081%22%2C%22658693096704602113%22%2C%22658684321121873920%22%2C%22658673889694887936%22%2C%22658677994764918784%22%2C%22658670190587179008%22%2C%22658661892206952448%22%2C%22658656741836632064%22%2C%22658645711299305472%22%2C%22658641253957955584%22%2C%22658632683841454080%22%2C%22658627584473899010%22%2C%22658625191174651904%22%2C%22658623608537903105%22%2C%22657814174832205824%22%5D%2C%22item_details%22%3A%7B%22658753763306409985%22%3A%7B%22item_type%22%3A0%7D%2C%22658738656669134848%22%3A%7B%22item_type%22%3A0%7D%2C%22658723546508595200%22%3A%7B%22item_type%22%3A0%7D%2C%22658708462356926465%22%3A%7B%22item_type%22%3A0%7D%2C%22658702190488502272%22%3A%7B%22item_type%22%3A10%2C%22target_type%22%3A0%2C%22target_id%22%3A%22658704479102062592%22%7D%2C%22658689617412014081%22%3A%7B%22item_type%22%3A10%2C%22target_type%22%3A0%2C%22target_id%22%3A%22658702514943086592%22%7D%2C%22658693096704602113%22%3A%7B%22item_type%22%3A0%7D%2C%22658684321121873920%22%3A%7B%22item_type%22%3A10%2C%22target_type%22%3A0%2C%22target_id%22%3A%22658688909350670336%22%7D%2C%22658673889694887936%22%3A%7B%22item_type%22%3A10%2C%22target_type%22%3A0%2C%22target_id%22%3A%22658679164766134272%22%7D%2C%22658677994764918784%22%3A%7B%22item_type%22%3A0%7D%2C%22658670190587179008%22%3A%7B%22item_type%22%3A10%2C%22target_type%22%3A0%2C%22target_id%22%3A%22658672127344836608%22%7D%2C%22658661892206952448%22%3A%7B%22item_type%22%3A0%7D%2C%22658656741836632064%22%3A%7B%22item_type%22%3A10%2C%22target_type%22%3A0%2C%22target_id%22%3A%22658657886017626112%22%7D%2C%22658645711299305472%22%3A%7B%22item_type%22%3A0%7D%2C%22658641253957955584%22%3A%7B%22item_type%22%3A0%7D%2C%22658632683841454080%22%3A%7B%22item_type%22%3A0%7D%2C%22658627584473899010%22%3A%7B%22item_type%22%3A10%2C%22target_type%22%3A0%2C%22target_id%22%3A%22658629514860351488%22%7D%2C%22658625191174651904%22%3A%7B%22item_type%22%3A0%7D%2C%22658623608537903105%22%3A%7B%22item_type%22%3A10%2C%22target_type%22%3A0%2C%22target_id%22%3A%22658624529300897793%22%7D%2C%22657814174832205824%22%3A%7B%22item_type%22%3A10%2C%22target_type%22%3A0%2C%22target_id%22%3A%22658624437042982912%22%7D%7D%2C%22_category_%22%3A%22tfw_client_event%22%2C%22triggered_on%22%3A1445894654490%2C%22dnt%22%3Afalse%2C%22client_version%22%3A%22edb59b2%3A1445375275629%22%2C%22format_version%22%3A1%2C%22event_namespace%22%3A%7B%22client%22%3A%22tfw%22%2C%22page%22%3A%22timeline%22%2C%22component%22%3A%22timeline%22%2C%22element%22%3A%22initial%22%2C%22action%22%3A%22results%22%7D%7D
+
+GET /i/jot?l=%7B%22widget_origin%22%3A%22https%3A%2F%2Fwww.timeshighereducation.com%2Fworld-university-rankings%2F2016%2Fworld-ranking%22%2C%22widget_frame%22%3Afalse%2C%22widget_id%22%3A%22538076200229277697%22%2C%22message%22%3Anull%2C%22query%22%3Anull%2C%22profile_id%22%3A%2223602600%22%2C%22item_ids%22%3A%5B%22658753763306409985%22%2C%22658738656669134848%22%2C%22658723546508595200%22%2C%22658708462356926465%22%2C%22658702190488502272%22%2C%22658689617412014081%22%2C%22658693096704602113%22%2C%22658684321121873920%22%2C%22658673889694887936%22%2C%22658677994764918784%22%2C%22658670190587179008%22%2C%22658661892206952448%22%2C%22658656741836632064%22%2C%22658645711299305472%22%2C%22658641253957955584%22%2C%22658632683841454080%22%2C%22658627584473899010%22%2C%22658625191174651904%22%2C%22658623608537903105%22%2C%22657814174832205824%22%5D%2C%22item_details%22%3A%7B%22658753763306409985%22%3A%7B%22item_type%22%3A0%7D%2C%22658738656669134848%22%3A%7B%22item_type%22%3A0%7D%2C%22658723546508595200%22%3A%7B%22item_type%22%3A0%7D%2C%22658708462356926465%22%3A%7B%22item_type%22%3A0%7D%2C%22658702190488502272%22%3A%7B%22item_type%22%3A10%2C%22target_type%22%3A0%2C%22target_id%22%3A%22658704479102062592%22%7D%2C%22658689617412014081%22%3A%7B%22item_type%22%3A10%2C%22target_type%22%3A0%2C%22target_id%22%3A%22658702514943086592%22%7D%2C%22658693096704602113%22%3A%7B%22item_type%22%3A0%7D%2C%22658684321121873920%22%3A%7B%22item_type%22%3A10%2C%22target_type%22%3A0%2C%22target_id%22%3A%22658688909350670336%22%7D%2C%22658673889694887936%22%3A%7B%22item_type%22%3A10%2C%22target_type%22%3A0%2C%22target_id%22%3A%22658679164766134272%22%7D%2C%22658677994764918784%22%3A%7B%22item_type%22%3A0%7D%2C%22658670190587179008%22%3A%7B%22item_type%22%3A10%2C%22target_type%22%3A0%2C%22target_id%22%3A%22658672127344836608%22%7D%2C%22658661892206952448%22%3A%7B%22item_type%22%3A0%7D%2C%22658656741836632064%22%3A%7B%22item_type%22%3A10%2C%22target_type%22%3A0%2C%22target_id%22%3A%22658657886017626112%22%7D%2C%22658645711299305472%22%3A%7B%22item_type%22%3A0%7D%2C%22658641253957955584%22%3A%7B%22item_type%22%3A0%7D%2C%22658632683841454080%22%3A%7B%22item_type%22%3A0%7D%2C%22658627584473899010%22%3A%7B%22item_type%22%3A10%2C%22target_type%22%3A0%2C%22target_id%22%3A%22658629514860351488%22%7D%2C%22658625191174651904%22%3A%7B%22item_type%22%3A0%7D%2C%22658623608537903105%22%3A%7B%22item_type%22%3A10%2C%22target_type%22%3A0%2C%22target_id%22%3A%22658624529300897793%22%7D%2C%22657814174832205824%22%3A%7B%22item_type%22%3A10%2C%22target_type%22%3A0%2C%22target_id%22%3A%22658624437042982912%22%7D%7D%2C%22_category_%22%3A%22tfw_client_event%22%2C%22triggered_on%22%3A1445894654490%2C%22dnt%22%3Afalse%2C%22client_version%22%3A%22edb59b2%3A1445375275629%22%2C%22format_version%22%3A1%2C%22event_namespace%22%3A%7B%22client%22%3A%22tfw%22%2C%22page%22%3A%22timeline%22%2C%22component%22%3A%22timeline%22%2C%22element%22%3A%22initial%22%2C%22action%22%3A%22results%22%7D%7D HTTP/1.1
+Host: syndication.twitter.com
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:31.0) Gecko/20100101 Firefox/31.0 Iceweasel/31.1.0
+Accept: image/png,image/*;q=0.8,*/*;q=0.5
+Accept-Language: ru-ru,ru;q=0.7,uk;q=0.3
+Accept-Encoding: gzip, deflate
+Referer: https://www.timeshighereducation.com/world-university-rankings/2016/world-ranking
+Cookie: guest_id=v1%3A139011815832362037; _ga=GA1.2.1467542933.1405802811; lang=en
+Connection: keep-alive
+
+HTTP/1.1 200 OK
+Cache-Control: no-cache, no-store, must-revalidate, pre-check=0, post-check=0
+Content-Encoding: gzip
+Content-Length: 65
+Content-Type: image/gif;charset=utf-8
+Date: Mon, 26 Oct 2015 21:24:16 GMT
+Expires: Tue, 31 Mar 1981 05:00:00 GMT
+Last-Modified: Mon, 26 Oct 2015 21:24:16 GMT
+Pragma: no-cache
+Server: tsa_b
+Set-Cookie: pid=; Expires=Thu, 01 Jan 1970 00:00:00 GMT; Path=/; Domain=.twitter.com
+Status: 200 OK
+strict-transport-security: max-age=631138519
+x-connection-hash: 1ea8ef7cb5ec30024b9243ea70549f80
+x-content-type-options: nosniff
+X-Frame-Options: SAMEORIGIN
+x-response-time: 6
+x-transaction: 93f98b97e5ea060b
+x-twitter-response-tags: BouncerCompliant
+X-XSS-Protection: 1; mode=block
+X-Firefox-Spdy: 3.1
+----------------------------------------------------------
+https://s0.2mdn.net/ads/richmedia/studio/pv2/37061561/20150616100921871/the-june16th/styles/main.css
+
+GET /ads/richmedia/studio/pv2/37061561/20150616100921871/the-june16th/styles/main.css HTTP/1.1
+Host: s0.2mdn.net
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:31.0) Gecko/20100101 Firefox/31.0 Iceweasel/31.1.0
+Accept: text/css,*/*;q=0.1
+Accept-Language: ru-ru,ru;q=0.7,uk;q=0.3
+Accept-Encoding: gzip, deflate
+Referer: https://s0.2mdn.net/ads/richmedia/studio/pv2/37061561/20150616100921871/the-june16th/index.html?e=69&renderingType=2&leftOffset=0&topOffset=0&c=k5YrdocK2W&t=1
+Connection: keep-alive
+
+HTTP/1.1 200 OK
+Vary: Accept-Encoding
+Content-Encoding: gzip
+Content-Type: text/css
+Access-Control-Allow-Origin: *
+Date: Mon, 26 Oct 2015 21:01:33 GMT
+Expires: Tue, 27 Oct 2015 21:01:33 GMT
+Last-Modified: Tue, 16 Jun 2015 17:09:23 GMT
+x-content-type-options: nosniff
+Server: sffe
+Content-Length: 4608
+X-XSS-Protection: 1; mode=block
+Cache-Control: public, max-age=86400
+Age: 1363
+X-Firefox-Spdy: 3.1
+----------------------------------------------------------
+https://s0.2mdn.net/879366/Enabler_01_68.js
+
+GET /879366/Enabler_01_68.js HTTP/1.1
+Host: s0.2mdn.net
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:31.0) Gecko/20100101 Firefox/31.0 Iceweasel/31.1.0
+Accept: */*
+Accept-Language: ru-ru,ru;q=0.7,uk;q=0.3
+Accept-Encoding: gzip, deflate
+Referer: https://s0.2mdn.net/ads/richmedia/studio/pv2/37061561/20150616100921871/the-june16th/index.html?e=69&renderingType=2&leftOffset=0&topOffset=0&c=k5YrdocK2W&t=1
+Connection: keep-alive
+
+HTTP/1.1 200 OK
+Vary: Accept-Encoding
+Content-Encoding: gzip
+Content-Type: text/javascript
+Access-Control-Allow-Origin: *
+Date: Mon, 26 Oct 2015 13:31:17 GMT
+Expires: Tue, 27 Oct 2015 13:31:17 GMT
+Last-Modified: Fri, 05 Jun 2015 13:09:29 GMT
+x-content-type-options: nosniff
+Server: sffe
+Content-Length: 27121
+X-XSS-Protection: 1; mode=block
+Age: 28379
+Cache-Control: public, max-age=86400
+X-Firefox-Spdy: 3.1
+----------------------------------------------------------
+https://cm.g.doubleclick.net/push?client=ca-pub-0738930858216991&srn=gdn
+
+GET /push?client=ca-pub-0738930858216991&srn=gdn HTTP/1.1
+Host: cm.g.doubleclick.net
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:31.0) Gecko/20100101 Firefox/31.0 Iceweasel/31.1.0
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+Accept-Language: ru-ru,ru;q=0.7,uk;q=0.3
+Accept-Encoding: gzip, deflate
+Referer: https://www.timeshighereducation.com/world-university-rankings/2016/world-ranking
+Cookie: id=22ddc23dc701005e||t=1390162425|et=730|cs=002213fd4817ab64595f82e58e; __gads=ID=e9ae1adf71a03f48:T=1407220765:S=ALNI_MZ8G6ozk3HIwuvn_Vm3qCWlWXVt9Q; _drt_=AL_3zv3-YYH979KSYCwJLRn_0iXvjyf8wyLMqLztzs0thers4W7nvYKKm6GXRkUkqHrtm9Y0q9uxwm9tGf98hr7Mku_LPjySMTaGLx80JkY2xfQ-FKoJ73o; DSID=AL_3zv2jxmw1YCHU8IdJkP-C0BexZJG1gmxII8O-ByM2TIuN2eW5wsVVdDTz5PTv1NUCdsaqeLGwhnI40Kyabgg8OhQb9QrnevFPpiZwEt3Vb2h53BpUbXU
+Connection: keep-alive
+
+HTTP/1.1 204 No Content
+Date: Mon, 26 Oct 2015 21:24:16 GMT
+Content-Type: text/html
+Server: HTTP server (unknown)
+Content-Length: 0
+X-XSS-Protection: 1; mode=block
+X-Firefox-Spdy: 3.1
+----------------------------------------------------------
+https://s0.2mdn.net/ads/richmedia/studio/pv2/37061561/20150616100921871/the-june16th/images/banner/img-map.png
+
+GET /ads/richmedia/studio/pv2/37061561/20150616100921871/the-june16th/images/banner/img-map.png HTTP/1.1
+Host: s0.2mdn.net
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:31.0) Gecko/20100101 Firefox/31.0 Iceweasel/31.1.0
+Accept: image/png,image/*;q=0.8,*/*;q=0.5
+Accept-Language: ru-ru,ru;q=0.7,uk;q=0.3
+Accept-Encoding: gzip, deflate
+Referer: https://s0.2mdn.net/ads/richmedia/studio/pv2/37061561/20150616100921871/the-june16th/index.html?e=69&renderingType=2&leftOffset=0&topOffset=0&c=k5YrdocK2W&t=1
+Connection: keep-alive
+
+HTTP/1.1 200 OK
+Content-Type: image/png
+Access-Control-Allow-Origin: *
+Date: Mon, 26 Oct 2015 21:01:33 GMT
+Expires: Tue, 27 Oct 2015 21:01:33 GMT
+Last-Modified: Tue, 16 Jun 2015 17:09:22 GMT
+x-content-type-options: nosniff
+Server: sffe
+Content-Length: 45774
+X-XSS-Protection: 1; mode=block
+Cache-Control: public, max-age=86400
+Age: 1363
+X-Firefox-Spdy: 3.1
+----------------------------------------------------------
+https://s0.2mdn.net/ads/richmedia/studio/pv2/37061561/20150616100921871/the-june16th/images/banner/img-building.png
+
+GET /ads/richmedia/studio/pv2/37061561/20150616100921871/the-june16th/images/banner/img-building.png HTTP/1.1
+Host: s0.2mdn.net
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:31.0) Gecko/20100101 Firefox/31.0 Iceweasel/31.1.0
+Accept: image/png,image/*;q=0.8,*/*;q=0.5
+Accept-Language: ru-ru,ru;q=0.7,uk;q=0.3
+Accept-Encoding: gzip, deflate
+Referer: https://s0.2mdn.net/ads/richmedia/studio/pv2/37061561/20150616100921871/the-june16th/index.html?e=69&renderingType=2&leftOffset=0&topOffset=0&c=k5YrdocK2W&t=1
+Connection: keep-alive
+
+HTTP/1.1 200 OK
+Content-Type: image/png
+Access-Control-Allow-Origin: *
+Date: Mon, 26 Oct 2015 21:01:33 GMT
+Expires: Tue, 27 Oct 2015 21:01:33 GMT
+Last-Modified: Tue, 16 Jun 2015 17:09:23 GMT
+x-content-type-options: nosniff
+Server: sffe
+Content-Length: 150730
+X-XSS-Protection: 1; mode=block
+Cache-Control: public, max-age=86400
+Age: 1363
+X-Firefox-Spdy: 3.1
+----------------------------------------------------------
+https://s0.2mdn.net/ads/richmedia/studio/pv2/37061561/20150616100921871/the-june16th/images/banner/img-student.png
+
+GET /ads/richmedia/studio/pv2/37061561/20150616100921871/the-june16th/images/banner/img-student.png HTTP/1.1
+Host: s0.2mdn.net
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:31.0) Gecko/20100101 Firefox/31.0 Iceweasel/31.1.0
+Accept: image/png,image/*;q=0.8,*/*;q=0.5
+Accept-Language: ru-ru,ru;q=0.7,uk;q=0.3
+Accept-Encoding: gzip, deflate
+Referer: https://s0.2mdn.net/ads/richmedia/studio/pv2/37061561/20150616100921871/the-june16th/index.html?e=69&renderingType=2&leftOffset=0&topOffset=0&c=k5YrdocK2W&t=1
+Connection: keep-alive
+
+HTTP/1.1 200 OK
+Content-Type: image/png
+Access-Control-Allow-Origin: *
+Date: Mon, 26 Oct 2015 21:01:33 GMT
+Expires: Tue, 27 Oct 2015 21:01:33 GMT
+Last-Modified: Tue, 16 Jun 2015 17:09:23 GMT
+x-content-type-options: nosniff
+Server: sffe
+Content-Length: 177594
+X-XSS-Protection: 1; mode=block
+Cache-Control: public, max-age=86400
+Age: 1363
+X-Firefox-Spdy: 3.1
+----------------------------------------------------------
+https://s0.2mdn.net/ads/richmedia/studio/pv2/37061561/20150616100921871/the-june16th/images/banner/logo_CovenantUniversity.png
+
+GET /ads/richmedia/studio/pv2/37061561/20150616100921871/the-june16th/images/banner/logo_CovenantUniversity.png HTTP/1.1
+Host: s0.2mdn.net
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:31.0) Gecko/20100101 Firefox/31.0 Iceweasel/31.1.0
+Accept: image/png,image/*;q=0.8,*/*;q=0.5
+Accept-Language: ru-ru,ru;q=0.7,uk;q=0.3
+Accept-Encoding: gzip, deflate
+Referer: https://s0.2mdn.net/ads/richmedia/studio/pv2/37061561/20150616100921871/the-june16th/index.html?e=69&renderingType=2&leftOffset=0&topOffset=0&c=k5YrdocK2W&t=1
+Connection: keep-alive
+
+HTTP/1.1 200 OK
+Content-Type: image/png
+Access-Control-Allow-Origin: *
+Date: Mon, 26 Oct 2015 21:01:33 GMT
+Expires: Tue, 27 Oct 2015 21:01:33 GMT
+Last-Modified: Tue, 16 Jun 2015 17:09:23 GMT
+x-content-type-options: nosniff
+Server: sffe
+Content-Length: 19241
+X-XSS-Protection: 1; mode=block
+Cache-Control: public, max-age=86400
+Age: 1363
+X-Firefox-Spdy: 3.1
+----------------------------------------------------------
+https://s0.2mdn.net/ads/richmedia/studio/pv2/37061561/20150616100921871/the-june16th/images/img-corevalues-video.png
+
+GET /ads/richmedia/studio/pv2/37061561/20150616100921871/the-june16th/images/img-corevalues-video.png HTTP/1.1
+Host: s0.2mdn.net
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:31.0) Gecko/20100101 Firefox/31.0 Iceweasel/31.1.0
+Accept: image/png,image/*;q=0.8,*/*;q=0.5
+Accept-Language: ru-ru,ru;q=0.7,uk;q=0.3
+Accept-Encoding: gzip, deflate
+Referer: https://s0.2mdn.net/ads/richmedia/studio/pv2/37061561/20150616100921871/the-june16th/index.html?e=69&renderingType=2&leftOffset=0&topOffset=0&c=k5YrdocK2W&t=1
+Connection: keep-alive
+
+HTTP/1.1 200 OK
+Content-Type: image/png
+Access-Control-Allow-Origin: *
+Date: Mon, 26 Oct 2015 21:01:33 GMT
+Expires: Tue, 27 Oct 2015 21:01:33 GMT
+Last-Modified: Tue, 16 Jun 2015 17:09:22 GMT
+x-content-type-options: nosniff
+Server: sffe
+Content-Length: 383366
+X-XSS-Protection: 1; mode=block
+Cache-Control: public, max-age=86400
+Age: 1363
+X-Firefox-Spdy: 3.1
+----------------------------------------------------------
+https://s0.2mdn.net/ads/richmedia/studio/pv2/37061561/20150616100921871/the-june16th/images/play.png
+
+GET /ads/richmedia/studio/pv2/37061561/20150616100921871/the-june16th/images/play.png HTTP/1.1
+Host: s0.2mdn.net
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:31.0) Gecko/20100101 Firefox/31.0 Iceweasel/31.1.0
+Accept: image/png,image/*;q=0.8,*/*;q=0.5
+Accept-Language: ru-ru,ru;q=0.7,uk;q=0.3
+Accept-Encoding: gzip, deflate
+Referer: https://s0.2mdn.net/ads/richmedia/studio/pv2/37061561/20150616100921871/the-june16th/index.html?e=69&renderingType=2&leftOffset=0&topOffset=0&c=k5YrdocK2W&t=1
+Connection: keep-alive
+
+HTTP/1.1 200 OK
+Content-Type: image/png
+Access-Control-Allow-Origin: *
+Date: Mon, 26 Oct 2015 21:01:33 GMT
+Expires: Tue, 27 Oct 2015 21:01:33 GMT
+Last-Modified: Tue, 16 Jun 2015 17:09:23 GMT
+x-content-type-options: nosniff
+Server: sffe
+Content-Length: 23019
+X-XSS-Protection: 1; mode=block
+Cache-Control: public, max-age=86400
+Age: 1363
+X-Firefox-Spdy: 3.1
+----------------------------------------------------------
+https://s0.2mdn.net/ads/richmedia/studio/pv2/37061561/20150616100921871/the-june16th/images/img-course-beng.png
+
+GET /ads/richmedia/studio/pv2/37061561/20150616100921871/the-june16th/images/img-course-beng.png HTTP/1.1
+Host: s0.2mdn.net
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:31.0) Gecko/20100101 Firefox/31.0 Iceweasel/31.1.0
+Accept: image/png,image/*;q=0.8,*/*;q=0.5
+Accept-Language: ru-ru,ru;q=0.7,uk;q=0.3
+Accept-Encoding: gzip, deflate
+Referer: https://s0.2mdn.net/ads/richmedia/studio/pv2/37061561/20150616100921871/the-june16th/index.html?e=69&renderingType=2&leftOffset=0&topOffset=0&c=k5YrdocK2W&t=1
+Connection: keep-alive
+
+HTTP/1.1 200 OK
+Content-Type: image/png
+Access-Control-Allow-Origin: *
+Date: Mon, 26 Oct 2015 21:01:33 GMT
+Expires: Tue, 27 Oct 2015 21:01:33 GMT
+Last-Modified: Tue, 16 Jun 2015 17:09:22 GMT
+x-content-type-options: nosniff
+Server: sffe
+Content-Length: 52070
+X-XSS-Protection: 1; mode=block
+Cache-Control: public, max-age=86400
+Age: 1363
+X-Firefox-Spdy: 3.1
+----------------------------------------------------------
+https://s0.2mdn.net/ads/richmedia/studio/pv2/37061561/20150616100921871/the-june16th/images/img-course-ba-1.png
+
+GET /ads/richmedia/studio/pv2/37061561/20150616100921871/the-june16th/images/img-course-ba-1.png HTTP/1.1
+Host: s0.2mdn.net
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:31.0) Gecko/20100101 Firefox/31.0 Iceweasel/31.1.0
+Accept: image/png,image/*;q=0.8,*/*;q=0.5
+Accept-Language: ru-ru,ru;q=0.7,uk;q=0.3
+Accept-Encoding: gzip, deflate
+Referer: https://s0.2mdn.net/ads/richmedia/studio/pv2/37061561/20150616100921871/the-june16th/index.html?e=69&renderingType=2&leftOffset=0&topOffset=0&c=k5YrdocK2W&t=1
+Connection: keep-alive
+
+HTTP/1.1 200 OK
+Content-Type: image/png
+Access-Control-Allow-Origin: *
+Date: Mon, 26 Oct 2015 21:01:33 GMT
+Expires: Tue, 27 Oct 2015 21:01:33 GMT
+Last-Modified: Tue, 16 Jun 2015 17:09:23 GMT
+x-content-type-options: nosniff
+Server: sffe
+Content-Length: 61334
+X-XSS-Protection: 1; mode=block
+Cache-Control: public, max-age=86400
+Age: 1363
+X-Firefox-Spdy: 3.1
+----------------------------------------------------------
+https://s0.2mdn.net/ads/richmedia/studio/pv2/37061561/20150616100921871/the-june16th/images/img-course-ba-2.png
+
+GET /ads/richmedia/studio/pv2/37061561/20150616100921871/the-june16th/images/img-course-ba-2.png HTTP/1.1
+Host: s0.2mdn.net
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:31.0) Gecko/20100101 Firefox/31.0 Iceweasel/31.1.0
+Accept: image/png,image/*;q=0.8,*/*;q=0.5
+Accept-Language: ru-ru,ru;q=0.7,uk;q=0.3
+Accept-Encoding: gzip, deflate
+Referer: https://s0.2mdn.net/ads/richmedia/studio/pv2/37061561/20150616100921871/the-june16th/index.html?e=69&renderingType=2&leftOffset=0&topOffset=0&c=k5YrdocK2W&t=1
+Connection: keep-alive
+
+HTTP/1.1 200 OK
+Content-Type: image/png
+Access-Control-Allow-Origin: *
+Date: Mon, 26 Oct 2015 21:01:33 GMT
+Expires: Tue, 27 Oct 2015 21:01:33 GMT
+Last-Modified: Tue, 16 Jun 2015 17:09:22 GMT
+x-content-type-options: nosniff
+Server: sffe
+Content-Length: 67976
+X-XSS-Protection: 1; mode=block
+Cache-Control: public, max-age=86400
+Age: 1363
+X-Firefox-Spdy: 3.1
+----------------------------------------------------------
+https://s0.2mdn.net/ads/richmedia/studio/pv2/37061561/20150616100921871/the-june16th/images/img-course-meng.png
+
+GET /ads/richmedia/studio/pv2/37061561/20150616100921871/the-june16th/images/img-course-meng.png HTTP/1.1
+Host: s0.2mdn.net
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:31.0) Gecko/20100101 Firefox/31.0 Iceweasel/31.1.0
+Accept: image/png,image/*;q=0.8,*/*;q=0.5
+Accept-Language: ru-ru,ru;q=0.7,uk;q=0.3
+Accept-Encoding: gzip, deflate
+Referer: https://s0.2mdn.net/ads/richmedia/studio/pv2/37061561/20150616100921871/the-june16th/index.html?e=69&renderingType=2&leftOffset=0&topOffset=0&c=k5YrdocK2W&t=1
+Connection: keep-alive
+
+HTTP/1.1 200 OK
+Content-Type: image/png
+Access-Control-Allow-Origin: *
+Date: Mon, 26 Oct 2015 21:01:33 GMT
+Expires: Tue, 27 Oct 2015 21:01:33 GMT
+Last-Modified: Tue, 16 Jun 2015 17:09:22 GMT
+x-content-type-options: nosniff
+Server: sffe
+Content-Length: 74284
+X-XSS-Protection: 1; mode=block
+Cache-Control: public, max-age=86400
+Age: 1363
+X-Firefox-Spdy: 3.1
+----------------------------------------------------------
+https://s0.2mdn.net/ads/richmedia/studio/pv2/37061561/20150616100921871/the-june16th/images/language-lab-alt.jpg
+
+GET /ads/richmedia/studio/pv2/37061561/20150616100921871/the-june16th/images/language-lab-alt.jpg HTTP/1.1
+Host: s0.2mdn.net
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:31.0) Gecko/20100101 Firefox/31.0 Iceweasel/31.1.0
+Accept: image/png,image/*;q=0.8,*/*;q=0.5
+Accept-Language: ru-ru,ru;q=0.7,uk;q=0.3
+Accept-Encoding: gzip, deflate
+Referer: https://s0.2mdn.net/ads/richmedia/studio/pv2/37061561/20150616100921871/the-june16th/index.html?e=69&renderingType=2&leftOffset=0&topOffset=0&c=k5YrdocK2W&t=1
+Connection: keep-alive
+
+HTTP/1.1 200 OK
+Content-Type: image/jpeg
+Access-Control-Allow-Origin: *
+Date: Mon, 26 Oct 2015 21:01:33 GMT
+Expires: Tue, 27 Oct 2015 21:01:33 GMT
+Last-Modified: Tue, 16 Jun 2015 17:09:22 GMT
+x-content-type-options: nosniff
+Server: sffe
+Content-Length: 25330
+X-XSS-Protection: 1; mode=block
+Cache-Control: public, max-age=86400
+Age: 1363
+X-Firefox-Spdy: 3.1
+----------------------------------------------------------
+https://s0.2mdn.net/ads/richmedia/studio/pv2/37061561/20150616100921871/the-june16th/images/img-course-ma-2.png
+
+GET /ads/richmedia/studio/pv2/37061561/20150616100921871/the-june16th/images/img-course-ma-2.png HTTP/1.1
+Host: s0.2mdn.net
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:31.0) Gecko/20100101 Firefox/31.0 Iceweasel/31.1.0
+Accept: image/png,image/*;q=0.8,*/*;q=0.5
+Accept-Language: ru-ru,ru;q=0.7,uk;q=0.3
+Accept-Encoding: gzip, deflate
+Referer: https://s0.2mdn.net/ads/richmedia/studio/pv2/37061561/20150616100921871/the-june16th/index.html?e=69&renderingType=2&leftOffset=0&topOffset=0&c=k5YrdocK2W&t=1
+Connection: keep-alive
+
+HTTP/1.1 200 OK
+Content-Type: image/png
+Access-Control-Allow-Origin: *
+Date: Mon, 26 Oct 2015 21:01:33 GMT
+Expires: Tue, 27 Oct 2015 21:01:33 GMT
+Last-Modified: Tue, 16 Jun 2015 17:09:22 GMT
+x-content-type-options: nosniff
+Server: sffe
+Content-Length: 151961
+X-XSS-Protection: 1; mode=block
+Cache-Control: public, max-age=86400
+Age: 1363
+X-Firefox-Spdy: 3.1
+----------------------------------------------------------
+https://s0.2mdn.net/ads/richmedia/studio/pv2/37061561/20150616100921871/the-june16th/images/img-ourcolleges-clds.png
+
+GET /ads/richmedia/studio/pv2/37061561/20150616100921871/the-june16th/images/img-ourcolleges-clds.png HTTP/1.1
+Host: s0.2mdn.net
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:31.0) Gecko/20100101 Firefox/31.0 Iceweasel/31.1.0
+Accept: image/png,image/*;q=0.8,*/*;q=0.5
+Accept-Language: ru-ru,ru;q=0.7,uk;q=0.3
+Accept-Encoding: gzip, deflate
+Referer: https://s0.2mdn.net/ads/richmedia/studio/pv2/37061561/20150616100921871/the-june16th/index.html?e=69&renderingType=2&leftOffset=0&topOffset=0&c=k5YrdocK2W&t=1
+Connection: keep-alive
+
+HTTP/1.1 200 OK
+Content-Type: image/png
+Access-Control-Allow-Origin: *
+Date: Mon, 26 Oct 2015 21:01:33 GMT
+Expires: Tue, 27 Oct 2015 21:01:33 GMT
+Last-Modified: Tue, 16 Jun 2015 17:09:22 GMT
+x-content-type-options: nosniff
+Server: sffe
+Content-Length: 94819
+X-XSS-Protection: 1; mode=block
+Cache-Control: public, max-age=86400
+Age: 1363
+X-Firefox-Spdy: 3.1
+----------------------------------------------------------
+https://s0.2mdn.net/ads/richmedia/studio/pv2/37061561/20150616100921871/the-june16th/images/img-ourcolleges-cbss.png
+
+GET /ads/richmedia/studio/pv2/37061561/20150616100921871/the-june16th/images/img-ourcolleges-cbss.png HTTP/1.1
+Host: s0.2mdn.net
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:31.0) Gecko/20100101 Firefox/31.0 Iceweasel/31.1.0
+Accept: image/png,image/*;q=0.8,*/*;q=0.5
+Accept-Language: ru-ru,ru;q=0.7,uk;q=0.3
+Accept-Encoding: gzip, deflate
+Referer: https://s0.2mdn.net/ads/richmedia/studio/pv2/37061561/20150616100921871/the-june16th/index.html?e=69&renderingType=2&leftOffset=0&topOffset=0&c=k5YrdocK2W&t=1
+Connection: keep-alive
+
+HTTP/1.1 200 OK
+Content-Type: image/png
+Access-Control-Allow-Origin: *
+Date: Mon, 26 Oct 2015 21:01:33 GMT
+Expires: Tue, 27 Oct 2015 21:01:33 GMT
+Last-Modified: Tue, 16 Jun 2015 17:09:23 GMT
+x-content-type-options: nosniff
+Server: sffe
+Content-Length: 94277
+X-XSS-Protection: 1; mode=block
+Cache-Control: public, max-age=86400
+Age: 1363
+X-Firefox-Spdy: 3.1
+----------------------------------------------------------
+https://s0.2mdn.net/ads/richmedia/studio/pv2/37061561/20150616100921871/the-june16th/images/img-ourcolleges-cst.png
+
+GET /ads/richmedia/studio/pv2/37061561/20150616100921871/the-june16th/images/img-ourcolleges-cst.png HTTP/1.1
+Host: s0.2mdn.net
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:31.0) Gecko/20100101 Firefox/31.0 Iceweasel/31.1.0
+Accept: image/png,image/*;q=0.8,*/*;q=0.5
+Accept-Language: ru-ru,ru;q=0.7,uk;q=0.3
+Accept-Encoding: gzip, deflate
+Referer: https://s0.2mdn.net/ads/richmedia/studio/pv2/37061561/20150616100921871/the-june16th/index.html?e=69&renderingType=2&leftOffset=0&topOffset=0&c=k5YrdocK2W&t=1
+Connection: keep-alive
+
+HTTP/1.1 200 OK
+Content-Type: image/png
+Access-Control-Allow-Origin: *
+Date: Mon, 26 Oct 2015 21:01:33 GMT
+Expires: Tue, 27 Oct 2015 21:01:33 GMT
+Last-Modified: Tue, 16 Jun 2015 17:09:23 GMT
+x-content-type-options: nosniff
+Server: sffe
+Content-Length: 97887
+X-XSS-Protection: 1; mode=block
+Cache-Control: public, max-age=86400
+Age: 1363
+X-Firefox-Spdy: 3.1
+----------------------------------------------------------
+https://s0.2mdn.net/ads/richmedia/studio/pv2/37061561/20150616100921871/the-june16th/images/img-ourcolleges-coe.png
+
+GET /ads/richmedia/studio/pv2/37061561/20150616100921871/the-june16th/images/img-ourcolleges-coe.png HTTP/1.1
+Host: s0.2mdn.net
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:31.0) Gecko/20100101 Firefox/31.0 Iceweasel/31.1.0
+Accept: image/png,image/*;q=0.8,*/*;q=0.5
+Accept-Language: ru-ru,ru;q=0.7,uk;q=0.3
+Accept-Encoding: gzip, deflate
+Referer: https://s0.2mdn.net/ads/richmedia/studio/pv2/37061561/20150616100921871/the-june16th/index.html?e=69&renderingType=2&leftOffset=0&topOffset=0&c=k5YrdocK2W&t=1
+Connection: keep-alive
+
+HTTP/1.1 200 OK
+Content-Type: image/png
+Access-Control-Allow-Origin: *
+Date: Mon, 26 Oct 2015 21:01:33 GMT
+Expires: Tue, 27 Oct 2015 21:01:33 GMT
+Last-Modified: Tue, 16 Jun 2015 17:09:23 GMT
+x-content-type-options: nosniff
+Server: sffe
+Content-Length: 119940
+X-XSS-Protection: 1; mode=block
+Cache-Control: public, max-age=86400
+Age: 1363
+X-Firefox-Spdy: 3.1
+----------------------------------------------------------
+https://s0.2mdn.net/ads/richmedia/studio/pv2/37061561/20150616100921871/the-june16th/images/img-resources.png
+
+GET /ads/richmedia/studio/pv2/37061561/20150616100921871/the-june16th/images/img-resources.png HTTP/1.1
+Host: s0.2mdn.net
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:31.0) Gecko/20100101 Firefox/31.0 Iceweasel/31.1.0
+Accept: image/png,image/*;q=0.8,*/*;q=0.5
+Accept-Language: ru-ru,ru;q=0.7,uk;q=0.3
+Accept-Encoding: gzip, deflate
+Referer: https://s0.2mdn.net/ads/richmedia/studio/pv2/37061561/20150616100921871/the-june16th/index.html?e=69&renderingType=2&leftOffset=0&topOffset=0&c=k5YrdocK2W&t=1
+Connection: keep-alive
+
+HTTP/1.1 200 OK
+Content-Type: image/png
+Access-Control-Allow-Origin: *
+Date: Mon, 26 Oct 2015 21:01:33 GMT
+Expires: Tue, 27 Oct 2015 21:01:33 GMT
+Last-Modified: Tue, 16 Jun 2015 17:09:23 GMT
+x-content-type-options: nosniff
+Server: sffe
+Content-Length: 140413
+X-XSS-Protection: 1; mode=block
+Cache-Control: public, max-age=86400
+Age: 1363
+X-Firefox-Spdy: 3.1
+----------------------------------------------------------
+https://s0.2mdn.net/ads/richmedia/studio/pv2/37061561/20150616100921871/the-june16th/images/people/adekunle.png
+
+GET /ads/richmedia/studio/pv2/37061561/20150616100921871/the-june16th/images/people/adekunle.png HTTP/1.1
+Host: s0.2mdn.net
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:31.0) Gecko/20100101 Firefox/31.0 Iceweasel/31.1.0
+Accept: image/png,image/*;q=0.8,*/*;q=0.5
+Accept-Language: ru-ru,ru;q=0.7,uk;q=0.3
+Accept-Encoding: gzip, deflate
+Referer: https://s0.2mdn.net/ads/richmedia/studio/pv2/37061561/20150616100921871/the-june16th/index.html?e=69&renderingType=2&leftOffset=0&topOffset=0&c=k5YrdocK2W&t=1
+Connection: keep-alive
+
+HTTP/1.1 200 OK
+Content-Type: image/png
+Access-Control-Allow-Origin: *
+Date: Mon, 26 Oct 2015 21:01:33 GMT
+Expires: Tue, 27 Oct 2015 21:01:33 GMT
+Last-Modified: Tue, 16 Jun 2015 17:09:23 GMT
+x-content-type-options: nosniff
+Server: sffe
+Content-Length: 4337
+X-XSS-Protection: 1; mode=block
+Cache-Control: public, max-age=86400
+Age: 1363
+X-Firefox-Spdy: 3.1
+----------------------------------------------------------
+https://s0.2mdn.net/ads/richmedia/studio/pv2/37061561/20150616100921871/the-june16th/images/people/kemi.png
+
+GET /ads/richmedia/studio/pv2/37061561/20150616100921871/the-june16th/images/people/kemi.png HTTP/1.1
+Host: s0.2mdn.net
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:31.0) Gecko/20100101 Firefox/31.0 Iceweasel/31.1.0
+Accept: image/png,image/*;q=0.8,*/*;q=0.5
+Accept-Language: ru-ru,ru;q=0.7,uk;q=0.3
+Accept-Encoding: gzip, deflate
+Referer: https://s0.2mdn.net/ads/richmedia/studio/pv2/37061561/20150616100921871/the-june16th/index.html?e=69&renderingType=2&leftOffset=0&topOffset=0&c=k5YrdocK2W&t=1
+Connection: keep-alive
+
+HTTP/1.1 200 OK
+Content-Type: image/png
+Access-Control-Allow-Origin: *
+Date: Mon, 26 Oct 2015 21:01:33 GMT
+Expires: Tue, 27 Oct 2015 21:01:33 GMT
+Last-Modified: Tue, 16 Jun 2015 17:09:23 GMT
+x-content-type-options: nosniff
+Server: sffe
+Content-Length: 4386
+X-XSS-Protection: 1; mode=block
+Cache-Control: public, max-age=86400
+Age: 1363
+X-Firefox-Spdy: 3.1
+----------------------------------------------------------
+https://s0.2mdn.net/ads/richmedia/studio/pv2/37061561/20150616100921871/the-june16th/images/people/yomi.png
+
+GET /ads/richmedia/studio/pv2/37061561/20150616100921871/the-june16th/images/people/yomi.png HTTP/1.1
+Host: s0.2mdn.net
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:31.0) Gecko/20100101 Firefox/31.0 Iceweasel/31.1.0
+Accept: image/png,image/*;q=0.8,*/*;q=0.5
+Accept-Language: ru-ru,ru;q=0.7,uk;q=0.3
+Accept-Encoding: gzip, deflate
+Referer: https://s0.2mdn.net/ads/richmedia/studio/pv2/37061561/20150616100921871/the-june16th/index.html?e=69&renderingType=2&leftOffset=0&topOffset=0&c=k5YrdocK2W&t=1
+Connection: keep-alive
+
+HTTP/1.1 200 OK
+Content-Type: image/png
+Access-Control-Allow-Origin: *
+Date: Mon, 26 Oct 2015 21:01:33 GMT
+Expires: Tue, 27 Oct 2015 21:01:33 GMT
+Last-Modified: Tue, 16 Jun 2015 17:09:22 GMT
+x-content-type-options: nosniff
+Server: sffe
+Content-Length: 3990
+X-XSS-Protection: 1; mode=block
+Cache-Control: public, max-age=86400
+Age: 1363
+X-Firefox-Spdy: 3.1
+----------------------------------------------------------
+https://s0.2mdn.net/ads/richmedia/studio/pv2/37061561/20150616100921871/the-june16th/images/people/lawrence.png
+
+GET /ads/richmedia/studio/pv2/37061561/20150616100921871/the-june16th/images/people/lawrence.png HTTP/1.1
+Host: s0.2mdn.net
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:31.0) Gecko/20100101 Firefox/31.0 Iceweasel/31.1.0
+Accept: image/png,image/*;q=0.8,*/*;q=0.5
+Accept-Language: ru-ru,ru;q=0.7,uk;q=0.3
+Accept-Encoding: gzip, deflate
+Referer: https://s0.2mdn.net/ads/richmedia/studio/pv2/37061561/20150616100921871/the-june16th/index.html?e=69&renderingType=2&leftOffset=0&topOffset=0&c=k5YrdocK2W&t=1
+Connection: keep-alive
+
+HTTP/1.1 200 OK
+Content-Type: image/png
+Access-Control-Allow-Origin: *
+Date: Mon, 26 Oct 2015 21:01:33 GMT
+Expires: Tue, 27 Oct 2015 21:01:33 GMT
+Last-Modified: Tue, 16 Jun 2015 17:09:22 GMT
+x-content-type-options: nosniff
+Server: sffe
+Content-Length: 3959
+X-XSS-Protection: 1; mode=block
+Cache-Control: public, max-age=86400
+Age: 1363
+X-Firefox-Spdy: 3.1
+----------------------------------------------------------
+https://s0.2mdn.net/ads/richmedia/studio/pv2/37061561/20150616100921871/the-june16th/images/people/tolulope.png
+
+GET /ads/richmedia/studio/pv2/37061561/20150616100921871/the-june16th/images/people/tolulope.png HTTP/1.1
+Host: s0.2mdn.net
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:31.0) Gecko/20100101 Firefox/31.0 Iceweasel/31.1.0
+Accept: image/png,image/*;q=0.8,*/*;q=0.5
+Accept-Language: ru-ru,ru;q=0.7,uk;q=0.3
+Accept-Encoding: gzip, deflate
+Referer: https://s0.2mdn.net/ads/richmedia/studio/pv2/37061561/20150616100921871/the-june16th/index.html?e=69&renderingType=2&leftOffset=0&topOffset=0&c=k5YrdocK2W&t=1
+Connection: keep-alive
+
+HTTP/1.1 200 OK
+Content-Type: image/png
+Access-Control-Allow-Origin: *
+Date: Mon, 26 Oct 2015 21:01:34 GMT
+Expires: Tue, 27 Oct 2015 21:01:34 GMT
+Last-Modified: Tue, 16 Jun 2015 17:09:22 GMT
+x-content-type-options: nosniff
+Server: sffe
+Content-Length: 4529
+X-XSS-Protection: 1; mode=block
+Cache-Control: public, max-age=86400
+Age: 1362
+X-Firefox-Spdy: 3.1
+----------------------------------------------------------
+https://s0.2mdn.net/ads/richmedia/studio/pv2/37061561/20150616100921871/the-june16th/images/people/hesey.png
+
+GET /ads/richmedia/studio/pv2/37061561/20150616100921871/the-june16th/images/people/hesey.png HTTP/1.1
+Host: s0.2mdn.net
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:31.0) Gecko/20100101 Firefox/31.0 Iceweasel/31.1.0
+Accept: image/png,image/*;q=0.8,*/*;q=0.5
+Accept-Language: ru-ru,ru;q=0.7,uk;q=0.3
+Accept-Encoding: gzip, deflate
+Referer: https://s0.2mdn.net/ads/richmedia/studio/pv2/37061561/20150616100921871/the-june16th/index.html?e=69&renderingType=2&leftOffset=0&topOffset=0&c=k5YrdocK2W&t=1
+Connection: keep-alive
+
+HTTP/1.1 200 OK
+Content-Type: image/png
+Access-Control-Allow-Origin: *
+Date: Mon, 26 Oct 2015 21:01:34 GMT
+Expires: Tue, 27 Oct 2015 21:01:34 GMT
+Last-Modified: Tue, 16 Jun 2015 17:09:22 GMT
+x-content-type-options: nosniff
+Server: sffe
+Content-Length: 4864
+X-XSS-Protection: 1; mode=block
+Cache-Control: public, max-age=86400
+Age: 1362
+X-Firefox-Spdy: 3.1
+----------------------------------------------------------
+https://s0.2mdn.net/ads/richmedia/studio/pv2/37061561/20150616100921871/the-june16th/images/people/chukwuemeka.png
+
+GET /ads/richmedia/studio/pv2/37061561/20150616100921871/the-june16th/images/people/chukwuemeka.png HTTP/1.1
+Host: s0.2mdn.net
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:31.0) Gecko/20100101 Firefox/31.0 Iceweasel/31.1.0
+Accept: image/png,image/*;q=0.8,*/*;q=0.5
+Accept-Language: ru-ru,ru;q=0.7,uk;q=0.3
+Accept-Encoding: gzip, deflate
+Referer: https://s0.2mdn.net/ads/richmedia/studio/pv2/37061561/20150616100921871/the-june16th/index.html?e=69&renderingType=2&leftOffset=0&topOffset=0&c=k5YrdocK2W&t=1
+Connection: keep-alive
+
+HTTP/1.1 200 OK
+Content-Type: image/png
+Access-Control-Allow-Origin: *
+Date: Mon, 26 Oct 2015 21:01:34 GMT
+Expires: Tue, 27 Oct 2015 21:01:34 GMT
+Last-Modified: Tue, 16 Jun 2015 17:09:22 GMT
+x-content-type-options: nosniff
+Server: sffe
+Content-Length: 4088
+X-XSS-Protection: 1; mode=block
+Cache-Control: public, max-age=86400
+Age: 1362
+X-Firefox-Spdy: 3.1
+----------------------------------------------------------
+https://s0.2mdn.net/ads/richmedia/studio/pv2/37061561/20150616100921871/the-june16th/images/img-community-alt.png
+
+GET /ads/richmedia/studio/pv2/37061561/20150616100921871/the-june16th/images/img-community-alt.png HTTP/1.1
+Host: s0.2mdn.net
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:31.0) Gecko/20100101 Firefox/31.0 Iceweasel/31.1.0
+Accept: image/png,image/*;q=0.8,*/*;q=0.5
+Accept-Language: ru-ru,ru;q=0.7,uk;q=0.3
+Accept-Encoding: gzip, deflate
+Referer: https://s0.2mdn.net/ads/richmedia/studio/pv2/37061561/20150616100921871/the-june16th/index.html?e=69&renderingType=2&leftOffset=0&topOffset=0&c=k5YrdocK2W&t=1
+Connection: keep-alive
+
+HTTP/1.1 200 OK
+Content-Type: image/png
+Access-Control-Allow-Origin: *
+Date: Mon, 26 Oct 2015 21:01:34 GMT
+Expires: Tue, 27 Oct 2015 21:01:34 GMT
+Last-Modified: Tue, 16 Jun 2015 17:09:23 GMT
+x-content-type-options: nosniff
+Server: sffe
+Content-Length: 67047
+X-XSS-Protection: 1; mode=block
+Cache-Control: public, max-age=86400
+Age: 1362
+X-Firefox-Spdy: 3.1
+----------------------------------------------------------
+https://s0.2mdn.net/ads/richmedia/studio/pv2/37061561/20150616100921871/the-june16th/images/img-campuslife-studenthall-alt.png
+
+GET /ads/richmedia/studio/pv2/37061561/20150616100921871/the-june16th/images/img-campuslife-studenthall-alt.png HTTP/1.1
+Host: s0.2mdn.net
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:31.0) Gecko/20100101 Firefox/31.0 Iceweasel/31.1.0
+Accept: image/png,image/*;q=0.8,*/*;q=0.5
+Accept-Language: ru-ru,ru;q=0.7,uk;q=0.3
+Accept-Encoding: gzip, deflate
+Referer: https://s0.2mdn.net/ads/richmedia/studio/pv2/37061561/20150616100921871/the-june16th/index.html?e=69&renderingType=2&leftOffset=0&topOffset=0&c=k5YrdocK2W&t=1
+Connection: keep-alive
+
+HTTP/1.1 200 OK
+Content-Type: image/png
+Access-Control-Allow-Origin: *
+Date: Mon, 26 Oct 2015 21:01:34 GMT
+Expires: Tue, 27 Oct 2015 21:01:34 GMT
+Last-Modified: Tue, 16 Jun 2015 17:09:22 GMT
+x-content-type-options: nosniff
+Server: sffe
+Content-Length: 95459
+X-XSS-Protection: 1; mode=block
+Cache-Control: public, max-age=86400
+Age: 1362
+X-Firefox-Spdy: 3.1
+----------------------------------------------------------
+https://s0.2mdn.net/ads/richmedia/studio/pv2/37061561/20150616100921871/the-june16th/scripts/ad.min.js
+
+GET /ads/richmedia/studio/pv2/37061561/20150616100921871/the-june16th/scripts/ad.min.js HTTP/1.1
+Host: s0.2mdn.net
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:31.0) Gecko/20100101 Firefox/31.0 Iceweasel/31.1.0
+Accept: */*
+Accept-Language: ru-ru,ru;q=0.7,uk;q=0.3
+Accept-Encoding: gzip, deflate
+Referer: https://s0.2mdn.net/ads/richmedia/studio/pv2/37061561/20150616100921871/the-june16th/index.html?e=69&renderingType=2&leftOffset=0&topOffset=0&c=k5YrdocK2W&t=1
+Connection: keep-alive
+
+HTTP/1.1 200 OK
+Vary: Accept-Encoding
+Content-Encoding: gzip
+Content-Type: text/javascript
+Access-Control-Allow-Origin: *
+Date: Mon, 26 Oct 2015 21:01:34 GMT
+Expires: Tue, 27 Oct 2015 21:01:34 GMT
+Last-Modified: Tue, 16 Jun 2015 17:09:23 GMT
+x-content-type-options: nosniff
+Server: sffe
+Content-Length: 24428
+X-XSS-Protection: 1; mode=block
+Cache-Control: public, max-age=86400
+Age: 1362
+X-Firefox-Spdy: 3.1
+----------------------------------------------------------
+https://s0.2mdn.net/ads/richmedia/studio/pv2/37061561/20150616100921871/the-june16th/images/img-campuslife-cafeteria.png
+
+GET /ads/richmedia/studio/pv2/37061561/20150616100921871/the-june16th/images/img-campuslife-cafeteria.png HTTP/1.1
+Host: s0.2mdn.net
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:31.0) Gecko/20100101 Firefox/31.0 Iceweasel/31.1.0
+Accept: image/png,image/*;q=0.8,*/*;q=0.5
+Accept-Language: ru-ru,ru;q=0.7,uk;q=0.3
+Accept-Encoding: gzip, deflate
+Referer: https://s0.2mdn.net/ads/richmedia/studio/pv2/37061561/20150616100921871/the-june16th/index.html?e=69&renderingType=2&leftOffset=0&topOffset=0&c=k5YrdocK2W&t=1
+Connection: keep-alive
+
+HTTP/1.1 200 OK
+Content-Type: image/png
+Access-Control-Allow-Origin: *
+Date: Mon, 26 Oct 2015 21:01:34 GMT
+Expires: Tue, 27 Oct 2015 21:01:34 GMT
+Last-Modified: Tue, 16 Jun 2015 17:09:22 GMT
+x-content-type-options: nosniff
+Server: sffe
+Content-Length: 111501
+X-XSS-Protection: 1; mode=block
+Cache-Control: public, max-age=86400
+Age: 1362
+X-Firefox-Spdy: 3.1
+----------------------------------------------------------
+https://s0.2mdn.net/ads/richmedia/studio/pv2/37061561/20150616100921871/the-june16th/images/img-campuslife-sport-alt.png
+
+GET /ads/richmedia/studio/pv2/37061561/20150616100921871/the-june16th/images/img-campuslife-sport-alt.png HTTP/1.1
+Host: s0.2mdn.net
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:31.0) Gecko/20100101 Firefox/31.0 Iceweasel/31.1.0
+Accept: image/png,image/*;q=0.8,*/*;q=0.5
+Accept-Language: ru-ru,ru;q=0.7,uk;q=0.3
+Accept-Encoding: gzip, deflate
+Referer: https://s0.2mdn.net/ads/richmedia/studio/pv2/37061561/20150616100921871/the-june16th/index.html?e=69&renderingType=2&leftOffset=0&topOffset=0&c=k5YrdocK2W&t=1
+Connection: keep-alive
+
+HTTP/1.1 200 OK
+Content-Type: image/png
+Access-Control-Allow-Origin: *
+Date: Mon, 26 Oct 2015 21:01:34 GMT
+Expires: Tue, 27 Oct 2015 21:01:34 GMT
+Last-Modified: Tue, 16 Jun 2015 17:09:22 GMT
+x-content-type-options: nosniff
+Server: sffe
+Content-Length: 94854
+X-XSS-Protection: 1; mode=block
+Cache-Control: public, max-age=86400
+Age: 1362
+X-Firefox-Spdy: 3.1
+----------------------------------------------------------
+https://s0.2mdn.net/ads/richmedia/studio/pv2/37061561/20150616100921871/the-june16th/images/img-campuslife-banking-new-alt.jpg
+
+GET /ads/richmedia/studio/pv2/37061561/20150616100921871/the-june16th/images/img-campuslife-banking-new-alt.jpg HTTP/1.1
+Host: s0.2mdn.net
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:31.0) Gecko/20100101 Firefox/31.0 Iceweasel/31.1.0
+Accept: image/png,image/*;q=0.8,*/*;q=0.5
+Accept-Language: ru-ru,ru;q=0.7,uk;q=0.3
+Accept-Encoding: gzip, deflate
+Referer: https://s0.2mdn.net/ads/richmedia/studio/pv2/37061561/20150616100921871/the-june16th/index.html?e=69&renderingType=2&leftOffset=0&topOffset=0&c=k5YrdocK2W&t=1
+Connection: keep-alive
+
+HTTP/1.1 200 OK
+Content-Type: image/jpeg
+Access-Control-Allow-Origin: *
+Date: Mon, 26 Oct 2015 21:01:34 GMT
+Expires: Tue, 27 Oct 2015 21:01:34 GMT
+Last-Modified: Tue, 16 Jun 2015 17:09:23 GMT
+x-content-type-options: nosniff
+Server: sffe
+Content-Length: 25724
+X-XSS-Protection: 1; mode=block
+Cache-Control: public, max-age=86400
+Age: 1362
+X-Firefox-Spdy: 3.1
+----------------------------------------------------------
+https://s0.2mdn.net/ads/richmedia/studio/pv2/37061561/20150616100921871/the-june16th/images/img-campuslife-banking.png
+
+GET /ads/richmedia/studio/pv2/37061561/20150616100921871/the-june16th/images/img-campuslife-banking.png HTTP/1.1
+Host: s0.2mdn.net
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:31.0) Gecko/20100101 Firefox/31.0 Iceweasel/31.1.0
+Accept: image/png,image/*;q=0.8,*/*;q=0.5
+Accept-Language: ru-ru,ru;q=0.7,uk;q=0.3
+Accept-Encoding: gzip, deflate
+Referer: https://s0.2mdn.net/ads/richmedia/studio/pv2/37061561/20150616100921871/the-june16th/index.html?e=69&renderingType=2&leftOffset=0&topOffset=0&c=k5YrdocK2W&t=1
+Connection: keep-alive
+
+HTTP/1.1 200 OK
+Content-Type: image/png
+Access-Control-Allow-Origin: *
+Date: Mon, 26 Oct 2015 21:01:34 GMT
+Expires: Tue, 27 Oct 2015 21:01:34 GMT
+Last-Modified: Tue, 16 Jun 2015 17:09:22 GMT
+x-content-type-options: nosniff
+Server: sffe
+Content-Length: 113249
+X-XSS-Protection: 1; mode=block
+Cache-Control: public, max-age=86400
+Age: 1362
+X-Firefox-Spdy: 3.1
+----------------------------------------------------------
+https://pagead2.googlesyndication.com/activeview?id=osdim&avi=BbhrQ_pkuVsj9Lsu5YJSfiJgKAAAAABABOAHIAQPAAgLgAgDIA5kE4AQBoAYU&cid=5Gi68pKZAc-Rr3_Z848iprHQM0w&ti=1&adk=643327796&p=303,913,403,1213&tos=1023,0,0,0,0&mtos=1023,1023,1023,1023,1023&rs=3&ht=0&tfs=68&tls=1091&fp=correlator%3D2254801506600807%26eid%3D108809080%252C108809035%26iu%3D%252F2884%252FTHE_WUR%252FWORLD_UNI_RANKINGS%26oid%3D3%26url%3Dhttps%253A%252F%252Fwww.timeshighereducation.com%252Fworld-university-rankings%252F2016%252Fworld-ranking%2523!%252Fpage%252F0%252Flength%252F25&afp=%26output%3Djson_html%26impl%3Dfif%26dt%3D1445894652602%26adx%3D913%26ady%3D303%26ifi%3D4%26flash%3D11.2.202&tmo=5&tme=5&tdl=103&tcl=103&abd=2-0-4&r=u&bs=1346,615&bos=1362,712&ps=1346,4146&ss=1366,768&tt=1092&pt=-1&deb=1-0-8-5-6--1&tvt=1025&uc=4&tgt=IMG&cl=1
+
+GET /activeview?id=osdim&avi=BbhrQ_pkuVsj9Lsu5YJSfiJgKAAAAABABOAHIAQPAAgLgAgDIA5kE4AQBoAYU&cid=5Gi68pKZAc-Rr3_Z848iprHQM0w&ti=1&adk=643327796&p=303,913,403,1213&tos=1023,0,0,0,0&mtos=1023,1023,1023,1023,1023&rs=3&ht=0&tfs=68&tls=1091&fp=correlator%3D2254801506600807%26eid%3D108809080%252C108809035%26iu%3D%252F2884%252FTHE_WUR%252FWORLD_UNI_RANKINGS%26oid%3D3%26url%3Dhttps%253A%252F%252Fwww.timeshighereducation.com%252Fworld-university-rankings%252F2016%252Fworld-ranking%2523!%252Fpage%252F0%252Flength%252F25&afp=%26output%3Djson_html%26impl%3Dfif%26dt%3D1445894652602%26adx%3D913%26ady%3D303%26ifi%3D4%26flash%3D11.2.202&tmo=5&tme=5&tdl=103&tcl=103&abd=2-0-4&r=u&bs=1346,615&bos=1362,712&ps=1346,4146&ss=1366,768&tt=1092&pt=-1&deb=1-0-8-5-6--1&tvt=1025&uc=4&tgt=IMG&cl=1 HTTP/1.1
+Host: pagead2.googlesyndication.com
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:31.0) Gecko/20100101 Firefox/31.0 Iceweasel/31.1.0
+Accept: image/png,image/*;q=0.8,*/*;q=0.5
+Accept-Language: ru-ru,ru;q=0.7,uk;q=0.3
+Accept-Encoding: gzip, deflate
+Referer: https://www.timeshighereducation.com/world-university-rankings/2016/world-ranking
+Connection: keep-alive
+
+HTTP/1.1 200 OK
+p3p: policyref="https://www.googleadservices.com/pagead/p3p.xml", CP="NOI DEV PSA PSD IVA IVD OTP OUR OTR IND OTC"
+Access-Control-Allow-Origin: *
+Content-Type: image/gif
+Date: Mon, 26 Oct 2015 21:24:17 GMT
+Pragma: no-cache
+Expires: Fri, 01 Jan 1990 00:00:00 GMT
+Cache-Control: no-cache, must-revalidate
+x-content-type-options: nosniff
+Server: cafe
+Content-Length: 42
+X-XSS-Protection: 1; mode=block
+X-Firefox-Spdy: 3.1
+----------------------------------------------------------
+https://pagead2.googlesyndication.com/activeview?id=osdim&avi=B1PoC_pkuVsbpLsa3Ybe2vPgCAAAAABABOAHIAQPAAgLgAgDIA5kE4AQBoAYU&cid=5GgN8HGs8EjYnNB7y2C1Z6dklrE&ti=1&adk=2925318313&p=20,309,110,1037&tos=1023,0,0,0,0&mtos=1023,1023,1023,1023,1023&rs=3&ht=0&tfs=68&tls=1091&fp=correlator%3D2254801506600807%26eid%3D108809080%252C108809035%26iu%3D%252F2884%252FTHE_WUR%252FWORLD_UNI_RANKINGS%26oid%3D3%26url%3Dhttps%253A%252F%252Fwww.timeshighereducation.com%252Fworld-university-rankings%252F2016%252Fworld-ranking%2523!%252Fpage%252F0%252Flength%252F25&afp=%26output%3Djson_html%26impl%3Dfif%26dt%3D1445894652571%26adx%3D309%26ady%3D20%26ifi%3D2%26flash%3D11.2.202&tmo=6&tme=66&tdl=104&tcl=104&abd=2-0-4&r=u&bs=1346,615&bos=1362,712&ps=1346,4146&ss=1366,768&tt=1092&pt=-1&deb=1-0-8-5-6--1&tvt=1025&uc=4&tgt=IMG&cl=1
+
+GET /activeview?id=osdim&avi=B1PoC_pkuVsbpLsa3Ybe2vPgCAAAAABABOAHIAQPAAgLgAgDIA5kE4AQBoAYU&cid=5GgN8HGs8EjYnNB7y2C1Z6dklrE&ti=1&adk=2925318313&p=20,309,110,1037&tos=1023,0,0,0,0&mtos=1023,1023,1023,1023,1023&rs=3&ht=0&tfs=68&tls=1091&fp=correlator%3D2254801506600807%26eid%3D108809080%252C108809035%26iu%3D%252F2884%252FTHE_WUR%252FWORLD_UNI_RANKINGS%26oid%3D3%26url%3Dhttps%253A%252F%252Fwww.timeshighereducation.com%252Fworld-university-rankings%252F2016%252Fworld-ranking%2523!%252Fpage%252F0%252Flength%252F25&afp=%26output%3Djson_html%26impl%3Dfif%26dt%3D1445894652571%26adx%3D309%26ady%3D20%26ifi%3D2%26flash%3D11.2.202&tmo=6&tme=66&tdl=104&tcl=104&abd=2-0-4&r=u&bs=1346,615&bos=1362,712&ps=1346,4146&ss=1366,768&tt=1092&pt=-1&deb=1-0-8-5-6--1&tvt=1025&uc=4&tgt=IMG&cl=1 HTTP/1.1
+Host: pagead2.googlesyndication.com
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:31.0) Gecko/20100101 Firefox/31.0 Iceweasel/31.1.0
+Accept: image/png,image/*;q=0.8,*/*;q=0.5
+Accept-Language: ru-ru,ru;q=0.7,uk;q=0.3
+Accept-Encoding: gzip, deflate
+Referer: https://www.timeshighereducation.com/world-university-rankings/2016/world-ranking
+Connection: keep-alive
+
+HTTP/1.1 200 OK
+p3p: policyref="https://www.googleadservices.com/pagead/p3p.xml", CP="NOI DEV PSA PSD IVA IVD OTP OUR OTR IND OTC"
+Access-Control-Allow-Origin: *
+Content-Type: image/gif
+Date: Mon, 26 Oct 2015 21:24:17 GMT
+Pragma: no-cache
+Expires: Fri, 01 Jan 1990 00:00:00 GMT
+Cache-Control: no-cache, must-revalidate
+x-content-type-options: nosniff
+Server: cafe
+Content-Length: 42
+X-XSS-Protection: 1; mode=block
+X-Firefox-Spdy: 3.1
+----------------------------------------------------------
+http://sd.symcd.com/
+
+POST / HTTP/1.1
+Host: sd.symcd.com
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:31.0) Gecko/20100101 Firefox/31.0 Iceweasel/31.1.0
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+Accept-Language: ru-ru,ru;q=0.7,uk;q=0.3
+Accept-Encoding: gzip, deflate
+Content-Length: 83
+Content-Type: application/ocsp-request
+Connection: keep-alive
+0Q0O0M0K0I0	+
+HTTP/1.1 200 OK
+Server: nginx/1.4.7
+Content-Type: application/ocsp-response
+Content-Length: 1730
+content-transfer-encoding: binary
+Cache-Control: max-age=332498, public, no-transform, must-revalidate
+Last-Modified: Fri, 23 Oct 2015 17:45:15 GMT
+Expires: Fri, 30 Oct 2015 17:45:15 GMT
+Date: Mon, 26 Oct 2015 21:24:17 GMT
+Connection: keep-alive
+----------------------------------------------------------
+https://covenant-university.s3.amazonaws.com/video/time_higher.mp4
+
+GET /video/time_higher.mp4 HTTP/1.1
+Host: covenant-university.s3.amazonaws.com
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:31.0) Gecko/20100101 Firefox/31.0 Iceweasel/31.1.0
+Accept: video/webm,video/ogg,video/*;q=0.9,application/ogg;q=0.7,audio/*;q=0.6,*/*;q=0.5
+Accept-Language: ru-ru,ru;q=0.7,uk;q=0.3
+Range: bytes=0-
+Referer: https://s0.2mdn.net/ads/richmedia/studio/pv2/37061561/20150616100921871/the-june16th/index.html?e=69&renderingType=2&leftOffset=0&topOffset=0&c=k5YrdocK2W&t=1
+Connection: keep-alive
+
+HTTP/1.1 206 Partial Content
+x-amz-id-2: aoplvGHcYaVPWHFp6PuboBhomCoy706J0XPvJVNq9X8TiDVQptBPDd8hUb6y8YKMRamhcoiA9Kk=
+x-amz-request-id: 119946F76F3E8060
+Date: Mon, 26 Oct 2015 21:24:19 GMT
+Last-Modified: Wed, 01 Apr 2015 10:50:10 GMT
+Etag: "39ffa9b86f6f5ef198804c98b194f394"
+Accept-Ranges: bytes
+Content-Range: bytes 0-20345649/20345650
+Content-Type: video/mp4
+Content-Length: 20345650
+Server: AmazonS3
+----------------------------------------------------------
+https://s0.2mdn.net/879366/prod_studio_01_68_videomodule.js
+
+GET /879366/prod_studio_01_68_videomodule.js HTTP/1.1
+Host: s0.2mdn.net
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:31.0) Gecko/20100101 Firefox/31.0 Iceweasel/31.1.0
+Accept: */*
+Accept-Language: ru-ru,ru;q=0.7,uk;q=0.3
+Accept-Encoding: gzip, deflate
+Referer: https://s0.2mdn.net/ads/richmedia/studio/pv2/37061561/20150616100921871/the-june16th/index.html?e=69&renderingType=2&leftOffset=0&topOffset=0&c=k5YrdocK2W&t=1
+Connection: keep-alive
+
+HTTP/1.1 200 OK
+Vary: Accept-Encoding
+Content-Encoding: gzip
+Content-Type: text/javascript
+Access-Control-Allow-Origin: *
+Date: Mon, 26 Oct 2015 21:01:40 GMT
+Expires: Tue, 27 Oct 2015 21:01:40 GMT
+Last-Modified: Fri, 05 Jun 2015 13:09:28 GMT
+x-content-type-options: nosniff
+Server: sffe
+Content-Length: 4288
+X-XSS-Protection: 1; mode=block
+Cache-Control: public, max-age=86400
+Age: 1360
+X-Firefox-Spdy: 3.1
+----------------------------------------------------------

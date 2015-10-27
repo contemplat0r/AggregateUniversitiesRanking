@@ -1,0 +1,6 @@
+Ranktable,  qs  empty
+Ranktable,  urap  not empty
+Ranktable,  leiden  not empty
+Ranktable,  the  not empty
+Ranktable,  arwu  empty
+Ranktable,  webometrics  not empty

@@ -1,0 +1,70 @@
+body {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+}
+h2, h3, h4 {
+	font-family: Arial, Helvetica, sans-serif;
+}
+form, input, select {
+	font-family: Arial, Helvetica, sans-serif;
+}
+a {
+	text-decoration: none;
+	color: #000;
+}
+.scale14px {
+	font-size: 14px;
+}
+.scale16px {
+	font-size: 16px;
+}
+.scale18px {
+	font-size: 16px;
+}
+.fontbold {
+	font-weight: bold;
+}
+/*set style of font in toolbar(like "follow us", "login","register")*/
+#toolbar a {
+	font-weight: bold;
+}
+#toolbar a, #timeline ul li a, #breadcrumb ul li a {
+	text-decoration: none;
+}
+#toolbar .cnEntrance {
+	font-family: Arial, Helvetica, sans-serif;
+}
+/*set number of ranking lists*/
+#wrap #content ul li em {
+	font-style: normal;
+	font-weight: bolder;
+}
+/*set title of news in home page*/
+#content h2, #footer #category h2, #content h3 {
+	font-size: 16px;
+}
+#content p {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 13px;
+	line-height: 19px;
+}
+#rankingarea h2, #blankarea h2, #registerContent h2 {
+	font-size: 17px;
+}
+#registerContent h2, #blankarea h2 {
+	line-height: 60px;
+}
+#blankarea ul li {
+	line-height: 22px;
+}
+#news-show, #category, #rankingarea ul#instruction_lists {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 14px;
+}
+#footer #category ul li {
+	line-height: 22px;
+}
+#site-info {
+	font-size: 12px;
+	line-height: 24px;
+}
