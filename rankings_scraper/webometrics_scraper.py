@@ -35,52 +35,10 @@ def extract_data(html_lst, description):
                 ranktable.append(university_info)
     return ranktable
 
-#def get_html(url_lst=[], headers={'User-Agent' : 'requests'}, post_data={}):
-#    html_lst = []
-#    for url in url_lst:
-#        if post_data == {}:
-#            req = requests.get(url, headers=headers)
-#            html_lst.append(req.text)
-#        else:
-#            req = requests.post(url, headers=headers, data=post_data)
-#            html_lst.append(req.text)
-#    return html_lst
-
-#def get_html(url_lst=[], headers={'User-Agent' : 'requests'}, post_data={}):
-#    html_lst = []
-#    for url in url_lst:
-#        req = None
-#        try: 
-#            if post_data == {}:
-#                req = requests.get(url, headers=headers)
-#            else:
-#                req = requests.post(url, headers=headers, data=post_data)
-#        except requests.exceptions.RequestException as e:
-#            print e
-#        if req != None:
-#            html_lst.append(req.text)
-#        else:
-#            html_lst.append(None)
-#    return html_lst
-
-#def get_html(url, headers={'User-Agent' : 'requests'}, post_data={}):
-#    req = None
-#    html = None
-#    try: 
-#        if post_data == {}:
-#            req = requests.get(url, headers=headers)
-#        else:
-#            req = requests.post(url, headers=headers, data=post_data)
-#    except requests.exceptions.RequestException as e:
-#        print e
-#    if req != None:
-#        html = req.text
-#    return html
-
 def get_html(url, headers={'User-Agent' : 'requests'}, post_data={}, exceptions_log_file=None):
     req = None
     html = None
-    cert = '/etc/ssl/certs/Certum_Trusted_Network_CA.pem'
+    #cert = '/etc/ssl/certs/Certum_Trusted_Network_CA.pem'
     try: 
         if post_data == {}:
             #req = requests.get(url, headers=headers, verify=cert)
@@ -112,88 +70,37 @@ def get_saved_html(filename):
     ## print html
     return html
 
-base_sources_description = {
-        'the' : {
-            'name' : 'Times Higher Education World University Rankings',
-            'retrieve_params' : {},
-            'parse_params' : {},
-            'allowed_years' : [2010, 2011, 2012]
-            },
-        'qs' : {
-            'name' : 'QS World University Rankings',
-            'retrieve_params' : {},
-            'parse_params' : {},
-            'allowed_years' : [2008, 2009, 2011, 2012]
-            },
-        'leiden' : {
-            'name' : 'CWTS Leiden Ranking',
-            'retrieve_params' : {},
-            'parse_params' : {},
-            'allowed_years' : []
-            },
-        'arwu' : {
-            'name' : 'Academic Ranking of World Universities',
-            'retrieve_params' : {},
-            'parse_params' : {},
-            'allowed_years' : [2008, 2009, 2010, 2011, 2012]
-            },
-        'webometrics' : {
-            'name' : 'Ranking Web of Universities',
-            'retrieve_params' : {},
-            'parse_params' : {},
-            'allowed_years' : []
-            },
-        'urap' : {
-            'name' : 'University Ranking by Academic Performance',
-            'retrieve_params' : {},
-            'parse_params' : {},
-            'allowed_years' : [2010, 2011, 2012]
-            }
-        }
-
-def qs_url_list_generator(retrieve_params, year):
-    return [retrieve_params['base_url'] + retrieve_params['year_part_generator'](year)]
-
-base_sources_description['qs']['retrieve_params'] = {
-        'url_list' : [],
-        'url_list_generator' : qs_url_list_generator,
-        'year_part_generator' : lambda(year): str(year),
-        'base_url' : 'http://www.topuniversities.com/university-rankings/world-university-rankings/',
-        'constant_part' : None,
-        'query_part' : None,
-        'pages_list' : [],
-        'extra_headers' : {},
-        'post_data' : {}
-        }
-base_sources_description['qs']['parse_params'] = {
-        'rank_table_xpath' : '//table[@class="views-table cols-18"]/tbody/tr',
-        'rank_value_xpath' : 'td',
-        'university_name_xpath' : 'td/div/a[@class="bttitle"]',
-        'university_name_tag_attrib' : None,
-        }
-
-def retrieve_raitings_raw_data(raitings_source_description, user_agent_header):
-    year = 2015
-    for raiting_name in raitings_source_description.keys():
-        raiting_source_description = raitings_source_description[raiting_name]
-        print '_' * 20, ' ', raiting_name, ' ', '_' * 20
-        raiting_retrieve_params = raiting_source_description['retrieve_params']
-        raiting_data_download_dir = os.path.join(download_dir, str(year), raiting_name)
-        raiting_url_list = raiting_retrieve_params['url_list_generator'](raiting_retrieve_params, year)
-        raiting_retrieve_params['url_list'] = raiting_url_list
-        for url in raiting_url_list:
-            print url
-
-        create_dirs(raiting_data_download_dir)
-        download(raiting_data_download_dir, raiting_name, raiting_retrieve_params, user_agent_header)
+def download(download_dir, ranking_name, ranking_retrieve_params, user_agent_header):
+    html_file_num = 0
+    for url in ranking_retrieve_params['url_list']:
+        html_file_name = ranking_name + str(html_file_num) + '.html'
+        html_file_path = os.path.join(download_dir, html_file_name)
+        if os.path.exists(html_file_path):
+            print 'File %s already exists' % html_file_path
+        else:
+            print 'File %s will be downloaded' % html_file_path
+            headers = dict()
+            headers.update(user_agent_header)
+            html = get_html(url=url, headers=headers, post_data=ranking_retrieve_params['post_data'])
+            if html != None:
+                save_html(html, html_file_path)
+            else:
+                print 'html stream is None!!!'
+        html_file_num = html_file_num + 1
 
 if __name__ == "__main__":
     
     user_agent_header = {'Mozilla/5.0 (X11; Linux x86_64; rv:31.0) Gecko/20100101 Firefox/31.0 Iceweasel/31.1.0'}
 
     #url = 'https://www.timeshighereducation.com/world-university-rankings/2015/world-ranking#!/page/0/length/-1'
-    url = 'http://www.webometrics.info/en/world'
+    #url = 'http://www.webometrics.info/en/world'
+    url = 'http://www.webometrics.info/en/world?page=1'
 
-    headers = {'User-Agent' : user_agent_header}
-    html = get_html(url, headers)
-    save_html(html, 'Webometrics_by_Requests.html')
+    #headers = {'User-Agent' : user_agent_header}
+    #html = get_html(url, headers)
+    #save_html(html, 'Webometrics_by_Requests_page_1.html')
+    url_list = ['http://www.webometrics.info/en/world']
+    url_list_continue = ['http://www.webometrics.info/en/world?page=' + str(i) for i in range(1, 121)]
+    #print url_list_continue
+    ranking_retrieve_params = {'url_list' : url_list, 'post_data' : {}}
+    download('WebometricsDownloadDir', 'Webometrics', ranking_retrieve_params, user_agent_header)
