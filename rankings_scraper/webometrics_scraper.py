@@ -9,32 +9,6 @@ import codecs
 #import difflib
 import sys
 
-def extract_data(html_lst, description):
-    trxpath = description['rank_table_xpath']
-    rankxpath = description['rank_value_xpath']
-    namexpath = description['university_name_xpath']
-    name_contain_attrib = description['university_name_tag_attrib']
-    parser = etree.HTMLParser()
-    rownum = 1
-    ranktable = []
-    for html in html_lst:
-        tree = etree.parse(StringIO(html), parser)
-        for row in tree.xpath(trxpath):
-            university_info = {}
-            ranklist = row.xpath(rankxpath)
-            namelist = row.xpath(namexpath)
-            if ranklist != [] and namelist != []:
-                university_info['rank'] = rownum
-                rownum = rownum + 1
-                #university_info['uname'] = namelist[0].text
-                if name_contain_attrib != None:
-                    university_info['uname'] = namelist[0].attrib[name_contain_attrib]
-                else:
-                    university_info['uname'] = namelist[0].text
-                university_info['uname_variants'] = get_name_variants(university_info['uname'])
-                ranktable.append(university_info)
-    return ranktable
-
 def get_html(url, headers={'User-Agent' : 'requests'}, post_data={}, exceptions_log_file=None):
     req = None
     html = None
@@ -96,11 +70,12 @@ if __name__ == "__main__":
     #url = 'http://www.webometrics.info/en/world'
     url = 'http://www.webometrics.info/en/world?page=1'
 
-    #headers = {'User-Agent' : user_agent_header}
+    user_agent_header_dict = {'User-Agent' : user_agent_header}
     #html = get_html(url, headers)
     #save_html(html, 'Webometrics_by_Requests_page_1.html')
     url_list = ['http://www.webometrics.info/en/world']
     url_list_continue = ['http://www.webometrics.info/en/world?page=' + str(i) for i in range(1, 121)]
     #print url_list_continue
+    url_list = url_list + url_list_continue
     ranking_retrieve_params = {'url_list' : url_list, 'post_data' : {}}
-    download('WebometricsDownloadDir', 'Webometrics', ranking_retrieve_params, user_agent_header)
+    download('WebometricsDownloadDir', 'Webometrics', ranking_retrieve_params, user_agent_header_dict)
