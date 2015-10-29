@@ -7,34 +7,7 @@ import glob
 import codecs
 import sys
 
-#def extract_data(html_lst, description):
-#    trxpath = description['rank_table_xpath']
-#    rankxpath = description['rank_value_xpath']
-#    namexpath = description['university_name_xpath']
-#    name_contain_attrib = description['university_name_tag_attrib']
-#    parser = etree.HTMLParser()
-#    rownum = 1
-#    ranktable = []
-#    for html in html_lst:
-#        tree = etree.parse(StringIO(html), parser)
-#        for row in tree.xpath(trxpath):
-#            university_info = {}
-#            ranklist = row.xpath(rankxpath)
-#            namelist = row.xpath(namexpath)
-#            if ranklist != [] and namelist != []:
-#                university_info['rank'] = rownum
-#                rownum = rownum + 1
-                #university_info['uname'] = namelist[0].text
-#                if name_contain_attrib != None:
-#                    university_info['uname'] = namelist[0].attrib[name_contain_attrib]
-#                else:
-#                    university_info['uname'] = namelist[0].text
-#                university_info['uname_variants'] = get_name_variants(university_info['uname'])
-#                ranktable.append(university_info)
-#    return ranktable
-
-#def extract_rank_table(html, row_xpath, value_xpath = '', name_xpath = '', country_xpath = ''):
-#    pass
+NONE_STR_VALUE = '~~~~~~~~~'
 
 def get_saved_html(filename):
     f = codecs.open(filename, 'r', encoding='utf-8')
@@ -55,11 +28,18 @@ def extract_data(html, description):
     ranktable = []
     tree = etree.parse(StringIO(html), parser)
     for row in tree.xpath(table_row_xpath):
+        ranking = NONE_STR_VALUE
+        university_name = NONE_STR_VALUE
+        country = NONE_STR_VALUE
+
         ranking_as_list = row.xpath(ranking_value_xpath)
         name_as_list = row.xpath(university_name_xpath)
         country_as_list = row.xpath(country_xpath)
         print '\n', '-' * 10
         print 'Absolute ranking: ', rownum
+        ranking = ''
+        university_name = ''
+        country = ''
         if ranking_as_list != []:
             ranking = ranking_as_list[0].text
             print 'Ranking: ', ranking
