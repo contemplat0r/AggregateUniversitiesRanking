@@ -20,15 +20,6 @@ class UniversityName(models.Model):
     def __str__(self):
         return self.university_name
 
-class RawRankingRecord(models.Model):
-    university_name = models.CharField(max_length=512)
-    country = models.CharField(max_length = 64, null=True, blank=True)
-    original_value = models.CharField(max_length=16) # Значение приведённое на сайте рейтинга. Может быть и 1, 2...100, а может быть и 601-800 (см. последние записи в THE, и просто "-" (см. последние записи в URAP).
-    number_in_ranking_table = models.IntegerField() # Просто номер строки (записи) в таблице рейтинга если считать их (записи) "сверху-вниз" непрерывно прямо на странице (страницах) рейтинга.
-    ranking_name = models.ForeignKey(RankingName)
-    
-    def __str__(self):
-        return self.university_name
 
 class RankingName(models.Model):
     #abbreviation = models.CharField(max_length=20, null=True, blank=True)
@@ -38,6 +29,16 @@ class RankingName(models.Model):
 
     def __str__(self):
         return self.short_name
+
+class RawRankingRecord(models.Model):
+    university_name = models.CharField(max_length=512)
+    country = models.CharField(max_length = 64, null=True, blank=True)
+    original_value = models.CharField(max_length=16) # Значение приведённое на сайте рейтинга. Может быть и 1, 2...100, а может быть и 601-800 (см. последние записи в THE, и просто "-" (см. последние записи в URAP).
+    number_in_ranking_table = models.IntegerField() # Просто номер строки (записи) в таблице рейтинга если считать их (записи) "сверху-вниз" непрерывно прямо на странице (страницах) рейтинга.
+    ranking_name = models.ForeignKey(RankingName)
+    
+    def __str__(self):
+        return self.university_name
 
 class RankingValue(models.Model):
     year = models.DateField(auto_now=False, auto_now_add=False)

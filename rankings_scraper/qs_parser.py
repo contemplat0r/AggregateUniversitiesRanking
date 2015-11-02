@@ -1,11 +1,22 @@
 # -*- coding: utf8 -*- 
 from lxml import etree
 from StringIO import StringIO
-from copy import deepcopy
+#from copy import deepcopy
 import os
+from os.path import abspath, join, dirname
 import glob
 import codecs
 import sys
+
+print join(abspath(join(dirname(__file__), '..')), 'aggregate_universities_ranking')
+
+DJANGO_PROJECT_DIR = join(abspath(join(dirname(__file__), '..')), 'aggregate_universities_ranking')
+sys.path.append(DJANGO_PROJECT_DIR)
+os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'aggregate_universities_ranking.settings')
+import django
+django.setup()
+from aggregate_ranking_representation.models import RankingName, RawRankingRecord
+
 
 NONE_STR_VALUE = '~~~~~~~~~'
 
@@ -74,5 +85,15 @@ if __name__ == '__main__':
     print 'Ranktable extracted'
     print 'len(ranktable): ', len(ranktable)
 
-    for rank_record in ranktable:
-        print rank_record
+    ranking_name_list = RankingName.objects.filter(short_name='QS')
+    print ranking_name_list
+    ranking_name = ranking_name_list[0]
+
+
+    for ranking_record in ranktable:
+        print ranking_record
+        ranking_name.rawrankingrecord_set.create(university_name=ranking_record['university_name'], country=ranking_record['country'], original_value=ranking_record['ranking'], number_in_ranking_table=ranking['absolute_ranking'])
+    
+    print RawRankingRecord.objects.all()
+
+
