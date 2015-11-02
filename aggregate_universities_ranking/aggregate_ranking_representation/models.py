@@ -15,22 +15,37 @@ from django.db import models
 
 class UniversityName(models.Model):
     university_name = models.CharField(max_length=512)
+    country = models.CharField(max_length = 64, null=True, blank=True)
 
     def __str__(self):
         return self.university_name
 
-class RaitingName(models.Model):
+class RawRankingRecord(models.Model):
+    university_name = models.CharField(max_length=512)
+    country = models.CharField(max_length = 64, null=True, blank=True)
+    original_value = models.CharField(max_length=16) # Значение приведённое на сайте рейтинга. Может быть и 1, 2...100, а может быть и 601-800 (см. последние записи в THE, и просто "-" (см. последние записи в URAP).
+    number_in_ranking_table = models.IntegerField() # Просто номер строки (записи) в таблице рейтинга если считать их (записи) "сверху-вниз" непрерывно прямо на странице (страницах) рейтинга.
+    ranking_name = models.ForeignKey(RankingName)
+    
+    def __str__(self):
+        return self.university_name
+
+class RankingName(models.Model):
     #abbreviation = models.CharField(max_length=20, null=True, blank=True)
     short_name = models.CharField(max_length=20)
     full_name = models.CharField(max_length=200)
-    university = models.ManyToManyField(UniversityName, through='RaitingValue')
+    university = models.ManyToManyField(UniversityName, through='RankingValue')
 
     def __str__(self):
         return self.short_name
 
-class RaitingValue(models.Model):
+class RankingValue(models.Model):
     year = models.DateField(auto_now=False, auto_now_add=False)
-    value = models.CharField(max_length=16)
-    number_in_raiting_table = models.IntegerField()
-    raiting_name = models.ForeignKey(RaitingName)
+    original_value = models.CharField(max_length=16) # Значение приведённое на сайте рейтинга. Может быть и 1, 2...100, а может быть и 601-800 (см. последние записи в THE, и просто "-" (см. последние записи в URAP).
+    number_in_ranking_table = models.IntegerField() # Просто номер строки (записи) в таблице рейтинга если считать их (записи) "сверху-вниз" непрерывно прямо на странице (страницах) рейтинга. Либо посчитанные моим методом (см. статью) если данного университета в данном рейтинге нет.
+    aggregate_ranking = models.IntegerField(null=True, blank=True)
+    ranking_name = models.ForeignKey(RankingName)
     university_name = models.ForeignKey(UniversityName)
+
+    def __str__(self):
+        return u'Number in ranking table: %s' % str(number_in_ranking_table)
