@@ -92,8 +92,11 @@ if __name__ == '__main__':
 
     for ranking_record in ranktable:
         print ranking_record
-        ranking_name.rawrankingrecord_set.create(university_name=ranking_record['university_name'], country=ranking_record['country'], original_value=ranking_record['ranking'], number_in_ranking_table=ranking['absolute_ranking'])
+        ## raw_ranking_record = RawRankingRecord(university_name=ranking_record['university_name'], country=ranking_record['country'], original_value=ranking_record['ranking'], number_in_ranking_table=ranking_record['absolute_ranking'], ranking_name=ranking_name)
+        ### ranking_name.rawrankingrecord_set.add(raw_ranking_record)
+        ## raw_ranking_record.save(force_insert=True)
+        ranking_name.rawrankingrecord_set.create(university_name=ranking_record['university_name'], country=ranking_record['country'], original_value=ranking_record['ranking'], number_in_ranking_table=ranking_record['absolute_ranking'])
     
-    print RawRankingRecord.objects.all()
+    print '\n' * 6, 'RawRankingRecord.objects.all(): ', '\n' * 2,  RawRankingRecord.objects.all()
 
 
