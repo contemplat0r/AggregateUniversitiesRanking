@@ -98,8 +98,16 @@ USE_L10N = True
 
 USE_TZ = True
 
-
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.8/howto/static-files/
 
 STATIC_URL = '/static/'
+
+# Custom fields 
+
+#Year from whith start calculate aggregate ranking, and collected data rankings data
+START_AGGREGATE_YEAR = 2014
+#Last year in years for which calculate aggregate rank 
+FINISH_AGGREGATE_YEAR = 2016
+
+
