@@ -3,12 +3,12 @@
         <strong>Aggregated ranking table </strong>
          <form action="table" method="post">
             {% csrf_token %}
-            {{ select_raitings_names_form }}
+            {{ select_rankings_names_form }}
             <input type="submit" value="Select">
         </form>
        
         <ul>
-            {% for short_name in selected_raitings_names %}
+            {% for short_name in selected_rankings_names %}
             <li> {{ short_name }} </li>
             {% endfor %}
         </ul>
