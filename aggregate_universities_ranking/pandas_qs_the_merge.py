@@ -44,3 +44,15 @@ qs_the_inner_merge = pd.merge(qs_short_df, the_short_df, on='university_name', h
 qs_the_inner_merge.count
 1326 -933
 qs_the_inner_merge.count()
+get_ipython().magic(u'save pandas_qs_the_merge.py 0-44')
+qs_df['university_name']
+qs_df['university_name'][:3]
+the_df['university_name'].find('Massachusetts')
+get_ipython().magic(u'pinfo str.find')
+s = 'adllkd'
+str.find(s, 'll')
+f = lambda s: str.find(s, 'Massachusetts') != -1
+the_df['university_name'].map(f)
+f = lambda s: unicode.find(s, 'Massachusetts') != -1
+the_df['university_name'].map(f)
+the_df[the_df['university_name'].map(f)]
