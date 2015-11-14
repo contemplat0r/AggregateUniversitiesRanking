@@ -13,7 +13,6 @@ the_raw_records = list(the_name.rawrankingrecord_set.all().values())
 qs_df = DataFrame(qs_raw_records)
 the_df = DataFrame(the_raw_records)
 qs_df[:3]
-the_df[:3)
 the_df[:3]
 the_df.drop(0, axis=0)
 the_df = the_df.drop(0, axis=0)
@@ -32,8 +31,6 @@ qs_the_outer_merge_na[:3]
 qs_the_outer_merge_na[:10]
 len(qs_the_outer_merge_na[:10])
 len(qs_the_outer_merge_na)
-qs_the_outer_merge_not_na = qs_the_outer_merge[(qs_the_outer_merge['country_qs'] != np.na) & (qs_the_outer_merge['country_the'] != np.na)]
-get_ipython().magic(u'pinfo np.logical_and')
 qs_the_outer_merge_not_na = qs_the_outer_merge[(qs_the_outer_merge['country_qs'] != np.nan) & (qs_the_outer_merge['country_the'] != np.nan)]
 len(qs_the_outer_merge_not_na)
 qs_the_outer_merge.count
@@ -44,15 +41,10 @@ qs_the_inner_merge = pd.merge(qs_short_df, the_short_df, on='university_name', h
 qs_the_inner_merge.count
 1326 -933
 qs_the_inner_merge.count()
-get_ipython().magic(u'save pandas_qs_the_merge.py 0-44')
 qs_df['university_name']
 qs_df['university_name'][:3]
-the_df['university_name'].find('Massachusetts')
-get_ipython().magic(u'pinfo str.find')
 s = 'adllkd'
 str.find(s, 'll')
-f = lambda s: str.find(s, 'Massachusetts') != -1
-the_df['university_name'].map(f)
 f = lambda s: unicode.find(s, 'Massachusetts') != -1
 the_df['university_name'].map(f)
 the_df[the_df['university_name'].map(f)]
