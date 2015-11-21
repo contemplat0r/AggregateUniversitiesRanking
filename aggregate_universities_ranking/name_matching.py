@@ -102,19 +102,28 @@ def get_abbreviation_from_outside_brackets(name_as_str_list):
             break
     return abbreviation
 
+#def pick_abbreviation_from_fullname(fullname_as_str_list):
+#    abbr_from_fullname = None
+#    #fullname_as_str_list = [part.strip(',') for part in fullname_as_str_list if part[0].isupper()]
+#    if len(fullname_as_str_list) > 1:
+#        abbr_from_fullname = ''
+#        for part in fullname_as_str_list:
+#            #if part[0].isupper():
+#                #abbr_from_fullname = abbr_from_fullname + part[0]
+#            if not part.isupper():
+#                abbr_from_fullname = abbr_from_fullname + part[0]
+#    return abbr_from_fullname
+
 def pick_abbreviation_from_fullname(fullname_as_str_list):
     abbr_from_fullname = None
-    fullname_as_str_list = [part.strip(',') for part in fullname_as_str_list if part[0].isupper()]
     if len(fullname_as_str_list) > 1:
         abbr_from_fullname = ''
         for part in fullname_as_str_list:
-            #if part[0].isupper():
-                #abbr_from_fullname = abbr_from_fullname + part[0]
-            if not part.isupper():
-                abbr_from_fullname = abbr_from_fullname + part[0]
+            abbr_from_fullname = abbr_from_fullname + part[0]
     return abbr_from_fullname
 
-def remove_anciliary_words_from_name_as_list(name_as_str_list):
+
+def exclude_anciliary_words_from_name_as_list(name_as_str_list):
     return [name_part for name_part in name_as_str_list if name_part not in anciliary_words_list]
 
 def get_name_variants(name_str):
@@ -126,13 +135,13 @@ def get_name_variants(name_str):
             'shortname' : None,
             'abbreviation_from_bracket' : None,
             'abbreviation' : None,
-            'abbreviation_pick_from_fullname' : None
-            'abbreviation_pick_from_fullname_minus_anciliary_words' : None
+            'abbreviation_picked_from_fullname' : None
+            'abbreviation_picked_from_fullname_exclude_anciliary_words' : None
             'abbreviation_with_ampersand' : None
             }
 
     name_as_str_list = name_str.split()
-
+    name_as_str_list = [name_part.strip(',') for name_part in name_as_str_list]
     name_part_in_bracket = get_name_part_in_bracket(name_as_str_list)
     if len(name_part_in_bracket) > 1:
         if name_part_in_bracket.isupper():
@@ -140,7 +149,7 @@ def get_name_variants(name_str):
         else:
             name_variants['shortname'] = name_part_in_bracket
         name_as_str_list.remove(name_part_in_bracket)
-        name_parts = [part.strip('()') for part in name_as_str_list]
+        name_as_str_list = [part.strip('()') for part in name_as_str_list]
     else:
         print 'Nonstandart situation! Type name part in bracket not recognized'
 
@@ -148,20 +157,17 @@ def get_name_variants(name_str):
 
     if abbreviation != None:
         name_variants['abbreviation'] = abbreviation
-        name_parts.remove(abbreviation)
+        name_as_str_list.remove(abbreviation)
 
-    if name_parts != []:
-        #name_variants['fullname_as_list'] = [part.strip(',') for part in name_parts if part.istitle()]
-        name_variants['fullname_as_list'] = [part.strip(',') for part in name_parts if part[0].isupper()]
-        if len(name_parts) > 1:
-            abbr_from_fullname = ''
-            for part in name_parts:
-                #if part[0].isupper():
-                    #abbr_from_fullname = abbr_from_fullname + part[0]
-                abbr_from_fullname = abbr_from_fullname + part[0]
-            name_variants['abbr_from_fullname'] = abbr_from_fullname
-        fullname_as_string = name_parts[0]
-        for part in name_parts[1:]:
+    if name_as_str_list != []:
+        name_as_list_cleaned_from_anciliary_word = exclude_anciliary_words_from_name_as_list(name_as_str_list)
+
+        if len(name_as_str_list) > 1:
+            name_variants['abbreviation_picked_from_fullname'] = pick_abbreviation_from_fullname(name_as_str_list).toupper()
+            name_variants['abbreviation_picked_from_fullname_exclude_anciliary_words'] = pick_abbreviation_from_fullname(name_as_list_cleaned_from_anciliary_word).toupper()
+
+        fullname_as_string = name_as_str_list[0]
+        for part in name_as_str_list[1:]:
             fullname_as_string = fullname_as_string + ' ' + part
         name_variants['fullname'] = fullname_as_string
     name_variants['fullname'] = name_str
