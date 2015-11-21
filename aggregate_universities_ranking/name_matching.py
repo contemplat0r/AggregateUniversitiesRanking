@@ -85,40 +85,6 @@ def select_anciliary_words(list_of_string_list):
                 all_anciliary_words_list.append(anciliary_word)
     return all_anciliary_words_list
 
-def get_name_part_in_bracket(raw_name_parts_as_str_list):
-    abbreviation_in_bracket = ''
-    shortname = ''
-    for part in raw_name_parts_as_str_list:
-        if part.startswith('(') and part.endswith(')'):
-            name_part_in_bracket = part
-            name_part_in_bracket = name_part_in_bracket.strip('()')
-            if len(name_part_in_bracket) > 1:
-                if name_part_in_bracket.isupper():
-                    abbreviation_in_bracket = name_part_in_bracket
-                else:
-                    shortname = name_part_in_bracket
-            else:
-                print 'Detected name part in bracket with lenght == 1'
-            break
-    return abbreviation_in_bracket, shortname
-
-def get_name_part_in_bracket(raw_name_parts_as_str_list):
-    abbreviation_in_bracket = None
-    shortname = None
-    for part in raw_name_parts_as_str_list:
-        if part.startswith('(') and part.endswith(')'):
-            name_part_in_bracket = part
-            name_part_in_bracket = name_part_in_bracket.strip('()')
-            if len(name_part_in_bracket) > 1:
-                if name_part_in_bracket.isupper():
-                    abbreviation_in_bracket = name_part_in_bracket
-                else:
-                    shortname = name_part_in_bracket
-            else:
-                print 'Detected name part in bracket with lenght == 1'
-            break
-    return abbreviation_in_bracket, shortname
-
 def get_name_part_in_bracket(name_as_str_list):
     name_part_in_brackets = None
     for name_part in name_as_str_list:
@@ -128,6 +94,13 @@ def get_name_part_in_bracket(name_as_str_list):
     return name_part_in_bracket.strip('()')
 
 def get_abbreviation_from_outside_brackets(name_as_str_list):
+    pass
+    abbreviation = None
+    for part in name_parts:
+        if len(part) > 1 and part.isupper():
+            abbreviation = part
+            break
+    return abbreviation
 
 def pick_abbreviation_from_fullname(fullname_as_str_list):
     abbr_from_fullname = None
@@ -160,43 +133,18 @@ def get_name_variants(name_str):
 
     name_as_str_list = name_str.split()
 
-    #abbreviation_from_bracket, shortname = get_name_part_in_bracket(name_as_str_list)
-
-    #if abbreviation_from_bracket != None
-    #    name_variants['abbreviation_from_bracket'] = abbreviation_from_bracket
-    #    name_part_in_bracket = abbreviation_from_bracket
-    #    names_as_str_list.remove(name_part_in_bracket)
-    #    name_parts = [part.strip('()') for part in name_as_str_list]
-    #else if shortname != None
-    #    name_variants['shortname'] = shortname
-    #    name_part_in_bracket = shortname
-    #    names_as_str_list.remove(name_part_in_bracket)
-    #    name_parts = [part.strip('()') for part in name_as_str_list]
-    #else:
-    #    print 'Nonstandart situation! Type name part in bracket not recognized'
-    
-    # Вариант функции get_name_part_in_bracket возвращающей пустые строки.
-    # name_variants['abbreviation_from_bracket'] = abbreviation_from_bracket
-    # name_variants['shortname'] = shortname
-    # names_as_str_list.remove(abbreviation_from_bracket + shortname)
-    # name_parts = [part.strip('()') for part in name_as_str_list]
-
     name_part_in_bracket = get_name_part_in_bracket(name_as_str_list)
     if len(name_part_in_bracket) > 1:
         if name_part_in_bracket.isupper():
             name_variants['abbreviation_from_bracket'] = name_part_in_bracket
         else:
             name_variants['shortname'] = name_part_in_bracket
-        names_as_str_list.remove(name_part_in_bracket)
+        name_as_str_list.remove(name_part_in_bracket)
         name_parts = [part.strip('()') for part in name_as_str_list]
     else:
         print 'Nonstandart situation! Type name part in bracket not recognized'
 
-    abbreviation = None
-    for part in name_parts:
-        if len(part) > 1 and part.isupper():
-            abbreviation = part
-            break
+    abbreviation = get_abbreviation_from_outside_brackets(name_as_str_list)
 
     if abbreviation != None:
         name_variants['abbreviation'] = abbreviation
