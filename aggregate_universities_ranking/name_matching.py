@@ -126,6 +126,12 @@ def pick_abbreviation_from_fullname(fullname_as_str_list):
 def exclude_anciliary_words_from_name_as_list(name_as_str_list):
     return [name_part for name_part in name_as_str_list if name_part not in anciliary_words_list]
 
+def convert_name_as_list_to_string(name_as_str_list):
+    name_as_string = name_as_str_list[0]
+    for name_part in name_as_str_list[1:]:
+        name_as_string = name_as_string + ' ' + name_part
+    return name_as_string
+
 def get_name_variants(name_str):
     name_variants = {
             'fullname_as_list' : None,
@@ -137,7 +143,8 @@ def get_name_variants(name_str):
             'abbreviation' : None,
             'abbreviation_picked_from_fullname' : None
             'abbreviation_picked_from_fullname_exclude_anciliary_words' : None
-            'abbreviation_with_ampersand' : None
+            'abbreviation_with_ampersand' : None,
+            'fullname_as_string' : None
             }
 
     name_as_str_list = name_str.split()
@@ -165,12 +172,9 @@ def get_name_variants(name_str):
         if len(name_as_str_list) > 1:
             name_variants['abbreviation_picked_from_fullname'] = pick_abbreviation_from_fullname(name_as_str_list).toupper()
             name_variants['abbreviation_picked_from_fullname_exclude_anciliary_words'] = pick_abbreviation_from_fullname(name_as_list_cleaned_from_anciliary_word).toupper()
+            # Здесь добавить строки без .toupper() для получения аббревиатур в "изначальном" виде
 
-        fullname_as_string = name_as_str_list[0]
-        for part in name_as_str_list[1:]:
-            fullname_as_string = fullname_as_string + ' ' + part
-        name_variants['fullname'] = fullname_as_string
-    name_variants['fullname'] = name_str
+        name_variants['fullname_as_string'] = convert_name_as_list_to_string(name_as_str_list)
     return name_variants 
 
 
