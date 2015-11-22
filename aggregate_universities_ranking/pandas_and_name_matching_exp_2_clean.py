@@ -1,7 +1,6 @@
 # coding: utf-8
 
 import pandas_and_name_matching_exp_1_clean
-import pandas_and_name_matching_exp_1_clean
 from pandas_and_name_matching_exp_1_clean import *
 
 the_df[the_df['university_name'].map(lambda x: x.find('&') != -1)]
