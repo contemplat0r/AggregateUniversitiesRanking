@@ -37,14 +37,13 @@ def select_anciliary_words(list_of_string_list):
 
 
 def get_name_part_in_brackets(name_as_str_list):
-    print 'Entry in get_name_part_in_brackets'
+    #print 'Entry in get_name_part_in_brackets'
     name_part_in_brackets = ''
     for name_part in name_as_str_list:
         if name_part.startswith('(') and name_part.endswith(')'):
-            print 'get_name_part_in_brackets: name_part start with \'(\' and end with \')\''
+            #print 'get_name_part_in_brackets: name_part start with \'(\' and end with \')\''
             name_part_in_brackets = name_part
             break
-    #return name_part_in_brackets.strip('()')
     return name_part_in_brackets
 
 def detect_special_symbol_in_string(string):
@@ -77,15 +76,15 @@ def get_abbreviation_from_outside_brackets(name_as_str_list):
 
 
 def pick_abbreviation_from_fullname(fullname_as_str_list):
-    print 'Entry to pick_abbreviation_from_fullname'
-    print 'pick_abbreviation_from_fullname, fullname_as_str_list: ', fullname_as_str_list
-    print 'pick_abbreviation_from_fullname, len(fullname_as_str_list): ', len(fullname_as_str_list)
+    #print 'Entry to pick_abbreviation_from_fullname'
+    #print 'pick_abbreviation_from_fullname, fullname_as_str_list: ', fullname_as_str_list
+    #print 'pick_abbreviation_from_fullname, len(fullname_as_str_list): ', len(fullname_as_str_list)
     abbr_from_fullname = None
     if len(fullname_as_str_list) > 1:
         abbr_from_fullname = ''
         for part in fullname_as_str_list:
             abbr_from_fullname = abbr_from_fullname + part[0]
-    print 'pick_abbreviation_from_fullname, abbr_from_fullname: ', len(abbr_from_fullname)
+    #print 'pick_abbreviation_from_fullname, abbr_from_fullname: ', len(abbr_from_fullname)
     return abbr_from_fullname
 
 
@@ -101,8 +100,8 @@ def convert_name_as_list_to_string(name_as_str_list):
 
 
 def get_name_variants(name_str):
-    print '\n'*4, 'Entry in get_name_variants'
-    print 'get_name_variants, name_str: ', name_str
+    #print '\n'*4, 'Entry in get_name_variants'
+    #print 'get_name_variants, name_str: ', name_str
     name_variants = {
             'raw_fullname_as_string' : name_str,
             'fullname_as_list' : None,
@@ -113,17 +112,19 @@ def get_name_variants(name_str):
             'abbreviation_picked_from_fullname' : None,
             'abbreviation_picked_from_fullname_exclude_anciliary_words' : None,
             'abbreviation_with_ampersand' : None,
+            'all_abbreviations_list' : None,
             'fullname_as_string' : None,
             'fullname_as_string_anciliary_words_excluded' : None,
             }
 
     name_as_str_list = name_str.split()
-    print '\nget_name_variants, name_str: ', name_str
+    #print '\nget_name_variants, name_str: ', name_str
     name_as_str_list = [name_part.strip(',') for name_part in name_as_str_list]
     name_part_in_brackets = get_name_part_in_brackets(name_as_str_list)
-    print '\nget_name_variants, name_part_in_brackets: ', name_part_in_brackets
+    #print '\nget_name_variants, name_part_in_brackets: ', name_part_in_brackets
     abbreviation_from_brackets = None
     abbreviation = None
+    all_abbreviations_list = list()
     if name_part_in_brackets != None and len(name_part_in_brackets) > 1:
         name_as_str_list.remove(name_part_in_brackets)
         name_as_str_list = [part.strip('()') for part in name_as_str_list]
@@ -137,12 +138,12 @@ def get_name_variants(name_str):
     #else if name_part_in_bracket != None:
     #    print 'Nonstandart situation! Type name part in bracket not recognized'
 
-    print '\nget_name_variants, name_part_in_brackets: ', name_part_in_brackets
+    #print '\nget_name_variants, name_part_in_brackets: ', name_part_in_brackets
     if name_variants['abbreviation_from_brackets'] == None:
         abbreviation = get_abbreviation_from_outside_brackets(name_as_str_list)
-        print '\nget_name_variants, abbreviation_from_brackets: ', name_variants['abbreviation_from_brackets']
-        print '\nget_name_variants, shortname: ', name_variants['shortname']
-        print '\nget_name_variants, abbreviation: ', abbreviation
+        #print '\nget_name_variants, abbreviation_from_brackets: ', name_variants['abbreviation_from_brackets']
+        #print '\nget_name_variants, shortname: ', name_variants['shortname']
+        #print '\nget_name_variants, abbreviation: ', abbreviation
 
         if abbreviation != None:
             name_variants['abbreviation'] = abbreviation
@@ -153,7 +154,7 @@ def get_name_variants(name_str):
         name_variants['fullname_as_list'] = name_as_str_list
         name_as_str_list_cleaned_from_anciliary_word = exclude_anciliary_words_from_name_as_list(name_as_str_list)
 
-        print '\nget_name_variants, name_as_str_list_cleaned_from_anciliary_word: ', name_as_str_list_cleaned_from_anciliary_word
+        #print '\nget_name_variants, name_as_str_list_cleaned_from_anciliary_word: ', name_as_str_list_cleaned_from_anciliary_word
         name_variants['fullname_as_list_anciliary_words_excluded'] = name_as_str_list_cleaned_from_anciliary_word
 
         if (abbreviation_from_brackets == None) and (abbreviation == []) and (len(name_as_str_list)) > 1:
@@ -179,6 +180,7 @@ def get_name_variants(name_str):
 def determine_names_as_string_match(first_name_as_string, second_name_as_string):
     return (first_name_as_string == second_name_as_string) or (second_name_as_string in first_name_as_string) or (first_name_as_string in second_name_as_string)
 
+
 def compare_abbreviations(first_name_description, second_name_description):
     result = False
     abbr_keys = ['abbreviation', 'br_abbreviation', 'abbr_from_fullname']
@@ -187,11 +189,30 @@ def compare_abbreviations(first_name_description, second_name_description):
     return compare_string_lists(first_descr_abbrs, second_descr_abbrs, lambda str1, str2: str1 == str2)
 
 
+def abbreviations_not_in_brackets_match_abbreviation(abbrevation, abbreviation_from_outside_brackets):
+    match = False
+    for abbreviation_not_in_bracket in abbreviations_not_in_brackets:
+        if abbreviation == abbreviation_not_in_bracket:
+            match = True
+            break
+    return match
+
+
+def determine_abbreviations_not_in_brackets_match(first_abbreviations_list, second_abbreviations_list):
+    match = False
+    for abbreviation in first_abbreviations_list:
+        if abbreviations_not_in_brackets_match_abbreviation(abbreviation, second_abbreviations_list) == True:
+            match = True
+            break
+    return match
+
+
 def determine_name_parts_match(first_name_part, second_name_part):
     result = False
     if (len(first_name_part) > 1 and len(second_name_part) > 1) and (first_name_part == second_name_part or first_name_part in second_name_part or second_name_part in first_name_part):
         result = True
     return result
+
 
 
 def determine_full_names_as_list_match(first_name_as_list, second_name_as_list):
@@ -210,7 +231,7 @@ def determine_string_lists_match(first_string_list, second_string_list, comparat
     return result_of_determine
 
 
-def caluclate_distation(first_name_as_string, second_name_as_string):
+def caluclate_distantion(first_name_as_string, second_name_as_string):
     return 0
 
 
@@ -225,4 +246,31 @@ def compare_name_descriptions(first_name_description, second_name_description):
 
     
 def determine_names_match(first_name_description, second_name_description):
-    pass
+    names_match = False
+
+    raw_first_name_as_string = first_name_description['raw_fullname_as_string']
+    raw_second_name_as_string = second_name_description['raw_fullname_as_string']
+    
+    if determine_names_as_string_match(raw_first_name_as_string, raw_second_name_as_string) == True:
+        names_match = True
+    elif determine_names_as_string_match(first_name_description['full_name_as_string'], second_name_description['full_name_as_string']) == True:
+        names_match = True
+    elif determine_names_as_string_match(first_name_description['fullname_as_string_anciliary_words_excluded', second_name_description['fullname_as_string_anciliary_words_excluded']) == True:
+        names_match = True
+    elif determine_full_names_as_list_match(first_name_description['fullname_as_list'], second_name_description['fullname_as_list']) == True:
+        names_match = True
+    elif determine_full_names_as_list_match(first_name_description['fullname_as_list_anciliary_words_excluded'], second_name_description['fullname_as_list_anciliary_words_excluded']) == True:
+        names_match = True
+    elif determine_abbreviations_not_in_brackets_match(first_name_description['abbreviation'], second_name_description['abbreviation']) == True:
+        names_match = True
+    elif abbreviations_not_in_brackets_match_abbreviation(first_name_description['abbreviation_from_brackets'], second_name_description['abbreviation']) == True:
+        names_match = True
+    elif abbreviations_not_in_brackets_match_abbreviation(second_name_description['abbreviation_from_brackets'], first_name_description['abbreviation']) == True:
+        names_match = True
+    elif abbreviations_not_in_brackets_match_abbreviation(first_name_description['abbreviation_from_brackets'], second_name_description['abbreviation']) == True:
+        names_match = True
+    elif abbreviations_not_in_brackets_match_abbreviation(second_name_description['abbreviation_from_brackets'], first_name_description['abbreviation']) == True:
+        names_match = True
+
+    elif determine_names_as_string_match(first_name_description['abbreviation_from_brackets'], second_name_description['abbreviation_from_brackets']) == True:
+        names_match = True
