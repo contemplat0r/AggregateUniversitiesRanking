@@ -8,7 +8,8 @@ NaN = np.nan
 # Добавить "очищенный от вспомогательных слов (артиклей) вариант". Аббревиатуры тогда
 # тоже вычислять два варианта: "очищенную от вспомогательных слов" и "со вспомогательными словами".
 
-anciliary_words_list = ['of', 'the', 'The', 'a', 'A', 'an', 'An', '&']
+anciliary_words_list = ['of', 'the', 'The', 'a', 'A', 'an', 'An', '&', '-']
+special_symbols_list = ['-', '.']
 
 
 
@@ -46,30 +47,45 @@ def get_name_part_in_brackets(name_as_str_list):
     #return name_part_in_brackets.strip('()')
     return name_part_in_brackets
 
+def detect_special_symbol_in_string(string):
+    special_symbol_detected = False
+    for special_symbol in special_symbols_list:
+        if special_symbol in string:
+            special_symbol_detected = True
+            break
+    return special_symbol_detected
 
 def categorize_as_abbreviation(string):
     string_is_abbreviation = False
-    if sum([1 for char in list(string) if char.isupper()]) > 1:
+    string_len = len(string)
+    upper_symbols_number = sum([1 for char in list(string) if char.isupper()])
+    if string_len > 1 and (upper_symbols_number > string_len - upper_symbols_number) and not detect_special_symbol_in_string(string):
         string_is_abbreviation = True
     return string_is_abbreviation
 
 
 def get_abbreviation_from_outside_brackets(name_as_str_list):
-    abbreviation = None
+    #abbreviation = None
+    abbreviation = list()
     for name_part in name_as_str_list:
         #if len(name_part) > 1 and name_part.isupper():
         if len(name_part) > 1 and categorize_as_abbreviation(name_part):
-            abbreviation = name_part
-            break
+            #abbreviation = name_part
+            abbreviation.append(name_part)
+            #break
     return abbreviation
 
 
 def pick_abbreviation_from_fullname(fullname_as_str_list):
+    print 'Entry to pick_abbreviation_from_fullname'
+    print 'pick_abbreviation_from_fullname, fullname_as_str_list: ', fullname_as_str_list
+    print 'pick_abbreviation_from_fullname, len(fullname_as_str_list): ', len(fullname_as_str_list)
     abbr_from_fullname = None
     if len(fullname_as_str_list) > 1:
         abbr_from_fullname = ''
         for part in fullname_as_str_list:
             abbr_from_fullname = abbr_from_fullname + part[0]
+    print 'pick_abbreviation_from_fullname, abbr_from_fullname: ', len(abbr_from_fullname)
     return abbr_from_fullname
 
 
@@ -85,6 +101,8 @@ def convert_name_as_list_to_string(name_as_str_list):
 
 
 def get_name_variants(name_str):
+    print '\n'*4, 'Entry in get_name_variants'
+    print 'get_name_variants, name_str: ', name_str
     name_variants = {
             'raw_fullname_as_string' : name_str,
             'fullname_as_list' : None,
@@ -100,33 +118,45 @@ def get_name_variants(name_str):
             }
 
     name_as_str_list = name_str.split()
+    print '\nget_name_variants, name_str: ', name_str
     name_as_str_list = [name_part.strip(',') for name_part in name_as_str_list]
     name_part_in_brackets = get_name_part_in_brackets(name_as_str_list)
-    print 'get_name_variants, name_part_in_brackets: ', name_part_in_brackets
+    print '\nget_name_variants, name_part_in_brackets: ', name_part_in_brackets
+    abbreviation_from_brackets = None
+    abbreviation = None
     if name_part_in_brackets != None and len(name_part_in_brackets) > 1:
         name_as_str_list.remove(name_part_in_brackets)
         name_as_str_list = [part.strip('()') for part in name_as_str_list]
         name_part_in_brackets = name_part_in_brackets.strip('()')
         #if name_part_in_brackets.isupper():
         if categorize_as_abbreviation(name_part_in_brackets):
+            abbreviation_from_brackets = name_part_in_brackets
             name_variants['abbreviation_from_brackets'] = name_part_in_brackets
         else:
             name_variants['shortname'] = name_part_in_brackets
     #else if name_part_in_bracket != None:
     #    print 'Nonstandart situation! Type name part in bracket not recognized'
 
-    abbreviation = get_abbreviation_from_outside_brackets(name_as_str_list)
+    print '\nget_name_variants, name_part_in_brackets: ', name_part_in_brackets
+    if name_variants['abbreviation_from_brackets'] == None:
+        abbreviation = get_abbreviation_from_outside_brackets(name_as_str_list)
+        print '\nget_name_variants, abbreviation_from_brackets: ', name_variants['abbreviation_from_brackets']
+        print '\nget_name_variants, shortname: ', name_variants['shortname']
+        print '\nget_name_variants, abbreviation: ', abbreviation
 
-    if abbreviation != None:
-        name_variants['abbreviation'] = abbreviation
-        name_as_str_list.remove(abbreviation)
+        if abbreviation != None:
+            name_variants['abbreviation'] = abbreviation
+            for abbreviation_variant in abbreviation:
+                name_as_str_list.remove(abbreviation_variant)
 
     if name_as_str_list != []:
         name_variants['fullname_as_list'] = name_as_str_list
         name_as_str_list_cleaned_from_anciliary_word = exclude_anciliary_words_from_name_as_list(name_as_str_list)
+
+        print '\nget_name_variants, name_as_str_list_cleaned_from_anciliary_word: ', name_as_str_list_cleaned_from_anciliary_word
         name_variants['fullname_as_list_anciliary_words_excluded'] = name_as_str_list_cleaned_from_anciliary_word
 
-        if len(name_as_str_list) > 1:
+        if (abbreviation_from_brackets == None) and (abbreviation == []) and (len(name_as_str_list)) > 1:
             name_variants['abbreviation_picked_from_fullname'] = pick_abbreviation_from_fullname(name_as_str_list).upper()
             name_variants['abbreviation_picked_from_fullname_exclude_anciliary_words'] = pick_abbreviation_from_fullname(name_as_str_list_cleaned_from_anciliary_word).upper()
             # Здесь добавить строки без .upper() для получения аббревиатур в "изначальном" виде
@@ -136,14 +166,14 @@ def get_name_variants(name_str):
     return name_variants 
 
 
-def determine_names_as_string_match(first_name_as_string, second_name_as_string):
-    names_match = False
+#def determine_names_as_string_match(first_name_as_string, second_name_as_string):
+#    names_match = False
     
-    if (first_name_as_string.find(second_name_as_string) != -1) or (second_name_as_string.find(first_name_as_string) != -1):
-        names_match = True
-    else:
-        print 'Name %s and name %s are different' % (first_name_as_string, second_name_as_string)
-    return names_match
+#    if (first_name_as_string.find(second_name_as_string) != -1) or (second_name_as_string.find(first_name_as_string) != -1):
+#        names_match = True
+#    else:
+#        print 'Name %s and name %s are different' % (first_name_as_string, second_name_as_string)
+#    return names_match
 
 
 def determine_names_as_string_match(first_name_as_string, second_name_as_string):
