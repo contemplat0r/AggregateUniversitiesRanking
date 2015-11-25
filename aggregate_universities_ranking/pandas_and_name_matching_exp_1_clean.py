@@ -1,5 +1,7 @@
 # coding: utf-8
 
+import pandas_and_name_matching_exp_0
+reload(pandas_and_name_matching_exp_0)
 from pandas_and_name_matching_exp_0 import *
 
 qs_university_names_list = list(qs_df['university_name'])
