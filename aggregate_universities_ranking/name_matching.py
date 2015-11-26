@@ -261,6 +261,7 @@ def union_ranks(ranktables):
             university['ranks'] = default_ranks.copy()
             #university['ranks'][rankname] = university.pop('rank')
             university['ranks'][rankname] = university['rank']
+            university['collected_from_all_ranktables_description'] = {rankname : {'rankvalue' : university['rank'], 'university_name_variants' : university['university_name_variants']}
             for another_rankname in rest_ranknames:
                 another_ranktable = ranktables[another_rankname]
                 to_remove_universities = list()
@@ -268,6 +269,7 @@ def union_ranks(ranktables):
                     math = names_match(university['university_name_variants'], another_university['university_name_variants'])
                     if math:
                         university['ranks'][another_rankname] = another_university['rank']
+                        university['collected_from_all_ranktables_description'].update({another_rankname : {'rankvalue' : another_university['rank'], 'university_name_variants' : another_university['university_name_variants']})
                         to_remove_universities.append(another_university)
                         break
                 for another_university in to_remove_universities:
