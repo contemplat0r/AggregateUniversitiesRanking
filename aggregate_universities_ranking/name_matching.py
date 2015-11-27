@@ -333,9 +333,9 @@ def union_ranks(ranktables):
             university['ranks'] = default_ranks.copy()
             #university['ranks'][rankname] = university['rank']
             print 'university: ', university
-            #university['collected_from_all_ranktables_description'] = {rankname : {'rankvalue' : university['rank'], 'university_name_variants' : university['university_name_variants']}}
-            #university['ranks'][rankname] = university.pop('rank')
-            university['ranks'][rankname] = university['rank']
+            university['collected_from_all_ranktables_description'] = {rankname : {'rankvalue' : university['rank'], 'university_name_variants' : university['university_name_variants']}}
+            university['ranks'][rankname] = university.pop('rank')
+            #university['ranks'][rankname] = university['rank']
             for another_rankname in rest_ranknames:
                 another_ranktable = ranktables[another_rankname]
                 to_remove_universities = list()
@@ -344,7 +344,7 @@ def union_ranks(ranktables):
                     if math:
                         #print 'another_university: ', another_university
                         university['ranks'][another_rankname] = another_university['rank']
-                        #university['collected_from_all_ranktables_description'].update({another_rankname : {'rankvalue' : another_university['rank'], 'university_name_variants' : another_university['university_name_variants']}})
+                        university['collected_from_all_ranktables_description'].update({another_rankname : {'rankvalue' : another_university['rank'], 'university_name_variants' : another_university['university_name_variants']}})
                         to_remove_universities.append(another_university)
                         break
                 for another_university in to_remove_universities:
@@ -392,4 +392,6 @@ if __name__ == '__main__':
     print '\n' * 6
     union_rank_tables = union_ranks(ranking_tables_dict)
     for record in union_rank_tables:
-        print record
+        print '\n' *4, '-' * 40, '\n'
+        for key, value in  record.items():
+            print key, ' : ', value
