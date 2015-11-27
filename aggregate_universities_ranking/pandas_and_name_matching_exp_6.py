@@ -47,7 +47,6 @@ the_shor_df = the_short_df[['number_in_ranking_table', 'university_name']]
 the_short_df = the_short_df[['number_in_ranking_table', 'university_name']]
 del the_shor_df
 the_short_df.head()
-the_short_df = the_short_df.rename(columns={'number_in_ranking_table : 'rank'})
 the_short_df = the_short_df.rename(columns={'number_in_ranking_table' : 'rank'})
 the_short_df.head()
 the_rank_table = {'the' : (the_short_df.T).to_dict().values()}

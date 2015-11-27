@@ -1,6 +1,7 @@
 # coding: utf-8
 
 import pandas_and_name_matching_exp_0
+from pandas_and_name_matching_exp_0 import *
 reload(pandas_and_name_matching_exp_0)
 from pandas_and_name_matching_exp_0 import *
 

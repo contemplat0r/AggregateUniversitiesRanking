@@ -1,9 +1,26 @@
 
 # coding: utf-8
 
+import os
+from os.path import abspath, join, dirname
+import sys
+
 from functools import reduce
+from copy import deepcopy
+from pandas import Series, DataFrame
+import pandas as pd
 import numpy as np
+import django
+
+DJANGO_PROJECT_DIR = join(abspath(join(dirname(__file__), '..')), 'aggregate_universities_ranking')
+sys.path.append(DJANGO_PROJECT_DIR)
+os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'aggregate_universities_ranking.settings')
+
+django.setup()
+from aggregate_ranking_representation.models import RankingName, RawRankingRecord
+
 NaN = np.nan
+
 
 # Добавить "очищенный от вспомогательных слов (артиклей) вариант". Аббревиатуры тогда
 # тоже вычислять два варианта: "очищенную от вспомогательных слов" и "со вспомогательными словами".
@@ -11,6 +28,57 @@ NaN = np.nan
 anciliary_words_list = ['of', 'the', 'The', 'a', 'A', 'an', 'An', '&', '-']
 special_symbols_list = ['-', '.']
 
+
+def the_dataframe_postprocessor(the_dataframe):
+    the_dataframe = the_dataframe.drop(0, axis=0)
+    the_dataframe['number_in_ranking_table'] = the_dataframe['number_in_ranking_table'].map(lambda x: x -1 ) 
+    return the_dataframe
+
+#ranking_table_as_list_preprocessor = lambda df: df[:6].T
+ranking_table_as_list_preprocessor = lambda df: df[:4].T
+
+ranking_descriptions = {
+        'QS' : {
+            'dataframe_postprocessor' : None,
+            'ranking_table_as_list_preprocessor' : ranking_table_as_list_preprocessor
+            },
+        'THE' : {
+            'dataframe_postprocessor' : the_dataframe_postprocessor,
+            'ranking_table_as_list_preprocessor' : ranking_table_as_list_preprocessor
+            },
+        'Leiden' : {
+            'dataframe_postprocessor' : None,
+            'ranking_table_as_list_preprocessor' : ranking_table_as_list_preprocessor
+            },
+        }
+
+def rawranking_records_to_dataframes(ranking_descriptions):
+    
+    dataframes_dict = deepcopy(ranking_descriptions)
+    for ranking_short_name, additional_processors in ranking_descriptions.items():
+        ranking_name_description = RankingName.objects.filter(short_name=ranking_short_name)[0]
+        raw_ranking_records = list(ranking_name_description.rawrankingrecord_set.all().values())
+        ranking_dataframe = DataFrame(raw_ranking_records)
+        dataframe_postprocessor = additional_processors['dataframe_postprocessor']
+        if dataframe_postprocessor:
+            ranking_dataframe = dataframe_postprocessor(ranking_dataframe)
+        dataframes_dict[ranking_short_name]['dataframe'] = ranking_dataframe
+    return dataframes_dict
+
+def dataframes_to_ranking_tables(dataframes_dict):
+    rank_tables_dict = dict()
+    for dataframe_short_name, dataframe_and_additional_processors in dataframes_dict.items():
+        dataframe = dataframe_and_additional_processors['dataframe']
+        short_dataframe = dataframe[['number_in_ranking_table', 'university_name']]
+        short_dataframe = short_dataframe.rename(columns={'number_in_ranking_table' : 'rank'})
+        ranking_table_as_list_preprocessor = dataframe_and_additional_processors['ranking_table_as_list_preprocessor']
+        if ranking_table_as_list_preprocessor != None:
+            short_dataframe = ranking_table_as_list_preprocessor(short_dataframe)
+        ranking_table_as_list = short_dataframe.to_dict().values()
+        for university in ranking_table_as_list:
+            university['university_name_variants'] = get_name_variants(university['university_name'])
+        rank_tables_dict[dataframe_short_name] = deepcopy(ranking_table_as_list)
+    return rank_tables_dict
 
 
 def anciliary_words_filter(name_as_string_list):
@@ -206,16 +274,6 @@ def string_lists_match(first_string_list, second_string_list, comparator):
 def caluclate_distance(first_name_as_string, second_name_as_string):
     return 0
 
-
-def compare_name_descriptions(first_name_description, second_name_description):
-    result = False
-    #return difflib.SequenceMatcher(None, first_name_description['fullname'], second_name_description['fullname']).ratio()
-    if first_name_description['fullname_as_list'] != None and second_name_description['fullname_as_list'] != None:
-        result = compare_full_names_as_list(first_name_description, second_name_description)
-    else:
-        result = compare_abbreviations(first_name_description, second_name_description)
-    return result
-
     
 def names_match(first_name_description, second_name_description):
     names_match = False
@@ -245,6 +303,20 @@ def names_match(first_name_description, second_name_description):
     return names_match
 
 
+def assign_longest_name_variant(university_description):
+    print 'Entry in assign_longest_name_variant'
+    longest_name_variant = str()
+    print 'assign_longest_name_variant, university ranks: ', university_description['collected_from_all_ranktables_description'].keys()
+    #for description_variants in university_description['collected_from_all_ranktables_description'].values():
+    for rankname, description_variants in university_description['collected_from_all_ranktables_description'].items():
+        print 'assign_longest_name_variant, rankname: ', rankname
+        print 'assign_longest_name_variant, name_variants: ', description_variants['university_name_variants']
+        full_university_name = description_variants['university_name_variants']['raw_fullname_as_string']
+        if len(full_university_name) > len(longest_name_variant):
+            longest_name_variant = full_university_name
+    return longest_name_variant
+
+
 def union_ranks(ranktables):
     union_universities_list = list()
     ranknames = ranktables.keys()
@@ -257,23 +329,27 @@ def union_ranks(ranktables):
         ranktable = ranktables[rankname]
         rest_ranknames.remove(rankname)
         for university in ranktable:
-            print 'university: ', university
+            #print 'university: ', university
             university['ranks'] = default_ranks.copy()
+            #university['ranks'][rankname] = university['rank']
+            print 'university: ', university
+            #university['collected_from_all_ranktables_description'] = {rankname : {'rankvalue' : university['rank'], 'university_name_variants' : university['university_name_variants']}}
             #university['ranks'][rankname] = university.pop('rank')
             university['ranks'][rankname] = university['rank']
-            university['collected_from_all_ranktables_description'] = {rankname : {'rankvalue' : university['rank'], 'university_name_variants' : university['university_name_variants']}
             for another_rankname in rest_ranknames:
                 another_ranktable = ranktables[another_rankname]
                 to_remove_universities = list()
                 for another_university in another_ranktable:
                     math = names_match(university['university_name_variants'], another_university['university_name_variants'])
                     if math:
+                        #print 'another_university: ', another_university
                         university['ranks'][another_rankname] = another_university['rank']
-                        university['collected_from_all_ranktables_description'].update({another_rankname : {'rankvalue' : another_university['rank'], 'university_name_variants' : another_university['university_name_variants']})
+                        #university['collected_from_all_ranktables_description'].update({another_rankname : {'rankvalue' : another_university['rank'], 'university_name_variants' : another_university['university_name_variants']}})
                         to_remove_universities.append(another_university)
                         break
                 for another_university in to_remove_universities:
                     another_ranktable.remove(another_university)
+            #university['name'] = assign_longest_name_variant(university)
             union_universities_list.append(university)
     return union_universities_list
 
@@ -303,3 +379,17 @@ def reranked(grouped_by_rank_dict):
 
     return grouped_by_rank_dict
 
+
+if __name__ == '__main__':
+    dataframes_dict = rawranking_records_to_dataframes(ranking_descriptions)
+    ranking_tables_dict = dataframes_to_ranking_tables(dataframes_dict)
+
+    for ranking_name, ranking_table in ranking_tables_dict.items():
+        print ranking_name
+        for university_record in ranking_table:
+            print university_record
+
+    print '\n' * 6
+    union_rank_tables = union_ranks(ranking_tables_dict)
+    for record in union_rank_tables:
+        print record
