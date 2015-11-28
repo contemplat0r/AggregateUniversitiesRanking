@@ -400,6 +400,8 @@ if __name__ == '__main__':
 
     print '\n' * 6
     union_rank_tables = union_ranks(ranking_tables_dict)
+
+    '''
     for record in union_rank_tables:
         print '\n' *4, '-' * 40, '\n'
         print 'university_name\t-\t', record['university_name']
@@ -417,17 +419,41 @@ if __name__ == '__main__':
             university_name_variants = description['university_name_variants']
             for name_of_name_variant, name_variant in university_name_variants.items():
                 print '\t' * 3, name_of_name_variant, '\t-\t', name_variant
+        ''' 
+    union_rank_tables_with_aggregated_rank = aggregate_rank(union_rank_tables)
+    
+    for record in union_rank_tables_with_aggregated_rank:
+        print '\n' *4, '-' * 40, '\n'
+        print 'university_name\t-\t', record['university_name']
+        print 'canonical_name\t-\t', record['canonical_name']
+        print 'ranks\t-\t', record['ranks']
+        print 'aggregate_rank\t-\t', record['aggregate_rank']
+        print 'university_name_variants: '
+        for key, value in record['university_name_variants'].items():
+            print ' ' * 2, key, '\t-\t', value
+        print '\ncollected_from_all_ranktables_description: '
+        collected_from_all_ranktables_description = record['collected_from_all_ranktables_description']
+        for rank_name, description in  collected_from_all_ranktables_description.items():
+            print '\t', rank_name, ' :'
+            print '\t\t', 'rankvalue\t-\t', description['rankvalue']
+            print '\t\t', 'name_variants:'
+            university_name_variants = description['university_name_variants']
+            for name_of_name_variant, name_variant in university_name_variants.items():
+                print '\t' * 3, name_of_name_variant, '\t-\t', name_variant
+    
+    universities_grouped_by_aggregate_rank = group_by_aggregate_rank(union_rank_tables_with_aggregated_rank)
 
+    #print universities_grouped_by_aggregate_rank
+    
+    print '\n' * 6
 
-
-    '''
-        for key in  record.keys():
-            #print 'key - ', key, '\t:\tvalue - ', value
-
-            if key == 'name':
-                print key, ' : ', record[name]
-            elif key == 'ranks':
-                print key, ' : ', record
-                '''
-
+    for aggregate_rank, rank_record in universities_grouped_by_aggregate_rank.items():
+        print '-' * 40, '\n'
+        print 'aggregate_rank\t-\t', aggregate_rank
+        print '\tfinal_rank\t-\t', rank_record['final_rank']
+        print '\tuniversities:'
+        for university in rank_record['university_list']:
+            print '\t' * 2, university['canonical_name']
+    
+    reranked_by_aggregate_rank_universities_records = reranked(universities_grouped_by_aggregate_rank)
 
