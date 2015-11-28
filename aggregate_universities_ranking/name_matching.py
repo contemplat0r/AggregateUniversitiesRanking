@@ -447,13 +447,21 @@ if __name__ == '__main__':
     
     print '\n' * 6
 
-    for aggregate_rank, rank_record in universities_grouped_by_aggregate_rank.items():
+    #for aggregate_rank, rank_record in universities_grouped_by_aggregate_rank.items():
+    #    print '-' * 40, '\n'
+    #    print 'aggregate_rank\t-\t', aggregate_rank
+    #    print '\tfinal_rank\t-\t', rank_record['final_rank']
+    #    print '\tuniversities:'
+    #    for university in rank_record['university_list']:
+    #        print '\t' * 2, university['canonical_name']
+    
+    reranked_by_aggregate_rank_universities_records = reranked(universities_grouped_by_aggregate_rank)
+
+    for aggregate_rank, rank_record in reranked_by_aggregate_rank_universities_records.items():
         print '-' * 40, '\n'
         print 'aggregate_rank\t-\t', aggregate_rank
         print '\tfinal_rank\t-\t', rank_record['final_rank']
         print '\tuniversities:'
         for university in rank_record['university_list']:
             print '\t' * 2, university['canonical_name']
-    
-    reranked_by_aggregate_rank_universities_records = reranked(universities_grouped_by_aggregate_rank)
 
