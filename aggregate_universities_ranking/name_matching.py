@@ -34,8 +34,8 @@ def the_dataframe_postprocessor(the_dataframe):
     the_dataframe['number_in_ranking_table'] = the_dataframe['number_in_ranking_table'].map(lambda x: x -1 ) 
     return the_dataframe
 
-#ranking_table_as_list_preprocessor = lambda df: df[:6].T
-ranking_table_as_list_preprocessor = lambda df: df[:4].T
+ranking_table_as_list_preprocessor = lambda df: df[:6].T
+#ranking_table_as_list_preprocessor = lambda df: df[:4].T
 
 ranking_descriptions = {
         'QS' : {
@@ -46,7 +46,11 @@ ranking_descriptions = {
             'dataframe_postprocessor' : the_dataframe_postprocessor,
             'ranking_table_as_list_preprocessor' : ranking_table_as_list_preprocessor
             },
-        'Leiden' : {
+        #'Leiden' : {
+        #    'dataframe_postprocessor' : None,
+        #    'ranking_table_as_list_preprocessor' : ranking_table_as_list_preprocessor
+        #    },
+        'ARWU' : {
             'dataframe_postprocessor' : None,
             'ranking_table_as_list_preprocessor' : ranking_table_as_list_preprocessor
             },
@@ -114,6 +118,7 @@ def get_name_part_in_brackets(name_as_string_list):
             break
     return name_part_in_brackets
 
+
 def detect_special_symbol_in_string(string):
     special_symbol_detected = False
     for special_symbol in special_symbols_list:
@@ -121,6 +126,7 @@ def detect_special_symbol_in_string(string):
             special_symbol_detected = True
             break
     return special_symbol_detected
+
 
 def categorize_as_abbreviation(string):
     string_is_abbreviation = False
@@ -306,11 +312,11 @@ def names_match(first_name_description, second_name_description):
 def assign_longest_name_variant(university_description):
     print 'Entry in assign_longest_name_variant'
     longest_name_variant = str()
-    print 'assign_longest_name_variant, university ranks: ', university_description['collected_from_all_ranktables_description'].keys()
+    #print 'assign_longest_name_variant, university ranks: ', university_description['collected_from_all_ranktables_description'].keys()
     #for description_variants in university_description['collected_from_all_ranktables_description'].values():
     for rankname, description_variants in university_description['collected_from_all_ranktables_description'].items():
-        print 'assign_longest_name_variant, rankname: ', rankname
-        print 'assign_longest_name_variant, name_variants: ', description_variants['university_name_variants']
+        #print 'assign_longest_name_variant, rankname: ', rankname
+        #print 'assign_longest_name_variant, name_variants: ', description_variants['university_name_variants']
         full_university_name = description_variants['university_name_variants']['raw_fullname_as_string']
         if len(full_university_name) > len(longest_name_variant):
             longest_name_variant = full_university_name
@@ -332,7 +338,6 @@ def union_ranks(ranktables):
             #print 'university: ', university
             university['ranks'] = default_ranks.copy()
             #university['ranks'][rankname] = university['rank']
-            print 'university: ', university
             university['collected_from_all_ranktables_description'] = {rankname : {'rankvalue' : university['rank'], 'university_name_variants' : university['university_name_variants']}}
             university['ranks'][rankname] = university.pop('rank')
             #university['ranks'][rankname] = university['rank']
@@ -349,14 +354,16 @@ def union_ranks(ranktables):
                         break
                 for another_university in to_remove_universities:
                     another_ranktable.remove(another_university)
-            #university['name'] = assign_longest_name_variant(university)
+            university['canonical_name'] = assign_longest_name_variant(university)
             union_universities_list.append(university)
     return union_universities_list
+
 
 def aggregate_rank(union_university_ranks_list):
     for university in union_university_ranks_list:
         university['aggregate_rank'] = sum(university['ranks'].values())
     return union_university_ranks_list
+
 
 def group_by_aggregate_rank(union_university_ranks_list):
     grouped_by_rank_dict = dict()
@@ -369,6 +376,7 @@ def group_by_aggregate_rank(union_university_ranks_list):
             grouped_by_rank_dict[aggregate_rank] = rank_record
         grouped_by_rank_dict[aggregate_rank]['university_list'].append(university)
     return grouped_by_rank_dict
+
 
 def reranked(grouped_by_rank_dict):
     sorted_aggregate_ranks = sorted(grouped_by_rank_dict.keys())
@@ -385,13 +393,41 @@ if __name__ == '__main__':
     ranking_tables_dict = dataframes_to_ranking_tables(dataframes_dict)
 
     for ranking_name, ranking_table in ranking_tables_dict.items():
-        print ranking_name
+        #print ranking_name
         for university_record in ranking_table:
-            print university_record
+            pass
+            #print university_record
 
     print '\n' * 6
     union_rank_tables = union_ranks(ranking_tables_dict)
     for record in union_rank_tables:
         print '\n' *4, '-' * 40, '\n'
-        for key, value in  record.items():
-            print key, ' : ', value
+        print 'university_name\t-\t', record['university_name']
+        print 'canonical_name\t-\t', record['canonical_name']
+        print 'ranks\t-\t', record['ranks']
+        print 'university_name_variants: '
+        for key, value in record['university_name_variants'].items():
+            print ' ' * 2, key, '\t-\t', value
+        print '\ncollected_from_all_ranktables_description: '
+        collected_from_all_ranktables_description = record['collected_from_all_ranktables_description']
+        for rank_name, description in  collected_from_all_ranktables_description.items():
+            print '\t', rank_name, ' :'
+            print '\t\t', 'rankvalue\t-\t', description['rankvalue']
+            print '\t\t', 'name_variants:'
+            university_name_variants = description['university_name_variants']
+            for name_of_name_variant, name_variant in university_name_variants.items():
+                print '\t' * 3, name_of_name_variant, '\t-\t', name_variant
+
+
+
+    '''
+        for key in  record.keys():
+            #print 'key - ', key, '\t:\tvalue - ', value
+
+            if key == 'name':
+                print key, ' : ', record[name]
+            elif key == 'ranks':
+                print key, ' : ', record
+                '''
+
+
