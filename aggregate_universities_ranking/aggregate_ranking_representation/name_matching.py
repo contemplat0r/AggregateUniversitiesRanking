@@ -10,14 +10,14 @@ from copy import deepcopy
 from pandas import Series, DataFrame
 import pandas as pd
 import numpy as np
-import django
+#import django
 
-DJANGO_PROJECT_DIR = join(abspath(join(dirname(__file__), '..')), 'aggregate_universities_ranking')
-sys.path.append(DJANGO_PROJECT_DIR)
-os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'aggregate_universities_ranking.settings')
+#DJANGO_PROJECT_DIR = join(abspath(join(dirname(__file__), '..')), 'aggregate_universities_ranking')
+#sys.path.append(DJANGO_PROJECT_DIR)
+#os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'aggregate_universities_ranking.settings')
 
-django.setup()
-from aggregate_ranking_representation.models import RankingName, RawRankingRecord
+#django.setup()
+from .models import RankingName, RawRankingRecord
 
 NaN = np.nan
 
@@ -419,7 +419,6 @@ def build_aggregate_ranking_dataframe(ranking_descriptions):
     ranking_tables_dict = dataframes_to_ranking_tables(dataframes_dict)
 
     union_rank_tables = union_ranks(ranking_tables_dict)
-    print 'build_aggregate_ranking_dataframe, type(union_ranks): ', type(union_ranks)
     print 'build_aggregate_ranking_dataframe, type(aggregate_rank): ', type(aggregate_rank)
     union_rank_tables_with_aggregated_rank = append_aggregate_rank(union_rank_tables)
     
@@ -491,6 +490,4 @@ if __name__ == '__main__':
     
     aggregate_ranking_df = convert_aggregate_ranking_dict_to_dataframe(universities_grouped_by_aggregate_rank)
 
-    #print aggregate_ranking_df
-
-    print build_aggregate_ranking_dataframe(ranking_descriptions)
+    print aggregate_ranking_df
