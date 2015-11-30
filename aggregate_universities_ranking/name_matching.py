@@ -388,6 +388,32 @@ def reranked(grouped_by_rank_dict):
     return grouped_by_rank_dict
 
 
+def convert_aggregate_ranking_dict_to_dataframe(grouped_aggregate_ranking_dict):
+    sorted_aggregate_ranks = sorted(grouped_aggregate_ranking_dict.keys())
+    dataframe_data_dict = dict()
+
+    dataframe_data_dict['rank'] = list()
+    dataframe_data_dict['aggregate_rank'] = list()
+    dataframe_data_dict['university_name'] = list()
+
+    rank_in_aggregate_rank_table = 1
+    for ranking_name in grouped_aggregate_ranking_dict[sorted_aggregate_ranks[0]]['university_list'][0]['ranks'].keys():
+        print 'convert_aggregate_ranking_dict_to_dataframe, ranking_name: ', ranking_name
+        dataframe_data_dict[ranking_name] = list()
+
+    for aggregate_rank_value in sorted_aggregate_ranks:
+        aggregate_ranking_record = grouped_aggregate_ranking_dict[aggregate_rank_value]
+        for university in aggregate_ranking_record['university_list']:
+            dataframe_data_dict['rank'].append(rank_in_aggregate_rank_table)
+            dataframe_data_dict['aggregate_rank'].append(aggregate_rank_value)
+            dataframe_data_dict['university_name'].append(university['canonical_name'])
+            ranks = university['ranks']
+            for ranking_name, ranking_value in ranks.items():
+                dataframe_data_dict[ranking_name].append(ranking_value)
+        rank_in_aggregate_rank_table = rank_in_aggregate_rank_table + 1
+    return DataFrame(dataframe_data_dict)
+
+
 if __name__ == '__main__':
     dataframes_dict = rawranking_records_to_dataframes(ranking_descriptions)
     ranking_tables_dict = dataframes_to_ranking_tables(dataframes_dict)
@@ -401,25 +427,6 @@ if __name__ == '__main__':
     print '\n' * 6
     union_rank_tables = union_ranks(ranking_tables_dict)
 
-    '''
-    for record in union_rank_tables:
-        print '\n' *4, '-' * 40, '\n'
-        print 'university_name\t-\t', record['university_name']
-        print 'canonical_name\t-\t', record['canonical_name']
-        print 'ranks\t-\t', record['ranks']
-        print 'university_name_variants: '
-        for key, value in record['university_name_variants'].items():
-            print ' ' * 2, key, '\t-\t', value
-        print '\ncollected_from_all_ranktables_description: '
-        collected_from_all_ranktables_description = record['collected_from_all_ranktables_description']
-        for rank_name, description in  collected_from_all_ranktables_description.items():
-            print '\t', rank_name, ' :'
-            print '\t\t', 'rankvalue\t-\t', description['rankvalue']
-            print '\t\t', 'name_variants:'
-            university_name_variants = description['university_name_variants']
-            for name_of_name_variant, name_variant in university_name_variants.items():
-                print '\t' * 3, name_of_name_variant, '\t-\t', name_variant
-        ''' 
     union_rank_tables_with_aggregated_rank = aggregate_rank(union_rank_tables)
     
     for record in union_rank_tables_with_aggregated_rank:
@@ -464,4 +471,8 @@ if __name__ == '__main__':
         print '\tuniversities:'
         for university in rank_record['university_list']:
             print '\t' * 2, university['canonical_name']
+            print '\t' * 2, university['ranks']
+    
+    aggregate_ranking_df = convert_aggregate_ranking_dict_to_dataframe(universities_grouped_by_aggregate_rank)
 
+    print aggregate_ranking_df
