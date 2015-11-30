@@ -420,7 +420,7 @@ def build_aggregate_ranking_dataframe(ranking_descriptions):
 
     union_rank_tables = union_ranks(ranking_tables_dict)
     print 'build_aggregate_ranking_dataframe, type(union_ranks): ', type(union_ranks)
-    print 'build_aggregate_ranking_dataframe, type(aggregate_rank): ', type(aggregate_rank)
+    print 'build_aggregate_ranking_dataframe, type(aggregate_rank): ', type(append_aggregate_rank)
     union_rank_tables_with_aggregated_rank = append_aggregate_rank(union_rank_tables)
     
     universities_grouped_by_aggregate_rank = group_by_aggregate_rank(union_rank_tables_with_aggregated_rank)

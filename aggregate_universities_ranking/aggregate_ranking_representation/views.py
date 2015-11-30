@@ -6,6 +6,7 @@ from django.core.context_processors import csrf
 from django.conf import settings
 from django.http import HttpResponse
 from .models import RankingName, RankingValue, UniversityName 
+from .name_matching import ranking_descriptions, build_aggregate_ranking_dataframe
 from forms import SelectRankingsNamesAndYear
 
 # Create your views here.
@@ -55,6 +56,45 @@ def aggregate_universities_ranking_as_table(request):
         print 'year date string: ', year_as_datetime.strftime('%Y-%m-%y')
 
     #context = {'select_rankings_names_form' : select_rankings_names_form, 'short_rankings_names' : short_rankings_names}
+    selected_rankings_descriptions = {ranking_name : ranking_descriptions[ranking_name] for ranking_name in selected_rankings_names if ranking_name in ranking_descriptions.keys()}
+    aggregate_ranking_dataframe = build_aggregate_ranking_dataframe(selected_rankings_descriptions)
+    #print aggregate_ranking_dataframe.to_dict()
+    rank_table = {'headers' : ['Rank', 'Aggregate Rank', 'University Name']}
+    if 'QS' in selected_rankings_descriptions:
+        rank_table['headers'].append('QS')
+    if 'THE' in selected_rankings_descriptions:
+        rank_table['headers'].append('THE')
+    if 'ARWU' in selected_rankings_descriptions:
+        rank_table['headers'].append('ARWU')
+    if 'NTU' in selected_rankings_descriptions:
+        rank_table['headers'].append('NTU')
+    if 'URAP' in selected_rankings_descriptions:
+        rank_table['headers'].append('URAP')
+    if 'Leiden' in selected_rankings_descriptions:
+        rank_table['headers'].append('Leiden')
+    if 'Webometrics' in selected_rankings_descriptions:
+        rank_table['headers'].append('Webometrics')
+
+    for i in range(0, aggregate_ranking_dataframe.count()):
+        dataframe_record = aggregate_ranking_dataframe.ix[i]
+        ranktable_record = [dataframe_record['rank'], dataframe_record['aggregate_rank'],dataframe_record['university_name']] 
+        dataframe_record_keys = dataframe_record.keys()
+        if ('QS' in selected_rankings_descriptions) and ('QS' in dataframe_record_keys):
+            ranktable_record.append(dataframe_record['QS'])
+        if ('THE' in selected_rankings_descriptions) and ('THE' in dataframe_record_keys):
+            ranktable_record.append(dataframe_record['THE'])
+        if ('ARWU' in selected_rankings_descriptions) and ('ARWU' in dataframe_record_keys):
+            ranktable_record.append(dataframe_record['ARWU'])
+        if ('NTU' in selected_rankings_descriptions) and ('NTU' in dataframe_record_keys):
+            ranktable_record.append(dataframe_record['NTU'])
+        if ('URAP' in selected_rankings_descriptions) and ('URAP' in dataframe_record_keys):
+            ranktable_record.append(dataframe_record['URAP'])
+        if ('Leiden' in selected_rankings_descriptions) and ('Leiden' in dataframe_record_keys):
+            ranktable_record.append(dataframe_record['Leiden'])
+        if ('Webometrics' in selected_rankings_descriptions) and ('Webometrics' in dataframe_record_keys):
+            ranktable_record.append(dataframe_record['Webometrics'])
+
+
     context = {'select_rankings_names_form' : select_rankings_names_form, 'selected_rankings_names' : selected_rankings_names}
     context.update(csrf(request))
     return render(request, 'aggregate_ranking_representation/table.html', context)
