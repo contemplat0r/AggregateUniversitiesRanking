@@ -20,7 +20,7 @@ def index(request):
 def aggregate_universities_ranking_as_table(request):
     #short_rankings_names_choice_set = [(raiting_name.short_name, raiting_name.short_name) for raiting_name in RaitingName.objects.all()]
     print 'START_AGGREGATE_YEAR: ', START_AGGREGATE_YEAR
-    short_rankings_names = [raiting_name.short_name for raiting_name in RankingName.objects.all()]
+    short_rankings_names = [ranking_name.short_name for ranking_name in RankingName.objects.all()]
     short_rankings_names_choice_set = [(short_name, short_name) for short_name in short_rankings_names]
     print short_rankings_names_choice_set
 
@@ -59,42 +59,29 @@ def aggregate_universities_ranking_as_table(request):
     selected_rankings_descriptions = {ranking_name : ranking_descriptions[ranking_name] for ranking_name in selected_rankings_names if ranking_name in ranking_descriptions.keys()}
     aggregate_ranking_dataframe = build_aggregate_ranking_dataframe(selected_rankings_descriptions)
     #print aggregate_ranking_dataframe.to_dict()
-    rank_table = {'headers' : ['Rank', 'Aggregate Rank', 'University Name']}
+    ranktable = {'headers' : {'rank' : 'Rank', 'aggregate_rank' : 'Aggregate Rank', 'university_name' : 'University Name'}}
+
+    ranktable['headers'].update({rankname.lower() : None for rankname in short_rankings_names})
+
     if 'QS' in selected_rankings_descriptions:
-        rank_table['headers'].append('QS')
+        ranktable['headers']['qs'] = 'QS'
     if 'THE' in selected_rankings_descriptions:
-        rank_table['headers'].append('THE')
+        ranktable['headers']['the'] = 'THE'
     if 'ARWU' in selected_rankings_descriptions:
-        rank_table['headers'].append('ARWU')
+        ranktable['headers']['arwu'] = 'ARWU'
     if 'NTU' in selected_rankings_descriptions:
-        rank_table['headers'].append('NTU')
+        ranktable['headers']['ntu'] = 'NTU'
     if 'URAP' in selected_rankings_descriptions:
-        rank_table['headers'].append('URAP')
+        ranktable['headers']['urap'] = 'URAP'
     if 'Leiden' in selected_rankings_descriptions:
-        rank_table['headers'].append('Leiden')
+        ranktable['headers']['leiden'] = 'Leiden'
     if 'Webometrics' in selected_rankings_descriptions:
-        rank_table['headers'].append('Webometrics')
+        ranktable['headers']['webometrics'] = 'Webometrics'
 
-    for i in range(0, aggregate_ranking_dataframe.count()):
-        dataframe_record = aggregate_ranking_dataframe.ix[i]
-        ranktable_record = [dataframe_record['rank'], dataframe_record['aggregate_rank'],dataframe_record['university_name']] 
-        dataframe_record_keys = dataframe_record.keys()
-        if ('QS' in selected_rankings_descriptions) and ('QS' in dataframe_record_keys):
-            ranktable_record.append(dataframe_record['QS'])
-        if ('THE' in selected_rankings_descriptions) and ('THE' in dataframe_record_keys):
-            ranktable_record.append(dataframe_record['THE'])
-        if ('ARWU' in selected_rankings_descriptions) and ('ARWU' in dataframe_record_keys):
-            ranktable_record.append(dataframe_record['ARWU'])
-        if ('NTU' in selected_rankings_descriptions) and ('NTU' in dataframe_record_keys):
-            ranktable_record.append(dataframe_record['NTU'])
-        if ('URAP' in selected_rankings_descriptions) and ('URAP' in dataframe_record_keys):
-            ranktable_record.append(dataframe_record['URAP'])
-        if ('Leiden' in selected_rankings_descriptions) and ('Leiden' in dataframe_record_keys):
-            ranktable_record.append(dataframe_record['Leiden'])
-        if ('Webometrics' in selected_rankings_descriptions) and ('Webometrics' in dataframe_record_keys):
-            ranktable_record.append(dataframe_record['Webometrics'])
+    #ranktable['data'] = list()
+    ranktable['data'] = aggregate_ranking_dataframe.to_dict('record')
+    
 
-
-    context = {'select_rankings_names_form' : select_rankings_names_form, 'selected_rankings_names' : selected_rankings_names}
+    context = {'select_rankings_names_form' : select_rankings_names_form, 'selected_rankings_names' : selected_rankings_names, 'ranktable' : ranktable}
     context.update(csrf(request))
     return render(request, 'aggregate_ranking_representation/table.html', context)
