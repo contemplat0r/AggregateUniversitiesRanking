@@ -26,8 +26,6 @@ def aggregate_universities_ranking_as_table(request):
 
     select_rankings_names_form = SelectRankingsNamesAndYear()
     select_rankings_names_form.fields['select_rankings_names_field'].choices = tuple(short_rankings_names_choice_set)
-    #select_rankings_names_form.fields['select_year_field'].choices = (('2014', '2014'), ('2015', '2015',))
-    #select_rankings_names_form.fields['select_year_field'].choices = tuple([(year, year) for year in range(START_AGGREGATE_YEAR, FINISH_AGGREGATE_YEAR + 1)])
     select_rankings_names_form.fields['select_year_field'].choices = tuple([(year, year) for year in range(FINISH_AGGREGATE_YEAR, START_AGGREGATE_YEAR - 1, -1)])
     
     selected_rankings_names = short_rankings_names
@@ -54,11 +52,11 @@ def aggregate_universities_ranking_as_table(request):
 
         year_as_datetime = datetime.date(int(selected_year), 1, 1)
         print 'year date string: ', year_as_datetime.strftime('%Y-%m-%y')
-
-    #context = {'select_rankings_names_form' : select_rankings_names_form, 'short_rankings_names' : short_rankings_names}
-    selected_rankings_descriptions = {ranking_name : ranking_descriptions[ranking_name] for ranking_name in selected_rankings_names if ranking_name in ranking_descriptions.keys()}
+     
+    selected_rankings_descriptions = ranking_descriptions
+    if selected_ranking_names != []:
+        selected_rankings_descriptions = {ranking_name : ranking_descriptions[ranking_name] for ranking_name in selected_rankings_names if ranking_name in ranking_descriptions.keys()}
     aggregate_ranking_dataframe = build_aggregate_ranking_dataframe(selected_rankings_descriptions)
-    #print aggregate_ranking_dataframe.to_dict()
     ranktable = {'headers' : {'rank' : 'Rank', 'aggregate_rank' : 'Aggregate Rank', 'university_name' : 'University Name'}}
 
     ranktable['headers'].update({rankname.lower() : None for rankname in short_rankings_names})

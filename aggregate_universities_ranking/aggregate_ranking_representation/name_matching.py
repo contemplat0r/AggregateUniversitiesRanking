@@ -37,6 +37,7 @@ def the_dataframe_postprocessor(the_dataframe):
 ranking_table_as_list_preprocessor = lambda df: df[:6].T
 #ranking_table_as_list_preprocessor = lambda df: df[:4].T
 
+
 ranking_descriptions = {
         'QS' : {
             'dataframe_postprocessor' : None,
@@ -54,7 +55,17 @@ ranking_descriptions = {
             'dataframe_postprocessor' : None,
             'ranking_table_as_list_preprocessor' : ranking_table_as_list_preprocessor
             },
+        'NTU' : {
+            'dataframe_postprocessor' : None,
+            'ranking_table_as_list_preprocessor' : ranking_table_as_list_preprocessor
+            },
+        'URAP' : {
+            'dataframe_postprocessor' : None,
+            'ranking_table_as_list_preprocessor' : ranking_table_as_list_preprocessor
+            },
+
         }
+
 
 def rawranking_records_to_dataframes(ranking_descriptions):
     
@@ -73,7 +84,7 @@ def dataframes_to_ranking_tables(dataframes_dict):
     rank_tables_dict = dict()
     for dataframe_short_name, dataframe_and_additional_processors in dataframes_dict.items():
         dataframe = dataframe_and_additional_processors['dataframe']
-        short_dataframe = dataframe[['number_in_ranking_table', 'university_name']]
+        short_dataframe = dataframe[['number_in_ranking_table', 'university_name', 'country']]
         short_dataframe = short_dataframe.rename(columns={'number_in_ranking_table' : 'rank'})
         ranking_table_as_list_preprocessor = dataframe_and_additional_processors['ranking_table_as_list_preprocessor']
         if ranking_table_as_list_preprocessor != None:
