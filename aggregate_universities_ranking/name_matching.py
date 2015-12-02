@@ -34,8 +34,42 @@ def the_dataframe_postprocessor(the_dataframe):
     the_dataframe['number_in_ranking_table'] = the_dataframe['number_in_ranking_table'].map(lambda x: x -1 ) 
     return the_dataframe
 
-ranking_table_as_list_preprocessor = lambda df: df[:6].T
+
+ranking_table_as_list_preprocessor = lambda df: df.T
+#ranking_table_as_list_preprocessor = lambda df: df[:6].T
+urap_ranking_table_as_list_preprocessor = lambda df: df[:1000].T
 #ranking_table_as_list_preprocessor = lambda df: df[:4].T
+
+'''
+ranking_descriptions = {
+        'QS' : {
+            'dataframe_postprocessor' : None,
+            'ranking_table_as_list_preprocessor' : ranking_table_as_list_preprocessor
+            },
+        'THE' : {
+            'dataframe_postprocessor' : the_dataframe_postprocessor,
+            'ranking_table_as_list_preprocessor' : ranking_table_as_list_preprocessor
+            },
+        #'Leiden' : {
+        #    'dataframe_postprocessor' : None,
+        #    'ranking_table_as_list_preprocessor' : ranking_table_as_list_preprocessor
+        #    },
+        'ARWU' : {
+            'dataframe_postprocessor' : None,
+            'ranking_table_as_list_preprocessor' : ranking_table_as_list_preprocessor
+            },
+        'NTU' : {
+            'dataframe_postprocessor' : None,
+            'ranking_table_as_list_preprocessor' : ranking_table_as_list_preprocessor
+            },
+        'URAP' : {
+            'dataframe_postprocessor' : None,
+            'ranking_table_as_list_preprocessor' : ranking_table_as_list_preprocessor
+            },
+
+        }
+'''
+
 
 ranking_descriptions = {
         'QS' : {
@@ -54,7 +88,17 @@ ranking_descriptions = {
             'dataframe_postprocessor' : None,
             'ranking_table_as_list_preprocessor' : ranking_table_as_list_preprocessor
             },
+        'NTU' : {
+            'dataframe_postprocessor' : None,
+            'ranking_table_as_list_preprocessor' : ranking_table_as_list_preprocessor
+            },
+        'URAP' : {
+            'dataframe_postprocessor' : None,
+            'ranking_table_as_list_preprocessor' : urap_ranking_table_as_list_preprocessor
+            },
+
         }
+
 
 def rawranking_records_to_dataframes(ranking_descriptions):
     
@@ -70,16 +114,22 @@ def rawranking_records_to_dataframes(ranking_descriptions):
     return dataframes_dict
 
 def dataframes_to_ranking_tables(dataframes_dict):
+    print 'Entry to dataframes_to_ranking_tables'
     rank_tables_dict = dict()
     for dataframe_short_name, dataframe_and_additional_processors in dataframes_dict.items():
+        print 'dataframes_to_ranking_tables, dataframe_short_name: ', dataframe_short_name
         dataframe = dataframe_and_additional_processors['dataframe']
-        short_dataframe = dataframe[['number_in_ranking_table', 'university_name']]
+        short_dataframe = dataframe[['number_in_ranking_table', 'university_name', 'country']]
         short_dataframe = short_dataframe.rename(columns={'number_in_ranking_table' : 'rank'})
         ranking_table_as_list_preprocessor = dataframe_and_additional_processors['ranking_table_as_list_preprocessor']
         if ranking_table_as_list_preprocessor != None:
+            print 'dataframes_to_ranking_tables, ranking_table_as_list_preprocessor != None'
             short_dataframe = ranking_table_as_list_preprocessor(short_dataframe)
+        else:
+            print 'dataframes_to_ranking_tables, ranking_table_as_list_preprocessor == None'
         ranking_table_as_list = short_dataframe.to_dict().values()
         for university in ranking_table_as_list:
+            print 'dataframes_to_ranking_tables, university: ', university
             university['university_name_variants'] = get_name_variants(university['university_name'])
         rank_tables_dict[dataframe_short_name] = deepcopy(ranking_table_as_list)
     return rank_tables_dict
@@ -431,20 +481,23 @@ def build_aggregate_ranking_dataframe(ranking_descriptions):
 
 
 if __name__ == '__main__':
-    dataframes_dict = rawranking_records_to_dataframes(ranking_descriptions)
-    ranking_tables_dict = dataframes_to_ranking_tables(dataframes_dict)
-
+    #dataframes_dict = rawranking_records_to_dataframes(ranking_descriptions)
+    #ranking_tables_dict = dataframes_to_ranking_tables(dataframes_dict)
+    
+    '''
     for ranking_name, ranking_table in ranking_tables_dict.items():
         #print ranking_name
         for university_record in ranking_table:
             pass
             #print university_record
+    '''
 
     print '\n' * 6
-    union_rank_tables = union_ranks(ranking_tables_dict)
+    #union_rank_tables = union_ranks(ranking_tables_dict)
 
-    union_rank_tables_with_aggregated_rank = append_aggregate_rank(union_rank_tables)
+    #union_rank_tables_with_aggregated_rank = append_aggregate_rank(union_rank_tables)
     
+    '''
     for record in union_rank_tables_with_aggregated_rank:
         print '\n' *4, '-' * 40, '\n'
         print 'university_name\t-\t', record['university_name']
@@ -463,8 +516,8 @@ if __name__ == '__main__':
             university_name_variants = description['university_name_variants']
             for name_of_name_variant, name_variant in university_name_variants.items():
                 print '\t' * 3, name_of_name_variant, '\t-\t', name_variant
-    
-    universities_grouped_by_aggregate_rank = group_by_aggregate_rank(union_rank_tables_with_aggregated_rank)
+    ''' 
+    #universities_grouped_by_aggregate_rank = group_by_aggregate_rank(union_rank_tables_with_aggregated_rank)
 
     #print universities_grouped_by_aggregate_rank
     
@@ -478,6 +531,7 @@ if __name__ == '__main__':
     #    for university in rank_record['university_list']:
     #        print '\t' * 2, university['canonical_name']
     
+    '''
     reranked_by_aggregate_rank_universities_records = reranked(universities_grouped_by_aggregate_rank)
 
     for aggregate_rank, rank_record in reranked_by_aggregate_rank_universities_records.items():
@@ -492,5 +546,6 @@ if __name__ == '__main__':
     aggregate_ranking_df = convert_aggregate_ranking_dict_to_dataframe(universities_grouped_by_aggregate_rank)
 
     #print aggregate_ranking_df
+    '''
 
     print build_aggregate_ranking_dataframe(ranking_descriptions)
