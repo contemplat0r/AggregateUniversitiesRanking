@@ -28,7 +28,7 @@
         <!--<table class="table table-hover">-->
         <table class="table table-striped table-condensed table-hover">
             <thead>
-                <tr>
+                <!--<tr>
                     {% if ranktable.headers.rank %}
                     <td>
                         {{ranktable.headers.rank}}
@@ -79,7 +79,60 @@
                         {{ranktable.headers.webometrics}}
                     </td>
                     {% endif %}
+                    </tr> -->
+                <tr>
+                    {% if ranktable.headers.rank %}
+                    <td>
+                        {{ranktable.headers.rank}}
+                    </td>
+                    {% endif %}
+                    {% if ranktable.headers.aggregate_rank %}
+                    <td>
+                        {{ranktable.headers.aggregate_rank}}
+                    </td>
+                    {% endif %}
+                    {% if ranktable.headers.university_name %}
+                    <td>
+                        {{ranktable.headers.university_name}}
+                    </td>
+                    {% endif %}
+                    {% if ranktable.headers.QS %}
+                    <td>
+                        {{ranktable.headers.QS}}
+                    </td>
+                    {% endif %}
+                    {% if ranktable.headers.THE %}
+                    <td>
+                        {{ranktable.headers.THE}}
+                    </td>
+                    {% endif %}
+                    {% if ranktable.headers.ARWU %}
+                    <td>
+                        {{ranktable.headers.ARWU}}
+                    </td>
+                    {% endif %}
+                    {% if ranktable.headers.NTU %}
+                    <td>
+                        {{ranktable.headers.NTU}}
+                    </td>
+                    {% endif %}
+                    {% if ranktable.headers.URAP %}
+                    <td>
+                        {{ranktable.headers.URAP}}
+                    </td>
+                    {% endif %}
+                    {% if ranktable.headers.Leiden %}
+                    <td>
+                        {{ranktable.headers.Leiden}}
+                    </td>
+                    {% endif %}
+                    {% if ranktable.headers.Webometrics %}
+                    <td>
+                        {{ranktable.headers.Webometrics}}
+                    </td>
+                    {% endif %}
                 </tr>
+
             </thead>
             <tbody>
                 {% for record in ranktable.data %}
