@@ -18,7 +18,7 @@ sys.path.append(DJANGO_PROJECT_DIR)
 os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'aggregate_universities_ranking.settings')
 
 django.setup()
-from aggregate_ranking_representation.models import RankingName, RawRankingRecord
+from aggregate_ranking_representation.models import RankingName, RawRankingRecord, UniversityName, RankingValue
 
 NaN = np.nan
 
@@ -439,36 +439,39 @@ def reranked(grouped_by_rank_dict):
     return grouped_by_rank_dict
 
 
-def to_database(reranked_by_aggregate_rank_universities_records):
+def to_database(union_rank_tables):
     ranking_name_descriptions = list(RankingName.objects.all())
-    university_names = list(UniversityName.objects.all())
-    already_saved_university_names = [university_name.short_name for university_name in university_names]
-    #ranking_name_description = RankingName.objects.filter(short_name=ranking_short_name)[0]
-    #for university_record for reranked_by_aggregate_rank_universities_records:
-    for aggregate_rank, rank_record in reranked_by_aggregate_rank_universities_records.items():
-        print '-' * 40, '\n'
-        print 'aggregate_rank\t-\t', aggregate_rank
-        print '\trank\t-\t', rank_record['rank']
-        print '\tuniversities:'
-        for university in rank_record['university_list']:
-            print '\t' * 2, university['canonical_name']
-            print '\t' * 2, university['ranks']
-            for ranking_name_description in ranking_name_descriptions:
-                for ranking_name, rankign_value in university['ranks']:
-                    if ranking_name_description.short_name == ranking_name:
-                        university_name = university['canonical_name']
-                        university_already_in_database = False
-                        for already_saved_university_name in university_names:
-                            if already_saved_university_name.university_name == university_name:
-                                ranking_value = RankingValue(year=datetime.date.today().year, original_value = str(), number_in_ranking_table = rank_record['rank'], ranking_name = ranking_name_description, university_name = already_saved_university_name)
-                                ranking_value.save()
-                                university_already_in_database = True
-                                break
-                        if university_already_in_database == False:
-                            new_university_name = UniversityName(university_name = university_name, country = rank_record['country'])
-                            ranking_value = RankingValue(year=datetime.date.today().year, original_value = str(), number_in_ranking_table = rank_record['rank'], ranking_name = ranking_name_description, university_name = new_university_name)
-                        break
-                        
+    already_saved_university_descriptions = list(UniversityName.objects.all())
+
+    for university_record in union_rank_tables:
+        print '\n' *4, '-' * 40, '\n'
+        #print 'university_name\t-\t', university_record['university_name']
+        print 'canonical_name\t-\t', university_record['canonical_name']
+        print 'ranks\t-\t', university_record['ranks']
+        print 'country\t-\t', university_record['country']
+        
+        for ranking_name_description in ranking_name_descriptions:
+            for ranking_name, ranking_value in university_record['ranks'].items():
+                if ranking_name_description.short_name == ranking_name:
+                    print 'Ranking %s detected' % ranking_name
+                    university_name = university_record['canonical_name']
+                    country = university_record['country']
+                    university_already_in_database = False
+                    for already_saved_university_description in already_saved_university_descriptions:
+                        if already_saved_university_description.university_name == university_name:
+                            ranking_value_db_record = RankingValue(year=datetime.date.today(), original_value = '~~~', number_in_ranking_table = ranking_value, ranking_name = ranking_name_description, university_name = already_saved_university_description)
+                            ranking_value_db_record.save()
+                            university_already_in_database = True
+                            break
+                    if university_already_in_database == False:
+                        print 'University %s, not in database' % university_name
+                        new_db_university_description_record = UniversityName(university_name = university_name, country = country)
+                        new_db_university_description_record.save()
+                        ranking_value_db_record = RankingValue(year=datetime.date.today(), original_value = str(), number_in_ranking_table = ranking_value, ranking_name = ranking_name_description, university_name = new_db_university_description_record)
+                        ranking_value_db_record.save()
+                    break
+
+    return 
 
 
 def convert_aggregate_ranking_dict_to_dataframe(grouped_aggregate_ranking_dict):
@@ -528,6 +531,23 @@ if __name__ == '__main__':
     print '\n' * 6
     union_rank_tables = union_ranks(ranking_tables_dict)
 
+    #to_database(union_rank_tables)
+
+    for university in list(UniversityName.objects.all()):
+        print 'University name' , university.university_name
+
+    for ranking_value in list(RankingValue.objects.all()):
+        print 'Rankgin value', ranking_value
+
+    UniversityName.objects.all().delete()
+    RankingValue.objects.all().delete()
+
+    for university in list(UniversityName.objects.all()):
+        print 'University name' , university.university_name
+
+    for ranking_value in list(RankingValue.objects.all()):
+        print 'Rankgin value', ranking_value
+
     union_rank_tables_with_aggregated_rank = append_aggregate_rank(union_rank_tables)
     
     '''
@@ -563,18 +583,19 @@ if __name__ == '__main__':
     #    print '\tuniversities:'
     #    for university in rank_record['university_list']:
     #        print '\t' * 2, university['canonical_name']
+  
     
     
-    reranked_by_aggregate_rank_universities_records = reranked(universities_grouped_by_aggregate_rank)
+    #reranked_by_aggregate_rank_universities_records = reranked(universities_grouped_by_aggregate_rank)
 
-    for aggregate_rank, rank_record in reranked_by_aggregate_rank_universities_records.items():
-        print '-' * 40, '\n'
-        print 'aggregate_rank\t-\t', aggregate_rank
-        print '\tfinal_rank\t-\t', rank_record['final_rank']
-        print '\tuniversities:'
-        for university in rank_record['university_list']:
-            print '\t' * 2, university['canonical_name']
-            print '\t' * 2, university['ranks']
+    #for aggregate_rank, rank_record in reranked_by_aggregate_rank_universities_records.items():
+    #    print '-' * 40, '\n'
+    #    print 'aggregate_rank\t-\t', aggregate_rank
+    #    print '\tfinal_rank\t-\t', rank_record['final_rank']
+    #    print '\tuniversities:'
+    #    for university in rank_record['university_list']:
+    #        print '\t' * 2, university['canonical_name']
+    #        print '\t' * 2, university['ranks']
     
     #aggregate_ranking_df = convert_aggregate_ranking_dict_to_dataframe(universities_grouped_by_aggregate_rank)
 

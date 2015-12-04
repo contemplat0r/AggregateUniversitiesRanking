@@ -16,6 +16,7 @@ from django.db import models
 class UniversityName(models.Model):
     university_name = models.CharField(max_length=512)
     country = models.CharField(max_length = 64, null=True, blank=True)
+    #url = models.CharField(max_length=200)
 
     def __str__(self):
         return self.university_name
@@ -25,6 +26,7 @@ class RankingName(models.Model):
     #abbreviation = models.CharField(max_length=20, null=True, blank=True)
     short_name = models.CharField(max_length=20)
     full_name = models.CharField(max_length=200)
+    #url = models.CharField(max_length=200)
     university = models.ManyToManyField(UniversityName, through='RankingValue')
 
     def __str__(self):
@@ -49,4 +51,4 @@ class RankingValue(models.Model):
     university_name = models.ForeignKey(UniversityName)
 
     def __str__(self):
-        return u'Number in ranking table: %s' % str(number_in_ranking_table)
+        return u'Number in ranking table: %s' % str(self.number_in_ranking_table)
