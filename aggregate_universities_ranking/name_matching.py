@@ -441,7 +441,6 @@ def reranked(grouped_by_rank_dict):
 
 def to_database(union_rank_tables):
     ranking_name_descriptions = list(RankingName.objects.all())
-    already_saved_university_descriptions = list(UniversityName.objects.all())
 
     for university_record in union_rank_tables:
         print '\n' *4, '-' * 40, '\n'
@@ -456,19 +455,26 @@ def to_database(union_rank_tables):
                     print 'Ranking %s detected' % ranking_name
                     university_name = university_record['canonical_name']
                     country = university_record['country']
+                    already_saved_university_descriptions = list(UniversityName.objects.all())
                     university_already_in_database = False
                     for already_saved_university_description in already_saved_university_descriptions:
+                        print 'already_saved_university_description.university_name: ', already_saved_university_description.university_name, ', university_name: ', university_name
                         if already_saved_university_description.university_name == university_name:
+                            print "already_saved_university_description.university_name == university_name"
                             ranking_value_db_record = RankingValue(year=datetime.date.today(), original_value = '~~~', number_in_ranking_table = ranking_value, ranking_name = ranking_name_description, university_name = already_saved_university_description)
                             ranking_value_db_record.save()
+                            print 'Ranking value ', ranking_value, ' saved for university ', university_name, ' and for ranking ', ranking_name
                             university_already_in_database = True
+                            print 'Inner break'
                             break
                     if university_already_in_database == False:
                         print 'University %s, not in database' % university_name
                         new_db_university_description_record = UniversityName(university_name = university_name, country = country)
                         new_db_university_description_record.save()
+                        print 'University %s, saved to database' % university_name
                         ranking_value_db_record = RankingValue(year=datetime.date.today(), original_value = str(), number_in_ranking_table = ranking_value, ranking_name = ranking_name_description, university_name = new_db_university_description_record)
                         ranking_value_db_record.save()
+                    print 'Outer break'
                     break
 
     return 
@@ -531,22 +537,17 @@ if __name__ == '__main__':
     print '\n' * 6
     union_rank_tables = union_ranks(ranking_tables_dict)
 
-    #to_database(union_rank_tables)
-
-    for university in list(UniversityName.objects.all()):
-        print 'University name' , university.university_name
-
-    for ranking_value in list(RankingValue.objects.all()):
-        print 'Rankgin value', ranking_value
-
     UniversityName.objects.all().delete()
     RankingValue.objects.all().delete()
 
+    to_database(union_rank_tables)
+
     for university in list(UniversityName.objects.all()):
         print 'University name' , university.university_name
 
     for ranking_value in list(RankingValue.objects.all()):
-        print 'Rankgin value', ranking_value
+        print '\nRankgin value %s, for university %s in ranking %s' % (ranking_value, ranking_value.ranking_name.short_name, ranking_value.university_name.university_name)
+
 
     union_rank_tables_with_aggregated_rank = append_aggregate_rank(union_rank_tables)
     
