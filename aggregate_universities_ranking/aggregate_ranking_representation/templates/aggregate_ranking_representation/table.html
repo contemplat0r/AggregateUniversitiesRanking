@@ -10,10 +10,13 @@
     </head>
     <body>
         <strong>Aggregated ranking table </strong>
-         <form action="table" method="post">
-            {% csrf_token %}
-            {{ select_rankings_names_form }}
-            <input type="submit" value="Select">
+        <!--<form action="table" method="post" class=="form-inline">-->
+         <form action="table" method="post" class==".form-horizontal">
+             <div class=".control-group">
+                {% csrf_token %}
+                {{ select_rankings_names_form }}
+                <input type="submit" value="Select">
+             </div>
         </form>
        
         <ul>
