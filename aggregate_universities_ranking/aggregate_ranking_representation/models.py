@@ -27,6 +27,8 @@ class RankingName(models.Model):
     short_name = models.CharField(max_length=20)
     full_name = models.CharField(max_length=200)
     #url = models.CharField(max_length=200)
+    #length = models.IntegerField()
+    #year = models.IntegerField()
     university = models.ManyToManyField(UniversityName, through='RankingValue')
 
     def __str__(self):
@@ -51,4 +53,4 @@ class RankingValue(models.Model):
     university_name = models.ForeignKey(UniversityName)
 
     def __str__(self):
-        return u'Number in ranking table: %s' % str(self.number_in_ranking_table)
+        return u'Rank: %s, Year: %s' % (str(self.number_in_ranking_table), str(self.year.year))
