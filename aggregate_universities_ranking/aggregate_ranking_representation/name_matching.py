@@ -64,7 +64,6 @@ ranking_descriptions = {
             'dataframe_postprocessor' : None,
             'ranking_table_as_list_preprocessor' : ranking_table_as_list_preprocessor
             },
-
         }
 
 
@@ -467,8 +466,9 @@ def from_database(rankings_names_list, year):
             rank_name = ranking_value_description.ranking_name.short_name
             if rank_name in rankings_names_list:
                 ranks.update({rank_name : ranking_value_description.number_in_ranking_table})
-        record['ranks'] = ranks
-        rank_tables.append(record)
+        if ranks != {}:
+            record['ranks'] = ranks
+            rank_tables.append(record)
     return rank_tables
 
 
@@ -515,15 +515,19 @@ def build_aggregate_ranking_dataframe(ranking_descriptions):
 
 def assemble_aggregate_ranking_dataframe(ranking_names_list, year):
     rank_tables = from_database(ranking_names_list, year)
+    if rank_tables != []:
+        rank_tables_with_aggregated_rank = append_aggregate_rank(rank_tables)
+        
+        universities_grouped_by_aggregate_rank = group_by_aggregate_rank(rank_tables_with_aggregated_rank)
 
-    rank_tables_with_aggregated_rank = append_aggregate_rank(rank_tables)
-    
-    universities_grouped_by_aggregate_rank = group_by_aggregate_rank(rank_tables_with_aggregated_rank)
+        aggregate_ranking_dataframe = convert_aggregate_ranking_dict_to_dataframe(universities_grouped_by_aggregate_rank)
 
-    aggregate_ranking_dataframe = convert_aggregate_ranking_dict_to_dataframe(universities_grouped_by_aggregate_rank)
-
-    print aggregate_ranking_dataframe
-    return aggregate_ranking_dataframe
+        #print aggregate_ranking_dataframe
+        print 'assemble_aggregate_ranking_dataframe: rank_tables != []'
+        return aggregate_ranking_dataframe
+    else:
+        print 'assemble_aggregate_ranking_dataframe: rank_tables == []'
+        return None
 
 
 if __name__ == '__main__':
