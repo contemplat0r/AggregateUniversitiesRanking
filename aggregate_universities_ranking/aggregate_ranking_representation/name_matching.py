@@ -5,6 +5,7 @@ import os
 from os.path import abspath, join, dirname
 import sys
 
+import datetime
 from functools import reduce
 from copy import deepcopy
 from pandas import Series, DataFrame
@@ -17,7 +18,7 @@ import numpy as np
 #os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'aggregate_universities_ranking.settings')
 
 #django.setup()
-from .models import RankingName, RawRankingRecord
+from .models import RankingName, RawRankingRecord, UniversityName, RankingValue
 
 NaN = np.nan
 
@@ -399,6 +400,78 @@ def reranked(grouped_by_rank_dict):
     return grouped_by_rank_dict
 
 
+def to_database(union_rank_tables):
+    # Надо будет написать общую функцию, которая реализует заполнение (двух) таблиц
+    # Связанных отношением многие-ко-многим через промежуточную таблицу. Главное
+    # (самое трудное) что надо будет реализовать - это заполнение промежуточной
+    # таблицы.
+    ranking_name_descriptions = list(RankingName.objects.all())
+
+    for university_record in union_rank_tables:
+        print '\n' *4, '-' * 40, '\n'
+        #print 'university_name\t-\t', university_record['university_name']
+        print 'canonical_name\t-\t', university_record['canonical_name']
+        print 'ranks\t-\t', university_record['ranks']
+        print 'country\t-\t', university_record['country']
+        
+        for ranking_name_description in ranking_name_descriptions:
+            for ranking_name, ranking_value in university_record['ranks'].items():
+                if ranking_name_description.short_name == ranking_name:
+                    print 'Ranking %s detected' % ranking_name
+                    university_name = university_record['canonical_name']
+                    country = university_record['country']
+                    year = datetime.date(datetime.date.today().year, 1, 1)
+                    already_saved_university_descriptions = list(UniversityName.objects.all())
+                    university_already_in_database = False
+                    for already_saved_university_description in already_saved_university_descriptions:
+                        print 'already_saved_university_description.university_name: ', already_saved_university_description.university_name, ', university_name: ', university_name
+                        if already_saved_university_description.university_name == university_name:
+                            print "already_saved_university_description.university_name == university_name"
+                            #ranking_value_db_record = RankingValue(year=datetime.date.today(), original_value = '~~~', number_in_ranking_table = ranking_value, ranking_name = ranking_name_description, university_name = already_saved_university_description)
+                            ranking_value_db_record = RankingValue(year=year, original_value = '~~~', number_in_ranking_table = ranking_value, ranking_name = ranking_name_description, university_name = already_saved_university_description)
+                            ranking_value_db_record.save()
+                            print 'Ranking value ', ranking_value, ' saved for university ', university_name, ' and for ranking ', ranking_name
+                            university_already_in_database = True
+                            print 'Inner break'
+                            break
+                    if university_already_in_database == False:
+                        print 'University %s, not in database' % university_name
+                        new_db_university_description_record = UniversityName(university_name = university_name, country = country)
+                        new_db_university_description_record.save()
+                        print 'University %s, saved to database' % university_name
+                        #ranking_value_db_record = RankingValue(year=datetime.date.today(), original_value = str(), number_in_ranking_table = ranking_value, ranking_name = ranking_name_description, university_name = new_db_university_description_record)
+                        ranking_value_db_record = RankingValue(year=year, original_value = str(), number_in_ranking_table = ranking_value, ranking_name = ranking_name_description, university_name = new_db_university_description_record)
+                        ranking_value_db_record.save()
+                    print 'Outer break'
+                    break
+
+    return 
+
+
+def prepare_year_to_compare(year):
+    return datetime.date(year, 1, 1)
+
+
+def from_database(rankings_names_list, year):
+
+    year = prepare_year_to_compare(year)
+    rank_tables = list()
+
+    for university_description in UniversityName.objects.all():
+        print 'university_description.university_name: ', university_description.university_name
+        university_name = university_description.university_name
+        record = {'canonical_name' : university_name}
+        ranks = dict()
+        for ranking_value_description in university_description.rankingvalue_set.filter(year=year):
+            print '\tranking_value_descriptions: ', ranking_value_description
+            rank_name = ranking_value_description.ranking_name.short_name
+            if rank_name in rankings_names_list:
+                ranks.update({rank_name : ranking_value_description.number_in_ranking_table})
+        record['ranks'] = ranks
+        rank_tables.append(record)
+    return rank_tables
+
+
 def convert_aggregate_ranking_dict_to_dataframe(grouped_aggregate_ranking_dict):
     sorted_aggregate_ranks = sorted(grouped_aggregate_ranking_dict.keys())
     dataframe_data_dict = dict()
@@ -437,6 +510,19 @@ def build_aggregate_ranking_dataframe(ranking_descriptions):
 
     aggregate_ranking_dataframe = convert_aggregate_ranking_dict_to_dataframe(universities_grouped_by_aggregate_rank)
 
+    return aggregate_ranking_dataframe
+
+
+def assemble_aggregate_ranking_dataframe(ranking_names_list, year):
+    rank_tables = from_database(ranking_names_list, year)
+
+    rank_tables_with_aggregated_rank = append_aggregate_rank(rank_tables)
+    
+    universities_grouped_by_aggregate_rank = group_by_aggregate_rank(rank_tables_with_aggregated_rank)
+
+    aggregate_ranking_dataframe = convert_aggregate_ranking_dict_to_dataframe(universities_grouped_by_aggregate_rank)
+
+    print aggregate_ranking_dataframe
     return aggregate_ranking_dataframe
 
 

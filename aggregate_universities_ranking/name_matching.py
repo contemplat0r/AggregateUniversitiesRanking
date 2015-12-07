@@ -486,6 +486,7 @@ def to_database(union_rank_tables):
 
     return 
 
+
 def prepare_year_to_compare(year):
     return datetime.date(year, 1, 1)
 
@@ -549,6 +550,19 @@ def build_aggregate_ranking_dataframe(ranking_descriptions):
 
     aggregate_ranking_dataframe = convert_aggregate_ranking_dict_to_dataframe(universities_grouped_by_aggregate_rank)
 
+    return aggregate_ranking_dataframe
+
+
+def assemble_aggregate_ranking_dataframe(ranking_names_list, year):
+    rank_tables = from_database(ranking_names_list, year)
+
+    rank_tables_with_aggregated_rank = append_aggregate_rank(rank_tables)
+    
+    universities_grouped_by_aggregate_rank = group_by_aggregate_rank(rank_tables_with_aggregated_rank)
+
+    aggregate_ranking_dataframe = convert_aggregate_ranking_dict_to_dataframe(universities_grouped_by_aggregate_rank)
+
+    print aggregate_ranking_dataframe
     return aggregate_ranking_dataframe
 
 
