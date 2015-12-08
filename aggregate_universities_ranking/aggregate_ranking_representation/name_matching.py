@@ -18,7 +18,7 @@ import numpy as np
 #os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'aggregate_universities_ranking.settings')
 
 #django.setup()
-from .models import RankingName, RawRankingRecord, UniversityName, RankingValue
+from .models import RankingDescription, RawRankingRecord, University, RankingValue
 
 NaN = np.nan
 
@@ -71,7 +71,7 @@ def rawranking_records_to_dataframes(ranking_descriptions):
     
     dataframes_dict = deepcopy(ranking_descriptions)
     for ranking_short_name, additional_processors in ranking_descriptions.items():
-        ranking_name_description = RankingName.objects.filter(short_name=ranking_short_name)[0]
+        ranking_name_description = RankingDescription.objects.filter(short_name=ranking_short_name)[0]
         raw_ranking_records = list(ranking_name_description.rawrankingrecord_set.all().values())
         ranking_dataframe = DataFrame(raw_ranking_records)
         dataframe_postprocessor = additional_processors['dataframe_postprocessor']
@@ -404,7 +404,7 @@ def to_database(union_rank_tables):
     # Связанных отношением многие-ко-многим через промежуточную таблицу. Главное
     # (самое трудное) что надо будет реализовать - это заполнение промежуточной
     # таблицы.
-    ranking_name_descriptions = list(RankingName.objects.all())
+    ranking_name_descriptions = list(RankingDescription.objects.all())
 
     for university_record in union_rank_tables:
         print '\n' *4, '-' * 40, '\n'
@@ -420,7 +420,7 @@ def to_database(union_rank_tables):
                     university_name = university_record['canonical_name']
                     country = university_record['country']
                     year = datetime.date(datetime.date.today().year, 1, 1)
-                    already_saved_university_descriptions = list(UniversityName.objects.all())
+                    already_saved_university_descriptions = list(University.objects.all())
                     university_already_in_database = False
                     for already_saved_university_description in already_saved_university_descriptions:
                         print 'already_saved_university_description.university_name: ', already_saved_university_description.university_name, ', university_name: ', university_name
@@ -435,7 +435,7 @@ def to_database(union_rank_tables):
                             break
                     if university_already_in_database == False:
                         print 'University %s, not in database' % university_name
-                        new_db_university_description_record = UniversityName(university_name = university_name, country = country)
+                        new_db_university_description_record = University(university_name = university_name, country = country)
                         new_db_university_description_record.save()
                         print 'University %s, saved to database' % university_name
                         #ranking_value_db_record = RankingValue(year=datetime.date.today(), original_value = str(), number_in_ranking_table = ranking_value, ranking_name = ranking_name_description, university_name = new_db_university_description_record)
@@ -456,7 +456,7 @@ def from_database(rankings_names_list, year):
     year = prepare_year_to_compare(year)
     rank_tables = list()
 
-    for university_description in UniversityName.objects.all():
+    for university_description in University.objects.all():
         print 'university_description.university_name: ', university_description.university_name
         university_name = university_description.university_name
         record = {'canonical_name' : university_name}

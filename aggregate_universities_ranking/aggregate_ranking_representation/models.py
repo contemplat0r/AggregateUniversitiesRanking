@@ -13,6 +13,15 @@ from django.db import models
 # "Значение рейтинга" - значение рейтинга (там уже в зависимости от той таблицы из которой берётся) и здесь уже точно год к которому относиться данное значение. Можно дату записи в таблицу.
 # Названия таблиц определились сами собой: 1) RaitingName, 2) UniversityName, 3) RaitingValue.
 
+#class University(models.Model):
+#    university_name = models.CharField(max_length=512)
+#    country = models.CharField(max_length = 64, null=True, blank=True)
+#    url = models.CharField(max_length=200, null=True, blank=True)
+
+#    def __str__(self):
+#        return self.university_name
+
+
 class UniversityName(models.Model):
     university_name = models.CharField(max_length=512)
     country = models.CharField(max_length = 64, null=True, blank=True)
@@ -23,26 +32,41 @@ class UniversityName(models.Model):
 
 
 class RankingName(models.Model):
-    #abbreviation = models.CharField(max_length=20, null=True, blank=True)
     short_name = models.CharField(max_length=20)
     full_name = models.CharField(max_length=200)
-    #url = models.CharField(max_length=200)
-    #length = models.IntegerField()
+    #url = models.CharField(max_length=200, null=True, blank=True)
+    #length = models.IntegerField(null=True, blank=True)
     #year = models.IntegerField()
+    #university = models.ManyToManyField(University, through='RankingValue')
     university = models.ManyToManyField(UniversityName, through='RankingValue')
 
     def __str__(self):
-        return self.short_name
+        return '(%s, %s)' % (self.short_name, self.full_name)
+
+
+#class RankingDescription(models.Model):
+#    short_name = models.CharField(max_length=20)
+#    full_name = models.CharField(max_length=200)
+#    url = models.CharField(max_length=200, null=True, blank=True)
+#    length = models.IntegerField(null=True, blank=True)
+#    year = models.IntegerField(null=True, blank=True)
+#    university = models.ManyToManyField(University, through='RankingValue')
+
+#    def __str__(self):
+#        return self.short_name
+
 
 class RawRankingRecord(models.Model):
     university_name = models.CharField(max_length=512)
     country = models.CharField(max_length = 64, null=True, blank=True)
     original_value = models.CharField(max_length=16) # Значение приведённое на сайте рейтинга. Может быть и 1, 2...100, а может быть и 601-800 (см. последние записи в THE, и просто "-" (см. последние записи в URAP).
     number_in_ranking_table = models.IntegerField() # Просто номер строки (записи) в таблице рейтинга если считать их (записи) "сверху-вниз" непрерывно прямо на странице (страницах) рейтинга.
+    #ranking_description = models.ForeignKey(RankingDescription)
     ranking_name = models.ForeignKey(RankingName)
     
     def __str__(self):
         return self.university_name
+
 
 class RankingValue(models.Model):
     year = models.DateField(auto_now=False, auto_now_add=False)
@@ -50,7 +74,10 @@ class RankingValue(models.Model):
     number_in_ranking_table = models.IntegerField() # Просто номер строки (записи) в таблице рейтинга если считать их (записи) "сверху-вниз" непрерывно прямо на странице (страницах) рейтинга. Либо посчитанные моим методом (см. статью) если данного университета в данном рейтинге нет.
     aggregate_ranking = models.IntegerField(null=True, blank=True)
     ranking_name = models.ForeignKey(RankingName)
+    #ranking_description = models.ForeignKey(RankingDescription)
+    #university_name = models.ForeignKey(University)
     university_name = models.ForeignKey(UniversityName)
 
     def __str__(self):
-        return u'Rank: %s, Year: %s' % (str(self.number_in_ranking_table), str(self.year.year))
+        #return u'Rank: %s, Year: %s' % (str(self.number_in_ranking_table), str(self.year.year))
+        return u'Rank: %s' % str(self.number_in_ranking_table)
