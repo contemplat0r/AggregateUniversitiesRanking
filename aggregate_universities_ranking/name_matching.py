@@ -8,6 +8,8 @@ import sys
 import datetime
 from functools import reduce
 from copy import deepcopy
+import pickle
+import codecs
 from pandas import Series, DataFrame
 import pandas as pd
 import numpy as np
@@ -28,6 +30,20 @@ NaN = np.nan
 
 anciliary_words_list = ['of', 'the', 'The', 'a', 'A', 'an', 'An', '&', '-']
 special_symbols_list = ['-', '.']
+
+
+def save_ranktables(ranktables, filename):
+    out = open(filename, 'w')
+    pickle.dump(ranktables, out)
+    out.close()
+
+def get_saved_ranktables(filename):
+    ranktables = None
+    if os.stat(filename)[6] > 0:
+        finput = open(filename, 'r')
+        ranktables = pickle.load(finput)
+        finput.close()
+    return ranktables
 
 
 def the_dataframe_postprocessor(the_dataframe):
@@ -570,9 +586,33 @@ def assemble_aggregate_ranking_dataframe(ranking_names_list, year):
         return None
 
 
+def db_to_python_structures():
+    db_as_list = list()
+    for ranking_name in RankingName.objects.all():
+        ranking = {'short_name' : ranking_name.short_name, 'full_name' : ranking_name.full_name}
+        raw_ranking_records = ranking_name.rawrankingrecord_set.all()
+        rank_table = list()
+        for record in raw_ranking_records:
+            rank_table.append({'university_name': record.university_name, 'country' : record.country, 'original_value' : record.original_value, 'number_in_ranking_table' : record.number_in_ranking_table})
+        ranking['rank_table'] = rank_table
+        db_as_list.append(ranking)
+    return db_as_list
+
+def db_as_list_to_db(db_as_list):
+    for ranking in db_as_list:
+        ranking_table = ranking['ranking_table']
+        ranking_description = RankingDescription(short_name=ranking['short_name'], full_name=ranking['full_name'], length=len(ranking_table), year=datetime.date.today().year)
+        ranking_description.save()
+        for record in ranking_table:
+            ranking_description.rawrankingrecord_set.create(university_name=record['university_name'], country=record['country'], original_value=record['original_value'], number_in_ranking_table=record['number_in_ranking_table'])
+
+    return
+
+
+
 if __name__ == '__main__':
     dataframes_dict = rawranking_records_to_dataframes(ranking_descriptions)
-    ranking_tables_dict = dataframes_to_ranking_tables(dataframes_dict)
+    #ranking_tables_dict = dataframes_to_ranking_tables(dataframes_dict)
     
     '''
     for ranking_name, ranking_table in ranking_tables_dict.items():
@@ -582,21 +622,25 @@ if __name__ == '__main__':
             #print university_record
     '''
 
-    print '\n' * 6
-    union_rank_tables = union_ranks(ranking_tables_dict)
+    #print '\n' * 6
+    #union_rank_tables = union_ranks(ranking_tables_dict)
 
-    print 'union_rank_tables: \n'
-
+    #print 'union_rank_tables: \n'
+    
+    '''
     for record in union_rank_tables:
         print 'union_rank_tables:'
         print '\trecord\t-\t', record
         print '\tcanonical_name\t-\t', record['canonical_name']
+    '''
 
     #UniversityName.objects.all().delete()
     #RankingValue.objects.all().delete()
 
     #to_database(union_rank_tables)
+    
 
+    ''' 
     for university in list(UniversityName.objects.all()):
         print 'University name' , university.university_name
 
@@ -607,9 +651,9 @@ if __name__ == '__main__':
     rank_tables = from_database(['QS', 'THE'], 2015)
     for record in rank_tables:
         print record
+    '''
 
-
-    union_rank_tables_with_aggregated_rank = append_aggregate_rank(union_rank_tables)
+    #union_rank_tables_with_aggregated_rank = append_aggregate_rank(union_rank_tables)
     
     '''
     for record in union_rank_tables_with_aggregated_rank:
@@ -631,7 +675,7 @@ if __name__ == '__main__':
             for name_of_name_variant, name_variant in university_name_variants.items():
                 print '\t' * 3, name_of_name_variant, '\t-\t', name_variant
     ''' 
-    universities_grouped_by_aggregate_rank = group_by_aggregate_rank(union_rank_tables_with_aggregated_rank)
+    #universities_grouped_by_aggregate_rank = group_by_aggregate_rank(union_rank_tables_with_aggregated_rank)
 
     #print universities_grouped_by_aggregate_rank
     
@@ -675,7 +719,20 @@ if __name__ == '__main__':
     
 
     #print aggregate_ranking_dataframe
-    aggregate_ranking_dataframe = assemble_aggregate_ranking_dataframe(['QS', 'THE'], 2016)
-    print aggregate_ranking_dataframe != None
-    print aggregate_ranking_dataframe
+    #aggregate_ranking_dataframe = assemble_aggregate_ranking_dataframe(['QS', 'THE'], 2016)
+    #print aggregate_ranking_dataframe != None
+    #print aggregate_ranking_dataframe
+    
+    db_as_list = db_to_python_structures()
+
+    for ranking in db_as_list:
+        print ranking['full_name']
+        print len(ranking['rank_table'])
+    save_ranktables(db_as_list, 'db_snapshot_for_migration')
+
+    db_as_list_loaded_from_shapshot = get_saved_ranktables('db_snapshot_for_migration')
+
+    for ranking in db_as_list_loaded_from_shapshot:
+        print ranking['full_name']
+        print len(ranking['rank_table'])
 
