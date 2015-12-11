@@ -15,7 +15,7 @@ from django.db import models
 
 
 class University(models.Model):
-    university_name = models.CharField(max_length=512)
+    university_name = models.CharField(max_length=512, unique=True)
     country = models.CharField(max_length = 64, null=True, blank=True)
     url = models.CharField(max_length=200, null=True, blank=True)
 
@@ -27,7 +27,7 @@ class RankingDescription(models.Model):
     short_name = models.CharField(max_length=20)
     full_name = models.CharField(max_length=200)
     url = models.CharField(max_length=200, null=True, blank=True)
-    length = models.IntegerField(null=True, blank=True)
+    original_ranking_length = models.IntegerField(null=True, blank=True)
     year = models.IntegerField(null=True, blank=True)
     #university = models.ManyToManyField(University, through='RankingValue', null=True, blank=True)
     university = models.ManyToManyField(University, through='RankingValue')
