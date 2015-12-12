@@ -5,7 +5,8 @@ from django.shortcuts import render
 from django.core.context_processors import csrf
 from django.conf import settings
 from django.http import HttpResponse
-from .models import RankingName, RankingValue, UniversityName 
+#from .models import RankingName, RankingValue, UniversityName 
+from .models import RankingDescription, RankingValue, University 
 from .name_matching import ranking_descriptions, build_aggregate_ranking_dataframe, assemble_aggregate_ranking_dataframe
 from forms import SelectRankingsNamesAndYear
 
@@ -37,7 +38,7 @@ def index(request):
 
 def aggregate_universities_ranking_as_table(request):
     #print 'Entry in aggregate_universities_ranking_as_table'
-    short_rankings_names = [ranking_name.short_name for ranking_name in RankingName.objects.all()]
+    short_rankings_names = [ranking_name.short_name for ranking_name in RankingDescription.objects.all()]
     short_rankings_names_choice_set = [(short_name, short_name) for short_name in short_rankings_names]
 
     select_rankings_names_form = SelectRankingsNamesAndYear()
@@ -68,11 +69,14 @@ def aggregate_universities_ranking_as_table(request):
     if selected_rankings_names != []:
         selected_rankings_descriptions = {ranking_name : ranking_descriptions[ranking_name] for ranking_name in selected_rankings_names if ranking_name in ranking_descriptions.keys()}
 
-    #aggregate_ranking_dataframe = build_aggregate_ranking_dataframe(selected_rankings_descriptions)
+    aggregate_ranking_dataframe = build_aggregate_ranking_dataframe(selected_rankings_descriptions)
+
+    '''
     ranking_names_list = short_rankings_names
     if selected_rankings_names != []:
         ranking_names_list = selected_rankings_names
     aggregate_ranking_dataframe = assemble_aggregate_ranking_dataframe(ranking_names_list, int(selected_year))
+    '''
     
     ranktable = make_show_ranktable(short_rankings_names, selected_rankings_descriptions, aggregate_ranking_dataframe)
     context = {'select_rankings_names_form' : select_rankings_names_form, 'selected_rankings_names' : selected_rankings_names, 'ranktable' : ranktable}

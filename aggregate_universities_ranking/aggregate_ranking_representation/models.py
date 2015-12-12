@@ -28,7 +28,8 @@ class RankingDescription(models.Model):
     full_name = models.CharField(max_length=200)
     url = models.CharField(max_length=200, null=True, blank=True)
     original_ranking_length = models.IntegerField(null=True, blank=True)
-    year = models.IntegerField(null=True, blank=True)
+    #year = models.IntegerField(null=True, blank=True)
+    year = models.IntegerField()
     #university = models.ManyToManyField(University, through='RankingValue', null=True, blank=True)
     university = models.ManyToManyField(University, through='RankingValue')
 
@@ -75,7 +76,7 @@ class RawRankingRecord(models.Model):
 
 
 class RankingValue(models.Model):
-    year = models.DateField(auto_now=False, auto_now_add=False)
+    #year = models.DateField(auto_now=False, auto_now_add=False)
     original_value = models.CharField(max_length=16) # Значение приведённое на сайте рейтинга. Может быть и 1, 2...100, а может быть и 601-800 (см. последние записи в THE, и просто "-" (см. последние записи в URAP).
     number_in_ranking_table = models.IntegerField() # Просто номер строки (записи) в таблице рейтинга если считать их (записи) "сверху-вниз" непрерывно прямо на странице (страницах) рейтинга. Либо посчитанные моим методом (см. статью) если данного университета в данном рейтинге нет.
     #aggregate_ranking = models.IntegerField(null=True, blank=True)
