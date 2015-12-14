@@ -24,6 +24,9 @@ from aggregate_ranking_representation.models import RankingDescription, RawRanki
 
 NaN = np.nan
 
+NONE_STR_VALUE = '~~~~~~~~~'
+
+
 
 # Добавить "очищенный от вспомогательных слов (артиклей) вариант". Аббревиатуры тогда
 # тоже вычислять два варианта: "очищенную от вспомогательных слов" и "со вспомогательными словами".
@@ -47,7 +50,8 @@ def get_saved_ranktables(filename):
 
 
 def the_dataframe_postprocessor(the_dataframe):
-    the_dataframe = the_dataframe.drop(0, axis=0)
+    #the_dataframe = the_dataframe.drop(0, axis=0)
+    the_dataframe = the_dataframe[the_dataframe['university_name'] != NONE_STR_VALUE]
     the_dataframe['number_in_ranking_table'] = the_dataframe['number_in_ranking_table'].map(lambda x: x -1 ) 
     return the_dataframe
 
@@ -125,9 +129,11 @@ def rawranking_records_to_dataframes(ranking_descriptions):
         ranking_name_description = RankingDescription.objects.filter(short_name=ranking_short_name)[0]
         raw_ranking_records = list(ranking_name_description.rawrankingrecord_set.all().values())
         ranking_dataframe = DataFrame(raw_ranking_records)
+        ranking_dataframe.sort_values(by='number_in_ranking_table', inplace=True)
         print 'rawranking_records_to_dataframes, ranking_short_name: ', ranking_short_name
         
         print 'rawranking_records_to_dataframes, ranking_dataframe[:4]: ', ranking_dataframe[:4]
+        print 'rawranking_records_to_dataframes, columns: ', ranking_dataframe.columns
         dataframe_postprocessor = additional_processors['dataframe_postprocessor']
         if dataframe_postprocessor:
             ranking_dataframe = dataframe_postprocessor(ranking_dataframe)
@@ -464,7 +470,7 @@ def to_database(union_rank_tables):
     # Связанных отношением многие-ко-многим через промежуточную таблицу. Главное
     # (самое трудное) что надо будет реализовать - это заполнение промежуточной
     # таблицы.
-    ranking_name_descriptions = list(RankingDescription.objects.all())
+    ranking_descriptions = list(RankingDescription.objects.all())
 
     for university_record in union_rank_tables:
         print '\n' *4, '-' * 40, '\n'
@@ -473,9 +479,9 @@ def to_database(union_rank_tables):
         print 'ranks\t-\t', university_record['ranks']
         print 'country\t-\t', university_record['country']
         
-        for ranking_name_description in ranking_name_descriptions:
+        for ranking_description in ranking_descriptions:
             for ranking_name, ranking_value in university_record['ranks'].items():
-                if ranking_name_description.short_name == ranking_name:
+                if ranking_description.short_name == ranking_name:
                     print 'Ranking %s detected' % ranking_name
                     university_name = university_record['canonical_name']
                     country = university_record['country']
@@ -486,8 +492,7 @@ def to_database(union_rank_tables):
                         print 'already_saved_university_description.university_name: ', already_saved_university_description.university_name, ', university_name: ', university_name
                         if already_saved_university_description.university_name == university_name:
                             print "already_saved_university_description.university_name == university_name"
-                            #ranking_value_db_record = RankingValue(year=datetime.date.today(), original_value = '~~~', number_in_ranking_table = ranking_value, ranking_name = ranking_name_description, university_name = already_saved_university_description)
-                            ranking_value_db_record = RankingValue(year=year, original_value = '~~~', number_in_ranking_table = ranking_value, ranking_name = ranking_name_description, university_name = already_saved_university_description)
+                            ranking_value_db_record = RankingValue(original_value = '~~~', number_in_ranking_table = ranking_value, ranking_description = ranking_description, university = already_saved_university_description)
                             ranking_value_db_record.save()
                             print 'Ranking value ', ranking_value, ' saved for university ', university_name, ' and for ranking ', ranking_name
                             university_already_in_database = True
@@ -495,11 +500,10 @@ def to_database(union_rank_tables):
                             break
                     if university_already_in_database == False:
                         print 'University %s, not in database' % university_name
-                        new_db_university_description_record = University(university_name = university_name, country = country)
-                        new_db_university_description_record.save()
+                        new_db_university_record = University(university_name = university_name, country = country)
+                        new_db_university_record.save()
                         print 'University %s, saved to database' % university_name
-                        #ranking_value_db_record = RankingValue(year=datetime.date.today(), original_value = str(), number_in_ranking_table = ranking_value, ranking_name = ranking_name_description, university_name = new_db_university_description_record)
-                        ranking_value_db_record = RankingValue(year=year, original_value = str(), number_in_ranking_table = ranking_value, ranking_name = ranking_name_description, university_name = new_db_university_description_record)
+                        ranking_value_db_record = RankingValue(original_value = '~~~', number_in_ranking_table = ranking_value, ranking_description = ranking_description, university = new_db_university_record)
                         ranking_value_db_record.save()
                     print 'Outer break'
                     break
@@ -508,7 +512,8 @@ def to_database(union_rank_tables):
 
 
 def prepare_year_to_compare(year):
-    return datetime.date(year, 1, 1)
+    #return datetime.date(year, 1, 1)
+    return year
 
 
 def from_database(rankings_names_list, year):
@@ -521,9 +526,11 @@ def from_database(rankings_names_list, year):
         university_name = university_description.university_name
         record = {'canonical_name' : university_name}
         ranks = dict()
-        for ranking_value_description in university_description.rankingvalue_set.filter(year=year):
+        #for ranking_value_description in university_description.rankingvalue_set.filter(year=year):
+        #for ranking_value_description in university_description.rankingvalue_set.filter(ranking_description.year=year):
+        for ranking_value_description in university_description.rankingvalue_set.filter(ranking_description__year=year):
             print '\tranking_value_descriptions: ', ranking_value_description
-            rank_name = ranking_value_description.ranking_name.short_name
+            rank_name = ranking_value_description.ranking_description.short_name
             if rank_name in rankings_names_list:
                 ranks.update({rank_name : ranking_value_description.number_in_ranking_table})
         if ranks != {}:
@@ -562,9 +569,8 @@ def convert_aggregate_ranking_dict_to_dataframe(grouped_aggregate_ranking_dict):
 def build_aggregate_ranking_dataframe(ranking_descriptions):
     aggregate_ranking_dataframe = None
     dataframes_dict = rawranking_records_to_dataframes(ranking_descriptions)
-    #ranking_tables_dict = dataframes_to_ranking_tables(dataframes_dict)
+    ranking_tables_dict = dataframes_to_ranking_tables(dataframes_dict)
     
-    '''
     union_rank_tables = union_ranks(ranking_tables_dict)
     print 'build_aggregate_ranking_dataframe, type(union_ranks): ', type(union_ranks)
     print 'build_aggregate_ranking_dataframe, type(aggregate_rank): ', type(append_aggregate_rank)
@@ -573,7 +579,7 @@ def build_aggregate_ranking_dataframe(ranking_descriptions):
     universities_grouped_by_aggregate_rank = group_by_aggregate_rank(union_rank_tables_with_aggregated_rank)
 
     aggregate_ranking_dataframe = convert_aggregate_ranking_dict_to_dataframe(universities_grouped_by_aggregate_rank)
-    '''
+    
     return aggregate_ranking_dataframe
 
 
@@ -618,8 +624,8 @@ def db_as_list_to_db(db_as_list):
 
 
 if __name__ == '__main__':
-    #dataframes_dict = rawranking_records_to_dataframes(ranking_descriptions)
-    #ranking_tables_dict = dataframes_to_ranking_tables(dataframes_dict)
+    dataframes_dict = rawranking_records_to_dataframes(ranking_descriptions)
+    ranking_tables_dict = dataframes_to_ranking_tables(dataframes_dict)
     
     '''
     for ranking_name, ranking_table in ranking_tables_dict.items():
@@ -630,7 +636,7 @@ if __name__ == '__main__':
     '''
 
     #print '\n' * 6
-    #union_rank_tables = union_ranks(ranking_tables_dict)
+    union_rank_tables = union_ranks(ranking_tables_dict)
 
     #print 'union_rank_tables: \n'
     
@@ -641,24 +647,24 @@ if __name__ == '__main__':
         print '\tcanonical_name\t-\t', record['canonical_name']
     '''
 
-    #University.objects.all().delete()
-    #RankingValue.objects.all().delete()
+    University.objects.all().delete()
+    RankingValue.objects.all().delete()
 
-    #to_database(union_rank_tables)
+    to_database(union_rank_tables)
     
 
-    ''' 
+     
     for university in list(University.objects.all()):
         print 'University name' , university.university_name
 
     for ranking_value in list(RankingValue.objects.all()):
-        print '\nRanking value is "%s", for university %s in ranking %s' % (ranking_value, ranking_value.university_name.university_name, ranking_value.ranking_name.short_name)
+        print '\nRanking value is "%s", for university %s in ranking %s' % (ranking_value, ranking_value.university.university_name, ranking_value.ranking_description.short_name)
 
     print '\n' * 4, 'from_database call'
     rank_tables = from_database(['QS', 'THE'], 2015)
     for record in rank_tables:
         print record
-    '''
+    
 
     #union_rank_tables_with_aggregated_rank = append_aggregate_rank(union_rank_tables)
     
@@ -714,7 +720,7 @@ if __name__ == '__main__':
     #print aggregate_ranking_df
     
 
-    print build_aggregate_ranking_dataframe(ranking_descriptions)
+    #print build_aggregate_ranking_dataframe(ranking_descriptions)
 
     #rank_tables = from_database(['QS', 'THE'], 2016)
 
@@ -726,9 +732,9 @@ if __name__ == '__main__':
     
 
     #print aggregate_ranking_dataframe
-    #aggregate_ranking_dataframe = assemble_aggregate_ranking_dataframe(['QS', 'THE'], 2016)
-    #print aggregate_ranking_dataframe != None
-    #print aggregate_ranking_dataframe
+    aggregate_ranking_dataframe = assemble_aggregate_ranking_dataframe(['QS', 'THE'], 2015)
+    print aggregate_ranking_dataframe is not None
+    print aggregate_ranking_dataframe
 
 
     

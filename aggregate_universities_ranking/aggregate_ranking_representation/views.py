@@ -69,14 +69,14 @@ def aggregate_universities_ranking_as_table(request):
     if selected_rankings_names != []:
         selected_rankings_descriptions = {ranking_name : ranking_descriptions[ranking_name] for ranking_name in selected_rankings_names if ranking_name in ranking_descriptions.keys()}
 
-    aggregate_ranking_dataframe = build_aggregate_ranking_dataframe(selected_rankings_descriptions)
+    #aggregate_ranking_dataframe = build_aggregate_ranking_dataframe(selected_rankings_descriptions)
 
-    '''
+    
     ranking_names_list = short_rankings_names
     if selected_rankings_names != []:
         ranking_names_list = selected_rankings_names
     aggregate_ranking_dataframe = assemble_aggregate_ranking_dataframe(ranking_names_list, int(selected_year))
-    '''
+    
     
     ranktable = make_show_ranktable(short_rankings_names, selected_rankings_descriptions, aggregate_ranking_dataframe)
     context = {'select_rankings_names_form' : select_rankings_names_form, 'selected_rankings_names' : selected_rankings_names, 'ranktable' : ranktable}
