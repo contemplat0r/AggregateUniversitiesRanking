@@ -735,6 +735,7 @@ if __name__ == '__main__':
     aggregate_ranking_dataframe = assemble_aggregate_ranking_dataframe(['QS', 'THE'], 2015)
     print aggregate_ranking_dataframe is not None
     print aggregate_ranking_dataframe
+    print aggregate_ranking_dataframe.to_dict('record')
 
 
     

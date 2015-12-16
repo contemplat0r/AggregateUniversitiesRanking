@@ -25,174 +25,31 @@
             {% endfor %}
         </ul>
         <br>
-        {% if ranktable.data %}
+        {% if ranktable %}
             <!--<table cellspacing="2" border="1" cellpadding="5">-->
             <!--<table class="table table-striped">-->
             <!--<table class="table table-bordered">-->
             <!--<table class="table table-hover">-->
             <table class="table table-striped table-condensed table-hover">
                 <thead>
-                    <!--<tr>
-                        {% if ranktable.headers.rank %}
-                        <td>
-                            {{ranktable.headers.rank}}
-                        </td>
-                        {% endif %}
-                        {% if ranktable.headers.aggregate_rank %}
-                        <td>
-                            {{ranktable.headers.aggregate_rank}}
-                        </td>
-                        {% endif %}
-                        {% if ranktable.headers.university_name %}
-                        <td>
-                            {{ranktable.headers.university_name}}
-                        </td>
-                        {% endif %}
-                        {% if ranktable.headers.qs %}
-                        <td>
-                            {{ranktable.headers.qs}}
-                        </td>
-                        {% endif %}
-                        {% if ranktable.headers.the %}
-                        <td>
-                            {{ranktable.headers.the}}
-                        </td>
-                        {% endif %}
-                        {% if ranktable.headers.arwu %}
-                        <td>
-                            {{ranktable.headers.arwu}}
-                        </td>
-                        {% endif %}
-                        {% if ranktable.headers.ntu %}
-                        <td>
-                            {{ranktable.headers.ntu}}
-                        </td>
-                        {% endif %}
-                        {% if ranktable.headers.urap %}
-                        <td>
-                            {{ranktable.headers.urap}}
-                        </td>
-                        {% endif %}
-                        {% if ranktable.headers.leiden %}
-                        <td>
-                            {{ranktable.headers.leiden}}
-                        </td>
-                        {% endif %}
-                        {% if ranktable.headers.webometrics %}
-                        <td>
-                            {{ranktable.headers.webometrics}}
-                        </td>
-                        {% endif %}
-                        </tr> -->
                     <tr>
-                        {% if ranktable.headers.rank %}
+                    {% for item in ranktable.0 %}
                         <td>
-                            {{ranktable.headers.rank}}
+                        {{ item }}
                         </td>
-                        {% endif %}
-                        {% if ranktable.headers.aggregate_rank %}
-                        <td>
-                            {{ranktable.headers.aggregate_rank}}
-                        </td>
-                        {% endif %}
-                        {% if ranktable.headers.university_name %}
-                        <td>
-                            {{ranktable.headers.university_name}}
-                        </td>
-                        {% endif %}
-                        {% if ranktable.headers.QS %}
-                        <td>
-                            {{ranktable.headers.QS}}
-                        </td>
-                        {% endif %}
-                        {% if ranktable.headers.THE %}
-                        <td>
-                            {{ranktable.headers.THE}}
-                        </td>
-                        {% endif %}
-                        {% if ranktable.headers.ARWU %}
-                        <td>
-                            {{ranktable.headers.ARWU}}
-                        </td>
-                        {% endif %}
-                        {% if ranktable.headers.NTU %}
-                        <td>
-                            {{ranktable.headers.NTU}}
-                        </td>
-                        {% endif %}
-                        {% if ranktable.headers.URAP %}
-                        <td>
-                            {{ranktable.headers.URAP}}
-                        </td>
-                        {% endif %}
-                        {% if ranktable.headers.Leiden %}
-                        <td>
-                            {{ranktable.headers.Leiden}}
-                        </td>
-                        {% endif %}
-                        {% if ranktable.headers.Webometrics %}
-                        <td>
-                            {{ranktable.headers.Webometrics}}
-                        </td>
-                        {% endif %}
+                    {% endfor %}
                     </tr>
-
                 </thead>
                 <tbody>
-                    {% for record in ranktable.data %}
+                {% for record in ranktable|slice:"1:" %}
                     <tr>
-                        {% if record.rank %}
+                    {% for item in record %}
                         <td>
-                            {{record.rank}}
+                        {{ item }}
                         </td>
-                        {% endif %}
-                        {% if record.aggregate_rank %}
-                        <td>
-                            {{record.aggregate_rank}}
-                        </td>
-                        {% endif %}
-                        {% if record.university_name %}
-                        <td>
-                            {{record.university_name}}
-                        </td>
-                        {% endif %}
-                        {% if record.QS %}
-                        <td>
-                            {{record.QS}}
-                        </td>
-                        {% endif %}
-                        {% if record.THE %}
-                        <td>
-                            {{record.THE}}
-                        </td>
-                        {% endif %}
-                        {% if record.ARWU %}
-                        <td>
-                            {{record.ARWU}}
-                        </td>
-                        {% endif %}
-                        {% if record.NTU %}
-                        <td>
-                            {{record.NTU}}
-                        </td>
-                        {% endif %}
-                        {% if record.URAP %}
-                        <td>
-                            {{record.URAP}}
-                        </td>
-                        {% endif %}
-                        {% if record.Leiden %}
-                        <td>
-                            {{record.Leiden}}
-                        </td>
-                        {% endif %}
-                        {% if record.Webometrics %}
-                        <td>
-                            {{record.Webometrics}}
-                        </td>
-                        {% endif %}
-                    </tr>
                     {% endfor %}
+                    </tr>
+                {% endfor %}
                 </tbody>
             </table>
         {% else %}

@@ -16,23 +16,17 @@ START_AGGREGATE_YEAR = getattr(settings, 'START_AGGREGATE_YEAR', 2014)
 FINISH_AGGREGATE_YEAR = getattr(settings, 'FINISH_AGGREGATE_YEAR', datetime.date.today().year)
 
 
-def make_show_ranktable(short_rankings_names, selected_rankings_descriptions, aggregate_ranking_dataframe):
-#def make_show_ranktable(short_rankings_names, selected_rankings_names, aggregate_ranking_dataframe):
-    ranktable = {'headers' : {'rank' : 'Rank', 'aggregate_rank' : 'Aggregate Rank', 'university_name' : 'University Name'}}
-
-    ranktable['headers'].update({rankname : None for rankname in short_rankings_names})
-    ranktable['headers'].update({rankname : rankname for rankname in selected_rankings_descriptions})
-    #ranktable['headers'].update({rankname : rankname for rankname in selected_rankings_names})
-    
-    ranktable['data'] = None
-
-    print aggregate_ranking_dataframe
-    print 'aggregate_ranking_dataframe is None', aggregate_ranking_dataframe is None
-    if not (aggregate_ranking_dataframe is None):
-        ranktable['data'] = aggregate_ranking_dataframe.to_dict('record')
-
+def make_show_ranktable(selected_rankings_names, aggregate_ranking_dataframe):
+    ranktable = list()
+    ranktable.append(['Rank', 'Aggregate Rank', 'University Name'] + selected_rankings_names)
+    if aggregate_ranking_dataframe is not None:
+        aggregate_ranking_as_list_of_dict = aggregate_ranking_dataframe.to_dict('record')
+        for row in aggregate_ranking_as_list_of_dict:
+            record = [row['rank'], row['aggregate_rank'], row['university_name']]
+            for ranking_name in selected_rankings_names:
+                record.append(row[ranking_name])
+            ranktable.append(record)
     return ranktable
-
 
 def index(request):
     return HttpResponse('Hello, world. This is first page of aggrgated rank')
@@ -61,21 +55,15 @@ def aggregate_universities_ranking_as_table(request):
             selected_rankings_names = select_rankings_names_form.cleaned_data.get('select_rankings_names_field')
             selected_year = select_rankings_names_form.cleaned_data.get('select_year_field')
 
-    selected_rankings_descriptions = ranking_descriptions
-    ''' 
-    if selected_rankings_names != []:
-        selected_rankings_descriptions = {ranking_name : ranking_descriptions[ranking_name] for ranking_name in selected_rankings_names if ranking_name in ranking_descriptions.keys()}
-
-    aggregate_ranking_dataframe = build_aggregate_ranking_dataframe(selected_rankings_descriptions)
-    '''
-
     ranking_names_list = short_rankings_names
     if selected_rankings_names != []:
         ranking_names_list = selected_rankings_names
     aggregate_ranking_dataframe = assemble_aggregate_ranking_dataframe(ranking_names_list, int(selected_year))
     
-    ranktable = make_show_ranktable(short_rankings_names, selected_rankings_descriptions, aggregate_ranking_dataframe)
-    #ranktable = make_show_ranktable(short_rankings_names, selected_rankings_names, aggregate_ranking_dataframe)
+    selected_ranking_names = [ranking_name for ranking_name in ranking_names_list if ranking_name in ranking_descriptions.keys()]
+    ranktable = make_show_ranktable(selected_ranking_names, aggregate_ranking_dataframe)
+
     context = {'select_rankings_names_form' : select_rankings_names_form, 'selected_rankings_names' : selected_rankings_names, 'ranktable' : ranktable}
     context.update(csrf(request))
+
     return render(request, 'aggregate_ranking_representation/table.html', context)
