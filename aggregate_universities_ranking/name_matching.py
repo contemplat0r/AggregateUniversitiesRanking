@@ -31,7 +31,7 @@ NONE_STR_VALUE = '~~~~~~~~~'
 # Добавить "очищенный от вспомогательных слов (артиклей) вариант". Аббревиатуры тогда
 # тоже вычислять два варианта: "очищенную от вспомогательных слов" и "со вспомогательными словами".
 
-anciliary_words_list = ['of', 'the', 'The', 'a', 'A', 'an', 'An', '&', '-']
+anciliary_words_list = ['of', 'the', 'The', 'a', 'A', 'an', 'An', '&', '-', '\/']
 special_symbols_list = ['-', '.']
 
 
@@ -203,6 +203,31 @@ def detect_special_symbol_in_string(string):
             special_symbol_detected = True
             break
     return special_symbol_detected
+
+
+#def retrieve_in_bracket_name_part(raw_fullname_as_string):
+#    bra_position = raw_fullname_as_string.find('(')
+#    ket_position = raw_fullname_as_string.find(')')
+
+
+def divide_raw_name_by_brackets(raw_fullname_as_list):
+    out_bracket_name_part = list()
+    in_bracket_name_part = list()
+    in_bracket_state = False
+
+    for item in raw_fullname_as_list:
+        if item.startswith('(') and not in_bracket_state:
+            in_bracket_state = True
+            #in_bracket_name_part.append(item[1:])
+            in_bracket_name_part.append(item.lstrip('('))
+        elif item.endswith(')') and in_bracket_state:
+            in_bracket_state = False
+            in_bracket_name_part.append(item.rstrip(')'))
+        elif in_bracket_state:
+            in_bracket_name_part.append(item)
+        else:
+            out_bracket_name_part.append(item)
+    return out_bracket_name_part, in_bracket_name_part
 
 
 def categorize_as_abbreviation(string):
