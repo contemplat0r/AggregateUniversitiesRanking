@@ -5,7 +5,11 @@ from django.shortcuts import render
 from django.core.context_processors import csrf
 from django.conf import settings
 from django.http import HttpResponse
-#from .models import RankingName, RankingValue, UniversityName 
+from rest_framework import serializers
+from rest_framework.renderers import JSONRenderer
+from rest_framework.views import APIView
+from rest_framework.response import Response
+from rest_framework import status
 from .models import RankingDescription, RankingValue, University 
 from .name_matching import ranking_descriptions, build_aggregate_ranking_dataframe, assemble_aggregate_ranking_dataframe
 from forms import SelectRankingsNamesAndYear
@@ -15,6 +19,31 @@ from forms import SelectRankingsNamesAndYear
 START_AGGREGATE_YEAR = getattr(settings, 'START_AGGREGATE_YEAR', 2014)
 FINISH_AGGREGATE_YEAR = getattr(settings, 'FINISH_AGGREGATE_YEAR', datetime.date.today().year)
 
+
+class Record(object):
+    def __init__(self, name):
+        self.name = name
+
+
+class RecordSerializer(serializers.Serializer):
+    name = serializers.CharField(max_length=128)
+
+
+def record_rest(request):
+    print 'Entry in record_rest'
+    record = Record('MIT')
+    print 'record_rest, record: ', record
+    serializer = RecordSerializer(record)
+    print 'record_rest, serializer.data: ', serializer.data
+    json = JSONRenderer().render(serializer.data)
+    print 'record_rest, json: ', json
+    return HttpResponse(json)
+
+class ListAPIView(APIView):
+
+    def get(self, request, *args, **kw):
+        response = Response(['a', 'b', 'c'], status=status.HTTP_200_OK)
+        return response
 
 def make_show_ranktable(selected_rankings_names, aggregate_ranking_dataframe):
     ranktable = list()
