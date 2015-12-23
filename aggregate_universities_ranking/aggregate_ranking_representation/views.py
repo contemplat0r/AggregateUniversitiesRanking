@@ -96,3 +96,41 @@ def aggregate_universities_ranking_as_table(request):
     context.update(csrf(request))
 
     return render(request, 'aggregate_ranking_representation/table.html', context)
+
+
+class RankingTableAPIView(APIView):
+
+    def get(self, request, *args, **kw):
+        #response = Response(['a', 'b', 'c'], status=status.HTTP_200_OK)
+        short_rankings_names = [ranking_name.short_name for ranking_name in RankingDescription.objects.all()]
+        short_rankings_names_choice_set = tuple([(short_name, short_name) for short_name in short_rankings_names])
+        year_choice_set = tuple([(year, year) for year in range(FINISH_AGGREGATE_YEAR, START_AGGREGATE_YEAR - 1, -1)])
+
+        #select_rankings_names_form = SelectRankingsNamesAndYear()
+        #assign_choices_values(select_rankings_names_form, short_rankings_names_choice_set, year_choice_set)
+
+        selected_rankings_names = short_rankings_names
+        selected_year = 2015
+       
+        '''
+        if request.method == 'POST':
+            select_rankings_names_form = SelectRankingsNamesAndYear(request.POST)
+            assign_choices_values(select_rankings_names_form, short_rankings_names_choice_set, year_choice_set)
+            if select_rankings_names_form.is_valid():
+                selected_rankings_names = select_rankings_names_form.cleaned_data.get('select_rankings_names_field')
+                selected_year = select_rankings_names_form.cleaned_data.get('select_year_field')
+        '''
+        ranking_names_list = short_rankings_names
+        #if selected_rankings_names != []:
+        #    ranking_names_list = selected_rankings_names
+        aggregate_ranking_dataframe = assemble_aggregate_ranking_dataframe(ranking_names_list, int(selected_year))
+        
+        selected_ranking_names = [ranking_name for ranking_name in ranking_names_list if ranking_name in ranking_descriptions.keys()]
+        ranktable = make_show_ranktable(selected_ranking_names, aggregate_ranking_dataframe)
+
+        #context = {'select_rankings_names_form' : select_rankings_names_form, 'selected_rankings_names' : selected_rankings_names, 'ranktable' : ranktable}
+        #context.update(csrf(request))
+        response = Response(ranktable, status=status.HTTP_200_OK)
+
+        return response
+
