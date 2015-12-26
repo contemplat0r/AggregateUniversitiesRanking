@@ -1,4 +1,6 @@
-<html>
+<!doctype html>
+<html ng-app="rankingApp">
+    <!--<html ng-app>-->
     {% load staticfiles %}
     <head>
         <link href="{% static "bootstrap/css/bootstrap.min.css" %}" rel="stylesheet">
@@ -12,12 +14,13 @@
         <script src="{% static "bower_components/angular-animate/angular-animate.js" %}"></script>
         <script src="{% static "bower_components/angular-route/angular-route.js" %}"></script>
         <script src="{% static "bower_components/angular-resource/angular-resource.js" %}"></script>
-        <!--<script src="{% static "js/app.js" %}"></script>
-        <script src="{% static "js/animations.js" %}"></script>
+        <!--<script src="{% static "js/app.js" %}"></script>-->
+        <!--<script src="{% static "js/animations.js" %}"></script>-->
         <script src="{% static "js/controllers.js" %}"></script>
-        <script src="{% static "js/filters.js" %}"></script>
+        <!--<script src="{% static "js/filters.js" %}"></script>
         <script src="{% static "js/services.js" %}"></script>-->
     </head>
+    <!--<body ng-container="RankingListCtrl">-->
     <body>
         <strong>Aggregated ranking table </strong>
         <!--<form action="table" method="post" class=="form-inline">-->
@@ -66,8 +69,26 @@
         <strong> No data for this year </strong>
         {% endif %}
 
-        <div class="view-container">
-            <div ng-view class="view-frame"></div>
+        {% verbatim %}
+        <div ng-controller="RankingListCtrl">
+        <!--<div>-->
+            <p> Nothing here {{'yet' + ' !'}} </p>
+            <p> 1 + 2 = {{1 + 2}} </p>
+            <!--<div class="view-container">
+                <div ng-view class="view-frame"></div>
+                </div>-->
+            <!--<ul>
+                <li ng-repeat="rank in rankinglist">
+                    <span> {{rank.name}} </span>
+                </li>
+                </ul>-->
+            <p> Hello, {{name}}! </p>
+            <ul>
+                <li ng-repeat="i in [0, 1, 2, 3, 4]">
+                    <span> {{i}} </span>
+                </li>
+            </ul>
         </div>
+        {% endverbatim %}
     </body>
 </html>
