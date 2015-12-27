@@ -4,6 +4,7 @@
 
 var rankingApp = angular.module('rankingApp', []);
 
+
 rankingApp.controller('RankingListCtrl', function($scope, $http) {
     $scope.name = 'World';
     $scope.rankinglist = [
@@ -15,3 +16,11 @@ rankingApp.controller('RankingListCtrl', function($scope, $http) {
     });
 });
 
+
+rankingApp.controller('RankingCheckController', function($scope) {
+    $scope.rankingchecklist  = [
+        {name : 'QS', value : false},
+        {name : 'THE', value : true}
+    ];
+
+});

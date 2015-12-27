@@ -70,6 +70,13 @@
         {% endif %}
 
         {% verbatim %}
+        <ul>
+        <form name="rankingCheckList" ng-controller='RankingCheckController'>
+            <li ng-repeat="checkrecord in rankingchecklist">
+                <input type="checkbox" ng-model="checkrecord.value">{{checkrecord.name}}</input>
+            </li>
+        </ul>
+        </form>
         <div ng-controller="RankingListCtrl">
         <!--<div>-->
             <p> Nothing here {{'yet' + ' !'}} </p>
