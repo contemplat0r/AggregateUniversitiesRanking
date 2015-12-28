@@ -28,7 +28,8 @@ rankingApp.controller('RankingCheckController', function($scope, $http) {
         console.log('Entry in sendselected');
         var selectednames = [];
         console.log('Sendselected: selectednames array declared');
-        for (var record in rankingchecklist) {
+        /*for (var record in rankingchecklist) {
+            console.log('Sendselected, record.name: ' + record.name);
         //for (var record in $scope.rankingchecklist) {
             //if (record.value === true) {
             //    selectednames.push(record.name);
@@ -37,7 +38,12 @@ rankingApp.controller('RankingCheckController', function($scope, $http) {
                 console.log('Sendselected, value == true, for name: ' + record['name']);
                 selectednames.push(record['name']);
             }
-        }
+        }*/
+        rankingchecklist.forEach(function(item, i, rankingchecklist) {
+            if (item['value'] == true) {
+                selectednames.push(item['name']);
+            }
+        });
         console.log('Sendselected, selectednames: ' + selectednames.join(' '));
         $http({
             method : 'POST',

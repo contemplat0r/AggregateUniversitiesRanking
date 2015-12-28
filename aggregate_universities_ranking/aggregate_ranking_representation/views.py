@@ -135,7 +135,8 @@ class RankingTableAPIView(APIView):
         return response
     
     def post(self, request, format=None):
-        print request
+        print dir(request)
+        print request.data
         #data = request.DATA
         #print 'POST data: ', data
         #return Response({'a' :, 'b' : 2}, status=status.HTTP_200_OK)
