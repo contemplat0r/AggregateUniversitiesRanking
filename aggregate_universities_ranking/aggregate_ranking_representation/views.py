@@ -133,4 +133,11 @@ class RankingTableAPIView(APIView):
         response = Response(ranktable, status=status.HTTP_200_OK)
 
         return response
+    
+    def post(self, request, format=None):
+        print request
+        #data = request.DATA
+        #print 'POST data: ', data
+        #return Response({'a' :, 'b' : 2}, status=status.HTTP_200_OK)
+        return Response('', status=status.HTTP_200_OK)
 

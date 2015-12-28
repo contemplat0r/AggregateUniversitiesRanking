@@ -70,12 +70,16 @@
         {% endif %}
 
         {% verbatim %}
-        <ul>
         <form name="rankingCheckList" ng-controller='RankingCheckController'>
-            <li ng-repeat="checkrecord in rankingchecklist">
-                <input type="checkbox" ng-model="checkrecord.value">{{checkrecord.name}}</input>
-            </li>
-        </ul>
+            <ul>
+                <li ng-repeat="checkrecord in rankingchecklist">
+                    <input type="checkbox" ng-model="checkrecord.value">{{checkrecord.name}}</input>
+                </li>
+            </ul>
+            <button type="submit" ng-click="sendselected(rankingchecklist)" class="btn btn-danger btn-lg">Send</button>
+            <!--<button type="submit" ng-click="sendselected()" class="btn btn-danger btn-lg">Send</button>-->
+            <!--<input type="submit" ng-click="sendselected(rankingchecklist)" class="btn btn-danger btn-lg">Send</input>-->
+            <!--<input type="submit" ng-click="sendselected()" class="btn btn-danger btn-lg">Send</input>-->
         </form>
         <div ng-controller="RankingListCtrl">
         <!--<div>-->
