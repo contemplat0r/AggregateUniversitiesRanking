@@ -70,18 +70,17 @@
         {% endif %}
 
         {% verbatim %}
-        <form name="rankingCheckList" ng-controller='RankingCheckController'>
-            <ul>
-                <li ng-repeat="checkrecord in rankingchecklist">
-                    <input type="checkbox" ng-model="checkrecord.value">{{checkrecord.name}}</input>
-                </li>
-            </ul>
-            <button type="submit" ng-click="sendselected(rankingchecklist)" class="btn btn-danger btn-lg">Send</button>
-            <!--<button type="submit" ng-click="sendselected()" class="btn btn-danger btn-lg">Send</button>-->
-            <!--<input type="submit" ng-click="sendselected(rankingchecklist)" class="btn btn-danger btn-lg">Send</input>-->
-            <!--<input type="submit" ng-click="sendselected()" class="btn btn-danger btn-lg">Send</input>-->
-        </form>
-        <div ng-controller="RankingListCtrl">
+        <div ng-controller="RankingTableCtrl">
+            <form name="rankingCheckList" ng-controller='RankingCheckController'>
+                <ul>
+                    <li ng-repeat="checkrecord in rankingchecklist">
+                        <input type="checkbox" ng-model="checkrecord.value">{{checkrecord.name}}</input>
+                    </li>
+                </ul>
+                <label for="yearSelect" id="yearSelect">Select year: </label>
+                <select name="yearSelect" id="yearSelect" ng-options="year.value for year in yearsselect.availableYears track by year.id" ng-model="yearsselect.selectedYear"></select>
+                <button type="submit" ng-click="sendselected()" class="btn btn-danger btn-lg">Send</button>
+            </form>
         <!--<div>-->
             <p> Nothing here {{'yet' + ' !'}} </p>
             <p> 1 + 2 = {{1 + 2}} </p>
