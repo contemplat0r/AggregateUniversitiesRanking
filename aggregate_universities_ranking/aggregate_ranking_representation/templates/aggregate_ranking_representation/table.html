@@ -81,24 +81,25 @@
                 <select name="yearSelect" id="yearSelect" ng-options="year.value for year in yearsselect.availableYears track by year.id" ng-model="yearsselect.selectedYear"></select>
                 <button type="submit" ng-click="sendselected()" class="btn btn-danger btn-lg">Send</button>
             </form>
-        <!--<div>-->
-            <p> Nothing here {{'yet' + ' !'}} </p>
-            <p> 1 + 2 = {{1 + 2}} </p>
-            <!--<div class="view-container">
-                <div ng-view class="view-frame"></div>
-                </div>-->
-            <ul>
-                <li ng-repeat="rank in rankinglist">
-                    <span> {{rank.name}} </span>
-                </li>
-            </ul>
             <strong> {{ table }} </strong>
-            <p> Hello, {{name}}! </p>
-            <ul>
-                <li ng-repeat="i in [0, 1, 2, 3, 4]">
-                    <span> {{i}} </span>
-                </li>
-            </ul>
+            <table class="table table-striped table-condensed table-hover">
+                <thead>
+                    <tr>
+                        <td ng-repeat="header in rankingTable.headers">
+                            {{ header }}
+                        </td>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!--<tr ng-repeat="record in rankingTable.records track by $index">-->
+                    <tr ng-repeat="record in rankingTable.records">
+                        <td ng-repeat="item in record track by $index">
+                            {{ item }}
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
         </div>
         {% endverbatim %}
     </body>

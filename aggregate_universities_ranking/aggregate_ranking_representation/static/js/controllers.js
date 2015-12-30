@@ -6,17 +6,15 @@ var rankingApp = angular.module('rankingApp', []);
 
 
 rankingApp.controller('RankingTableCtrl', function($scope, $http) {
-    $scope.name = 'World';
-    $scope.rankinglist = [
-        {'name' : 'QS'},
-        {'name' : 'THE'}
-    ];
-    /*$http.get('api/table?format=json').success(function(data) {
-        $scope.table = data;
-    });*/
+    $scope.rankingTable = {headers : [], records : []};
+    var prepareResponseDataToShow = function(responseData, scope) {
+        console.log('Entry in prepareResponseDataToShow');
+        var rankingTable = responseData['ranktable'];
+        scope.rankingTable['headers'] = rankingTable[0];
+        scope.rankingTable['records'] = rankingTable.slice(1);
+    };
     $scope.requestData =  {selectedRankingNames : null, selectedYear : null}
     $scope.retrieveTableData = function(requestData) {
-        //var requestData = {selectedRankingNames : selectednames, selectedYear : $scope.yearsselect.selectedYear.value}
         console.log('retrieveTableData: $scope.requestData.selectedRankingNames: ' + $scope.requestData.selectedRankingNames + ', $scope.requestData.selectedYear: ' + $scope.requestData.selectedYear);
         $http({
             method : 'POST',
@@ -26,14 +24,14 @@ rankingApp.controller('RankingTableCtrl', function($scope, $http) {
             function successCallback(response) {
                 console.log('retrieveTableData, success: ', response);
                 $scope.table = response.data;
-                console.log('$scope.table[0]: ' + $scope.table[0].join(' '));
+                prepareResponseDataToShow(response.data, $scope);
+                //console.log('$scope.table[0]: ' + $scope.table[0].join(' '));
             },
             function errorrCallback(response) {
                 console.log('retrieveTableData, error: ', response);
             }
         );
     }
-    //$scope.retrieveTableData();
     if ($scope.requestData.selectedRankingNames === null && $scope.requestData.selectedYear === null) {
         $scope.retrieveTableData($scope.requestData);
     }
@@ -51,9 +49,6 @@ rankingApp.controller('RankingCheckController', function($scope, $http) {
         {name : 'NTU', value : false}
     ];
 
-
-
-    //$scope.yearlist = [2014, 2015, 2016];
     $scope.yearsselect = {
         availableYears : [],
         selectedYear : {id : 0, value : 0}

@@ -57,6 +57,8 @@ def make_show_ranktable(selected_rankings_names, aggregate_ranking_dataframe):
             ranktable.append(record)
     return ranktable
 
+prepare_ranktable_to_response = make_show_ranktable
+
 def index(request):
     return HttpResponse('Hello, world. This is first page of aggrgated rank')
 
@@ -103,10 +105,11 @@ class RankingTableAPIView(APIView):
     def get(self, request, *args, **kw):
         short_rankings_names = [ranking_name.short_name for ranking_name in RankingDescription.objects.all()]
         short_rankings_names_choice_set = tuple([(short_name, short_name) for short_name in short_rankings_names])
-        year_choice_set = tuple([(year, year) for year in range(FINISH_AGGREGATE_YEAR, START_AGGREGATE_YEAR - 1, -1)])
+        years = range(FINISH_AGGREGATE_YEAR, START_AGGREGATE_YEAR - 1, -1)
 
         selected_rankings_names = short_rankings_names
-        selected_year = 2015
+        # selected_year = FINISH_AGGREGATE_YEAR # This is right!
+        selected_year = 2015 # This is temp!
        
         ranking_names_list = short_rankings_names
         #if selected_rankings_names != []:
@@ -115,40 +118,37 @@ class RankingTableAPIView(APIView):
         
         selected_ranking_names = [ranking_name for ranking_name in ranking_names_list if ranking_name in ranking_descriptions.keys()]
         ranktable = make_show_ranktable(selected_ranking_names, aggregate_ranking_dataframe)
-
-        #context = {'select_rankings_names_form' : select_rankings_names_form, 'selected_rankings_names' : selected_rankings_names, 'ranktable' : ranktable}
-        #context.update(csrf(request))
         response = Response(ranktable, status=status.HTTP_200_OK)
 
         return response
     
     def post(self, request, format=None):
-        print 'Entry in post method'
-        print dir(request)
-        print request.data
         request_data = request.data
-        short_rankings_names = [ranking_name.short_name for ranking_name in RankingDescription.objects.all()]
-        short_rankings_names_choice_set = tuple([(short_name, short_name) for short_name in short_rankings_names])
-        year_choice_set = tuple([(year, year) for year in range(FINISH_AGGREGATE_YEAR, START_AGGREGATE_YEAR - 1, -1)])
+        response_data = {'ranktable' : None, 'rankings_names_list' : None, 'years_list' : None }
+        short_rankings_names = [ranking_name.short_name for ranking_name in RankingDescription.objects.all()] #This is right!
+        short_rankings_names = [ranking_name for ranking_name in short_rankings_names if ranking_name in ranking_descriptions.keys()] # This is temp?
+        years = range(FINISH_AGGREGATE_YEAR, START_AGGREGATE_YEAR - 1, -1)
 
         selected_rankings_names = short_rankings_names
-        selected_year = 2015
-       
-        if request_data['selectedRankingNames'] != None and request_data['selectedYear'] != None:
-            selected_rankings_names = request_data['selectedRankingNames']
-            selected_year = request_data['selectedYear']
-            print 'request data is defined'
-        else:
-            print 'request data is undefined'
-        ranking_names_list = short_rankings_names
-        if selected_rankings_names != []:
-            ranking_names_list = selected_rankings_names
-        aggregate_ranking_dataframe = assemble_aggregate_ranking_dataframe(ranking_names_list, int(selected_year))
-        
-        selected_ranking_names = [ranking_name for ranking_name in ranking_names_list if ranking_name in ranking_descriptions.keys()]
-        ranktable = make_show_ranktable(selected_ranking_names, aggregate_ranking_dataframe)
 
-        response = Response(ranktable, status=status.HTTP_200_OK)
+        # selected_year = FINISH_AGGREGATE_YEAR # This is right!
+        selected_year = 2015 # This is temp!
+
+        if request_data['selectedRankingNames'] != None:
+            selected_rankings_names = request_data['selectedRankingNames']
+            selected_rankings_names = [ranking_name for ranking_name in selected_rankings_names if ranking_name in ranking_descriptions.keys()] # This is temp!
+            if request_data['selectedYear'] != None:
+                selected_year = request_data['selectedYear']
+        else:
+            response_data['rankings_names_list'] = short_rankings_names
+            response_data['years_list'] = years
+            if request_data['selectedYear'] != None:
+                selected_year = request_data['selectedYear']
+        aggregate_ranking_dataframe = assemble_aggregate_ranking_dataframe(selected_rankings_names, int(selected_year))
+        ranktable = prepare_ranktable_to_response(selected_rankings_names, aggregate_ranking_dataframe)
+        response_data['ranktable'] = ranktable
+        #response = Response(ranktable, status=status.HTTP_200_OK)
+        response = Response(response_data, status=status.HTTP_200_OK)
 
         return response
 
