@@ -78,7 +78,7 @@
                     </li>
                 </ul>
                 <label for="yearSelect" id="yearSelect">Select year: </label>
-                <select name="yearSelect" id="yearSelect" ng-options="year.value for year in yearsselect.availableYears track by year.id" ng-model="yearsselect.selectedYear"></select>
+                <select name="yearSelect" id="yearSelect" ng-options="year.value for year in yearselect.availableYears track by year.id" ng-model="yearselect.selectedYear"></select>
                 <button type="submit" ng-click="sendselected()" class="btn btn-danger btn-lg">Send</button>
             </form>
             <strong> {{ table }} </strong>
