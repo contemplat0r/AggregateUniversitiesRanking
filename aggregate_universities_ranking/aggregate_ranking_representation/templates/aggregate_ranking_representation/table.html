@@ -3,13 +3,13 @@
     <!--<html ng-app>-->
     {% load staticfiles %}
     <head>
+        <script src="{% static "bootstrap/js/bootstrap.min.js" %}"></script>
         <link href="{% static "bootstrap/css/bootstrap.min.css" %}" rel="stylesheet">
         <link href="{% static "bootstrap/css/bootstrap-theme.min.css" %}" rel="stylesheet">
-        <script src="{% static "bootstrap/js/bootstrap.min.js" %}"></script>
         <style type="text/css">
            .table-hover tbody tr:hover td { background: aqua; } 
         </style>
-        <script src="{% static "bower_components/jquery/dist/jquery.js" %}"></script>
+        <!--<script src="{% static "bower_components/jquery/dist/jquery.js" %}"></script>-->
         <script src="{% static "bower_components/angular/angular.js" %}"></script>
         <script src="{% static "bower_components/angular-animate/angular-animate.js" %}"></script>
         <script src="{% static "bower_components/angular-route/angular-route.js" %}"></script>
@@ -79,6 +79,10 @@
                 </ul>
                 <label for="yearSelect" id="yearSelect">Select year: </label>
                 <select name="yearSelect" id="yearSelect" ng-options="year.value for year in yearselect.availableYears track by year.id" ng-model="yearselect.selectedYear"></select>
+
+                <label for="recordsPerPageSelect" id="recordsPerPageSelect">Table records per page : </label>
+                <select name="recordsPerPageSelect" id="recordsPerPageSelect" ng-options="pageSize.value for pageSize in recordsPerPageSelection.availableSizes track by pageSize.id" ng-model="recordsPerPageSelection.selectedSize"></select>
+
                 <button type="submit" ng-click="sendselected()" class="btn btn-danger btn-lg">Send</button>
             </form>
             <strong> {{ table }} </strong>
@@ -98,8 +102,20 @@
                         </td>
                     </tr>
                 </tbody>
+                <tfoot>
+                    <tr>
+                        <td colspan="tableWidth">
+                            <div>
+                                <ul class="pagination">
+                                    <li ng-repeat="pageNum in paginationParameters.pagesNumberArray" ng-class="{active: i == paginationParameters.currentPageNum}" ng-click="goToPage(pageNum)">
+                                        <a href="#">{{ pageNum }}</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </td>
+                    </tr>
+                </tfoot>
             </table>
-
         </div>
         {% endverbatim %}
     </body>
