@@ -141,18 +141,27 @@ class RankingTableAPIView(APIView):
         # selected_year = FINISH_AGGREGATE_YEAR # This is right!
         selected_year = 2015 # This is temp!
 
-        if request_data['selectedRankingNames'] != None:
+        if (request_data['selectedRankingNames'] != None) and (request_data['selectedRankingNames'] != []):
+            print 'selectedRankingNames not None and not []'
             selected_rankings_names = request_data['selectedRankingNames']
+            print 'selected_rankings_names: ', selected_rankings_names
             selected_rankings_names = [ranking_name for ranking_name in selected_rankings_names if ranking_name in ranking_descriptions.keys()] # This is temp!
             if request_data['selectedYear'] != None:
                 selected_year = request_data['selectedYear']
         else:
+            print 'selectedRankingNames is None'
             response_data['rankings_names_list'] = short_rankings_names
             response_data['years_list'] = years
             if request_data['selectedYear'] != None:
                 selected_year = request_data['selectedYear']
         response_data['recordsPerPage']  = records_per_page
         response_data['currentPageNum'] = current_page_num
+        print 'response_data[\'currentPageNum\']: ', response_data['currentPageNum']
+        print 'selected_year: ', selected_year
+
+        ## This is temp!!!
+        if selected_year > 2015:
+            selected_year = 2015
         aggregate_ranking_dataframe = assemble_aggregate_ranking_dataframe(selected_rankings_names, int(selected_year))
         aggregate_ranking_dataframe_len = aggregate_ranking_dataframe.count()[0]
         print 'aggregate_ranking_dataframe_len: ', aggregate_ranking_dataframe_len

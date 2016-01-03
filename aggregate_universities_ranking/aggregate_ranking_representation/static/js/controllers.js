@@ -116,20 +116,26 @@ rankingApp.controller('RankingTableCtrl', function($scope, $http) {
         console.log('$scope.yearselect.selectedYear.value: ' + $scope.yearselect.selectedYear.value);
         if ((pageNum != $scope.paginationParameters.currentPageNum) && (pageNum >= $scope.paginationParameters.minPageNum) && (pageNum <= $scope.paginationParameters.totalPages)) {
             // send request
-            /*var rankingchecklist = $scope.rankingchecklist;
+            var rankingchecklist = $scope.rankingchecklist;
             var selectednames = [];
             console.log('Sendselected: selectednames array declared');
 
             rankingchecklist.forEach(function(item, i, rankingchecklist) {
                 if (item.value === true) {
                     selectednames.push(item.name);
+                    console.log('Ranking name ' + item.name + ' checked');
                 }
-            });*/
+                else {
+                    console.log('Ranking name ' + item.name + ' not checked');
+                }
+            });
 
-            //$scope.requestData = {selectedRankingNames : selectednames, selectedYear : $scope.yearselect.selectedYear.value, currentPageNum : $scope.paginationParameters.currentPageNum, recordsPerPage : $scope.paginationParameters.recordsPerPageSelection.selectedSize.value};
+            console.log('selectednames: ' + selectednames.join(' '));
+
+            $scope.requestData = {selectedRankingNames : selectednames, selectedYear : $scope.yearselect.selectedYear.value, currentPageNum : $scope.paginationParameters.currentPageNum, recordsPerPage : $scope.paginationParameters.recordsPerPageSelection.selectedSize.value};
             console.log('request will be sended');
 
-            //$scope.retrieveTableData($scope.requestData);
+            $scope.retrieveTableData($scope.requestData);
             $scope.paginationParameters.currentPageNum = pageNum;
         }
         else {
