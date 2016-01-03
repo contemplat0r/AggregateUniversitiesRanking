@@ -124,9 +124,14 @@ class RankingTableAPIView(APIView):
     
     def post(self, request, format=None):
         request_data = request.data
-        response_data = {'ranktable' : None, 'rankings_names_list' : None, 'years_list' : None, 'paginationParameters' : {'recordsPerPageSelectionList' : [5, 10, 20, 50, 100, 200], 'currentPageNum' : 1, 'totalTableRecords' : 1000, 'totalPages' : 0, 'prevPage' : None, 'nextPage' : None}}
-        current_page_num = 1
-        records_per_page = 5
+        print 'recordsPerPage: ', request_data.get('recordsPerPage')
+        response_data = {'ranktable' : None, 'rankings_names_list' : None, 'years_list' : None, 'paginationParameters' : {'recordsPerPageSelectionList' : [5, 10, 20, 50, 100, 200], 'currentPageNum' : 1, 'totalTableRecords' : 1000, 'totalPages' : 0}}
+        current_page_num = request_data.get('currentPageNum')
+        if current_page_num is None:
+            current_page_num = 1
+        records_per_page = request_data.get('recordsPerPage')
+        if records_per_page is None:
+            records_per_page = response_data['paginationParameters']['recordsPerPageSelectionList'][0]
         short_rankings_names = [ranking_name.short_name for ranking_name in RankingDescription.objects.all()] #This is right!
         short_rankings_names = [ranking_name for ranking_name in short_rankings_names if ranking_name in ranking_descriptions.keys()] # This is temp?
         years = range(FINISH_AGGREGATE_YEAR, START_AGGREGATE_YEAR - 1, -1)
@@ -146,9 +151,19 @@ class RankingTableAPIView(APIView):
             response_data['years_list'] = years
             if request_data['selectedYear'] != None:
                 selected_year = request_data['selectedYear']
+        response_data['recordsPerPage']  = records_per_page
+        response_data['currentPageNum'] = current_page_num
         aggregate_ranking_dataframe = assemble_aggregate_ranking_dataframe(selected_rankings_names, int(selected_year))
+        aggregate_ranking_dataframe_len = aggregate_ranking_dataframe.count()[0]
+        print 'aggregate_ranking_dataframe_len: ', aggregate_ranking_dataframe_len
+        last_page_record_num = current_page_num * records_per_page
+        first_page_record_num = last_page_record_num - records_per_page
+        if last_page_record_num > aggregate_ranking_dataframe_len:
+            last_page_record_num = aggregate_ranking_dataframe_len
+        #ranktable = prepare_ranktable_to_response(selected_rankings_names, aggregate_ranking_dataframe[first_page_record_num:last_page_record_num])
         ranktable = prepare_ranktable_to_response(selected_rankings_names, aggregate_ranking_dataframe)
-        total_records = len(ranktable) - 1
+        #total_records = len(ranktable) - 1
+        total_records = aggregate_ranking_dataframe_len
         total_pages = total_records / records_per_page 
         if total_records % records_per_page > 0:
             total_pages = total_pages + 1

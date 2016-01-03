@@ -81,7 +81,7 @@
                 <select name="yearSelect" id="yearSelect" ng-options="year.value for year in yearselect.availableYears track by year.id" ng-model="yearselect.selectedYear"></select>
 
                 <label for="recordsPerPageSelect" id="recordsPerPageSelect">Table records per page : </label>
-                <select name="recordsPerPageSelect" id="recordsPerPageSelect" ng-options="pageSize.value for pageSize in recordsPerPageSelection.availableSizes track by pageSize.id" ng-model="recordsPerPageSelection.selectedSize"></select>
+                <select name="recordsPerPageSelect" id="recordsPerPageSelect" ng-options="pageSize.value for pageSize in paginationParameters.recordsPerPageSelection.availableSizes track by pageSize.id" ng-model="paginationParameters.recordsPerPageSelection.selectedSize"></select>
 
                 <button type="submit" ng-click="sendselected()" class="btn btn-danger btn-lg">Send</button>
             </form>
@@ -107,8 +107,20 @@
                         <td colspan="tableWidth">
                             <div>
                                 <ul class="pagination">
-                                    <li ng-repeat="pageNum in paginationParameters.pagesNumberArray" ng-class="{active: i == paginationParameters.currentPageNum}" ng-click="goToPage(pageNum)">
-                                        <a href="#">{{ pageNum }}</a>
+                                    <li ng-class="prevPageDisabled()">
+                                        <a href ng-click="goToPrevPage()">&laquo;</a>
+                                    </li>
+                                    <li ng-class="firstPageDisabled()">
+                                        <a href ng-click="goToFirstPage()">First</a>
+                                    </li>
+                                    <li ng-repeat="pageNum in paginationParameters.pagesNumberArray" ng-class="{active: pageNum == paginationParameters.currentPageNum}" ng-click="goToPage(pageNum)">
+                                        <a href="">{{ pageNum }}</a>
+                                    </li>
+                                    <li ng-class="lastPageDisabled()">
+                                        <a href ng-click="goToLastPage()">Last</a>
+                                    </li>
+                                    <li ng-class="nextPageDisabled()">
+                                        <a href ng-click="goToNextPage()">&raquo;</a>
                                     </li>
                                 </ul>
                             </div>

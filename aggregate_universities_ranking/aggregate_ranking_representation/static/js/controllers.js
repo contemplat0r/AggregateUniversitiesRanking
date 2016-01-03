@@ -58,15 +58,15 @@ rankingApp.controller('RankingTableCtrl', function($scope, $http) {
                 console.log('recordsPerPageSelection not in scope.paginationParameters');
                 var recordsPerPageSelectionList = responseData.paginationParameters.recordsPerPageSelectionList;
                 recordsPerPageSelectionList.sort(function(a, b){ return a - b;});
-                scope.recordsPerPageSelection = {
+                scope.paginationParameters.recordsPerPageSelection = {
                     availableSizes : [],
                     selectedSize : {id : 0, value : recordsPerPageSelectionList[0]}
                 };
                 recordsPerPageSelectionList.forEach(function(size, i, recordsPerPageSelectionList) {
-                    scope.recordsPerPageSelection.availableSizes.push({id : i, value : size});
+                    scope.paginationParameters.recordsPerPageSelection.availableSizes.push({id : i, value : size});
                 });
 
-                console.log('scope.recordsPerPageSelection.recordsPerPageSelection.availableSizes: ' + scope.recordsPerPageSelection.availableSizes.join(' '));
+                console.log('scope.paginationParameters.recordsPerPageSelection.availableSizes: ' + scope.paginationParameters.recordsPerPageSelection.availableSizes.join(' '));
             }
             else {
                 console.log('recordsPerPageSelection already in scope.paginationParameters');
@@ -74,6 +74,7 @@ rankingApp.controller('RankingTableCtrl', function($scope, $http) {
             scope.paginationParameters.currentPageNum = responseData.paginationParameters.currentPageNum;
             scope.paginationParameters.totalTableRecords = responseData.paginationParameters.totalTableRecords;
             scope.paginationParameters.totalPages = responseData.paginationParameters.totalPages;
+            scope.paginationParameters.minPageNum = 1;
             console.log('scope.paginationParameters.totalPages: ' + scope.paginationParameters.totalPages);
             var pagesNumberArray = [];
             for (var i = 1; i <= scope.paginationParameters.totalPages; i++) {
@@ -81,15 +82,13 @@ rankingApp.controller('RankingTableCtrl', function($scope, $http) {
             }
             scope.paginationParameters.pagesNumberArray = pagesNumberArray;
             console.log('pagesNumberArray: ' + scope.paginationParameters.pagesNumberArray.join(' '));
-            scope.paginationParameters.prevPage = responseData.paginationParameters.prevPage;
-            scope.paginationParameters.nextPage = responseData.paginationParameters.nextPage;
         }
         else {
             console.log('paginationParameters are\'nt in responseData');
         }
     };
 
-    $scope.requestData =  {selectedRankingNames : null, selectedYear : null}
+    $scope.requestData =  {selectedRankingNames : null, selectedYear : null, currentPage : null, recordsPerPage : null}
     $scope.retrieveTableData = function(requestData) {
         console.log('retrieveTableData: $scope.requestData.selectedRankingNames: ' + $scope.requestData.selectedRankingNames + ', $scope.requestData.selectedYear: ' + $scope.requestData.selectedYear);
 
@@ -108,11 +107,71 @@ rankingApp.controller('RankingTableCtrl', function($scope, $http) {
                 console.log('retrieveTableData, error: ', response);
             }
         );
-    }
+    };
 
     $scope.goToPage = function(pageNum) {
         console.log('pageNum: ' + pageNum);
+        console.log('$scope.paginationParameters.totalTableRecords: ' + $scope.paginationParameters.totalTableRecords);
+        console.log('$scope.paginationParameters.recordsPerPageSelection.selectedSize.value: ' + $scope.paginationParameters.recordsPerPageSelection.selectedSize.value);
+        console.log('$scope.yearselect.selectedYear.value: ' + $scope.yearselect.selectedYear.value);
+        if ((pageNum != $scope.paginationParameters.currentPageNum) && (pageNum >= $scope.paginationParameters.minPageNum) && (pageNum <= $scope.paginationParameters.totalPages)) {
+            // send request
+            /*var rankingchecklist = $scope.rankingchecklist;
+            var selectednames = [];
+            console.log('Sendselected: selectednames array declared');
+
+            rankingchecklist.forEach(function(item, i, rankingchecklist) {
+                if (item.value === true) {
+                    selectednames.push(item.name);
+                }
+            });*/
+
+            //$scope.requestData = {selectedRankingNames : selectednames, selectedYear : $scope.yearselect.selectedYear.value, currentPageNum : $scope.paginationParameters.currentPageNum, recordsPerPage : $scope.paginationParameters.recordsPerPageSelection.selectedSize.value};
+            console.log('request will be sended');
+
+            //$scope.retrieveTableData($scope.requestData);
+            $scope.paginationParameters.currentPageNum = pageNum;
+        }
+        else {
+            console.log('pageNum not allowed, request not will sended');
+        }
+
+        console.log('$scope.paginationParameters.currentPageNum: ' + $scope.paginationParameters.currentPageNum);
     };
+
+    $scope.goToNextPage = function() {
+        console.log('Entry in goToNextPage');
+        $scope.goToPage($scope.paginationParameters.currentPageNum + 1);
+    };
+
+    $scope.goToPrevPage = function() {
+        console.log('Entry in goToPrevPage');
+        $scope.goToPage($scope.paginationParameters.currentPageNum - 1);
+    };
+
+    $scope.goToFirstPage = function() {
+        $scope.goToPage($scope.paginationParameters.minPageNum);
+    };
+
+    $scope.goToLastPage = function() {
+        $scope.goToPage($scope.paginationParameters.totalPages);
+    };
+
+    $scope.nextPageDisabled = function() {
+        return $scope.paginationParameters.currentPageNum === $scope.paginationParameters.totalPages ? 'disabled' : '';
+    };
+
+    $scope.prevPageDisabled = function() {
+        return $scope.paginationParameters.currentPageNum === $scope.paginationParameters.minPageNum ? 'disabled' : '';
+    };
+
+    $scope.firstPageDisabled = function() {
+        return $scope.paginationParameters.currentPageNum === $scope.paginationParameters.minPageNum ? 'disabled' : '';
+    }
+
+    $scope.lastPageDisabled = function() {
+        return $scope.paginationParameters.currentPageNum === $scope.paginationParameters.totalPages ? 'disabled' : '';
+    }
 
     if ($scope.requestData.selectedRankingNames === null && $scope.requestData.selectedYear === null) {
         $scope.retrieveTableData($scope.requestData);
@@ -135,7 +194,7 @@ rankingApp.controller('RankingCheckController', function($scope, $http) {
         });
         console.log('Sendselected, selectednames: ' + selectednames.join(' '));
 
-        $scope.requestData = {selectedRankingNames : selectednames, selectedYear : $scope.yearselect.selectedYear.value}
+        $scope.requestData = {selectedRankingNames : selectednames, selectedYear : $scope.yearselect.selectedYear.value, currentPageNum : $scope.paginationParameters.currentPageNum, recordsPerPage : $scope.paginationParameters.recordsPerPageSelection.selectedSize.value}
         console.log('$scope.requestData.selectedRankingNames: ' + $scope.requestData.selectedRankingNames + ', $scope.requestData.selectedYear: ' + $scope.requestData.selectedYear);
         $scope.retrieveTableData($scope.requestData);
     };
