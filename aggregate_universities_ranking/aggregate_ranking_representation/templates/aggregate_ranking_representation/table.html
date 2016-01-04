@@ -23,51 +23,13 @@
     <!--<body ng-container="RankingListCtrl">-->
     <body>
         <strong>Aggregated ranking table </strong>
-        <!--<form action="table" method="post" class=="form-inline">-->
-         <form action="table" method="post" class==".form-horizontal">
-             <div class=".control-group">
-                {% csrf_token %}
-                {{ select_rankings_names_form }}
-                <input type="submit" value="Select">
-             </div>
-        </form>
        
-        <ul>
-            {% for short_name in selected_rankings_names %}
-            <li> {{ short_name }} </li>
-            {% endfor %}
-        </ul>
         <br>
-        {% if ranktable %}
-            <!--<table cellspacing="2" border="1" cellpadding="5">-->
-            <!--<table class="table table-striped">-->
-            <!--<table class="table table-bordered">-->
-            <!--<table class="table table-hover">-->
-            <table class="table table-striped table-condensed table-hover">
-                <thead>
-                    <tr>
-                    {% for item in ranktable.0 %}
-                        <td>
-                        {{ item }}
-                        </td>
-                    {% endfor %}
-                    </tr>
-                </thead>
-                <tbody>
-                {% for record in ranktable|slice:"1:" %}
-                    <tr>
-                    {% for item in record %}
-                        <td>
-                        {{ item }}
-                        </td>
-                    {% endfor %}
-                    </tr>
-                {% endfor %}
-                </tbody>
-            </table>
-        {% else %}
-        <strong> No data for this year </strong>
-        {% endif %}
+        <!--<table cellspacing="2" border="1" cellpadding="5">-->
+        <!--<table class="table table-striped">-->
+        <!--<table class="table table-bordered">-->
+        <!--<table class="table table-hover">-->
+        <!--<strong> No data for this year </strong>-->
 
         {% verbatim %}
         <div ng-controller="RankingTableCtrl">
@@ -85,7 +47,6 @@
 
                 <button type="submit" ng-click="sendselected()" class="btn btn-danger btn-lg">Send</button>
             </form>
-            <strong> {{ table }} </strong>
             <table class="table table-striped table-condensed table-hover">
                 <thead>
                     <tr>

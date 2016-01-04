@@ -25,25 +25,8 @@ class Record(object):
         self.name = name
 
 
-class RecordSerializer(serializers.Serializer):
-    name = serializers.CharField(max_length=128)
-
-
-def record_rest(request):
-    print 'Entry in record_rest'
-    record = Record('MIT')
-    print 'record_rest, record: ', record
-    serializer = RecordSerializer(record)
-    print 'record_rest, serializer.data: ', serializer.data
-    json = JSONRenderer().render(serializer.data)
-    print 'record_rest, json: ', json
-    return HttpResponse(json)
-
-class ListAPIView(APIView):
-
-    def get(self, request, *args, **kw):
-        response = Response(['a', 'b', 'c'], status=status.HTTP_200_OK)
-        return response
+#class RecordSerializer(serializers.Serializer):
+#    name = serializers.CharField(max_length=128)
 
 def make_show_ranktable(selected_rankings_names, aggregate_ranking_dataframe):
     ranktable = list()
@@ -59,66 +42,20 @@ def make_show_ranktable(selected_rankings_names, aggregate_ranking_dataframe):
 
 prepare_ranktable_to_response = make_show_ranktable
 
+
 def index(request):
     return HttpResponse('Hello, world. This is first page of aggrgated rank')
 
-def assign_choices_values(select_form, short_rankings_names_choice_set, year_choice_set):
-    select_form.fields['select_rankings_names_field'].choices = short_rankings_names_choice_set
-    select_form.fields['select_year_field'].choices = year_choice_set
-    return 
 
 def aggregate_universities_ranking_as_table(request):
-    #print 'Entry in aggregate_universities_ranking_as_table'
-    short_rankings_names = [ranking_name.short_name for ranking_name in RankingDescription.objects.all()]
-    short_rankings_names_choice_set = tuple([(short_name, short_name) for short_name in short_rankings_names])
-    year_choice_set = tuple([(year, year) for year in range(FINISH_AGGREGATE_YEAR, START_AGGREGATE_YEAR - 1, -1)])
 
-    select_rankings_names_form = SelectRankingsNamesAndYear()
-    assign_choices_values(select_rankings_names_form, short_rankings_names_choice_set, year_choice_set)
-
-    selected_rankings_names = short_rankings_names
-    selected_year = FINISH_AGGREGATE_YEAR
-    
-    if request.method == 'POST':
-        select_rankings_names_form = SelectRankingsNamesAndYear(request.POST)
-        assign_choices_values(select_rankings_names_form, short_rankings_names_choice_set, year_choice_set)
-        if select_rankings_names_form.is_valid():
-            selected_rankings_names = select_rankings_names_form.cleaned_data.get('select_rankings_names_field')
-            selected_year = select_rankings_names_form.cleaned_data.get('select_year_field')
-
-    ranking_names_list = short_rankings_names
-    if selected_rankings_names != []:
-        ranking_names_list = selected_rankings_names
-    aggregate_ranking_dataframe = assemble_aggregate_ranking_dataframe(ranking_names_list, int(selected_year))
-    
-    selected_ranking_names = [ranking_name for ranking_name in ranking_names_list if ranking_name in ranking_descriptions.keys()]
-    ranktable = make_show_ranktable(selected_ranking_names, aggregate_ranking_dataframe)
-
-    context = {'select_rankings_names_form' : select_rankings_names_form, 'selected_rankings_names' : selected_rankings_names, 'ranktable' : ranktable}
-    context.update(csrf(request))
-
-    return render(request, 'aggregate_ranking_representation/table.html', context)
+    return render(request, 'aggregate_ranking_representation/table.html')
 
 
 class RankingTableAPIView(APIView):
 
     def get(self, request, *args, **kw):
-        short_rankings_names = [ranking_name.short_name for ranking_name in RankingDescription.objects.all()]
-        short_rankings_names_choice_set = tuple([(short_name, short_name) for short_name in short_rankings_names])
-        years = range(FINISH_AGGREGATE_YEAR, START_AGGREGATE_YEAR - 1, -1)
-
-        selected_rankings_names = short_rankings_names
-        # selected_year = FINISH_AGGREGATE_YEAR # This is right!
-        selected_year = 2015 # This is temp!
-       
-        ranking_names_list = short_rankings_names
-        #if selected_rankings_names != []:
-        #    ranking_names_list = selected_rankings_names
-        aggregate_ranking_dataframe = assemble_aggregate_ranking_dataframe(ranking_names_list, int(selected_year))
-        
-        selected_ranking_names = [ranking_name for ranking_name in ranking_names_list if ranking_name in ranking_descriptions.keys()]
-        ranktable = make_show_ranktable(selected_ranking_names, aggregate_ranking_dataframe)
-        response = Response(ranktable, status=status.HTTP_200_OK)
+        response = Response('', status=status.HTTP_200_OK) #Must inform about error
 
         return response
     

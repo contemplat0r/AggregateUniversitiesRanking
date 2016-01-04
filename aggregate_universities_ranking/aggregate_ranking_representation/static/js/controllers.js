@@ -28,28 +28,6 @@ rankingApp.controller('RankingTableCtrl', function($scope, $http) {
 
         console.log('check yearselect equal null');
 
-        /*if (scope.yearselect === null) {
-            console.log('yearselect === null');
-        }
-        else {
-            console.log('yearselect !== null');
-        }
-
-        console.log('check rankingchecklist equal null');
-        if (scope.rankingchecklist === null) {
-            console.log('rankingchecklist === null');
-        }
-        else {
-            console.log('rankingchecklist !== null');
-        }
-
-        if ((scope.yearselect === null) && (scope.rankingchecklist === null)) {
-            console.log('(scope.yearselect === null) && (scope.rankingchecklist === null)');
-        }
-        else {
-
-            console.log('(scope.yearselect !== null) || (scope.rankingchecklist !== null)');
-        }*/
         if ((scope.yearselect === null) && (scope.rankingchecklist === null)) {
         //if ((!('yearselect' in scope)) && (!('rankingchecklist' in scope))) {
             console.log("yearselect not in scope and rankingchecklist not in scope");
@@ -88,7 +66,6 @@ rankingApp.controller('RankingTableCtrl', function($scope, $http) {
             console.log("yearselect in scope or/and rankingchecklist in scope");
         }
 
-        console.log('updateLocalDataByResponse, just before paginationParameters processed');
         if ('paginationParameters' in responseData) {
         //if (scope.paginationParameters === {}) {
             console.log('paginationParameters are in responseData');
@@ -163,22 +140,17 @@ rankingApp.controller('RankingTableCtrl', function($scope, $http) {
             rankingchecklist.forEach(function(item, i, rankingchecklist) {
                 if (item.value === true) {
                     selectednames.push(item.name);
-                    console.log('Ranking name ' + item.name + ' checked');
                 }
                 else {
                     console.log('Ranking name ' + item.name + ' not checked');
                 }
             });
 
-            console.log('selectednames: ' + selectednames.join(' '));
-
-            //$scope.requestData = {selectedRankingNames : selectednames, selectedYear : $scope.yearselect.selectedYear.value, currentPageNum : $scope.paginationParameters.currentPageNum, recordsPerPage : $scope.paginationParameters.recordsPerPageSelection.selectedSize.value};
             $scope.requestData = {selectedRankingNames : selectednames, selectedYear : $scope.yearselect.selectedYear.value, currentPageNum : pageNum, recordsPerPage : $scope.paginationParameters.recordsPerPageSelection.selectedSize.value};
             console.log('request will be sended');
 
             $scope.retrieveTableData($scope.requestData);
             $scope.paginationParameters.currentPageNum = pageNum;
-            console.log('after call retrieveTableData and assign pageNum, $scope.paginationParameters.currentPageNum: ' + $scope.paginationParameters.currentPageNum);
         }
         else {
             console.log('pageNum not allowed, request not will sended');
@@ -229,21 +201,17 @@ rankingApp.controller('RankingTableCtrl', function($scope, $http) {
 
 rankingApp.controller('RankingCheckController', function($scope, $http) {
     $scope.sendselected = function() {
-        console.log('Entry in sendselected');
 
         var rankingchecklist = $scope.rankingchecklist;
         var selectednames = [];
-        console.log('Sendselected: selectednames array declared');
 
         rankingchecklist.forEach(function(item, i, rankingchecklist) {
             if (item.value === true) {
                 selectednames.push(item.name);
             }
         });
-        console.log('Sendselected, selectednames: ' + selectednames.join(' '));
 
         $scope.requestData = {selectedRankingNames : selectednames, selectedYear : $scope.yearselect.selectedYear.value, currentPageNum : $scope.paginationParameters.currentPageNum, recordsPerPage : $scope.paginationParameters.recordsPerPageSelection.selectedSize.value}
-        console.log('$scope.requestData.selectedRankingNames: ' + $scope.requestData.selectedRankingNames + ', $scope.requestData.selectedYear: ' + $scope.requestData.selectedYear);
         $scope.retrieveTableData($scope.requestData);
     };
 });
