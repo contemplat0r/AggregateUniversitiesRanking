@@ -8,6 +8,9 @@ var rankingApp = angular.module('rankingApp', []);
 rankingApp.controller('RankingTableCtrl', function($scope, $http) {
     $scope.rankingTable = {headers : [], records : []};
     $scope.paginationParameters = {};
+    $scope.yearselect = null;
+    $scope.rankingchecklist = null;
+    $scope.paginationParameters = {};
     var updateLocalDataByResponse = function(responseData, scope) {
         console.log('Entry in updateLocalDataByResponse');
 
@@ -16,7 +19,40 @@ rankingApp.controller('RankingTableCtrl', function($scope, $http) {
         scope.rankingTable['records'] = rankingTable.slice(1);
         scope.tableWidth = scope.rankingTable.headers.length;
 
-        if (!('yearselect' in scope) && !('rankingchecklist' in scope)) {
+        console.log('updateLocalDataByResponse: after processed rankingTable');
+        console.log('responseData.rankings_names_list: ' + responseData.rankings_names_list);
+        console.log('responseData.years_list: ' + responseData.years_list);
+        console.log('responseData.paginationParameters: ' + responseData.paginationParameters);
+        console.log('after show responseData.paginationParameters');
+        console.log('after after show responseData.paginationParameters');
+
+        console.log('check yearselect equal null');
+
+        /*if (scope.yearselect === null) {
+            console.log('yearselect === null');
+        }
+        else {
+            console.log('yearselect !== null');
+        }
+
+        console.log('check rankingchecklist equal null');
+        if (scope.rankingchecklist === null) {
+            console.log('rankingchecklist === null');
+        }
+        else {
+            console.log('rankingchecklist !== null');
+        }
+
+        if ((scope.yearselect === null) && (scope.rankingchecklist === null)) {
+            console.log('(scope.yearselect === null) && (scope.rankingchecklist === null)');
+        }
+        else {
+
+            console.log('(scope.yearselect !== null) || (scope.rankingchecklist !== null)');
+        }*/
+        if ((scope.yearselect === null) && (scope.rankingchecklist === null)) {
+        //if ((!('yearselect' in scope)) && (!('rankingchecklist' in scope))) {
+            console.log("yearselect not in scope and rankingchecklist not in scope");
             if (responseData.rankings_names_list != null) {
                 scope.rankingchecklist = [];
                 scope.rankingchecklist = responseData.rankings_names_list.map(function(rankingName) {
@@ -49,10 +85,12 @@ rankingApp.controller('RankingTableCtrl', function($scope, $http) {
         }
         else
         {
-            conslole.log("yearselect in scope or/and rankingchecklist in scope");
+            console.log("yearselect in scope or/and rankingchecklist in scope");
         }
 
+        console.log('updateLocalDataByResponse, just before paginationParameters processed');
         if ('paginationParameters' in responseData) {
+        //if (scope.paginationParameters === {}) {
             console.log('paginationParameters are in responseData');
             if (!('recordsPerPageSelection' in scope.paginationParameters)) {
                 console.log('recordsPerPageSelection not in scope.paginationParameters');
@@ -71,7 +109,9 @@ rankingApp.controller('RankingTableCtrl', function($scope, $http) {
             else {
                 console.log('recordsPerPageSelection already in scope.paginationParameters');
             }
+            console.log('in updateLocalDataByResponse, responseData.paginationParameters.currentPageNum: ' + responseData.paginationParameters.currentPageNum);
             scope.paginationParameters.currentPageNum = responseData.paginationParameters.currentPageNum;
+            console.log('in updateLocalDataByResponse, scope.paginationParameters.currentPageNum: ' + scope.paginationParameters.currentPageNum);
             scope.paginationParameters.totalTableRecords = responseData.paginationParameters.totalTableRecords;
             scope.paginationParameters.totalPages = responseData.paginationParameters.totalPages;
             scope.paginationParameters.minPageNum = 1;
@@ -132,11 +172,13 @@ rankingApp.controller('RankingTableCtrl', function($scope, $http) {
 
             console.log('selectednames: ' + selectednames.join(' '));
 
-            $scope.requestData = {selectedRankingNames : selectednames, selectedYear : $scope.yearselect.selectedYear.value, currentPageNum : $scope.paginationParameters.currentPageNum, recordsPerPage : $scope.paginationParameters.recordsPerPageSelection.selectedSize.value};
+            //$scope.requestData = {selectedRankingNames : selectednames, selectedYear : $scope.yearselect.selectedYear.value, currentPageNum : $scope.paginationParameters.currentPageNum, recordsPerPage : $scope.paginationParameters.recordsPerPageSelection.selectedSize.value};
+            $scope.requestData = {selectedRankingNames : selectednames, selectedYear : $scope.yearselect.selectedYear.value, currentPageNum : pageNum, recordsPerPage : $scope.paginationParameters.recordsPerPageSelection.selectedSize.value};
             console.log('request will be sended');
 
             $scope.retrieveTableData($scope.requestData);
             $scope.paginationParameters.currentPageNum = pageNum;
+            console.log('after call retrieveTableData and assign pageNum, $scope.paginationParameters.currentPageNum: ' + $scope.paginationParameters.currentPageNum);
         }
         else {
             console.log('pageNum not allowed, request not will sended');

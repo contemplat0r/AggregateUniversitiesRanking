@@ -154,9 +154,9 @@ class RankingTableAPIView(APIView):
             response_data['years_list'] = years
             if request_data['selectedYear'] != None:
                 selected_year = request_data['selectedYear']
-        response_data['recordsPerPage']  = records_per_page
-        response_data['currentPageNum'] = current_page_num
-        print 'response_data[\'currentPageNum\']: ', response_data['currentPageNum']
+        response_data['paginationParameters']['recordsPerPage']  = records_per_page
+        response_data['paginationParameters']['currentPageNum'] = current_page_num
+        print 'response_data[\'paginationParameters\'][\'currentPageNum\']: ', response_data['paginationParameters']['currentPageNum']
         print 'selected_year: ', selected_year
 
         ## This is temp!!!
@@ -169,8 +169,9 @@ class RankingTableAPIView(APIView):
         first_page_record_num = last_page_record_num - records_per_page
         if last_page_record_num > aggregate_ranking_dataframe_len:
             last_page_record_num = aggregate_ranking_dataframe_len
-        #ranktable = prepare_ranktable_to_response(selected_rankings_names, aggregate_ranking_dataframe[first_page_record_num:last_page_record_num])
-        ranktable = prepare_ranktable_to_response(selected_rankings_names, aggregate_ranking_dataframe)
+        print 'first_page_record_num: ', first_page_record_num, ' last_page_record_num: ', last_page_record_num
+        ranktable = prepare_ranktable_to_response(selected_rankings_names, aggregate_ranking_dataframe[first_page_record_num:last_page_record_num])
+        #ranktable = prepare_ranktable_to_response(selected_rankings_names, aggregate_ranking_dataframe)
         #total_records = len(ranktable) - 1
         total_records = aggregate_ranking_dataframe_len
         total_pages = total_records / records_per_page 
