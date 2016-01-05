@@ -28,7 +28,7 @@ class Record(object):
 #class RecordSerializer(serializers.Serializer):
 #    name = serializers.CharField(max_length=128)
 
-def make_show_ranktable(selected_rankings_names, aggregate_ranking_dataframe):
+def prepare_ranktable_to_response(selected_rankings_names, aggregate_ranking_dataframe):
     ranktable = list()
     ranktable.append(['Rank', 'Aggregate Rank', 'University Name'] + selected_rankings_names)
     if aggregate_ranking_dataframe is not None:
@@ -40,8 +40,24 @@ def make_show_ranktable(selected_rankings_names, aggregate_ranking_dataframe):
             ranktable.append(record)
     return ranktable
 
-prepare_ranktable_to_response = make_show_ranktable
+def prepare_correlation_matrix_to_response(aggregate_ranking_dataframe):
+    dataframe_prepared_for_calculate_correlation = aggregate_ranking_dataframe.drop('university_name', axis=1)
+    dataframe_prepared_for_calculate_correlation.rename(columns={'aggregate_rank' : 'Aggregate Rank', 'rank' : 'Rank'}, inplace=True)
+    correlation_matrix = dataframe_prepared_for_calculate_correlation.corr(method='spearman')
+    correlation_matrix_dict = correlation_matrix.to_dict()
+    correlation_matrix_dict_keys = correlation_matrix_dict.keys()
+    correlation_matrix_table = []
+    correlation_matrix_table_first_row = [' ']
+    correlation_matrix_table_first_row.extend(correlation_matrix_dict_keys)
+    correlation_matrix_table.append(correlation_matrix_table_first_row)
+    for key in correlation_matrix_dict_keys:
+        row = [key]
+        record = correlation_matrix_dict[key]
+        for key_1 in correlation_matrix_dict_keys:
+            row.append(float('{0:.2f}'.format(record[key_1])))
+        correlation_matrix_table.append(row)
 
+    return correlation_matrix_table
 
 def index(request):
     return HttpResponse('Hello, world. This is first page of aggrgated rank')
@@ -62,7 +78,7 @@ class RankingTableAPIView(APIView):
     def post(self, request, format=None):
         request_data = request.data
         print 'recordsPerPage: ', request_data.get('recordsPerPage')
-        response_data = {'ranktable' : None, 'rankings_names_list' : None, 'years_list' : None, 'paginationParameters' : {'recordsPerPageSelectionList' : [5, 10, 20, 50, 100, 200], 'currentPageNum' : 1, 'totalTableRecords' : 1000, 'totalPages' : 0}}
+        response_data = {'rankTable' : None, 'rankingsNamesList' : None, 'yearsList' : None, 'paginationParameters' : {'recordsPerPageSelectionList' : [5, 10, 20, 50, 100, 200], 'currentPageNum' : 1, 'totalTableRecords' : 1000, 'totalPages' : 0, 'correlationMatrix' : None}}
         current_page_num = request_data.get('currentPageNum')
         if current_page_num is None:
             current_page_num = 1
@@ -87,8 +103,8 @@ class RankingTableAPIView(APIView):
                 selected_year = request_data['selectedYear']
         else:
             print 'selectedRankingNames is None'
-            response_data['rankings_names_list'] = short_rankings_names
-            response_data['years_list'] = years
+            response_data['rankingsNamesList'] = short_rankings_names
+            response_data['yearsList'] = years
             if request_data['selectedYear'] != None:
                 selected_year = request_data['selectedYear']
         response_data['paginationParameters']['recordsPerPage']  = records_per_page
@@ -100,7 +116,12 @@ class RankingTableAPIView(APIView):
         if selected_year > 2015:
             selected_year = 2015
         aggregate_ranking_dataframe = assemble_aggregate_ranking_dataframe(selected_rankings_names, int(selected_year))
+        correlation_matrix = prepare_correlation_matrix_to_response(aggregate_ranking_dataframe)
+        response_data['correlationMatrix'] = correlation_matrix
+        print 'response_data[\'correlationMatrix\']: ', response_data['correlationMatrix']
         aggregate_ranking_dataframe_len = aggregate_ranking_dataframe.count()[0]
+        if records_per_page >= aggregate_ranking_dataframe_len:
+            current_page_num = 1
         print 'aggregate_ranking_dataframe_len: ', aggregate_ranking_dataframe_len
         last_page_record_num = current_page_num * records_per_page
         first_page_record_num = last_page_record_num - records_per_page
@@ -108,15 +129,12 @@ class RankingTableAPIView(APIView):
             last_page_record_num = aggregate_ranking_dataframe_len
         print 'first_page_record_num: ', first_page_record_num, ' last_page_record_num: ', last_page_record_num
         ranktable = prepare_ranktable_to_response(selected_rankings_names, aggregate_ranking_dataframe[first_page_record_num:last_page_record_num])
-        #ranktable = prepare_ranktable_to_response(selected_rankings_names, aggregate_ranking_dataframe)
-        #total_records = len(ranktable) - 1
         total_records = aggregate_ranking_dataframe_len
         total_pages = total_records / records_per_page 
         if total_records % records_per_page > 0:
             total_pages = total_pages + 1
         response_data['paginationParameters']['totalPages'] = total_pages
-        response_data['ranktable'] = ranktable
-        #response = Response(ranktable, status=status.HTTP_200_OK)
+        response_data['rankTable'] = ranktable
         response = Response(response_data, status=status.HTTP_200_OK)
 
         return response
