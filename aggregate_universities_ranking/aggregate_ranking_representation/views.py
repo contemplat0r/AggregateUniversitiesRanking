@@ -78,7 +78,8 @@ class RankingTableAPIView(APIView):
     def post(self, request, format=None):
         request_data = request.data
         print 'recordsPerPage: ', request_data.get('recordsPerPage')
-        response_data = {'rankTable' : None, 'rankingsNamesList' : None, 'yearsList' : None, 'paginationParameters' : {'recordsPerPageSelectionList' : [5, 10, 20, 50, 100, 200], 'currentPageNum' : 1, 'totalTableRecords' : 1000, 'totalPages' : 0, 'correlationMatrix' : None}}
+        print 'needsToBeUpdated: ', request_data.get('needsToBeUpdated')
+        response_data = {'rankTable' : None, 'rankingsNamesList' : None, 'yearsList' : None, 'selectedYear' : None, 'paginationParameters' : {'recordsPerPageSelectionList' : [5, 10, 20, 50, 100, 200], 'currentPageNum' : 1, 'totalTableRecords' : 1000, 'totalPages' : 0, 'correlationMatrix' : None}}
         current_page_num = request_data.get('currentPageNum')
         if current_page_num is None:
             current_page_num = 1
@@ -115,8 +116,12 @@ class RankingTableAPIView(APIView):
         ## This is temp!!!
         if selected_year > 2015:
             selected_year = 2015
+        response_data['selectedYear'] = selected_year
         aggregate_ranking_dataframe = assemble_aggregate_ranking_dataframe(selected_rankings_names, int(selected_year))
-        correlation_matrix = prepare_correlation_matrix_to_response(aggregate_ranking_dataframe)
+        if request_data['needsToBeUpdated']:
+            correlation_matrix = prepare_correlation_matrix_to_response(aggregate_ranking_dataframe)
+        else:
+            correlation_matrix = None
         response_data['correlationMatrix'] = correlation_matrix
         print 'response_data[\'correlationMatrix\']: ', response_data['correlationMatrix']
         aggregate_ranking_dataframe_len = aggregate_ranking_dataframe.count()[0]
