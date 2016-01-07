@@ -23,30 +23,6 @@ rankingApp.controller('RankingTableCtrl', function($scope, $http) {
 
     $scope.prepareRequestData = function(scope) {
         console.log('Entry in prepareRequestData');
-        /*var rankingCheckList = scope.rankingCheckList;
-        var selectedNames = [];
-        console.log('prepareRequestData: selectedNames array declared');
-
-        rankingCheckList.forEach(function(item, i, rankingCheckList) {
-            if (item.value === true) {
-                selectedNames.push(item.name);
-            }
-            else {
-                console.log('Ranking name ' + item.name + ' not checked');
-            }
-        });
-
-        scope.requestData = {selectedRankingNames : selectedNames, selectedYear : $scope.yearSelect.selectedYear.value, currentPageNum : pageNum, recordsPerPage : $scope.paginationParameters.recordsPerPageSelection.selectedSize.value, needsToBeUpdated : false};
-        
-        console.log('prepareRequestData, needsToBeUpdated before checking: ' + scope.requestData.needsToBeUpdated);
-        
-        if ((scope.currentSelectedYear != scope.yearSelect.selectedYear.value) || (checkArrayEquality(scope.currentSelectedRankNames, selectedNames) === false)) {
-            scope.requestData.needsToBeUpdated = true;
-        }
-        else {
-            scope.requestData.needsToBeUpdated = false;
-        }
-        console.log('prepareRequestData, needsToBeUpdated after checking: ' + scope.requestData.needsToBeUpdated);*/
         var rankingCheckList = scope.rankingCheckList;
         var selectedNames = [];
 
@@ -57,10 +33,6 @@ rankingApp.controller('RankingTableCtrl', function($scope, $http) {
         });
 
         console.log('prepareRequestData, just after add items to selectedNames');
-
-        //$scope.requestData = {selectedRankingNames : selectedNames, selectedYear : $scope.yearSelect.selectedYear.value, currentPageNum : $scope.paginationParameters.currentPageNum, recordsPerPage : $scope.paginationParameters.recordsPerPageSelection.selectedSize.value};
-
-        //$scope.requestData = {selectedRankingNames : selectedNames, selectedYear : $scope.yearSelect.selectedYear.value, currentPageNum : pageNum, recordsPerPage : $scope.paginationParameters.recordsPerPageSelection.selectedSize.value, needsToBeUpdated : false};
 
         scope.requestData = {selectedRankingNames : selectedNames, selectedYear : scope.yearSelect.selectedYear.value, currentPageNum : scope.paginationParameters.currentPageNum, recordsPerPage : scope.paginationParameters.recordsPerPageSelection.selectedSize.value, needsToBeUpdated : false};
 
@@ -85,14 +57,6 @@ rankingApp.controller('RankingTableCtrl', function($scope, $http) {
         scope.rankingTable['headers'] = rankingTable[0];
         scope.rankingTable['records'] = rankingTable.slice(1);
         scope.tableWidth = scope.rankingTable.headers.length;
-
-        console.log('updateLocalDataByResponse: after processed rankingTable');
-        console.log('responseData.rankingsNamesList: ' + responseData.rankingsNamesList);
-        console.log('responseData.yearsList: ' + responseData.yearsList);
-        console.log('responseData.paginationParameters: ' + responseData.paginationParameters);
-        console.log('after show responseData.paginationParameters');
-
-        console.log('check yearSelect equal null');
 
         if ((scope.yearSelect === null) && (scope.rankingCheckList === null)) {
         //if ((!('yearSelect' in scope)) && (!('rankingCheckList' in scope))) {
@@ -141,19 +105,6 @@ rankingApp.controller('RankingTableCtrl', function($scope, $http) {
         }
         
         console.log('responseData.correlationMatrix: ' + responseData.correlationMatrix);
-        if ('correlationMatrix' in responseData) {
-            console.log('correlationMatrix is in responseData');
-            if ( responseData.correlationMatrix === null) { 
-                console.log('correlationMatrix is in responseData but responseData.correlationMatrix === null');
-            }
-            else {
-                console.log('correlationMatrix is in responseData and responseData.correlationMatrix !== null');
-            }
-
-        }
-        else {
-            console.log('correlationMatrix not present in responseData');
-        }
 
         if (currentSelectedYearChanged || currentSelectedRankNamesChanged) {
             console.log('currentSelectedYearChanged || currentSelectedRankNamesChanged');
@@ -213,6 +164,7 @@ rankingApp.controller('RankingTableCtrl', function($scope, $http) {
     };
 
     $scope.requestData =  {selectedRankingNames : null, selectedYear : null, currentPage : null, recordsPerPage : null, needsToBeUpdated : false}
+
     $scope.retrieveTableData = function(requestData) {
         console.log('retrieveTableData: $scope.requestData.selectedRankingNames: ' + $scope.requestData.selectedRankingNames + ', $scope.requestData.selectedYear: ' + $scope.requestData.selectedYear);
 
@@ -225,7 +177,6 @@ rankingApp.controller('RankingTableCtrl', function($scope, $http) {
                 console.log('retrieveTableData, success: ', response);
                 $scope.table = response.data;
                 updateLocalDataByResponse(response.data, $scope);
-                //console.log('$scope.table[0]: ' + $scope.table[0].join(' '));
             },
             function errorrCallback(response) {
                 console.log('retrieveTableData, error: ', response);
@@ -235,35 +186,7 @@ rankingApp.controller('RankingTableCtrl', function($scope, $http) {
 
     $scope.goToPage = function(pageNum) {
         console.log('pageNum: ' + pageNum);
-        console.log('$scope.paginationParameters.totalTableRecords: ' + $scope.paginationParameters.totalTableRecords);
-        console.log('$scope.paginationParameters.recordsPerPageSelection.selectedSize.value: ' + $scope.paginationParameters.recordsPerPageSelection.selectedSize.value);
-        console.log('$scope.yearSelect.selectedYear.value: ' + $scope.yearSelect.selectedYear.value);
         if ((pageNum != $scope.paginationParameters.currentPageNum) && (pageNum >= $scope.paginationParameters.minPageNum) && (pageNum <= $scope.paginationParameters.totalPages)) {
-            // send request
-            /*var rankingCheckList = $scope.rankingCheckList;
-            var selectedNames = [];
-            console.log('Sendselected: selectedNames array declared');
-
-            rankingCheckList.forEach(function(item, i, rankingCheckList) {
-                if (item.value === true) {
-                    selectedNames.push(item.name);
-                }
-                else {
-                    console.log('Ranking name ' + item.name + ' not checked');
-                }
-            });
-
-            $scope.requestData = {selectedRankingNames : selectedNames, selectedYear : $scope.yearSelect.selectedYear.value, currentPageNum : pageNum, recordsPerPage : $scope.paginationParameters.recordsPerPageSelection.selectedSize.value, needsToBeUpdated : false};
-            
-            console.log('goToPage, needsToBeUpdated before checking: ' + $scope.requestData.needsToBeUpdated);
-            
-            if (($scope.currentSelectedYear != $scope.yearSelect.selectedYear.value) || (checkArrayEquality($scope.currentSelectedRankNames, selectedNames) === false)) {
-                $scope.requestData.needsToBeUpdated = true;
-            }
-            else {
-                $scope.requestData.needsToBeUpdated = false;
-            }
-            console.log('goToPage, needsToBeUpdated after checking: ' + $scope.requestData.needsToBeUpdated);*/
             
             $scope.prepareRequestData($scope);
             $scope.requestData.currentPageNum = pageNum;
@@ -325,33 +248,9 @@ rankingApp.controller('RankingTableCtrl', function($scope, $http) {
 rankingApp.controller('RankingCheckController', function($scope, $http) {
     $scope.sendSelected = function() {
         console.log('Entry in sendSelected');
+
         $scope.prepareRequestData($scope);
 
-        /*var rankingCheckList = $scope.rankingCheckList;
-        var selectedNames = [];
-
-        rankingCheckList.forEach(function(item, i, rankingCheckList) {
-            if (item.value === true) {
-                selectedNames.push(item.name);
-            }
-        });
-
-        console.log('sendSelected, just after add items to selectedNames');
-
-        //$scope.requestData = {selectedRankingNames : selectedNames, selectedYear : $scope.yearSelect.selectedYear.value, currentPageNum : $scope.paginationParameters.currentPageNum, recordsPerPage : $scope.paginationParameters.recordsPerPageSelection.selectedSize.value};
-
-        //$scope.requestData = {selectedRankingNames : selectedNames, selectedYear : $scope.yearSelect.selectedYear.value, currentPageNum : pageNum, recordsPerPage : $scope.paginationParameters.recordsPerPageSelection.selectedSize.value, needsToBeUpdated : false};
-
-        $scope.requestData = {selectedRankingNames : selectedNames, selectedYear : $scope.yearSelect.selectedYear.value, currentPageNum : $scope.paginationParameters.currentPageNum, recordsPerPage : $scope.paginationParameters.recordsPerPageSelection.selectedSize.value, needsToBeUpdated : false};
-
-        console.log('sendSelected, just after set $scope.requestData');
-
-        if (($scope.currentSelectedYear != $scope.yearSelect.selectedYear.value) || (checkArrayEquality($scope.currentSelectedRankNames, selectedNames) === false)) {
-            $scope.requestData.needsToBeUpdated = true;
-        }
-        else {
-            $scope.requestData.needsToBeUpdated = false;
-        }*/
         console.log('Before call retrieveTableData');
         $scope.retrieveTableData($scope.requestData);
     };

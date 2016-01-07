@@ -20,14 +20,6 @@ START_AGGREGATE_YEAR = getattr(settings, 'START_AGGREGATE_YEAR', 2014)
 FINISH_AGGREGATE_YEAR = getattr(settings, 'FINISH_AGGREGATE_YEAR', datetime.date.today().year)
 
 
-class Record(object):
-    def __init__(self, name):
-        self.name = name
-
-
-#class RecordSerializer(serializers.Serializer):
-#    name = serializers.CharField(max_length=128)
-
 def prepare_ranktable_to_response(selected_rankings_names, aggregate_ranking_dataframe):
     ranktable = list()
     ranktable.append(['Rank', 'Aggregate Rank', 'University Name'] + selected_rankings_names)
@@ -60,8 +52,9 @@ def prepare_correlation_matrix_to_response(aggregate_ranking_dataframe):
     return correlation_matrix_table
 
 def index(request):
-    return HttpResponse('Hello, world. This is first page of aggrgated rank')
+    #return HttpResponse('Hello, world. This is first page of aggrgated rank')
 
+    return render(request, 'aggregate_ranking_representation/index.html')
 
 def aggregate_universities_ranking_as_table(request):
 

@@ -3,25 +3,30 @@
 /* App Module */
 
 var rankingApp = angular.module('rankingApp', [
-  'ngRoute',
+  //'ngRoute',
+  'ui.router',
   //'rankingAnimations',
   'rankingControllers',
   //'rankingFilters',
   //'rankingServices'
 ]);
 
-rankingApp.config(['$routeProvider',
-  function($routeProvider) {
-    $routeProvider.
-      when('/list', {
-        templateUrl: 'partials/list.html',
-        controller: 'RankingListCtrl'
+//rankingApp.config(['$routeProvider',
+rankingApp.config(['$stateProvider', '$urlRouterProvider',
+  //function($routeProvider) {
+  function($stateProvider, $urlRouterProvider) {
+    $urlRouterProvider.otherwise('/');
+    $stateProvider.
+      //when('/list', {
+      state('index', {
+        //templateUrl: 'partials/list.html',
+        //templateUrl: 'ranktable.html',
+        url: '/',
       }).
-      //when('/phones/:phoneId', {
-      //  templateUrl: 'partials/phone-detail.html',
-      //  controller: 'PhoneDetailCtrl'
-      //}).
-      otherwise({
-        redirectTo: '/list'
+      state('ranktable', {
+        //templateUrl: 'partials/list.html',
+        url: '/ranktable',
+        templateUrl: 'static/partials/ranktable.html',
+        controller: 'RankingListCtrl'
       });
   }]);

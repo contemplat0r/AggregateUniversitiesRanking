@@ -18,6 +18,7 @@ from django.conf.urls import include, url
 from django.contrib import admin
 
 urlpatterns = [
+        url(r'^$', include('aggregate_ranking_representation.urls')),
         url(r'^aggregate_ranking_representation/', include('aggregate_ranking_representation.urls')),
         url(r'^admin/', include(admin.site.urls)),
 ]
