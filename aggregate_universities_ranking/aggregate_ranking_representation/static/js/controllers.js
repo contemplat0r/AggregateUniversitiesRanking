@@ -2,7 +2,8 @@
 
 /* Controllers */
 
-var rankingApp = angular.module('rankingApp', []);
+var rankingApp = angular.module('rankingApp', []); //This strongly need comment if loaded app.js !!!
+//var rankingApp = angular.module('rankingControllers', []); //This strongly need unkomment If loaded app.js !!!
 
 
 var checkArrayEquality = function(array_1, array_2) {
@@ -242,6 +243,15 @@ rankingApp.controller('RankingTableCtrl', function($scope, $http) {
         $scope.requestData.needsToBeUpdated = true;
         $scope.retrieveTableData($scope.requestData);
     }
+
+    $scope.sendSelected = function() {
+        console.log('Entry in sendSelected');
+
+        $scope.prepareRequestData($scope);
+
+        console.log('Before call retrieveTableData');
+        $scope.retrieveTableData($scope.requestData);
+    };
 });
 
 
@@ -255,3 +265,8 @@ rankingApp.controller('RankingCheckController', function($scope, $http) {
         $scope.retrieveTableData($scope.requestData);
     };
 });
+
+rankingApp.controller("Ctrl1", function($scope) {
+    $scope.test="This is working test1"
+});
+

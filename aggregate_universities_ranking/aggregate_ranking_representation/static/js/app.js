@@ -2,7 +2,8 @@
 
 /* App Module */
 
-var rankingApp = angular.module('rankingApp', ['ngRoute']);
+//var rankingApp = angular.module('rankingApp', ['ngRoute']);
+var rankingApp = angular.module('rankingApp', ['ngRoute', 'rankingControllers']);
 
 rankingApp.config(['$routeProvider',
     function($routeProvider) {
@@ -13,7 +14,8 @@ rankingApp.config(['$routeProvider',
             }).
             when('/ranktable', {
                 templateUrl: 'static/partials/ranktable.html',
-                controller: 'Ctrl2'
+                //controller: 'Ctrl2'
+                controller: 'RankingTableCtrl'
             }).
             otherwise({
                 redirectTo: '/start'

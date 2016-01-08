@@ -2,3 +2,95 @@
 <strong> Ranking Table <strong>
 {{test}}
 </div>
+<strong>Aggregated ranking table </strong>
+
+<br/>
+<!--<table cellspacing="2" border="1" cellpadding="5">-->
+<!--<table class="table table-striped">-->
+<!--<table class="table table-bordered">-->
+<!--<table class="table table-hover">-->
+<!--<strong> No data for this year </strong>-->
+
+<div>
+    <form name="rankingCheckListForm">
+        <ul>
+            <li ng-repeat="checkRecord in rankingCheckList">
+                <input type="checkbox" ng-model="checkRecord.value">{{checkRecord.name}}</input>
+            </li>
+        </ul>
+        <label for="yearSelect" id="yearSelect">Select year: </label>
+        <select name="yearSelect" id="yearSelect" ng-options="year.value for year in yearSelect.availableYears track by year.id" ng-model="yearSelect.selectedYear"></select>
+
+        <label for="recordsPerPageSelect" id="recordsPerPageSelect">Table records per page : </label>
+        <select name="recordsPerPageSelect" id="recordsPerPageSelect" ng-options="pageSize.value for pageSize in paginationParameters.recordsPerPageSelection.availableSizes track by pageSize.id" ng-model="paginationParameters.recordsPerPageSelection.selectedSize"></select>
+
+        <!--<button type="submit" ng-click="sendSelected()" class="btn btn-danger btn-lg">Send</button>-->
+        <button type="submit" ng-click="sendSelected()" class="btn">Send</button>
+    </form>
+    <div name="correlationMatrixContainer" id="correlationMatrixContainer" ng-show="showCorrelationMatrix">
+        <strong>
+            Correlation matrix
+        </strong>
+        <span ng-if="correlationMatrix">
+            <table class="table-bordered table-condensed">
+                <tbody>
+                    <tr ng-repeat="matrixRow in correlationMatrix">
+                        <td ng-repeat="matrixElement in matrixRow track by $index">
+                            {{ matrixElement }}
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </span>
+    </div>
+    <button ng-click="showCorrelationMatrix = !showCorrelationMatrix" ng-init="showCorrelationMatrix = false">
+        <div ng-show="!showCorrelationMatrix">
+            Show correlation matrix
+        </div>
+        <div ng-show="showCorrelationMatrix">
+            Hide correlation matrix
+        </div>
+    </button>
+    <table class="table table-striped table-condensed table-hover">
+        <thead>
+            <tr>
+                <td ng-repeat="header in rankingTable.headers">
+                    {{ header }}
+                </td>
+            </tr>
+        </thead>
+        <tbody>
+            <!--<tr ng-repeat="record in rankingTable.records track by $index">-->
+            <tr ng-repeat="record in rankingTable.records">
+                <td ng-repeat="item in record track by $index">
+                    {{ item }}
+                </td>
+            </tr>
+        </tbody>
+        <tfoot>
+            <tr>
+                <td colspan="tableWidth">
+                    <div>
+                        <ul class="pagination">
+                            <li ng-class="prevPageDisabled()">
+                                <a href ng-click="goToPrevPage()">&laquo;</a>
+                            </li>
+                            <li ng-class="firstPageDisabled()">
+                                <a href ng-click="goToFirstPage()">First</a>
+                            </li>
+                            <li ng-repeat="pageNum in paginationParameters.pagesNumberArray" ng-class="{active: pageNum == paginationParameters.currentPageNum}" ng-click="goToPage(pageNum)">
+                                <a href="">{{ pageNum }}</a>
+                            </li>
+                            <li ng-class="lastPageDisabled()">
+                                <a href ng-click="goToLastPage()">Last</a>
+                            </li>
+                            <li ng-class="nextPageDisabled()">
+                                <a href ng-click="goToNextPage()">&raquo;</a>
+                            </li>
+                        </ul>
+                    </div>
+                </td>
+            </tr>
+        </tfoot>
+    </table>
+</div>

@@ -33,7 +33,8 @@
 
         {% verbatim %}
         <div ng-controller="RankingTableCtrl">
-            <form name="rankingCheckListForm" ng-controller='RankingCheckController'>
+            <!--<form name="rankingCheckListForm" ng-controller='RankingCheckController'>-->
+            <form name="rankingCheckListForm">
                 <ul>
                     <li ng-repeat="checkRecord in rankingCheckList">
                         <input type="checkbox" ng-model="checkRecord.value">{{checkRecord.name}}</input>
