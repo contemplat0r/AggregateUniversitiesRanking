@@ -2,8 +2,8 @@
 
 /* Controllers */
 
-var rankingApp = angular.module('rankingApp', []); //This strongly need comment if loaded app.js !!!
-//var rankingApp = angular.module('rankingControllers', []); //This strongly need unkomment If loaded app.js !!!
+//var rankingApp = angular.module('rankingApp', []); //This strongly need comment if loaded app.js !!!
+var rankingApp = angular.module('rankingControllers', []); //This strongly need unkomment If loaded app.js !!!
 
 
 var checkArrayEquality = function(array_1, array_2) {
@@ -171,7 +171,9 @@ rankingApp.controller('RankingTableCtrl', function($scope, $http) {
 
         $http({
             method : 'POST',
-            url : 'api/table',
+            url : 'aggregate_ranking_representation/api/table',
+            //url : 'api/table',
+            //url : '#/table',
             data : requestData
         }).then(
             function successCallback(response) {
