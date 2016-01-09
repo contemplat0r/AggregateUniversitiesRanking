@@ -59,9 +59,6 @@ def aggregate_universities_ranking_as_table(request):
 
     return render(request, 'aggregate_ranking_representation/table.html')
 
-def ranktable(request):
-    return HttpResponse('Hello, world. This is rankings table')
-
 
 class RankingTableAPIView(APIView):
 

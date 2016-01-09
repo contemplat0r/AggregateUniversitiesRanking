@@ -14,6 +14,18 @@ var checkArrayEquality = function(array_1, array_2) {
 }
 
 rankingApp.controller('RankingTableController', function($scope, $http) {
+
+    console.log('Entry in RankingTableController');
+    if ('setActiveNavItem' in $scope) {
+        console.log('RankingTableController, setActiveNavItem is in $scope');
+    }
+    else {
+        console.log('RankingTableController, setActiveNavItem is not in $scope');
+    }
+
+    $scope.setActiveNavItem(2);
+
+
     $scope.rankingTable = {headers : [], records : []};
     $scope.paginationParameters = {};
     $scope.yearSelect = null;
@@ -171,11 +183,6 @@ rankingApp.controller('RankingTableController', function($scope, $http) {
 
         $http({
             method : 'POST',
-            //url : 'aggregate_ranking_representation/api/table',
-            //url : 'api/table',
-            //url : '#/table',
-            //url : 'aggregate_ranking_representation/table',
-            //url : 'aggregate_ranking_representation/table',
             url : 'rest/table',
             data : requestData
         }).then(
@@ -260,9 +267,38 @@ rankingApp.controller('RankingTableController', function($scope, $http) {
 });
 
 rankingApp.controller('StartController', function($scope) {
+    console.log('Entry in StartController');
+    if ('setActiveNavItem' in $scope) {
+        console.log('StartController, setActiveNavItem is in $scope');
+    }
+    else {
+        console.log('StartController, setActiveNavItem is not in $scope');
+    }
+    $scope.setActiveNavItem(1);
     $scope.methodologyText = 'Many, many sentences about methodology with terrible formulas...' //Must get methodology text from database. User must can possibility login and edit methodology text.
 });
 
-/*rankingApp.controller('RoutingExpController', function($scope) {
-    $scope.message = 'This is RoutingExpController message';
-};*/
+rankingApp.controller('NavigationController', function($scope) {
+    console.log('Entry in NavigationController');
+
+    var navClasses;
+
+    function initNavClasses() {
+        console.log('Entry in initNavClasses');
+        navClasses = ['', ''];
+    }
+
+    $scope.getNavClass = function(navItemNum) {
+        console.log('Entry in getNavClass, navItemNum = ' + navItemNum);
+        return navClasses[navItemNum];
+    };
+    
+    $scope.setActiveNavItem = function(navItemNum) {
+        console.log('Entry in setActiveNavItem, navItemNum = ' + navItemNum);
+        initNavClasses();
+        navClasses[navItemNum] = 'active';
+    };
+
+    initNavClasses();
+    $scope.setActiveNavItem(1);
+});

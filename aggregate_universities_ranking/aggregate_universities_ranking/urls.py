@@ -16,10 +16,11 @@ Including another URLconf
 """
 from django.conf.urls import include, url
 from django.contrib import admin
+from aggregate_ranking_representation.views import index as index_view
 
 urlpatterns = [
-        url(r'^$', include('aggregate_ranking_representation.urls')),
-        #url(r'^aggregate_ranking_representation/', include('aggregate_ranking_representation.urls')),
+        #url(r'^$', include('aggregate_ranking_representation.urls')),
+        url(r'^$', index_view, name='index_view'),
         url(r'^rest/', include('aggregate_ranking_representation.urls')),
         url(r'^admin/', include(admin.site.urls)),
 ]

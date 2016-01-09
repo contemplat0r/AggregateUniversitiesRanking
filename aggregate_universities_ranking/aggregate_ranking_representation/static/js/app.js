@@ -16,10 +16,6 @@ rankingApp.config(['$routeProvider',
                 templateUrl: 'static/partials/ranktable.html',
                 controller: 'RankingTableController'
             }).
-            /*when('/exp', {
-                templateUrl: 'static/partials/routing_exp.html',
-                controller: 'RoutingExpController'
-            }).*/
             otherwise({
                 redirectTo: '/start'
             });
