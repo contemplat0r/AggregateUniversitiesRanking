@@ -13,7 +13,7 @@ var checkArrayEquality = function(array_1, array_2) {
     return array_1.sort().join() === array_2.sort().join();
 }
 
-rankingApp.controller('RankingTableCtrl', function($scope, $http) {
+rankingApp.controller('RankingTableController', function($scope, $http) {
     $scope.rankingTable = {headers : [], records : []};
     $scope.paginationParameters = {};
     $scope.yearSelect = null;
@@ -171,9 +171,12 @@ rankingApp.controller('RankingTableCtrl', function($scope, $http) {
 
         $http({
             method : 'POST',
-            url : 'aggregate_ranking_representation/api/table',
+            //url : 'aggregate_ranking_representation/api/table',
             //url : 'api/table',
             //url : '#/table',
+            //url : 'aggregate_ranking_representation/table',
+            //url : 'aggregate_ranking_representation/table',
+            url : 'rest/table',
             data : requestData
         }).then(
             function successCallback(response) {
@@ -256,19 +259,10 @@ rankingApp.controller('RankingTableCtrl', function($scope, $http) {
     };
 });
 
-
-rankingApp.controller('RankingCheckController', function($scope, $http) {
-    $scope.sendSelected = function() {
-        console.log('Entry in sendSelected');
-
-        $scope.prepareRequestData($scope);
-
-        console.log('Before call retrieveTableData');
-        $scope.retrieveTableData($scope.requestData);
-    };
+rankingApp.controller('StartController', function($scope) {
+    $scope.methodologyText = 'Many, many sentences about methodology with terrible formulas...' //Must get methodology text from database. User must can possibility login and edit methodology text.
 });
 
-rankingApp.controller("Ctrl1", function($scope) {
-    $scope.test="This is working test1"
-});
-
+/*rankingApp.controller('RoutingExpController', function($scope) {
+    $scope.message = 'This is RoutingExpController message';
+};*/

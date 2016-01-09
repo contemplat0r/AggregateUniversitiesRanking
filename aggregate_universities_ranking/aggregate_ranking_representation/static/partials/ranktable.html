@@ -23,7 +23,7 @@
         <select name="recordsPerPageSelect" id="recordsPerPageSelect" ng-options="pageSize.value for pageSize in paginationParameters.recordsPerPageSelection.availableSizes track by pageSize.id" ng-model="paginationParameters.recordsPerPageSelection.selectedSize"></select>
 
         <!--<button type="submit" ng-click="sendSelected()" class="btn btn-danger btn-lg">Send</button>-->
-        <button type="submit" ng-click="sendSelected()" class="btn">Send</button>
+        <button type="submit" ng-click="sendSelected()" class="btn">Apply</button>
     </form>
     <div name="correlationMatrixContainer" id="correlationMatrixContainer" ng-show="showCorrelationMatrix">
         <strong>

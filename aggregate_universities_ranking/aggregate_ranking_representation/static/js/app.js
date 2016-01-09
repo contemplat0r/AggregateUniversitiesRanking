@@ -10,21 +10,19 @@ rankingApp.config(['$routeProvider',
         $routeProvider.
             when('/start', {
                 templateUrl: 'static/partials/start.html',
-                controller: 'Ctrl1'
+                controller: 'StartController'
             }).
             when('/ranktable', {
                 templateUrl: 'static/partials/ranktable.html',
-                //controller: 'Ctrl2'
-                controller: 'RankingTableCtrl'
+                controller: 'RankingTableController'
             }).
+            /*when('/exp', {
+                templateUrl: 'static/partials/routing_exp.html',
+                controller: 'RoutingExpController'
+            }).*/
             otherwise({
                 redirectTo: '/start'
             });
     }]);
 
-rankingApp.controller("Ctrl1", function($scope) {
-    $scope.test="This is working test1"
-});
-rankingApp.controller("Ctrl2", function($scope) {
-    $scope.test="This is working test2"
-});
+

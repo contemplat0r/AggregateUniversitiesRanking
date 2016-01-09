@@ -52,9 +52,8 @@ def prepare_correlation_matrix_to_response(aggregate_ranking_dataframe):
     return correlation_matrix_table
 
 def index(request):
-    #return HttpResponse('Hello, world. This is first page of aggrgated rank')
 
-    return render(request, 'aggregate_ranking_representation/index.html')
+    return render(request, 'aggregate_ranking_representation/base.html')
 
 def aggregate_universities_ranking_as_table(request):
 
