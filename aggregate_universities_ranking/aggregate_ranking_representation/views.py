@@ -12,6 +12,7 @@ from rest_framework.renderers import JSONRenderer
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework import status
+from pandas import DataFrame
 from .models import RankingDescription, RankingValue, University 
 from .name_matching import ranking_descriptions, build_aggregate_ranking_dataframe, assemble_aggregate_ranking_dataframe
 from forms import SelectRankingsNamesAndYear
@@ -38,10 +39,12 @@ def prepare_ranktable_to_response(selected_rankings_names, aggregate_ranking_dat
             ranktable.append(record)
     return ranktable
 
-def prepare_correlation_matrix_to_response(aggregate_ranking_dataframe):
+def calculate_correlation_matrix(aggregate_ranking_dataframe):
     dataframe_prepared_for_calculate_correlation = aggregate_ranking_dataframe.drop('university_name', axis=1)
     dataframe_prepared_for_calculate_correlation.rename(columns={'aggregate_rank' : 'Aggregate Rank', 'rank' : 'Rank'}, inplace=True)
-    correlation_matrix = dataframe_prepared_for_calculate_correlation.corr(method='spearman')
+    return dataframe_prepared_for_calculate_correlation.corr(method='spearman')
+
+def prepare_correlation_matrix_to_response(correlation_matrix):
     correlation_matrix_dict = correlation_matrix.to_dict()
     correlation_matrix_dict_keys = correlation_matrix_dict.keys()
     correlation_matrix_table = []
@@ -126,9 +129,11 @@ class RankingTableAPIView(APIView):
             selected_year = 2015
         response_data['selectedYear'] = selected_year
 
-        aggregate_ranking_dataframe = assemble_aggregate_ranking_dataframe(selected_rankings_names, int(selected_year))
+        #aggregate_ranking_dataframe = assemble_aggregate_ranking_dataframe(selected_rankings_names, int(selected_year))
+        aggregate_ranking_dataframe = DataFrame()
 
         csv_filename = assemble_csv_filename(selected_rankings_names, selected_year)
+        correlation_matrix_csv_filename = 'correlation_matrix_' + csv_filename
         print 'csv_filename: ', csv_filename
         print 'csv_files_dir', csv_files_dir
         csv_file_path = os.path.join(csv_files_dir, csv_filename)
@@ -136,16 +141,19 @@ class RankingTableAPIView(APIView):
 
         if not check_file_exist(csv_file_path):
             print 'csv file, %s' % csv_file_path, ' not exists'
+            aggregate_ranking_dataframe = assemble_aggregate_ranking_dataframe(selected_rankings_names, int(selected_year))
             aggregate_ranking_to_csv(csv_file_path, aggregate_ranking_dataframe)
         else:
             print 'csv file, %s' % csv_file_path, ' exists'
+            aggregate_ranking_dataframe = DataFrame.from_csv(csv_file_path, sep=';')
 
-
+        correlation_matrix = calculate_correlation_matrix(aggregate_ranking_dataframe)
+        prepared_for_response_correlation_matrix = None
         if request_data['needsToBeUpdated']:
-            correlation_matrix = prepare_correlation_matrix_to_response(aggregate_ranking_dataframe)
+            prepared_for_response_correlation_matrix = prepare_correlation_matrix_to_response(correlation_matrix)
         else:
-            correlation_matrix = None
-        response_data['correlationMatrix'] = correlation_matrix
+            prepared_for_response_correlation_matrix = None
+        response_data['correlationMatrix'] = prepared_for_response_correlation_matrix
         print 'response_data[\'correlationMatrix\']: ', response_data['correlationMatrix']
         aggregate_ranking_dataframe_len = aggregate_ranking_dataframe.count()[0]
         if records_per_page >= aggregate_ranking_dataframe_len:
