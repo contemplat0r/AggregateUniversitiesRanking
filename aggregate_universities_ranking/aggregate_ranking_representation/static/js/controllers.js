@@ -174,6 +174,10 @@ rankingApp.controller('RankingTableController', function($scope, $http) {
         }
 
         console.log('scope.correlationMatrix: ', scope.correlationMatrix);
+
+        if (('aggregateRankingCsvFileDownloadPath' in responseData) && (responseData.aggregateRankingCsvFileDownloadPath !== null)) {
+            $scope.aggregateRankingCsvFileDownloadPath = responseData.aggregateRankingCsvFileDownloadPath;
+        }
     };
 
     $scope.requestData =  {selectedRankingNames : null, selectedYear : null, currentPage : null, recordsPerPage : null, needsToBeUpdated : false}

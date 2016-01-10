@@ -1,6 +1,8 @@
 # -*- coding: utf8 -*- 
 
 import datetime
+import os
+from functools import reduce
 from django.shortcuts import render
 from django.core.context_processors import csrf
 from django.conf import settings
@@ -19,6 +21,10 @@ from forms import SelectRankingsNamesAndYear
 START_AGGREGATE_YEAR = getattr(settings, 'START_AGGREGATE_YEAR', 2014)
 FINISH_AGGREGATE_YEAR = getattr(settings, 'FINISH_AGGREGATE_YEAR', datetime.date.today().year)
 
+BASE_DIR = getattr(settings, 'BASE_DIR')
+current_dir = os.path.join(BASE_DIR, 'aggregate_ranking_representation')
+csv_files_dir_relative_path = os.path.join('static', 'csv')
+csv_files_dir = os.path.join(current_dir, csv_files_dir_relative_path)
 
 def prepare_ranktable_to_response(selected_rankings_names, aggregate_ranking_dataframe):
     ranktable = list()
@@ -51,13 +57,23 @@ def prepare_correlation_matrix_to_response(aggregate_ranking_dataframe):
 
     return correlation_matrix_table
 
+def assemble_csv_filename(selected_rankings_names, year):
+    selected_rankings_names = sorted(selected_rankings_names)
+    csv_filename = reduce(lambda filename, rankname: filename + rankname + '_', selected_rankings_names, str()) + str(year) + '.csv'
+    return csv_filename.lower()
+
+
+def check_file_exist(csv_file_path):
+    return os.path.exists(csv_file_path)
+
+
+def aggregate_ranking_to_csv(csv_file_path, aggregate_ranking_dataframe):
+    aggregate_ranking_dataframe.to_csv(csv_file_path, sep=';')
+    return
+
+
 def index(request):
-
     return render(request, 'aggregate_ranking_representation/base.html')
-
-def aggregate_universities_ranking_as_table(request):
-
-    return render(request, 'aggregate_ranking_representation/table.html')
 
 
 class RankingTableAPIView(APIView):
@@ -71,7 +87,7 @@ class RankingTableAPIView(APIView):
         request_data = request.data
         print 'recordsPerPage: ', request_data.get('recordsPerPage')
         print 'needsToBeUpdated: ', request_data.get('needsToBeUpdated')
-        response_data = {'rankTable' : None, 'rankingsNamesList' : None, 'yearsList' : None, 'selectedYear' : None, 'paginationParameters' : {'recordsPerPageSelectionList' : [5, 10, 20, 50, 100, 200], 'currentPageNum' : 1, 'totalTableRecords' : 1000, 'totalPages' : 0, 'correlationMatrix' : None}}
+        response_data = {'rankTable' : None, 'rankingsNamesList' : None, 'yearsList' : None, 'selectedYear' : None, 'paginationParameters' : {'recordsPerPageSelectionList' : [5, 10, 20, 50, 100, 200], 'currentPageNum' : 1, 'totalTableRecords' : 1000, 'totalPages' : 0, 'correlationMatrix' : None, 'aggregateRankingCsvFileDownloadPath' : None}}
         current_page_num = request_data.get('currentPageNum')
         if current_page_num is None:
             current_page_num = 1
@@ -109,7 +125,22 @@ class RankingTableAPIView(APIView):
         if selected_year > 2015:
             selected_year = 2015
         response_data['selectedYear'] = selected_year
+
         aggregate_ranking_dataframe = assemble_aggregate_ranking_dataframe(selected_rankings_names, int(selected_year))
+
+        csv_filename = assemble_csv_filename(selected_rankings_names, selected_year)
+        print 'csv_filename: ', csv_filename
+        print 'csv_files_dir', csv_files_dir
+        csv_file_path = os.path.join(csv_files_dir, csv_filename)
+        response_data['aggregateRankingCsvFileDownloadPath'] = os.path.join(csv_files_dir_relative_path, csv_filename)
+
+        if not check_file_exist(csv_file_path):
+            print 'csv file, %s' % csv_file_path, ' not exists'
+            aggregate_ranking_to_csv(csv_file_path, aggregate_ranking_dataframe)
+        else:
+            print 'csv file, %s' % csv_file_path, ' exists'
+
+
         if request_data['needsToBeUpdated']:
             correlation_matrix = prepare_correlation_matrix_to_response(aggregate_ranking_dataframe)
         else:

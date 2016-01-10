@@ -23,7 +23,7 @@
         <select name="recordsPerPageSelect" id="recordsPerPageSelect" ng-options="pageSize.value for pageSize in paginationParameters.recordsPerPageSelection.availableSizes track by pageSize.id" ng-model="paginationParameters.recordsPerPageSelection.selectedSize"></select>
 
         <!--<button type="submit" ng-click="sendSelected()" class="btn btn-danger btn-lg">Send</button>-->
-        <button type="submit" ng-click="sendSelected()" class="btn">Apply</button>
+        <button type="submit" ng-click="sendSelected()" class="btn btn-primary">Apply</button>
     </form>
     <div name="correlationMatrixContainer" id="correlationMatrixContainer" ng-show="showCorrelationMatrix">
         <strong>
@@ -41,7 +41,7 @@
             </table>
         </span>
     </div>
-    <button ng-click="showCorrelationMatrix = !showCorrelationMatrix" ng-init="showCorrelationMatrix = false">
+    <button class="btn btn-primary" ng-click="showCorrelationMatrix = !showCorrelationMatrix" ng-init="showCorrelationMatrix = false">
         <div ng-show="!showCorrelationMatrix">
             Show correlation matrix
         </div>
@@ -49,6 +49,7 @@
             Hide correlation matrix
         </div>
     </button>
+    <a class="btn btn-primary" href="/{{aggregateRankingCsvFileDownloadPath}}"> Download Aggregate Ranking as csv file </a>
     <table class="table table-striped table-condensed table-hover">
         <thead>
             <tr>
