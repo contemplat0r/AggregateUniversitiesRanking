@@ -217,11 +217,32 @@ def divide_name_by_slash(name_as_list):
         if item != '/':
             current_name_variant.append(item)
         else:
-            name_variants.append(current_name_variant)
-            current_name_variant = list()
-    if current_name_variant != list():
+            if current_name_variant != []:
+                name_variants.append(current_name_variant)
+                current_name_variant = list()
+    if current_name_variant != []:
         name_variants.append(current_name_variant)
     return name_variants
+
+
+def divide_by_brackets(name_as_list):
+    name_variants = []
+    current_name_variant = []
+    in_bracket_state = False
+    in_bracket_in_bracket_state = False
+    for item in raw_fullname_as_list:
+        if item.startswith('(') and not in_bracket_state:
+            in_bracket_state = True
+        elif item.startswith(')') and in_bracket_state:
+            in_bracket_state = False
+        elif not item.startswith(')') and in_bracket_state:
+            pass
+        else:
+            current_name_variant.append(item)
+    name_variants.append(current_name_variant)
+    return name_variants
+
+
 
 def divide_raw_name_by_brackets(raw_fullname_as_list):
     out_bracket_name_part = list()
