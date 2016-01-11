@@ -210,6 +210,19 @@ def detect_special_symbol_in_string(string):
 #    ket_position = raw_fullname_as_string.find(')')
 
 
+def divide_name_by_slash(name_as_list):
+    name_variants = list()
+    current_name_variant = list()
+    for item in name_as_list:
+        if item != '/':
+            current_name_variant.append(item)
+        else:
+            name_variants.append(current_name_variant)
+            current_name_variant = list()
+    if current_name_variant != list():
+        name_variants.append(current_name_variant)
+    return name_variants
+
 def divide_raw_name_by_brackets(raw_fullname_as_list):
     out_bracket_name_part = list()
     in_bracket_name_part = list()
@@ -227,7 +240,8 @@ def divide_raw_name_by_brackets(raw_fullname_as_list):
             in_bracket_name_part.append(item)
         else:
             out_bracket_name_part.append(item)
-    return out_bracket_name_part, in_bracket_name_part
+    in_bracket_name_part = [name_item for name_item in in_bracket_name_part if name_item != '']
+    return {'out_bracket_name_part' : out_bracket_name_part, 'in_bracket_name_part' : in_bracket_name_part}
 
 
 def categorize_as_abbreviation(string):
@@ -239,12 +253,12 @@ def categorize_as_abbreviation(string):
     return string_is_abbreviation
 
 
-def get_abbreviations_from_outside_brackets(name_as_string_list):
+def get_already_existing_abbreviation(name_part_as_string_list):
     abbreviations = list()
-    for name_part in name_as_string_list:
-        #if len(name_part) > 1 and name_part.isupper():
-        if len(name_part) > 1 and categorize_as_abbreviation(name_part):
-            abbreviations.append(name_part)
+    for name_item in name_part_as_string_list:
+        #if len(name_item) > 1 and name_item.isupper():
+        if len(name_item) > 1 and categorize_as_abbreviation(name_item):
+            abbreviations.append(name_item)
     return abbreviations
 
 
@@ -278,6 +292,63 @@ def convert_name_as_list_to_string(name_as_string_list):
         return str()
 
 
+def process_name_variant(name_variant_as_string_list):
+    shortname = None
+    abbreviation = None
+    abbreviation_from_first_letters = None
+
+
+def get_name_variants(name_str):
+    name_variants = {
+            'raw_fullname_as_string' : name_str,
+            'fullname_variants_as_lists' : list(),
+            'fullname__variants_as_lists_anciliary_words_excluded' : list(),
+            'shortnames' : list(),
+            'abbreviations' : list(),
+            'abbreviations_build_from_first_letters' : list(),
+            'fullnames_variants_as_strings' : list(),
+            'fullname_variants_as_strings_anciliary_words_excluded' : list(),
+            }
+
+    name_as_string_list = name_str.split()
+    name_as_string_list = [name_part.strip(',') for name_part in name_as_string_list]
+    name_part_in_brackets = get_name_part_in_brackets(name_as_string_list)
+    abbreviations = list()
+    name_variants_as_list = divide_raw_name_by_brackets(name_as_string_list).values()
+    if name_part_in_brackets != None and len(name_part_in_brackets) > 1:
+        name_as_string_list.remove(name_part_in_brackets)
+        name_part_in_brackets = name_part_in_brackets.strip('()')
+        if categorize_as_abbreviation(name_part_in_brackets):
+            abbreviations.append(name_part_in_brackets)
+            name_variants['abbreviations'] = abbreviations
+        else:
+            name_variants['shortname'] = name_part_in_brackets
+
+    if abbreviations == []:
+        abbreviations = get_already_existing_abbreviation(name_as_string_list)
+        if abbreviations != []:
+            name_variants['abbreviations'] = abbreviations
+            for abbreviation_variant in abbreviations:
+                name_as_string_list.remove(abbreviation_variant)
+
+    abbreviations_build_from_first_letters = list()
+    if name_as_string_list != []:
+        name_variants['fullname_as_list'] = name_as_string_list
+        name_as_string_list_cleaned_from_anciliary_word = exclude_anciliary_words_from_name_as_list(name_as_string_list)
+        name_variants['fullname_as_list_anciliary_words_excluded'] = name_as_string_list_cleaned_from_anciliary_word
+
+        if (abbreviations == []) and (len(name_as_string_list) > 1):
+            abbreviation_picked_from_fullname = pick_abbreviation_from_fullname(name_as_string_list)
+            abbreviation_picked_from_fullname_exclude_anciliary_words = pick_abbreviation_from_fullname(name_as_string_list_cleaned_from_anciliary_word)
+            abbreviations_build_from_first_letters = [abbreviation_picked_from_fullname, abbreviation_picked_from_fullname.upper(), abbreviation_picked_from_fullname_exclude_anciliary_words, abbreviation_picked_from_fullname_exclude_anciliary_words.upper()]
+            name_variants['abbreviations_build_from_first_letters'] = abbreviations_build_from_first_letters
+
+        name_variants['fullname_as_string'] = convert_name_as_list_to_string(name_as_string_list)
+        name_variants['fullname_as_string_anciliary_words_excluded'] = convert_name_as_list_to_string(name_as_string_list_cleaned_from_anciliary_word)
+    return name_variants 
+
+
+
 def get_name_variants(name_str):
     name_variants = {
             'raw_fullname_as_string' : name_str,
@@ -304,7 +375,7 @@ def get_name_variants(name_str):
             name_variants['shortname'] = name_part_in_brackets
 
     if abbreviations == []:
-        abbreviations = get_abbreviations_from_outside_brackets(name_as_string_list)
+        abbreviations = get_already_existing_abbreviation(name_as_string_list)
         if abbreviations != []:
             name_variants['abbreviations'] = abbreviations
             for abbreviation_variant in abbreviations:
