@@ -205,32 +205,17 @@ def detect_special_symbol_in_string(string):
     return special_symbol_detected
 
 
-#def retrieve_in_bracket_name_part(raw_fullname_as_string):
-#    bra_position = raw_fullname_as_string.find('(')
-#    ket_position = raw_fullname_as_string.find(')')
 
+def divide_name_by_slash(name_as_string):
+    return [name_part for name_part in name_as_string.split('/') if name_part != '']
 
-def divide_name_by_slash(name_as_list):
-    name_variants = list()
-    current_name_variant = list()
-    for item in name_as_list:
-        if item != '/':
-            current_name_variant.append(item)
-        else:
-            if current_name_variant != []:
-                name_variants.append(current_name_variant)
-                current_name_variant = list()
-    if current_name_variant != []:
-        name_variants.append(current_name_variant)
-    return name_variants
-
-
+'''
 def divide_by_brackets(name_as_list):
     name_variants = []
     current_name_variant = []
     in_bracket_state = False
     in_bracket_in_bracket_state = False
-    for item in raw_fullname_as_list:
+    for item in name_as_list:
         if item.startswith('(') and not in_bracket_state:
             in_bracket_state = True
         elif item.startswith(')') and in_bracket_state:
@@ -241,7 +226,38 @@ def divide_by_brackets(name_as_list):
             current_name_variant.append(item)
     name_variants.append(current_name_variant)
     return name_variants
+'''
 
+def divide_by_brackets(name_part_as_string):
+    name_variants = {'not_in_bracket_name_variant' : None, 'in_bracket_name_variants' : []}
+    not_in_bracket_name_variant = []
+    current_in_bracket_name_variant = []
+    concatenate_string = ''
+    in_bracket_state = False
+    in_bracket_in_bracket_state = False
+    for symbol in name_part_as_string:
+        if symbol == '(' and not in_bracket_state and not in_bracket_in_bracket_state:
+            in_bracket_state = True
+            print 'symbol == \'(\' and not in_bracket_state and not in_bracket_in_bracket_state' 
+            print 'current_in_bracket_name_variant: ', current_in_bracket_name_variant
+            #current_in_bracket_name_variant = []
+        elif symbol == '(' and in_bracket_state and not in_bracket_in_bracket_state:
+            in_bracket_in_bracket_state = True
+        elif symbol == ')' and in_bracket_in_bracket_state:
+            in_bracket_in_bracket_state = False
+        elif symbol == ')' and not in_bracket_in_bracket_state and in_bracket_state:
+            print 'symbol == \')\' and not in_bracket_in_bracket_state and in_bracket_state'
+            print 'current_in_bracket_name_variant: ', current_in_bracket_name_variant
+            name_variants['in_bracket_name_variants'].append(concatenate_string.join(current_in_bracket_name_variant))
+            current_in_bracket_name_variant = []
+            in_bracket_state = False
+        elif in_bracket_state:
+            current_in_bracket_name_variant.append(symbol)
+        else:
+            not_in_bracket_name_variant.append(symbol)
+    print 'not_in_bracket_name_variant: ', not_in_bracket_name_variant
+    name_variants['not_in_bracket_name_variant'] = concatenate_string.join(not_in_bracket_name_variant)
+    return name_variants
 
 
 def divide_raw_name_by_brackets(raw_fullname_as_list):
@@ -330,9 +346,9 @@ def get_name_variants(name_str):
             'fullnames_variants_as_strings' : list(),
             'fullname_variants_as_strings_anciliary_words_excluded' : list(),
             }
+    name_parts_divided_by_slash = divide_name_by_slash(name_str)
+    name_parts_divided_by_brackets = [divide_by_brackets(name_part_divided_by_slash) for name_part_divided_by_slash in name_parts_divided_by_slash]
 
-    name_as_string_list = name_str.split()
-    name_as_string_list = [name_part.strip(',') for name_part in name_as_string_list]
     name_part_in_brackets = get_name_part_in_brackets(name_as_string_list)
     abbreviations = list()
     name_variants_as_list = divide_raw_name_by_brackets(name_as_string_list).values()
