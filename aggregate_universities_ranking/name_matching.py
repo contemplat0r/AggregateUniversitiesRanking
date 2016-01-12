@@ -259,6 +259,21 @@ def divide_by_brackets(name_part_as_string):
     name_variants['not_in_bracket_name_variant'] = concatenate_string.join(not_in_bracket_name_variant)
     return name_variants
 
+def convert_to_list(name_variant_as_string):
+    return [name_item.strip() for name_item in name_variant_as_string.split() if len(name_item) > 1]
+
+
+def explore_divided_name(divided_name):
+    for name_part in divided_name:
+        not_in_bracket_name_variant = name_part['not_in_bracket_name_variant']
+        in_bracket_name_variants = name_part['in_bracket_name_variants']
+        not_in_bracket_name_variant_as_list = convert_to_list(not_in_bracket_name_variant)
+        print not_in_bracket_name_variant_as_list
+
+        in_bracket_name_variants_as_lists = [convert_to_list(name_variant) for name_variant in in_bracket_name_variants]
+
+        print in_bracket_name_variants_as_lists
+
 
 def divide_raw_name_by_brackets(raw_fullname_as_list):
     out_bracket_name_part = list()
