@@ -14,6 +14,7 @@ from pandas import Series, DataFrame
 import pandas as pd
 import numpy as np
 import django
+from timeit import default_timer as timer
 
 DJANGO_PROJECT_DIR = join(abspath(join(dirname(__file__), '..')), 'aggregate_universities_ranking')
 sys.path.append(DJANGO_PROJECT_DIR)
@@ -31,6 +32,8 @@ NONE_STR_VALUE = '~~~~~~~~~'
 # Добавить "очищенный от вспомогательных слов (артиклей) вариант". Аббревиатуры тогда
 # тоже вычислять два варианта: "очищенную от вспомогательных слов" и "со вспомогательными словами".
 
+# For filling University and RankingValue tables must be call rawranking_records_to_structured_tables function or unkomment call to_database function in build_aggregate_ranking_dataframe function and call build_aggregate_ranking_dataframe 
+
 anciliary_words_list = ['of', 'the', 'The', 'a', 'A', 'an', 'An', '&', '-', '\/']
 special_symbols_list = ['-', '.']
 
@@ -39,6 +42,7 @@ def save_ranktables(ranktables, filename):
     out = open(filename, 'w')
     pickle.dump(ranktables, out)
     out.close()
+
 
 def get_saved_ranktables(filename):
     ranktables = None
@@ -140,6 +144,7 @@ def rawranking_records_to_dataframes(ranking_descriptions):
         dataframes_dict[ranking_short_name]['dataframe'] = ranking_dataframe
     return dataframes_dict
 
+
 def dataframes_to_ranking_tables(dataframes_dict):
     print 'Entry to dataframes_to_ranking_tables'
     rank_tables_dict = dict()
@@ -204,32 +209,26 @@ def detect_special_symbol_in_string(string):
             break
     return special_symbol_detected
 
-
+#
+# Begin code part that describe new dissasemble full name algorithm, that applicable
+# to names from Webometrics ranking.
+# Function categorize_as_abbreviation also used old algorithm version. New alogrithm
+# also used pick_abbreviation_from_fullname function wrote for old algorithm (must be
+# renamed).
+#
 
 def divide_name_by_slash(name_as_string):
-    return [name_part for name_part in name_as_string.split('/') if name_part != '']
+    name_parts_list = [name_part for name_part in name_as_string.split('/') if name_part != '']
+    name_parts_dict = {
+            'name_part_before_slash' : name_parts_list[0],
+            'name_part_after_slash' : name_part_list[1]
+            }
+    #return name_parts_dict
+    return name_parts_list
 
-'''
-def divide_by_brackets(name_as_list):
-    name_variants = []
-    current_name_variant = []
-    in_bracket_state = False
-    in_bracket_in_bracket_state = False
-    for item in name_as_list:
-        if item.startswith('(') and not in_bracket_state:
-            in_bracket_state = True
-        elif item.startswith(')') and in_bracket_state:
-            in_bracket_state = False
-        elif not item.startswith(')') and in_bracket_state:
-            pass
-        else:
-            current_name_variant.append(item)
-    name_variants.append(current_name_variant)
-    return name_variants
-'''
 
 def divide_by_brackets(name_part_as_string):
-    name_variants = {'not_in_bracket_name_variant' : None, 'in_bracket_name_variants' : []}
+    name_variants = {'not_in_bracket_name_variant' : None, 'in_bracket_name_variants' : None}
     not_in_bracket_name_variant = []
     current_in_bracket_name_variant = []
     concatenate_string = ''
@@ -238,16 +237,12 @@ def divide_by_brackets(name_part_as_string):
     for symbol in name_part_as_string:
         if symbol == '(' and not in_bracket_state and not in_bracket_in_bracket_state:
             in_bracket_state = True
-            print 'symbol == \'(\' and not in_bracket_state and not in_bracket_in_bracket_state' 
-            print 'current_in_bracket_name_variant: ', current_in_bracket_name_variant
-            #current_in_bracket_name_variant = []
+            name_variants['in_bracket_name_variants'] = []
         elif symbol == '(' and in_bracket_state and not in_bracket_in_bracket_state:
             in_bracket_in_bracket_state = True
         elif symbol == ')' and in_bracket_in_bracket_state:
             in_bracket_in_bracket_state = False
         elif symbol == ')' and not in_bracket_in_bracket_state and in_bracket_state:
-            print 'symbol == \')\' and not in_bracket_in_bracket_state and in_bracket_state'
-            print 'current_in_bracket_name_variant: ', current_in_bracket_name_variant
             name_variants['in_bracket_name_variants'].append(concatenate_string.join(current_in_bracket_name_variant))
             current_in_bracket_name_variant = []
             in_bracket_state = False
@@ -255,24 +250,118 @@ def divide_by_brackets(name_part_as_string):
             current_in_bracket_name_variant.append(symbol)
         else:
             not_in_bracket_name_variant.append(symbol)
-    print 'not_in_bracket_name_variant: ', not_in_bracket_name_variant
     name_variants['not_in_bracket_name_variant'] = concatenate_string.join(not_in_bracket_name_variant)
     return name_variants
+
 
 def convert_to_list(name_variant_as_string):
     return [name_item.strip() for name_item in name_variant_as_string.split() if len(name_item) > 1]
 
 
-def explore_divided_name(divided_name):
-    for name_part in divided_name:
-        not_in_bracket_name_variant = name_part['not_in_bracket_name_variant']
-        in_bracket_name_variants = name_part['in_bracket_name_variants']
-        not_in_bracket_name_variant_as_list = convert_to_list(not_in_bracket_name_variant)
-        print not_in_bracket_name_variant_as_list
+def categorize_as_abbreviation(word):
+    word_is_abbreviation = False
+    word_len = len(word)
+    upper_symbols_number = sum([1 for char in list(word) if char.isupper()])
+    if word_len > 1 and (upper_symbols_number > word_len - upper_symbols_number) and not detect_special_symbol_in_word(word):
+        word_is_abbreviation = True
+    return word_is_abbreviation
 
-        in_bracket_name_variants_as_lists = [convert_to_list(name_variant) for name_variant in in_bracket_name_variants]
 
-        print in_bracket_name_variants_as_lists
+def detect_one_word_list(word_list):
+    if len(word_list) == 1:
+        return True
+    else:
+        return False
+
+def categorize_one_word_list(one_word_list):
+    word = one_word_list[0]
+    if categorize_as_abbreviation(word):
+        return 'abbreviation'
+    else:
+        return 'shortname'
+
+
+def categorize_word_list(word_list):
+    if detect_one_word_list(word_list):
+        return categorize_one_word_list(word_list)
+    else:
+        return 'longname'
+
+def extract_abbreviations_from_longname(longname):
+    return [word for word in longname if categorize_as_abbreviation(word)]
+
+
+def delete_abbreviations_from_longname(abbreviations, longname):
+    for abbreviation in abbreviations:
+        if abbreviation in longname:
+            longname.remove(abbreviation)
+    return longname
+
+
+def process_word_list(word_list):
+    result = {'abbreviations' : None, 'shortnames' : None, 'longname_as_list' : None, 'abbreviations_picked_from_longname' : None, 'abbreviations_picked_from_longname_upper' : None}
+    word_list_category = categorize_word_list(word_list)
+    if word_list_category == 'abbreviation':
+        result['abbreviations'] = word_list
+    elif word_list_category == 'shortname':
+        result['shortnames'] = word_list
+    elif word_list_category == 'longname':
+        abbreviations = extract_abbreviations_from_longname(word_list)
+        if abbreviations != []:
+            result['abbreviations'] = abbreviations
+        result['longname_as_list'] = delete_abbreviations_from_longname(abbreviations, word_list)
+        abbreviation_picked_from_longname = pick_abbreviation_from_fullname(result['longname_as_list'])
+        result['abbreviations_picked_from_longname'] = [abbreviation_picked_from_longname]
+        result['abbreviations_picked_from_longname_upper'] = [abbreviation_picked_from_longname.upper()]
+    else:
+        print 'Unknown category'
+    return result
+
+
+def get_name_variants_as_lists(name_part):
+    not_in_bracket_name_variant = name_part['not_in_bracket_name_variant']
+    in_bracket_name_variants = name_part['in_bracket_name_variants']
+    not_in_bracket_name_variant_as_list = exclude_anciliary_words_from_name_as_list(convert_to_list(not_in_bracket_name_variant))
+    print not_in_bracket_name_variant_as_list
+
+    name_part['not_in_bracket_name_variant_as_list'] = not_in_bracket_name_variant_as_list
+
+    in_bracket_name_variants_as_lists = [exclude_anciliary_words_from_name_as_list(convert_to_list(name_variant)) for name_variant in in_bracket_name_variants]
+    print in_bracket_name_variants_as_lists
+
+    name_part['in_bracket_name_variants_as_lists'] = in_bracket_name_variants_as_lists
+    return name_part
+
+
+def process_name(name):
+    processed_name = {'raw_name_as_string' : name, 'name_parts_divided_by_slash' : []}
+    name_parts_divided_by_slash = divide_name_by_slash(name)
+    for name_part in name_parts_divided_by_slash:
+        processed_name_part = {'name_part' : name_part}
+        name_variants_divided_by_brackets = divide_by_brackets(name_part)
+        processed_name_part['name_variants_divided_by_brackets'] = name_variants_divided_by_brackets
+        #print name_variants_divided_by_brackets
+        name_variants = get_name_variants_as_lists(name_variants_divided_by_brackets)
+        #print name_variants
+        not_in_bracket_name_variant_as_list = name_variants['not_in_bracket_name_variant_as_list']
+        processed_name_part['not_in_bracket_name_variant_as_list'] = not_in_bracket_name_variant_as_list
+        in_bracket_name_variants_as_lists = name_variants['in_bracket_name_variants_as_lists']
+        processed_name_part['in_bracket_name_variants_as_lists'] = in_bracket_name_variants_as_lists
+        processed_not_in_bracket_name_variant_as_list = process_word_list(not_in_bracket_name_variant_as_list)
+        processed_name_part['processed_not_in_bracket_name_variant_as_list'] = processed_not_in_bracket_name_variant_as_list
+        print processed_not_in_bracket_name_variant_as_list
+        processed_name_part['processed_in_bracket_name_variants_as_lists'] = []
+        for in_bracket_name_variant in in_bracket_name_variants_as_lists:
+            processed_in_bracket_name_variant_as_list = process_word_list(in_bracket_name_variant)
+            print processed_in_bracket_name_variant_as_list
+            processed_name_part['processed_in_bracket_name_variants_as_lists'].append(processed_in_bracket_name_variant_as_list)
+        processed_name['name_parts_divided_by_slash'].append(processed_name_part)
+    return processed_name
+            
+
+#
+# End code part that describe new dissasemble name (and name matching) algorithm. 
+#
 
 
 def divide_raw_name_by_brackets(raw_fullname_as_list):
@@ -296,28 +385,15 @@ def divide_raw_name_by_brackets(raw_fullname_as_list):
     return {'out_bracket_name_part' : out_bracket_name_part, 'in_bracket_name_part' : in_bracket_name_part}
 
 
-def categorize_as_abbreviation(string):
-    string_is_abbreviation = False
-    string_len = len(string)
-    upper_symbols_number = sum([1 for char in list(string) if char.isupper()])
-    if string_len > 1 and (upper_symbols_number > string_len - upper_symbols_number) and not detect_special_symbol_in_string(string):
-        string_is_abbreviation = True
-    return string_is_abbreviation
-
-
 def get_already_existing_abbreviation(name_part_as_string_list):
     abbreviations = list()
     for name_item in name_part_as_string_list:
-        #if len(name_item) > 1 and name_item.isupper():
         if len(name_item) > 1 and categorize_as_abbreviation(name_item):
             abbreviations.append(name_item)
     return abbreviations
 
 
 def pick_abbreviation_from_fullname(fullname_as_string_list):
-    #print 'Entry to pick_abbreviation_from_fullname'
-    #print 'pick_abbreviation_from_fullname, fullname_as_string_list: ', fullname_as_string_list
-    #print 'pick_abbreviation_from_fullname, len(fullname_as_string_list): ', len(fullname_as_string_list)
     abbr_from_fullname = None
     if len(fullname_as_string_list) > 1:
         abbr_from_fullname = ''
@@ -344,10 +420,6 @@ def convert_name_as_list_to_string(name_as_string_list):
         return str()
 
 
-def process_name_variant(name_variant_as_string_list):
-    shortname = None
-    abbreviation = None
-    abbreviation_from_first_letters = None
 
 
 def get_name_variants(name_str):
@@ -714,12 +786,25 @@ def convert_aggregate_ranking_dict_to_dataframe(grouped_aggregate_ranking_dict):
     return DataFrame(dataframe_data_dict)
 
 
+def rawranking_records_to_structured_tables():
+    dataframes_dict = rawranking_records_to_dataframes(ranking_descriptions)
+    ranking_tables_dict = dataframes_to_ranking_tables(dataframes_dict)
+    
+    union_rank_tables = union_ranks(ranking_tables_dict)
+
+    University.objects.all().delete()
+    RankingValue.objects.all().delete()
+
+    to_database(union_rank_tables)
+
+
 def build_aggregate_ranking_dataframe(ranking_descriptions):
     aggregate_ranking_dataframe = None
     dataframes_dict = rawranking_records_to_dataframes(ranking_descriptions)
     ranking_tables_dict = dataframes_to_ranking_tables(dataframes_dict)
     
     union_rank_tables = union_ranks(ranking_tables_dict)
+    # to_database(union_rank_tables)
     print 'build_aggregate_ranking_dataframe, type(union_ranks): ', type(union_ranks)
     print 'build_aggregate_ranking_dataframe, type(aggregate_rank): ', type(append_aggregate_rank)
     union_rank_tables_with_aggregated_rank = append_aggregate_rank(union_rank_tables)

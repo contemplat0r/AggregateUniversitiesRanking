@@ -12,6 +12,7 @@ from pandas import Series, DataFrame
 import pandas as pd
 import numpy as np
 #import django
+from timeit import default_timer as timer
 
 #DJANGO_PROJECT_DIR = join(abspath(join(dirname(__file__), '..')), 'aggregate_universities_ranking')
 #sys.path.append(DJANGO_PROJECT_DIR)
@@ -40,8 +41,9 @@ def the_dataframe_postprocessor(the_dataframe):
     return the_dataframe
 
 
-ranking_table_as_list_preprocessor = lambda df: df[:6].T
+#ranking_table_as_list_preprocessor = lambda df: df[:6].T
 #ranking_table_as_list_preprocessor = lambda df: df[:4].T
+ranking_table_as_list_preprocessor = lambda df: df.T
 
 
 ranking_descriptions = {

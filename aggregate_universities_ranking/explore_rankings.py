@@ -36,18 +36,20 @@ def explore():
 
         names_without_whitespace = university_names[university_names.map(lambda x: x.find(' ') == -1)]
         print 'names_without_whitespace.count(): ', names_without_whitespace.count()
-        print 'names_without_whitespace: ', list(names_without_whitespace)
+        #print 'names_without_whitespace: ', list(names_without_whitespace)
 
         names_upper = university_names[university_names.map(lambda x: x.isupper())]
         print 'names_upper.count(): ', names_upper.count()
-        print 'names_upper: ', list(names_upper)
+        #print 'names_upper: ', list(names_upper)
 
 
 
         names_containing_slash = university_names[university_names.map(lambda x: x.find('/') != -1)]
         print 'names_containing_slash.count(): ', names_containing_slash.count()
         print 'names_containing_slash: ', list(names_containing_slash)
-
+=
+        #names_containing_one_slash = university_names[university_names.map(lambda x: x.count('/') == 1)]
+        #print 'names_containing_one_slash.count(): ', names_containing_one_slash.count()
         names_containing_many_slash = university_names[university_names.map(lambda x: x.count('/') > 1)]
         print 'names_containing_many_slash.count(): ', names_containing_many_slash.count()
         print 'names_containing_many_slash: ', list(names_containing_many_slash)
