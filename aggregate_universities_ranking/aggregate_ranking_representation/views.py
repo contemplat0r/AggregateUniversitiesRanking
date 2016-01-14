@@ -71,7 +71,9 @@ def check_file_exist(csv_file_path):
 
 
 def aggregate_ranking_to_csv(csv_file_path, aggregate_ranking_dataframe):
-    aggregate_ranking_dataframe.to_csv(csv_file_path, sep=';')
+    print 'Entry in aggregate_ranking_to_csv'
+    print 'aggregate_ranking_to_csv, before call aggregate_ranking_dataframe.to_csv'
+    aggregate_ranking_dataframe.to_csv(csv_file_path, sep=';', encoding='utf-8')
     return
 
 
@@ -142,11 +144,14 @@ class RankingTableAPIView(APIView):
         if not check_file_exist(csv_file_path):
             print 'csv file, %s' % csv_file_path, ' not exists'
             aggregate_ranking_dataframe = assemble_aggregate_ranking_dataframe(selected_rankings_names, int(selected_year))
+            print 'aggregate_ranking_dataframe.count():\n', aggregate_ranking_dataframe.count()
             aggregate_ranking_to_csv(csv_file_path, aggregate_ranking_dataframe)
+            print 'After aggregate_ranking_to_csv'
         else:
             print 'csv file, %s' % csv_file_path, ' exists'
-            aggregate_ranking_dataframe = DataFrame.from_csv(csv_file_path, sep=';')
-
+            aggregate_ranking_dataframe = DataFrame.from_csv(csv_file_path, sep=';', encoding='utf-8')
+        
+        print 'Before correlation_matrix calculation'
         correlation_matrix = calculate_correlation_matrix(aggregate_ranking_dataframe)
         prepared_for_response_correlation_matrix = None
         if request_data['needsToBeUpdated']:

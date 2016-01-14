@@ -449,7 +449,6 @@ def to_database(union_rank_tables):
                         ranking_value_db_record.save()
                     #print 'Outer break'
                     break
-
     return 
 
 
@@ -464,14 +463,10 @@ def from_database(rankings_names_list, year):
     rank_tables = list()
 
     for university_description in University.objects.all():
-        #print 'university_description.university_name: ', university_description.university_name
         university_name = university_description.university_name
         record = {'canonical_name' : university_name}
         ranks = dict()
-        #for ranking_value_description in university_description.rankingvalue_set.filter(year=year):
-        #for ranking_value_description in university_description.rankingvalue_set.filter(ranking_description.year=year):
         for ranking_value_description in university_description.rankingvalue_set.filter(ranking_description__year=year):
-            #print '\tranking_value_descriptions: ', ranking_value_description
             rank_name = ranking_value_description.ranking_description.short_name
             if rank_name in rankings_names_list:
                 ranks.update({rank_name : ranking_value_description.number_in_ranking_table})
@@ -524,16 +519,32 @@ def build_aggregate_ranking_dataframe(ranking_descriptions):
 
 
 def assemble_aggregate_ranking_dataframe(ranking_names_list, year):
+    this_func_start_time = timer()
+    start = timer()
     rank_tables = from_database(ranking_names_list, year)
-    if rank_tables != []:
-        rank_tables_with_aggregated_rank = append_aggregate_rank(rank_tables)
-        
-        universities_grouped_by_aggregate_rank = group_by_aggregate_rank(rank_tables_with_aggregated_rank)
+    end = timer()
+    print 'assemble_aggregate_ranking_dataframe: from_database function runtime = ', end - start
 
+    if rank_tables != []:
+        start = timer()
+        rank_tables_with_aggregated_rank = append_aggregate_rank(rank_tables)
+        end = timer()
+        print 'assemble_aggregate_ranking_dataframe: append_aggregate_rank function runtime = ', end - start
+        
+        start = timer()
+        universities_grouped_by_aggregate_rank = group_by_aggregate_rank(rank_tables_with_aggregated_rank)
+        end = timer()
+        print 'assemble_aggregate_ranking_dataframe: group_by_aggregate_rank function runtime = ', end - start
+
+        start = timer()
         aggregate_ranking_dataframe = convert_aggregate_ranking_dict_to_dataframe(universities_grouped_by_aggregate_rank)
+        end = timer()
+        print 'assemble_aggregate_ranking_dataframe: convert_aggregate_ranking_dict_to_dataframe_rank function runtime = ', end - start
 
         ##print aggregate_ranking_dataframe
         #print 'assemble_aggregate_ranking_dataframe: rank_tables != []'
+        this_func_end_time = timer()
+        print 'assemble_aggregate_ranking_dataframe: total runtime = ', this_func_end_time - this_func_start_time
         return aggregate_ranking_dataframe
     else:
         #print 'assemble_aggregate_ranking_dataframe: rank_tables == []'
