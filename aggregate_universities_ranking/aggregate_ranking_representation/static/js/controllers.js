@@ -184,7 +184,14 @@ rankingApp.controller('RankingTableController', function($scope, $http) {
 
     $scope.retrieveTableData = function(requestData) {
         console.log('retrieveTableData: $scope.requestData.selectedRankingNames: ' + $scope.requestData.selectedRankingNames + ', $scope.requestData.selectedYear: ' + $scope.requestData.selectedYear);
+        if ('spinner' in $scope) {
+            console.log('spinner in scope');
+        }
+        else {
 
+            console.log('spinner not in scope');
+        }
+        $scope.spinner.on();
         $http({
             method : 'POST',
             url : 'rest/table',
@@ -194,9 +201,11 @@ rankingApp.controller('RankingTableController', function($scope, $http) {
                 console.log('retrieveTableData, success: ', response);
                 $scope.table = response.data;
                 updateLocalDataByResponse(response.data, $scope);
+                $scope.spinner.off();
             },
             function errorrCallback(response) {
                 console.log('retrieveTableData, error: ', response);
+                $scope.spinner.off();
             }
         );
     };

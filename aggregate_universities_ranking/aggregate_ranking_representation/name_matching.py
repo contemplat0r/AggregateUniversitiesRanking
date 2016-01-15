@@ -13,6 +13,7 @@ import pandas as pd
 import numpy as np
 #import django
 from timeit import default_timer as timer
+import cProfile
 
 #DJANGO_PROJECT_DIR = join(abspath(join(dirname(__file__), '..')), 'aggregate_universities_ranking')
 #sys.path.append(DJANGO_PROJECT_DIR)
@@ -33,6 +34,17 @@ NONE_STR_VALUE = '~~~~~~~~~'
 
 anciliary_words_list = ['of', 'the', 'The', 'a', 'A', 'an', 'An', '&', '-']
 special_symbols_list = ['-', '.']
+
+
+def profile(func):
+    def wrapper(*args, **kwargs):
+        profile_filename = func.__name__ + '.prof'
+        profile = cProfile.Profile()
+        result = profiler.runcall(func, *args, **kwargs)
+        profiler.dump_stats(profile_filename)
+        return result
+    return wrapper
+
 
 def the_dataframe_postprocessor(the_dataframe):
     #the_dataframe = the_dataframe.drop(0, axis=0)
@@ -456,7 +468,7 @@ def prepare_year_to_compare(year):
     #return datetime.date(year, 1, 1)
     return year
 
-
+#@profile
 def from_database(rankings_names_list, year):
 
     year = prepare_year_to_compare(year)

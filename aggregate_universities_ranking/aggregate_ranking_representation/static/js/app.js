@@ -3,7 +3,7 @@
 /* App Module */
 
 //var rankingApp = angular.module('rankingApp', ['ngRoute']);
-var rankingApp = angular.module('rankingApp', ['ngRoute', 'rankingControllers']);
+var rankingApp = angular.module('rankingApp', ['ngRoute', 'rankingControllers', 'ngAnimate', 'treasure-overlay-spinner']);
 
 rankingApp.config(['$routeProvider',
     function($routeProvider) {
@@ -21,4 +21,20 @@ rankingApp.config(['$routeProvider',
             });
     }]);
 
+rankingApp.run(run);
+
+run.$inject = ['$rootScope'];
+function run($rootScope) {
+    $rootScope.spinner = {
+        active : false,
+        on : function() {
+            this.active = true;
+            console.log('spinner on');
+        },
+        off : function() {
+            this.active = false;
+            console.log('spinner off');
+        }
+    };
+}
 
