@@ -39,7 +39,7 @@ special_symbols_list = ['-', '.']
 def profile(func):
     def wrapper(*args, **kwargs):
         profile_filename = func.__name__ + '.prof'
-        profile = cProfile.Profile()
+        profiler = cProfile.Profile()
         result = profiler.runcall(func, *args, **kwargs)
         profiler.dump_stats(profile_filename)
         return result
@@ -468,7 +468,7 @@ def prepare_year_to_compare(year):
     #return datetime.date(year, 1, 1)
     return year
 
-#@profile
+@profile
 def from_database(rankings_names_list, year):
 
     year = prepare_year_to_compare(year)
