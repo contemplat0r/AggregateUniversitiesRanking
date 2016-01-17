@@ -27,7 +27,8 @@ NaN = np.nan
 
 NONE_STR_VALUE = '~~~~~~~~~'
 
-
+MIN_TRUST_ABBR_LEN = 4
+MIN_TRUST_LIST_LEN = 3
 
 # Добавить "очищенный от вспомогательных слов (артиклей) вариант". Аббревиатуры тогда
 # тоже вычислять два варианта: "очищенную от вспомогательных слов" и "со вспомогательными словами".
@@ -163,7 +164,8 @@ def dataframes_to_ranking_tables(dataframes_dict):
         ranking_table_as_list = short_dataframe.to_dict().values()
         for university in ranking_table_as_list:
             #print 'dataframes_to_ranking_tables, university: ', university
-            university['university_name_variants'] = get_name_variants(university['university_name'])
+            #university['university_name_variants'] = get_name_variants(university['university_name'])
+            university['university_name_variants'] = prepare_name_to_match(university['university_name'])
         rank_tables_dict[dataframe_short_name] = deepcopy(ranking_table_as_list)
     return rank_tables_dict
 
@@ -366,6 +368,117 @@ def process_name(name):
 # End code part that describe new dissasemble name (and name matching) algorithm. 
 #
 
+def detect_trust_abbreviation(abbreviation):
+    return len(abbreviation) >= MIN_TRUST_ABBR_LEN
+
+
+def detect_trust_word_list(word_list):
+    return len(word_list) >= MIN_TRUST_LIST_LEN
+
+
+def strip_words_in_list(word_list):
+    return [word.strip().strip(',') for word in word_list]
+
+
+def glue_by_dash(word_list):
+    dash_ended_word_index = None
+    word_list_len = len(word_list)
+    
+    for i in xrange(0, word_list_len):
+        word = word_list[i]
+        if word.endswith('-') and i < word_list_len - 1:
+            dash_ended_word_index = i
+            break
+    if dash_ended_word_index != None:
+        j = dash_ended_word_index
+        k = dash_ended_word_index + 1
+        word_list = word_list[:j] + [word_list[j] + word_list[k]] + word_list[k + 1:]
+    return word_list
+
+
+def word_list_to_string(word_list):
+    concatenate_string = ' '
+    return concatenate_string.join(word_list)
+
+
+def prepare_name_to_match(original_name_as_string):
+    prepared_name = {
+            'original_name_as_string' : original_name_as_string,
+            'abbreviation' : None,
+            'cleaned_name_as_string' : None,
+            'cleaned_alternative_name_as_string' : None,
+            'one_word_in_bracket' : None,
+            'cleaned_name_as_list' : None,
+            'cleaned_alternative_name_as_list' : None,
+            'cleaned_from_special_words_name_as_list' : None,
+            'cleaned_from_special_words_alternative_name_as_list' : None,
+            ## For compatibility with get_name_variants function output
+            'raw_fullname_as_string' : original_name_as_string,
+            'fullname_variants_as_lists' : list(),
+            'fullname__variants_as_lists_anciliary_words_excluded' : list(),
+            'shortnames' : list(),
+            'abbreviations' : list(),
+            'abbreviations_build_from_first_letters' : list(),
+            'fullnames_variants_as_strings' : list(),
+            'fullname_variants_as_strings_anciliary_words_excluded' : list(),
+
+            }
+
+    name_variants = divide_by_brackets(original_name_as_string)
+    #print name_variants
+
+    not_in_bracket_name_variant = name_variants['not_in_bracket_name_variant']
+    in_bracket_name_variants_list = name_variants['in_bracket_name_variants']
+    
+    in_bracket_name_variant = None
+    in_bracket_name_variant_as_list = []
+    if in_bracket_name_variants_list != None:
+        in_bracket_name_variant = in_bracket_name_variants_list[0]
+        not_in_bracket_name_variant = not_in_bracket_name_variant.replace('(' + in_bracket_name_variant + ')', '')
+        in_bracket_name_variant_as_list = strip_words_in_list(in_bracket_name_variant.split())
+        in_bracket_name_variant_as_list = glue_by_dash(in_bracket_name_variant_as_list)
+
+    not_in_bracket_name_variant_as_list = strip_words_in_list(not_in_bracket_name_variant.split())
+    not_in_bracket_name_variant_as_list = glue_by_dash(not_in_bracket_name_variant_as_list)
+    print not_in_bracket_name_variant_as_list, in_bracket_name_variant_as_list
+    if in_bracket_name_variant != None:
+        if detect_one_word_list(in_bracket_name_variant_as_list):
+            if categorize_as_abbreviation(in_bracket_name_variant) and detect_trust_abbreviation(in_bracket_name_variant):
+                prepared_name['abbreviation'] = in_bracket_name_variant
+            else:
+                prepared_name['one_word_in_bracket'] = in_bracket_name_variant
+            prepared_name['cleaned_name_as_list'] = not_in_bracket_name_variant_as_list
+            prepared_name['cleaned_name_as_string'] = word_list_to_string(not_in_bracket_name_variant_as_list)
+        else:
+            if detect_one_word_list(not_in_bracket_name_variant_as_list):
+                if categorize_as_abbreviation(not_in_bracket_name_variant) and detect_trust_abbreviation(not_in_bracket_name_variant):
+                    prepared_name['abbreviation'] = not_in_bracket_name_variant
+                prepared_name['cleaned_name_as_list'] = in_bracket_name_variant_as_list
+                prepared_name['cleaned_name_as_string'] = word_list_to_string(in_bracket_name_variant_as_list)
+            else:
+                prepared_name['cleaned_name_as_list'] = not_in_bracket_name_variant_as_list
+                prepared_name['cleaned_name_as_string'] = word_list_to_string(not_in_bracket_name_variant_as_list)
+                if detect_trust_word_list(in_bracket_name_variant_as_list):
+                    prepared_name['cleaned_alternative_name_as_list'] = in_bracket_name_variant_as_list
+                    prepared_name['cleaned_alternative_name_as_string'] = word_list_to_string(in_bracket_name_variant_as_list)
+    else:
+        prepared_name['cleaned_name_as_list'] = not_in_bracket_name_variant_as_list
+        prepared_name['cleaned_name_as_string'] = word_list_to_string(not_in_bracket_name_variant_as_list)
+
+
+    prepared_name['fullname_variants_as_lists'].append(prepared_name['cleaned_name_as_list'])
+    if prepared_name['cleaned_alternative_name_as_list'] != None:
+        prepared_name['fullname_variants_as_lists'].append(prepared_name['cleaned_alternative_name_as_list'])
+    if prepared_name['one_word_in_bracket'] != None:
+        prepared_name['shortnames'].append(prepared_name['one_word_in_bracket'])
+    if prepared_name['abbreviation'] != None:
+        prepared_name['abbreviations'].append(prepared_name['abbreviation']),
+    prepared_name['fullnames_variants_as_strings'].append(prepared_name['cleaned_name_as_string'])
+    if prepared_name['cleaned_alternative_name_as_string'] != None:
+        prepared_name['fullnames_variants_as_strings'].append(prepared_name['cleaned_alternative_name_as_string'])
+
+    return prepared_name
+
 
 def divide_raw_name_by_brackets(raw_fullname_as_list):
     out_bracket_name_part = list()
@@ -423,59 +536,6 @@ def convert_name_as_list_to_string(name_as_string_list):
         return str()
 
 
-
-
-def get_name_variants(name_str):
-    name_variants = {
-            'raw_fullname_as_string' : name_str,
-            'fullname_variants_as_lists' : list(),
-            'fullname__variants_as_lists_anciliary_words_excluded' : list(),
-            'shortnames' : list(),
-            'abbreviations' : list(),
-            'abbreviations_build_from_first_letters' : list(),
-            'fullnames_variants_as_strings' : list(),
-            'fullname_variants_as_strings_anciliary_words_excluded' : list(),
-            }
-    name_parts_divided_by_slash = divide_name_by_slash(name_str)
-    name_parts_divided_by_brackets = [divide_by_brackets(name_part_divided_by_slash) for name_part_divided_by_slash in name_parts_divided_by_slash]
-
-    name_part_in_brackets = get_name_part_in_brackets(name_as_string_list)
-    abbreviations = list()
-    name_variants_as_list = divide_raw_name_by_brackets(name_as_string_list).values()
-    if name_part_in_brackets != None and len(name_part_in_brackets) > 1:
-        name_as_string_list.remove(name_part_in_brackets)
-        name_part_in_brackets = name_part_in_brackets.strip('()')
-        if categorize_as_abbreviation(name_part_in_brackets):
-            abbreviations.append(name_part_in_brackets)
-            name_variants['abbreviations'] = abbreviations
-        else:
-            name_variants['shortname'] = name_part_in_brackets
-
-    if abbreviations == []:
-        abbreviations = get_already_existing_abbreviation(name_as_string_list)
-        if abbreviations != []:
-            name_variants['abbreviations'] = abbreviations
-            for abbreviation_variant in abbreviations:
-                name_as_string_list.remove(abbreviation_variant)
-
-    abbreviations_build_from_first_letters = list()
-    if name_as_string_list != []:
-        name_variants['fullname_as_list'] = name_as_string_list
-        name_as_string_list_cleaned_from_anciliary_word = exclude_anciliary_words_from_name_as_list(name_as_string_list)
-        name_variants['fullname_as_list_anciliary_words_excluded'] = name_as_string_list_cleaned_from_anciliary_word
-
-        if (abbreviations == []) and (len(name_as_string_list) > 1):
-            abbreviation_picked_from_fullname = pick_abbreviation_from_fullname(name_as_string_list)
-            abbreviation_picked_from_fullname_exclude_anciliary_words = pick_abbreviation_from_fullname(name_as_string_list_cleaned_from_anciliary_word)
-            abbreviations_build_from_first_letters = [abbreviation_picked_from_fullname, abbreviation_picked_from_fullname.upper(), abbreviation_picked_from_fullname_exclude_anciliary_words, abbreviation_picked_from_fullname_exclude_anciliary_words.upper()]
-            name_variants['abbreviations_build_from_first_letters'] = abbreviations_build_from_first_letters
-
-        name_variants['fullname_as_string'] = convert_name_as_list_to_string(name_as_string_list)
-        name_variants['fullname_as_string_anciliary_words_excluded'] = convert_name_as_list_to_string(name_as_string_list_cleaned_from_anciliary_word)
-    return name_variants 
-
-
-
 def get_name_variants(name_str):
     name_variants = {
             'raw_fullname_as_string' : name_str,
@@ -530,6 +590,10 @@ def names_as_string_match(first_name_as_string, second_name_as_string):
         return (first_name_as_string == second_name_as_string) or (second_name_as_string in first_name_as_string) or (first_name_as_string in second_name_as_string)
     else:
         return False
+
+
+
+
 
 
 def abbreviations_from_list_match_abbreviation(abbreviation, abbreviations_list):
@@ -592,9 +656,18 @@ def detect_multi_match_intersection(first_name_description, second_name_descript
     
 def names_match(first_name_description, second_name_description, rankname=None, another_rankname=None):
     matching_result = False
+    #multi_match_name = detect_multi_match(first_name_description, second_name_description, '')
+    #multi_match_intersection = detect_multi_match_intersection(first_name_description, second_name_description, '')
 
-    multi_match_name = detect_multi_match(first_name_description, second_name_description, 'City University of Hong Kong')
-    multi_match_intersection = detect_multi_match_intersection(first_name_description, second_name_description, 'City University of Hong Kong')
+    #multi_match_name = detect_multi_match(first_name_description, second_name_description, 'City University of Hong Kong')
+    #multi_match_intersection = detect_multi_match_intersection(first_name_description, second_name_description, 'City University of Hong Kong')
+
+    #multi_match_name = detect_multi_match(first_name_description, second_name_description, 'Federal University of Rio de Janeiro')
+    #multi_match_intersection = detect_multi_match_intersection(first_name_description, second_name_description, 'Federal University of Rio de Janeiro')
+
+    multi_match_name = detect_multi_match(first_name_description, second_name_description, 'University of Milano-Bicocca')
+    multi_match_intersection = detect_multi_match_intersection(first_name_description, second_name_description, 'University of Milano-Bicocca')
+
 
     raw_first_name_as_string = first_name_description['raw_fullname_as_string']
     raw_second_name_as_string = second_name_description['raw_fullname_as_string']
@@ -658,6 +731,38 @@ def names_match(first_name_description, second_name_description, rankname=None, 
     return matching_result
 
 
+def strings_match(first_string, second_string):
+    return first_string == second_string
+
+
+def lists_match(first_strings_list, second_strings_list):
+    match = True
+
+    if ((first_strings_list != None) and (second_strings_list != None)) and ((first_strings_list != []) and (second_strings_list != [])) and (len(first_strings_list) == len(second_strings_list)):
+        for first_string in first_strings_list:
+            if first_string in second_strings_list:
+                match = False
+                break
+    return match
+
+
+def names_match_improved(first_prepared_name, second_prepared_name):
+    match = False
+
+    if strings_match(first_prepared_name['original_name_as_string'], second_prepared_name['original_name_as_string']):
+        match = True
+    elif strings_match(first_prepared_name['cleaned_name_as_string'], second_prepared_name['cleaned_name_as_string']):
+        match = True
+    elif lists_match(first_prepared_name['cleaned_name_as_list'], second_prepared_name['cleaned_name_as_list']):
+        match = True
+    elif len(first_prepared_name['cleaned_name_as_list']) == 1 and categorize_as_abbreviation(first_prepared_name['cleaned_name_as_string']) and detect_trust_abbreviation(first_prepared_name['cleaned_name_as_string']) and (first_prepared_name['cleaned_name_as_string'] in second_prepared_name['original_name_as_string']):
+        match = True
+    elif len(second_prepared_name['cleaned_name_as_list']) == 1 and categorize_as_abbreviation(second_prepared_name['cleaned_name_as_string']) and detect_trust_abbreviation(second_prepared_name['cleaned_name_as_string']) and (second_prepared_name['cleaned_name_as_string'] in first_prepared_name['original_name_as_string']):
+        match = True
+    
+    return match
+
+
 def assign_longest_name_variant(university_description):
     #print 'Entry in assign_longest_name_variant'
     longest_name_variant = str()
@@ -694,7 +799,8 @@ def union_ranks(ranktables):
                 another_ranktable = ranktables[another_rankname]
                 to_remove_universities = list()
                 for another_university in another_ranktable:
-                    math = names_match(university['university_name_variants'], another_university['university_name_variants'], rankname, another_rankname)
+                    #math = names_match(university['university_name_variants'], another_university['university_name_variants'], rankname, another_rankname)
+                    math = names_match_improved(university['university_name_variants'], another_university['university_name_variants'])
                     if math:
                         #print 'another_university: ', another_university
                         university['ranks'][another_rankname] = another_university['rank']
@@ -980,9 +1086,9 @@ if __name__ == '__main__':
     ## RankingValue, and University tables.
     ## This code coupled in rawranking_records_to_structured_tables function.
     ## 
-    dataframes_dict = rawranking_records_to_dataframes(ranking_descriptions)
-    ranking_tables_dict = dataframes_to_ranking_tables(dataframes_dict)
-    union_rank_tables = union_ranks(ranking_tables_dict)
+    ## dataframes_dict = rawranking_records_to_dataframes(ranking_descriptions)
+    ## ranking_tables_dict = dataframes_to_ranking_tables(dataframes_dict)
+    ## union_rank_tables = union_ranks(ranking_tables_dict)
     ## University.objects.all().delete()
     ## RankingValue.objects.all().delete()
     ## to_database(union_rank_tables)
@@ -1013,8 +1119,13 @@ if __name__ == '__main__':
 
 
     ##
-    ## rawranking_records_to_structured_tables()
+    rawranking_records_to_structured_tables()
     ##
 
     #rankings_names = {'QS', 'THE', 'ARWU', 'NTU', 'URAP'}
     #ranktable = from_database(rankings_names, 2015)
+
+    #names_list = [u'University of Trento', u'University of Canterbury', u'New York University', u'East China University of Science and Technology', 'Massachusetts Institute of Technology (MIT)', 'California Institute of Technology (Caltech)', 'UCL (University College London)', 'EPFL (Ecole Polytechnique Fédérale de Lausanne)', 'National Taiwan University of Science and Technology (Taiwan Tech)', 'Moscow State Institute of International Relations (MGIMO University)', 'Pontificia Universidade Católica de São Paulo (PUC -SP)', 'University of Milano- Bicocca']
+
+    #for name in names_list:
+    #    print prepare_name_to_match(name)
