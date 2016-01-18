@@ -648,10 +648,14 @@ def caluclate_distance(first_name_as_string, second_name_as_string):
     return 0
 
 
+
+#Must be removed    
 def detect_multi_match(first_name_description, second_name_description, university_name):
     #return ('Massachusetts Institute' in first_name_description['raw_fullname_as_string']) or ('Massachusetts Institute' in second_name_description['raw_fullname_as_string'])
     return (university_name in first_name_description['raw_fullname_as_string']) or (university_name in second_name_description['raw_fullname_as_string'])
 
+
+#Must be removed    
 def detect_multi_match_intersection(first_name_description, second_name_description, university_name):
     #return ('Massachusetts Institute' in first_name_description['raw_fullname_as_string']) and ('Massachusetts Institute' in second_name_description['raw_fullname_as_string'])
     return (university_name in first_name_description['raw_fullname_as_string']) and (university_name in second_name_description['raw_fullname_as_string'])

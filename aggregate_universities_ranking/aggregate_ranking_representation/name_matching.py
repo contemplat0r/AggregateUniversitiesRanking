@@ -600,33 +600,136 @@ def string_lists_match(first_string_list, second_string_list, comparator):
 def caluclate_distance(first_name_as_string, second_name_as_string):
     return 0
 
-    
-def names_match(first_name_description, second_name_description):
-    names_match = False
+
+#Must be removed    
+def detect_multi_match(first_name_description, second_name_description, university_name):
+    #return ('Massachusetts Institute' in first_name_description['raw_fullname_as_string']) or ('Massachusetts Institute' in second_name_description['raw_fullname_as_string'])
+    return (university_name in first_name_description['raw_fullname_as_string']) or (university_name in second_name_description['raw_fullname_as_string'])
+
+
+#Must be removed    
+def detect_multi_match_intersection(first_name_description, second_name_description, university_name):
+    #return ('Massachusetts Institute' in first_name_description['raw_fullname_as_string']) and ('Massachusetts Institute' in second_name_description['raw_fullname_as_string'])
+    return (university_name in first_name_description['raw_fullname_as_string']) and (university_name in second_name_description['raw_fullname_as_string'])
+
+
+#Must be removed    
+def names_match(first_name_description, second_name_description, rankname=None, another_rankname=None):
+    matching_result = False
+    #multi_match_name = detect_multi_match(first_name_description, second_name_description, '')
+    #multi_match_intersection = detect_multi_match_intersection(first_name_description, second_name_description, '')
+
+    #multi_match_name = detect_multi_match(first_name_description, second_name_description, 'City University of Hong Kong')
+    #multi_match_intersection = detect_multi_match_intersection(first_name_description, second_name_description, 'City University of Hong Kong')
+
+    #multi_match_name = detect_multi_match(first_name_description, second_name_description, 'Federal University of Rio de Janeiro')
+    #multi_match_intersection = detect_multi_match_intersection(first_name_description, second_name_description, 'Federal University of Rio de Janeiro')
+
+    multi_match_name = detect_multi_match(first_name_description, second_name_description, 'University of Milano-Bicocca')
+    multi_match_intersection = detect_multi_match_intersection(first_name_description, second_name_description, 'University of Milano-Bicocca')
+
 
     raw_first_name_as_string = first_name_description['raw_fullname_as_string']
     raw_second_name_as_string = second_name_description['raw_fullname_as_string']
-    
+    if multi_match_intersection:
+        print '\n' * 4, '-' * 10, '\nEntry in names_match\n\n'
+        print 'raw_first_name_as_string: ', raw_first_name_as_string, ' raw_second_name_as_string: ', raw_second_name_as_string
+   
     if names_as_string_match(raw_first_name_as_string, raw_second_name_as_string) == True:
-        names_match = True
+        matching_result = True
+        if multi_match_name:
+            print 'names_as_string_match(raw_first_name_as_string, raw_second_name_as_string): ', raw_first_name_as_string, raw_second_name_as_string
+            print 'rankname: ', rankname, ' another_rankname: ', another_rankname
     elif names_as_string_match(first_name_description['fullname_as_string'], second_name_description['fullname_as_string']) == True:
-        names_match = True
+        matching_result = True
+        if multi_match_name:
+            print 'names_as_string_match(first_name_description[\'fullname_as_string\'], second_name_description[\'fullname_as_string\']): ', first_name_description['fullname_as_string'], second_name_description['fullname_as_string']
+            print 'rankname: ', rankname, ' another_rankname: ', another_rankname
+
     elif names_as_string_match(first_name_description['fullname_as_string_anciliary_words_excluded'], second_name_description['fullname_as_string_anciliary_words_excluded']) == True:
-        names_match = True
+        matching_result = True
+        if multi_match_name:
+            print 'names_as_string_match(first_name_description[\'fullname_as_string_anciliary_words_excluded\'], second_name_description[\'fullname_as_string_anciliary_words_excluded\']): ', first_name_description['fullname_as_string_anciliary_words_excluded'], second_name_description['fullname_as_string_anciliary_words_excluded']
+            print 'rankname: ', rankname, ' another_rankname: ', another_rankname
+
     elif full_names_as_list_match(first_name_description['fullname_as_list'], second_name_description['fullname_as_list']) == True:
-        names_match = True
+        matching_result = True
+        if multi_match_name:
+            print 'full_names_as_list_match(first_name_description[\'fullname_as_list\'], second_name_description[\'fullname_as_list\']): ',  first_name_description['fullname_as_list'], second_name_description['fullname_as_list']
+            print 'rankname: ', rankname, ' another_rankname: ', another_rankname
+
     elif full_names_as_list_match(first_name_description['fullname_as_list_anciliary_words_excluded'], second_name_description['fullname_as_list_anciliary_words_excluded']) == True:
-        names_match = True
+        matching_result = True
+        if multi_match_name:
+            print 'full_names_as_list_match(first_name_description[\'fullname_as_list_anciliary_words_excluded\'], second_name_description[\'fullname_as_list_anciliary_words_excluded\']): ',  first_name_description['fullname_as_list_anciliary_words_excluded'], second_name_description['fullname_as_list_anciliary_words_excluded']
+            print 'rankname: ', rankname, ' another_rankname: ', another_rankname
+
+
     elif first_name_description['abbreviations'] != []:
         if (second_name_description['abbreviations'] != []) and (abbreviations_match(first_name_description['abbreviations'], second_name_description['abbreviations']) != False):
-            names_match = True
+            matching_result = True
+            if multi_match_name:
+                print '(second_name_description[\'abbreviations\'] != []) and (abbreviations_match(first_name_description[\'abbreviations\'], second_name_description[\'abbreviations\']) != False): ', first_name_description['abbreviations'], second_name_description['abbreviations']
+                print 'raw_first_name_as_string: ', raw_first_name_as_string, ' raw_second_name_as_string: ', raw_second_name_as_string
+                print 'rankname: ', rankname, ' another_rankname: ', another_rankname
+
         elif (second_name_description['abbreviations_build_from_first_letters'] != []) and (abbreviations_match(first_name_description['abbreviations'], second_name_description['abbreviations_build_from_first_letters']) != False):
-            names_match = True
+            matching_result = True
+            if multi_match_name:
+                print '(second_name_description[\'abbreviations_build_from_first_letters\'] != []) and (abbreviations_match(first_name_description[\'abbreviations\'], second_name_description[\'abbreviations_build_from_first_letters\']) != False): ', first_name_description['abbreviations'], second_name_description['abbreviations_build_from_first_letters']
+                print 'raw_first_name_as_string: ', raw_first_name_as_string, ' raw_second_name_as_string: ', raw_second_name_as_string
+                print 'rankname: ', rankname, ' another_rankname: ', another_rankname
     elif first_name_description['abbreviations_build_from_first_letters'] != []:
         if (second_name_description['abbreviations'] != []) and (abbreviations_match(first_name_description['abbreviations_build_from_first_letters'], second_name_description['abbreviations']) != False):
-            names_match = True
+            matching_result = True
+            if multi_match_name:
+                print '(second_name_description[\'abbreviations\'] != []) and (abbreviations_match(first_name_description[\'abbreviations_build_from_first_letters\'], second_name_description[\'abbreviations\']) != False): ', first_name_description['abbreviations_build_from_first_letters'], second_name_description['abbreviations']
+                print 'raw_first_name_as_string: ', raw_first_name_as_string, ' raw_second_name_as_string: ', raw_second_name_as_string
+                print 'rankname: ', rankname, ' another_rankname: ', another_rankname
+    if multi_match_intersection:
+        print '\n' * 2, 'Return from names_match\n', '-' * 10 
+    return matching_result
 
-    return names_match
+
+def strings_match(first_string, second_string):
+    return first_string == second_string
+
+
+def lists_match(first_strings_list, second_strings_list):
+    match = True
+
+    if ((first_strings_list != None) and (second_strings_list != None) and (first_strings_list != []) and (second_strings_list != [])) and (len(first_strings_list) == len(second_strings_list)):
+        for string in first_strings_list:
+            if string not in second_strings_list:
+                match = False
+                break
+        for string in second_strings_list:
+            if string not in first_strings_list:
+                match = False
+                break
+    else:
+        match = False
+    return match
+
+
+def names_match_improved(first_prepared_name, second_prepared_name, first_ranking=None, second_ranking=None):
+    match = False
+    print 'names_match_improved: first_prepared_name[\'original_name_as_string\']: ', first_prepared_name['original_name_as_string'].encode('utf-8'), ' second_prepared_name[\'original_name_as_string\']: ', second_prepared_name['original_name_as_string'].encode('utf-8')
+    if strings_match(first_prepared_name['original_name_as_string'], second_prepared_name['original_name_as_string']):
+        match = True
+    elif strings_match(first_prepared_name['cleaned_name_as_string'], second_prepared_name['cleaned_name_as_string']):
+        match = True
+    elif lists_match(first_prepared_name['cleaned_name_as_list'], second_prepared_name['cleaned_name_as_list']):
+        print 'names_match_improved, lists match is True'
+        print 'first_prepared_name[\'cleaned_name_as_list\']: ', first_prepared_name['cleaned_name_as_list']
+        print 'second_prepared_name[\'cleaned_name_as_list\']: ', second_prepared_name['cleaned_name_as_list']
+        match = True
+    elif len(first_prepared_name['cleaned_name_as_list']) == 1 and categorize_as_abbreviation(first_prepared_name['cleaned_name_as_string']) and detect_trust_abbreviation(first_prepared_name['cleaned_name_as_string']) and (first_prepared_name['cleaned_name_as_string'] in second_prepared_name['original_name_as_string']):
+        match = True
+    elif len(second_prepared_name['cleaned_name_as_list']) == 1 and categorize_as_abbreviation(second_prepared_name['cleaned_name_as_string']) and detect_trust_abbreviation(second_prepared_name['cleaned_name_as_string']) and (second_prepared_name['cleaned_name_as_string'] in first_prepared_name['original_name_as_string']):
+        match = True
+    
+    return match
 
 
 def assign_longest_name_variant(university_description):
@@ -655,7 +758,7 @@ def union_ranks(ranktables):
         ranktable = ranktables[rankname]
         rest_ranknames.remove(rankname)
         for university in ranktable:
-            ##print 'university: ', university
+            #print 'university: ', university
             university['ranks'] = default_ranks.copy()
             #university['ranks'][rankname] = university['rank']
             university['collected_from_all_ranktables_description'] = {rankname : {'rankvalue' : university['rank'], 'university_name_variants' : university['university_name_variants']}}
@@ -665,9 +768,10 @@ def union_ranks(ranktables):
                 another_ranktable = ranktables[another_rankname]
                 to_remove_universities = list()
                 for another_university in another_ranktable:
-                    math = names_match(university['university_name_variants'], another_university['university_name_variants'])
+                    #math = names_match(university['university_name_variants'], another_university['university_name_variants'], rankname, another_rankname)
+                    math = names_match_improved(university['university_name_variants'], another_university['university_name_variants'])
                     if math:
-                        ##print 'another_university: ', another_university
+                        #print 'another_university: ', another_university
                         university['ranks'][another_rankname] = another_university['rank']
                         university['collected_from_all_ranktables_description'].update({another_rankname : {'rankvalue' : another_university['rank'], 'university_name_variants' : another_university['university_name_variants']}})
                         to_remove_universities.append(another_university)
@@ -676,6 +780,20 @@ def union_ranks(ranktables):
                     another_ranktable.remove(another_university)
             university['canonical_name'] = assign_longest_name_variant(university)
             union_universities_list.append(university)
+    #print 'union_ranks, union_universities_list[0]', union_universities_list[0]
+    
+    '''
+    for university in union_universities_list:
+        if 'Massachusetts Institute' in university['university_name']:
+            print '\n' * 4, '*' * 10, '\n', university
+        if 'University of Amsterdam' in university['university_name']:
+            print '\n' * 4, '*' * 10, '\n', university
+        if ' Amsterdam' in university['university_name']:
+            print '\n' * 4, '*' * 10, '\n', university
+        if 'North Carolina' in university['university_name']:
+            print '\n' * 4, '*' * 10, '\n', university
+            '''
+
     return union_universities_list
 
 
