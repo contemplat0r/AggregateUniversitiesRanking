@@ -64,7 +64,8 @@ ranking_descriptions = {
             'ranking_table_as_list_preprocessor' : ranking_table_as_list_preprocessor
             },
         'THE' : {
-            'dataframe_postprocessor' : the_dataframe_postprocessor,
+            #'dataframe_postprocessor' : the_dataframe_postprocessor,
+            'dataframe_postprocessor' : None,
             'ranking_table_as_list_preprocessor' : ranking_table_as_list_preprocessor
             },
         #'Leiden' : {

@@ -73,7 +73,8 @@ ranking_descriptions = {
             'ranking_table_as_list_preprocessor' : ranking_table_as_list_preprocessor
             },
         'THE' : {
-            'dataframe_postprocessor' : the_dataframe_postprocessor,
+            #'dataframe_postprocessor' : the_dataframe_postprocessor,
+            'dataframe_postprocessor' : None,
             'ranking_table_as_list_preprocessor' : ranking_table_as_list_preprocessor
             },
         #'Leiden' : {
@@ -648,7 +649,6 @@ def caluclate_distance(first_name_as_string, second_name_as_string):
     return 0
 
 
-
 #Must be removed    
 def detect_multi_match(first_name_description, second_name_description, university_name):
     #return ('Massachusetts Institute' in first_name_description['raw_fullname_as_string']) or ('Massachusetts Institute' in second_name_description['raw_fullname_as_string'])
@@ -661,6 +661,7 @@ def detect_multi_match_intersection(first_name_description, second_name_descript
     return (university_name in first_name_description['raw_fullname_as_string']) and (university_name in second_name_description['raw_fullname_as_string'])
 
     
+#Must be removed    
 def names_match(first_name_description, second_name_description, rankname=None, another_rankname=None):
     matching_result = False
     #multi_match_name = detect_multi_match(first_name_description, second_name_description, '')
@@ -710,7 +711,6 @@ def names_match(first_name_description, second_name_description, rankname=None, 
         if multi_match_name:
             print 'full_names_as_list_match(first_name_description[\'fullname_as_list_anciliary_words_excluded\'], second_name_description[\'fullname_as_list_anciliary_words_excluded\']): ',  first_name_description['fullname_as_list_anciliary_words_excluded'], second_name_description['fullname_as_list_anciliary_words_excluded']
             print 'rankname: ', rankname, ' another_rankname: ', another_rankname
-
 
     elif first_name_description['abbreviations'] != []:
         if (second_name_description['abbreviations'] != []) and (abbreviations_match(first_name_description['abbreviations'], second_name_description['abbreviations']) != False):

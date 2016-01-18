@@ -39,29 +39,6 @@ class RankingDescription(models.Model):
     def __str__(self):
         return self.short_name
 
-'''
-class UniversityName(models.Model):
-    db_label = 'aggregateranking'
-    university_name = models.CharField(max_length=512)
-    country = models.CharField(max_length = 64, null=True, blank=True)
-    #url = models.CharField(max_length=200)
-
-    def __str__(self):
-        return self.university_name
-
-
-class RankingName(models.Model):
-    short_name = models.CharField(max_length=20)
-    full_name = models.CharField(max_length=200)
-    #url = models.CharField(max_length=200, null=True, blank=True)
-    #length = models.IntegerField(null=True, blank=True)
-    #year = models.IntegerField()
-    #university = models.ManyToManyField(University, through='RankingValue')
-    university = models.ManyToManyField(UniversityName, through='RankingValue')
-#
-    def __str__(self):
-        return '(%s, %s)' % (self.short_name, self.full_name)
-'''
 
 class RawRankingRecord(models.Model):
     university_name = models.CharField(max_length=512)
