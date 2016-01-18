@@ -368,6 +368,7 @@ def process_name(name):
 # End code part that describe new dissasemble name (and name matching) algorithm. 
 #
 
+
 def detect_trust_abbreviation(abbreviation):
     return len(abbreviation) >= MIN_TRUST_ABBR_LEN
 
@@ -480,6 +481,7 @@ def prepare_name_to_match(original_name_as_string):
     return prepared_name
 
 
+#Must be removed
 def divide_raw_name_by_brackets(raw_fullname_as_list):
     out_bracket_name_part = list()
     in_bracket_name_part = list()
@@ -501,6 +503,7 @@ def divide_raw_name_by_brackets(raw_fullname_as_list):
     return {'out_bracket_name_part' : out_bracket_name_part, 'in_bracket_name_part' : in_bracket_name_part}
 
 
+#Must be removed
 def get_already_existing_abbreviation(name_part_as_string_list):
     abbreviations = list()
     for name_item in name_part_as_string_list:
@@ -738,22 +741,31 @@ def strings_match(first_string, second_string):
 def lists_match(first_strings_list, second_strings_list):
     match = True
 
-    if ((first_strings_list != None) and (second_strings_list != None)) and ((first_strings_list != []) and (second_strings_list != [])) and (len(first_strings_list) == len(second_strings_list)):
-        for first_string in first_strings_list:
-            if first_string in second_strings_list:
+    if ((first_strings_list != None) and (second_strings_list != None) and (first_strings_list != []) and (second_strings_list != [])) and (len(first_strings_list) == len(second_strings_list)):
+        for string in first_strings_list:
+            if string not in second_strings_list:
                 match = False
                 break
+        for string in second_strings_list:
+            if string not in first_strings_list:
+                match = False
+                break
+    else:
+        match = False
     return match
 
 
-def names_match_improved(first_prepared_name, second_prepared_name):
+def names_match_improved(first_prepared_name, second_prepared_name, first_ranking=None, second_ranking=None):
     match = False
-
+    print 'names_match_improved: first_prepared_name[\'original_name_as_string\']: ', first_prepared_name['original_name_as_string'].encode('utf-8'), ' second_prepared_name[\'original_name_as_string\']: ', second_prepared_name['original_name_as_string'].encode('utf-8')
     if strings_match(first_prepared_name['original_name_as_string'], second_prepared_name['original_name_as_string']):
         match = True
     elif strings_match(first_prepared_name['cleaned_name_as_string'], second_prepared_name['cleaned_name_as_string']):
         match = True
     elif lists_match(first_prepared_name['cleaned_name_as_list'], second_prepared_name['cleaned_name_as_list']):
+        print 'names_match_improved, lists match is True'
+        print 'first_prepared_name[\'cleaned_name_as_list\']: ', first_prepared_name['cleaned_name_as_list']
+        print 'second_prepared_name[\'cleaned_name_as_list\']: ', second_prepared_name['cleaned_name_as_list']
         match = True
     elif len(first_prepared_name['cleaned_name_as_list']) == 1 and categorize_as_abbreviation(first_prepared_name['cleaned_name_as_string']) and detect_trust_abbreviation(first_prepared_name['cleaned_name_as_string']) and (first_prepared_name['cleaned_name_as_string'] in second_prepared_name['original_name_as_string']):
         match = True
@@ -1129,3 +1141,11 @@ if __name__ == '__main__':
 
     #for name in names_list:
     #    print prepare_name_to_match(name)
+    
+
+    #l_1 = 'National Taiwan University of Science and Technology'.split()
+    #l_2 = 'East China University of Science and Technology'.split()
+
+    #print lists_match(l_1, l_2)
+    #print lists_match(l_2, l_2)
+    #print lists_match(l_1, l_1)
