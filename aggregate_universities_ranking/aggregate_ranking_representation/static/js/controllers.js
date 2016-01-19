@@ -191,6 +191,8 @@ rankingApp.controller('RankingTableController', function($scope, $http) {
                 showLeftDots = true;
                 adjoinedToFirstPages = pagesNumberArray.slice(firstPageIndexInPagesArray, adjoinedToMarginPagesNum);
                 leftAdjoinedToCurrentPages = pagesNumberArray.slice(currentPageIndexInPagesArray - adjoinedToCurrentPagesNum, currentPageIndexInPagesArray);
+                leftNumsArray = adjoinedToFirstPages.concat("&hellip;");
+                leftNumsArray = leftNumsArray.concat(leftAdjoinedToCurrentPages);
             }
             else {
                 showLeftDots = false;
@@ -200,10 +202,16 @@ rankingApp.controller('RankingTableController', function($scope, $http) {
                 showRightDots = true;
                 adjoinedToLastPages = pagesNumberArray.slice(lastPageIndexInPagesArray - adjoinedToMarginPagesNum, lastPageIndexInPagesArray);
                 rightAdjoinedToCurrentPages = pagesNumberArray.slice(currentPageIndexInPagesArray + 1, currentPageIndexInPagesArray + adjoinedToCurrentPagesNum + 1);
+                rightNumsArray = rightAdjoinedToCurrentPages.concat("&hellip;");
+                rightNumsArray = rightNumsArray.concat(adjoinedToLastPages);
             }
             else {
                 showRightDots = false;
             }
+
+            showedPagesNumsArray = showedPagesNumsArray.concat(leftNumsArray);
+            showedPagesNumsArray = showedPagesNumsArray.concat(scope.paginationParameters.currentPageNum);
+            showedPagesNumsArray = showedPagesNumsArray.concat(rightNumsArray);
 
             scope.paginationParameters.showLeftDots = showLeftDots;
             scope.paginationParameters.showRightDots = showRightDots;
@@ -214,6 +222,7 @@ rankingApp.controller('RankingTableController', function($scope, $http) {
             scope.paginationParameters.leftAdjoinedToCurrentPages = leftAdjoinedToCurrentPages;
             scope.paginationParameters.adjoinedToLastPages = adjoinedToLastPages;
             scope.paginationParameters.rightAdjoinedToCurrentPages = rightAdjoinedToCurrentPages;
+            scope.paginationParameters.showedPagesNumsArray = showedPagesNumsArray;
         }
         else {
             console.log('paginationParameters are\'nt in responseData');

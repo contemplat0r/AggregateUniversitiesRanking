@@ -78,7 +78,8 @@
                             <li ng-class="firstPageDisabled()">
                                 <a href ng-click="goToFirstPage()">First</a>
                             </li>
-                            <li ng-repeat="pageNum in paginationParameters.pagesNumberArray" ng-class="{active: pageNum == paginationParameters.currentPageNum}" ng-click="goToPage(pageNum)">
+                            <!--<li ng-repeat="pageNum in paginationParameters.pagesNumberArray" ng-class="{active: pageNum == paginationParameters.currentPageNum}" ng-click="goToPage(pageNum)">-->
+                             <li ng-repeat="pageNum in paginationParameters.showedPagesNumsArray" ng-class="{active: pageNum == paginationParameters.currentPageNum}" ng-click="goToPage(pageNum)">
                                 <a href="">{{ pageNum }}</a>
                             </li>
                             <li ng-class="lastPageDisabled()">
@@ -90,28 +91,6 @@
 
                         </ul>
                     </div>
-                        <ul class="pagination">
-                            <li ng-class="prevPageDisabled()">
-                                <a href ng-click="goToPrevPage()">&laquo;</a>
-                            </li>
-                            <li ng-class="firstPageDisabled()">
-                                <a href ng-click="goToFirstPage()">First</a>
-                            </li>
-                            <li ng-if="paginationParameters.showLeftDots">
-                                Show left dots
-                            </li>
-                                <a href="">{{ paginationParameters.currentPageNum }}</a>
-                            <li ng-if="paginationParameters.showRightDots">
-                                Show right dots
-                            </li>
-
-                            <li ng-class="lastPageDisabled()">
-                                <a href ng-click="goToLastPage()">Last</a>
-                            </li>
-                            <li ng-class="nextPageDisabled()">
-                                <a href ng-click="goToNextPage()">&raquo;</a>
-                            </li>
-                        </ul>
                     <div>
                     </div>
                 </td>
