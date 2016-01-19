@@ -25,6 +25,9 @@ rankingApp.controller('RankingTableController', function($scope, $http) {
 
     $scope.setActiveNavItem(2);
 
+    
+    //var paginationParameters = {};
+
 
     $scope.rankingTable = {headers : [], records : []};
     $scope.paginationParameters = {};
@@ -163,6 +166,54 @@ rankingApp.controller('RankingTableController', function($scope, $http) {
             }
             scope.paginationParameters.pagesNumberArray = pagesNumberArray;
             console.log('pagesNumberArray: ' + scope.paginationParameters.pagesNumberArray.join(' '));
+
+            var pagesNumberArray = scope.paginationParameters.pagesNumberArray;
+            var firstPageIndexInPagesArray = scope.paginationParameters.minPageNum - 1;
+            var lastPageIndexInPagesArray = scope.paginationParameters.totalPages - 1;
+            var currentPageIndexInPagesArray = scope.paginationParameters.currentPageNum - 1;
+            var firstCurrentDistance = currentPageIndexInPagesArray - firstPageIndexInPagesArray;
+            var currentLastDistance = lastPageIndexInPagesArray - currentPageIndexInPagesArray;
+            var adjoinedToMarginPagesNum = 2;
+            var adjoinedToCurrentPagesNum = 2;
+            var leftNumsArray = pagesNumberArray.slice(firstPageIndexInPagesArray, currentPageIndexInPagesArray);
+            var rightNumsArray = pagesNumberArray.slice(currentPageIndexInPagesArray + 1, lastPageIndexInPagesArray);
+            var minNonShowingPagesNum = 2;
+            var showLeftDots = false;
+            var showRightDots = false;
+            var maxShowAllPagesNum = adjoinedToMarginPagesNum + adjoinedToCurrentPagesNum + minNonShowingPagesNum - 1;
+            var adjoinedToFirstPages = [];
+            var leftAdjoinedToCurrentPages = [];
+            var adjoinedToLastPages = [];
+            var rightAdjoinedToCurrentPages = [];
+            var showedPagesNumsArray = [];
+
+            if (firstCurrentDistance > maxShowAllPagesNum) {
+                showLeftDots = true;
+                adjoinedToFirstPages = pagesNumberArray.slice(firstPageIndexInPagesArray, adjoinedToMarginPagesNum);
+                leftAdjoinedToCurrentPages = pagesNumberArray.slice(currentPageIndexInPagesArray - adjoinedToCurrentPagesNum, currentPageIndexInPagesArray);
+            }
+            else {
+                showLeftDots = false;
+            }
+
+            if (currentLastDistance > maxShowAllPagesNum) {
+                showRightDots = true;
+                adjoinedToLastPages = pagesNumberArray.slice(lastPageIndexInPagesArray - adjoinedToMarginPagesNum, lastPageIndexInPagesArray);
+                rightAdjoinedToCurrentPages = pagesNumberArray.slice(currentPageIndexInPagesArray + 1, currentPageIndexInPagesArray + adjoinedToCurrentPagesNum + 1);
+            }
+            else {
+                showRightDots = false;
+            }
+
+            scope.paginationParameters.showLeftDots = showLeftDots;
+            scope.paginationParameters.showRightDots = showRightDots;
+
+            scope.paginationParameters.leftNumsArray = leftNumsArray;
+            scope.paginationParameters.rightNumsArray = rightNumsArray;
+            scope.paginationParameters.adjoinedToFirstPages = adjoinedToFirstPages;
+            scope.paginationParameters.leftAdjoinedToCurrentPages = leftAdjoinedToCurrentPages;
+            scope.paginationParameters.adjoinedToLastPages = adjoinedToLastPages;
+            scope.paginationParameters.rightAdjoinedToCurrentPages = rightAdjoinedToCurrentPages;
         }
         else {
             console.log('paginationParameters are\'nt in responseData');
