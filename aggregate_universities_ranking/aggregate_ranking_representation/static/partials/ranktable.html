@@ -79,7 +79,7 @@
                                 <a href ng-click="goToFirstPage()">First</a>
                             </li>
                             <!--<li ng-repeat="pageNum in paginationParameters.pagesNumberArray" ng-class="{active: pageNum == paginationParameters.currentPageNum}" ng-click="goToPage(pageNum)">-->
-                             <li ng-repeat="pageNum in paginationParameters.showedPagesNumsArray" ng-class="{active: pageNum == paginationParameters.currentPageNum}" ng-click="goToPage(pageNum)">
+                             <li ng-repeat="pageNum in paginationParameters.showedPagesNumsArray track by $index" ng-class="{active: pageNum == paginationParameters.currentPageNum}" ng-click="goToPage(pageNum)">
                                 <a href="">{{ pageNum }}</a>
                             </li>
                             <li ng-class="lastPageDisabled()">
@@ -97,5 +97,6 @@
             </tr>
         </tfoot>
     </table>
+    {{ paginationParameters.showedPagesNumsArray }}
 </div>
 </treasure-overlay-spinner>

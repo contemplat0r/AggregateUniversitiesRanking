@@ -15,12 +15,14 @@ var checkArrayEquality = function(array_1, array_2) {
 
 rankingApp.controller('RankingTableController', function($scope, $http) {
 
-    console.log('Entry in RankingTableController');
+    //console.log('Entry in RankingTableController');
     if ('setActiveNavItem' in $scope) {
-        console.log('RankingTableController, setActiveNavItem is in $scope');
+        //console.log('RankingTableController, setActiveNavItem is in $scope');
+        ;
     }
     else {
-        console.log('RankingTableController, setActiveNavItem is not in $scope');
+        //console.log('RankingTableController, setActiveNavItem is not in $scope');
+        ;
     }
 
     $scope.setActiveNavItem(2);
@@ -38,7 +40,7 @@ rankingApp.controller('RankingTableController', function($scope, $http) {
     $scope.currentSelectedYear = null;
 
     $scope.prepareRequestData = function(scope) {
-        console.log('Entry in prepareRequestData');
+        //console.log('Entry in prepareRequestData');
         var rankingCheckList = scope.rankingCheckList;
         var selectedNames = [];
 
@@ -48,11 +50,11 @@ rankingApp.controller('RankingTableController', function($scope, $http) {
             }
         });
 
-        console.log('prepareRequestData, just after add items to selectedNames');
+        //console.log('prepareRequestData, just after add items to selectedNames');
 
         scope.requestData = {selectedRankingNames : selectedNames, selectedYear : scope.yearSelect.selectedYear.value, currentPageNum : scope.paginationParameters.currentPageNum, recordsPerPage : scope.paginationParameters.recordsPerPageSelection.selectedSize.value, needsToBeUpdated : false};
 
-        console.log('prepareRequestData, just after set scope.requestData');
+        //console.log('prepareRequestData, just after set scope.requestData');
 
         if ((scope.currentSelectedYear != scope.yearSelect.selectedYear.value) || (checkArrayEquality(scope.currentSelectedRankNames, selectedNames) === false)) {
             scope.requestData.needsToBeUpdated = true;
@@ -64,7 +66,7 @@ rankingApp.controller('RankingTableController', function($scope, $http) {
 
 
     var updateLocalDataByResponse = function(responseData, scope) {
-        console.log('Entry in updateLocalDataByResponse');
+        //console.log('Entry in updateLocalDataByResponse');
 
         var currentSelectedYearChanged = false;
         var currentSelectedRankNamesChanged = false;
@@ -76,7 +78,7 @@ rankingApp.controller('RankingTableController', function($scope, $http) {
 
         if ((scope.yearSelect === null) && (scope.rankingCheckList === null)) {
         //if ((!('yearSelect' in scope)) && (!('rankingCheckList' in scope))) {
-            console.log("yearSelect not in scope and rankingCheckList not in scope");
+            //console.log("yearSelect not in scope and rankingCheckList not in scope");
             if (responseData.rankingsNamesList != null) {
                 scope.rankingCheckList = [];
                 scope.rankingCheckList = responseData.rankingsNamesList.map(function(rankingName) {
@@ -117,31 +119,33 @@ rankingApp.controller('RankingTableController', function($scope, $http) {
         }
         else
         {
-            console.log("yearSelect in scope or/and rankingCheckList in scope");
+            //console.log("yearSelect in scope or/and rankingCheckList in scope");
+            ;
         }
         
-        console.log('responseData.correlationMatrix: ' + responseData.correlationMatrix);
+        //console.log('responseData.correlationMatrix: ' + responseData.correlationMatrix);
 
         if (currentSelectedYearChanged || currentSelectedRankNamesChanged) {
-            console.log('currentSelectedYearChanged || currentSelectedRankNamesChanged');
+            //console.log('currentSelectedYearChanged || currentSelectedRankNamesChanged');
             /*if (('correlationMatrix' in responseData) && (responseData.correlationMatrix != null)) {
                 scope.correlationMatrix = responseData.correlationMatrix;
                 scope.requestData.needsToBeUpdated = false;
                 console.log('scope.requestData.needsToBeUpdated: ' + scope.responseData.needsToBeUpdated);
             }*/
-            console.log('scope.correlationMatrix: ', scope.correlationMatrix);
+            //console.log('scope.correlationMatrix: ', scope.correlationMatrix);
         }
         else {
-            console.log('currentSelectedYearChanged === false && currentSelectedRankNamesChanged === false');
+            //console.log('currentSelectedYearChanged === false && currentSelectedRankNamesChanged === false');
+
         }
         
-        console.log('Just before process paginationParameters: ');
+        //console.log('Just before process paginationParameters: ');
 
         if ('paginationParameters' in responseData) {
         //if (scope.paginationParameters === {}) {
-            console.log('paginationParameters are in responseData');
+            //console.log('paginationParameters are in responseData');
             if (!('recordsPerPageSelection' in scope.paginationParameters)) {
-                console.log('recordsPerPageSelection not in scope.paginationParameters');
+                //console.log('recordsPerPageSelection not in scope.paginationParameters');
                 var recordsPerPageSelectionList = responseData.paginationParameters.recordsPerPageSelectionList;
                 recordsPerPageSelectionList.sort(function(a, b){ return a - b;});
                 scope.paginationParameters.recordsPerPageSelection = {
@@ -153,19 +157,18 @@ rankingApp.controller('RankingTableController', function($scope, $http) {
                 });
             }
             else {
-                console.log('recordsPerPageSelection already in scope.paginationParameters');
+                //console.log('recordsPerPageSelection already in scope.paginationParameters');
+                ;
             }
             scope.paginationParameters.currentPageNum = responseData.paginationParameters.currentPageNum;
             scope.paginationParameters.totalTableRecords = responseData.paginationParameters.totalTableRecords;
             scope.paginationParameters.totalPages = responseData.paginationParameters.totalPages;
             scope.paginationParameters.minPageNum = 1;
-            console.log('scope.paginationParameters.totalPages: ' + scope.paginationParameters.totalPages);
             var pagesNumberArray = [];
             for (var i = 1; i <= scope.paginationParameters.totalPages; i++) {
                 pagesNumberArray.push(i);
             }
             scope.paginationParameters.pagesNumberArray = pagesNumberArray;
-            console.log('pagesNumberArray: ' + scope.paginationParameters.pagesNumberArray.join(' '));
 
             var pagesNumberArray = scope.paginationParameters.pagesNumberArray;
             var firstPageIndexInPagesArray = scope.paginationParameters.minPageNum - 1;
@@ -178,8 +181,6 @@ rankingApp.controller('RankingTableController', function($scope, $http) {
             var leftNumsArray = pagesNumberArray.slice(firstPageIndexInPagesArray, currentPageIndexInPagesArray);
             var rightNumsArray = pagesNumberArray.slice(currentPageIndexInPagesArray + 1, lastPageIndexInPagesArray);
             var minNonShowingPagesNum = 2;
-            var showLeftDots = false;
-            var showRightDots = false;
             var maxShowAllPagesNum = adjoinedToMarginPagesNum + adjoinedToCurrentPagesNum + minNonShowingPagesNum - 1;
             var adjoinedToFirstPages = [];
             var leftAdjoinedToCurrentPages = [];
@@ -187,45 +188,44 @@ rankingApp.controller('RankingTableController', function($scope, $http) {
             var rightAdjoinedToCurrentPages = [];
             var showedPagesNumsArray = [];
 
+            console.log('leftNumsArray before check firstCurrentDistance: ');
+            console.log(leftNumsArray.join(' '));
             if (firstCurrentDistance > maxShowAllPagesNum) {
-                showLeftDots = true;
                 adjoinedToFirstPages = pagesNumberArray.slice(firstPageIndexInPagesArray, adjoinedToMarginPagesNum);
                 leftAdjoinedToCurrentPages = pagesNumberArray.slice(currentPageIndexInPagesArray - adjoinedToCurrentPagesNum, currentPageIndexInPagesArray);
-                leftNumsArray = adjoinedToFirstPages.concat("&hellip;");
+                leftNumsArray = adjoinedToFirstPages.concat('\u2026');
                 leftNumsArray = leftNumsArray.concat(leftAdjoinedToCurrentPages);
             }
             else {
-                showLeftDots = false;
+                ;
             }
+            console.log('leftNumsArray after check firstCurrentDistance: ');
+            console.log(leftNumsArray.join(' '));
 
+            console.log('rightNumsArray before check currentLastDistance: ');
+            console.log(rightNumsArray.join(' '));
             if (currentLastDistance > maxShowAllPagesNum) {
-                showRightDots = true;
-                adjoinedToLastPages = pagesNumberArray.slice(lastPageIndexInPagesArray - adjoinedToMarginPagesNum, lastPageIndexInPagesArray);
+                adjoinedToLastPages = pagesNumberArray.slice(lastPageIndexInPagesArray - adjoinedToMarginPagesNum, lastPageIndexInPagesArray + 1);
                 rightAdjoinedToCurrentPages = pagesNumberArray.slice(currentPageIndexInPagesArray + 1, currentPageIndexInPagesArray + adjoinedToCurrentPagesNum + 1);
-                rightNumsArray = rightAdjoinedToCurrentPages.concat("&hellip;");
+                rightNumsArray = rightAdjoinedToCurrentPages.concat('\u2026');
                 rightNumsArray = rightNumsArray.concat(adjoinedToLastPages);
             }
             else {
-                showRightDots = false;
+                ;
             }
+            console.log('rightNumsArray after check currentLastDistance: ');
+            console.log(rightNumsArray.join(' '));
 
             showedPagesNumsArray = showedPagesNumsArray.concat(leftNumsArray);
             showedPagesNumsArray = showedPagesNumsArray.concat(scope.paginationParameters.currentPageNum);
             showedPagesNumsArray = showedPagesNumsArray.concat(rightNumsArray);
 
-            scope.paginationParameters.showLeftDots = showLeftDots;
-            scope.paginationParameters.showRightDots = showRightDots;
-
-            scope.paginationParameters.leftNumsArray = leftNumsArray;
-            scope.paginationParameters.rightNumsArray = rightNumsArray;
-            scope.paginationParameters.adjoinedToFirstPages = adjoinedToFirstPages;
-            scope.paginationParameters.leftAdjoinedToCurrentPages = leftAdjoinedToCurrentPages;
-            scope.paginationParameters.adjoinedToLastPages = adjoinedToLastPages;
-            scope.paginationParameters.rightAdjoinedToCurrentPages = rightAdjoinedToCurrentPages;
             scope.paginationParameters.showedPagesNumsArray = showedPagesNumsArray;
+            console.log('showedPagesNumsArray: ' + scope.paginationParameters.showedPagesNumsArray.join(' '));
         }
         else {
-            console.log('paginationParameters are\'nt in responseData');
+            //console.log('paginationParameters are\'nt in responseData');
+            ;
         }
 
 
@@ -233,7 +233,7 @@ rankingApp.controller('RankingTableController', function($scope, $http) {
            scope.correlationMatrix = responseData.correlationMatrix;
         }
 
-        console.log('scope.correlationMatrix: ', scope.correlationMatrix);
+        //console.log('scope.correlationMatrix: ', scope.correlationMatrix);
 
         if (('aggregateRankingCsvFileDownloadPath' in responseData) && (responseData.aggregateRankingCsvFileDownloadPath !== null)) {
             $scope.aggregateRankingCsvFileDownloadPath = responseData.aggregateRankingCsvFileDownloadPath;
@@ -243,13 +243,14 @@ rankingApp.controller('RankingTableController', function($scope, $http) {
     $scope.requestData =  {selectedRankingNames : null, selectedYear : null, currentPage : null, recordsPerPage : null, needsToBeUpdated : false}
 
     $scope.retrieveTableData = function(requestData) {
-        console.log('retrieveTableData: $scope.requestData.selectedRankingNames: ' + $scope.requestData.selectedRankingNames + ', $scope.requestData.selectedYear: ' + $scope.requestData.selectedYear);
+        //console.log('retrieveTableData: $scope.requestData.selectedRankingNames: ' + $scope.requestData.selectedRankingNames + ', $scope.requestData.selectedYear: ' + $scope.requestData.selectedYear);
         if ('spinner' in $scope) {
-            console.log('spinner in scope');
+            //console.log('spinner in scope');
+            ;
         }
         else {
-
-            console.log('spinner not in scope');
+            //console.log('spinner not in scope');
+            ;
         }
         $scope.spinner.on();
         $http({
@@ -258,45 +259,46 @@ rankingApp.controller('RankingTableController', function($scope, $http) {
             data : requestData
         }).then(
             function successCallback(response) {
-                console.log('retrieveTableData, success: ', response);
+                //console.log('retrieveTableData, success: ', response);
                 $scope.table = response.data;
                 updateLocalDataByResponse(response.data, $scope);
                 $scope.spinner.off();
             },
             function errorrCallback(response) {
-                console.log('retrieveTableData, error: ', response);
+                //console.log('retrieveTableData, error: ', response);
                 $scope.spinner.off();
             }
         );
     };
 
     $scope.goToPage = function(pageNum) {
-        console.log('pageNum: ' + pageNum);
+        //console.log('pageNum: ' + pageNum);
         if ((pageNum != $scope.paginationParameters.currentPageNum) && (pageNum >= $scope.paginationParameters.minPageNum) && (pageNum <= $scope.paginationParameters.totalPages)) {
             
             $scope.prepareRequestData($scope);
             $scope.requestData.currentPageNum = pageNum;
-            console.log('request will be sended');
+            //console.log('request will be sended');
 
-            console.log('goToPage, pageNum: ' + pageNum);
+            //console.log('goToPage, pageNum: ' + pageNum);
             $scope.retrieveTableData($scope.requestData);
             $scope.paginationParameters.currentPageNum = pageNum;
-            console.log('goToPage, $scope.paginationParameters.currentPageNum: ' + $scope.paginationParameters.currentPageNum);
+            //console.log('goToPage, $scope.paginationParameters.currentPageNum: ' + $scope.paginationParameters.currentPageNum);
         }
         else {
-            console.log('pageNum not allowed, request not will sended');
+            //console.log('pageNum not allowed, request not will sended');
+            ;
         }
 
-        console.log('$scope.paginationParameters.currentPageNum: ' + $scope.paginationParameters.currentPageNum);
+        //console.log('$scope.paginationParameters.currentPageNum: ' + $scope.paginationParameters.currentPageNum);
     };
 
     $scope.goToNextPage = function() {
-        console.log('Entry in goToNextPage');
+        //console.log('Entry in goToNextPage');
         $scope.goToPage($scope.paginationParameters.currentPageNum + 1);
     };
 
     $scope.goToPrevPage = function() {
-        console.log('Entry in goToPrevPage');
+        //console.log('Entry in goToPrevPage');
         $scope.goToPage($scope.paginationParameters.currentPageNum - 1);
     };
 
@@ -330,44 +332,46 @@ rankingApp.controller('RankingTableController', function($scope, $http) {
     }
 
     $scope.sendSelected = function() {
-        console.log('Entry in sendSelected');
+        //console.log('Entry in sendSelected');
 
         $scope.prepareRequestData($scope);
 
-        console.log('Before call retrieveTableData');
+        //console.log('Before call retrieveTableData');
         $scope.retrieveTableData($scope.requestData);
     };
 });
 
 rankingApp.controller('StartController', function($scope) {
-    console.log('Entry in StartController');
+    //console.log('Entry in StartController');
     if ('setActiveNavItem' in $scope) {
-        console.log('StartController, setActiveNavItem is in $scope');
+        //console.log('StartController, setActiveNavItem is in $scope');
+        ;
     }
     else {
-        console.log('StartController, setActiveNavItem is not in $scope');
+        //console.log('StartController, setActiveNavItem is not in $scope');
+        ;
     }
     $scope.setActiveNavItem(1);
     $scope.methodologyText = 'Many, many sentences about methodology with terrible formulas...' //Must get methodology text from database. User must can possibility login and edit methodology text.
 });
 
 rankingApp.controller('NavigationController', function($scope) {
-    console.log('Entry in NavigationController');
+    //console.log('Entry in NavigationController');
 
     var navClasses;
 
     function initNavClasses() {
-        console.log('Entry in initNavClasses');
+        //console.log('Entry in initNavClasses');
         navClasses = ['', ''];
     }
 
     $scope.getNavClass = function(navItemNum) {
-        console.log('Entry in getNavClass, navItemNum = ' + navItemNum);
+        //console.log('Entry in getNavClass, navItemNum = ' + navItemNum);
         return navClasses[navItemNum];
     };
     
     $scope.setActiveNavItem = function(navItemNum) {
-        console.log('Entry in setActiveNavItem, navItemNum = ' + navItemNum);
+        //console.log('Entry in setActiveNavItem, navItemNum = ' + navItemNum);
         initNavClasses();
         navClasses[navItemNum] = 'active';
     };

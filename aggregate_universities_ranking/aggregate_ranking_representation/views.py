@@ -92,7 +92,7 @@ class RankingTableAPIView(APIView):
         request_data = request.data
         print 'recordsPerPage: ', request_data.get('recordsPerPage')
         print 'needsToBeUpdated: ', request_data.get('needsToBeUpdated')
-        response_data = {'rankTable' : None, 'rankingsNamesList' : None, 'yearsList' : None, 'selectedYear' : None, 'paginationParameters' : {'recordsPerPageSelectionList' : [5, 10, 20, 50, 100, 200], 'currentPageNum' : 1, 'totalTableRecords' : 1000, 'totalPages' : 0, 'correlationMatrix' : None, 'aggregateRankingCsvFileDownloadPath' : None}}
+        response_data = {'rankTable' : None, 'rankingsNamesList' : None, 'yearsList' : None, 'selectedYear' : None, 'paginationParameters' : {'recordsPerPageSelectionList' : [100, 200], 'currentPageNum' : 1, 'totalTableRecords' : 1000, 'totalPages' : 0, 'correlationMatrix' : None, 'aggregateRankingCsvFileDownloadPath' : None}}
         current_page_num = request_data.get('currentPageNum')
         if current_page_num is None:
             current_page_num = 1
