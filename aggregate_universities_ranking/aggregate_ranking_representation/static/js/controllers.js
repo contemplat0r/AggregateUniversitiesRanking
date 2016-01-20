@@ -2,8 +2,7 @@
 
 /* Controllers */
 
-//var rankingApp = angular.module('rankingApp', []); //This strongly need comment if loaded app.js !!!
-var rankingApp = angular.module('rankingControllers', []); //This strongly need unkomment If loaded app.js !!!
+var rankingApp = angular.module('rankingControllers', []); 
 
 
 var checkArrayEquality = function(array_1, array_2) {
@@ -15,21 +14,9 @@ var checkArrayEquality = function(array_1, array_2) {
 
 rankingApp.controller('RankingTableController', function($scope, $http) {
 
-    //console.log('Entry in RankingTableController');
-    if ('setActiveNavItem' in $scope) {
-        //console.log('RankingTableController, setActiveNavItem is in $scope');
-        ;
-    }
-    else {
-        //console.log('RankingTableController, setActiveNavItem is not in $scope');
-        ;
-    }
-
     $scope.setActiveNavItem(2);
 
-    
     //var paginationParameters = {};
-
 
     $scope.rankingTable = {headers : [], records : []};
     $scope.paginationParameters = {};
@@ -39,8 +26,7 @@ rankingApp.controller('RankingTableController', function($scope, $http) {
     $scope.currentSelectedRankNames = [];
     $scope.currentSelectedYear = null;
 
-    $scope.prepareRequestData = function(scope) {
-        //console.log('Entry in prepareRequestData');
+    $scope.getSelectedNames = function(scope) {
         var rankingCheckList = scope.rankingCheckList;
         var selectedNames = [];
 
@@ -50,11 +36,14 @@ rankingApp.controller('RankingTableController', function($scope, $http) {
             }
         });
 
-        //console.log('prepareRequestData, just after add items to selectedNames');
+        return selectedNames;
+    }
+
+    $scope.prepareRequestData = function(scope) {
+
+        var selectedNames = scope.getSelectedNames(scope);
 
         scope.requestData = {selectedRankingNames : selectedNames, selectedYear : scope.yearSelect.selectedYear.value, currentPageNum : scope.paginationParameters.currentPageNum, recordsPerPage : scope.paginationParameters.recordsPerPageSelection.selectedSize.value, needsToBeUpdated : false};
-
-        //console.log('prepareRequestData, just after set scope.requestData');
 
         if ((scope.currentSelectedYear != scope.yearSelect.selectedYear.value) || (checkArrayEquality(scope.currentSelectedRankNames, selectedNames) === false)) {
             scope.requestData.needsToBeUpdated = true;
@@ -66,7 +55,6 @@ rankingApp.controller('RankingTableController', function($scope, $http) {
 
 
     var updateLocalDataByResponse = function(responseData, scope) {
-        //console.log('Entry in updateLocalDataByResponse');
 
         var currentSelectedYearChanged = false;
         var currentSelectedRankNamesChanged = false;
@@ -78,7 +66,6 @@ rankingApp.controller('RankingTableController', function($scope, $http) {
 
         if ((scope.yearSelect === null) && (scope.rankingCheckList === null)) {
         //if ((!('yearSelect' in scope)) && (!('rankingCheckList' in scope))) {
-            //console.log("yearSelect not in scope and rankingCheckList not in scope");
             if (responseData.rankingsNamesList != null) {
                 scope.rankingCheckList = [];
                 scope.rankingCheckList = responseData.rankingsNamesList.map(function(rankingName) {
@@ -117,13 +104,6 @@ rankingApp.controller('RankingTableController', function($scope, $http) {
                 }
             }
         }
-        else
-        {
-            //console.log("yearSelect in scope or/and rankingCheckList in scope");
-            ;
-        }
-        
-        //console.log('responseData.correlationMatrix: ' + responseData.correlationMatrix);
 
         if (currentSelectedYearChanged || currentSelectedRankNamesChanged) {
             //console.log('currentSelectedYearChanged || currentSelectedRankNamesChanged');
@@ -139,13 +119,10 @@ rankingApp.controller('RankingTableController', function($scope, $http) {
 
         }
         
-        //console.log('Just before process paginationParameters: ');
 
         if ('paginationParameters' in responseData) {
-        //if (scope.paginationParameters === {}) {
-            //console.log('paginationParameters are in responseData');
             if (!('recordsPerPageSelection' in scope.paginationParameters)) {
-                //console.log('recordsPerPageSelection not in scope.paginationParameters');
+
                 var recordsPerPageSelectionList = responseData.paginationParameters.recordsPerPageSelectionList;
                 recordsPerPageSelectionList.sort(function(a, b){ return a - b;});
                 scope.paginationParameters.recordsPerPageSelection = {
@@ -157,9 +134,9 @@ rankingApp.controller('RankingTableController', function($scope, $http) {
                 });
             }
             else {
-                //console.log('recordsPerPageSelection already in scope.paginationParameters');
                 ;
             }
+
             scope.paginationParameters.currentPageNum = responseData.paginationParameters.currentPageNum;
             scope.paginationParameters.totalTableRecords = responseData.paginationParameters.totalTableRecords;
             scope.paginationParameters.totalPages = responseData.paginationParameters.totalPages;
@@ -188,44 +165,28 @@ rankingApp.controller('RankingTableController', function($scope, $http) {
             var rightAdjoinedToCurrentPages = [];
             var showedPagesNumsArray = [];
 
-            console.log('leftNumsArray before check firstCurrentDistance: ');
-            console.log(leftNumsArray.join(' '));
             if (firstCurrentDistance > maxShowAllPagesNum) {
                 adjoinedToFirstPages = pagesNumberArray.slice(firstPageIndexInPagesArray, adjoinedToMarginPagesNum);
                 leftAdjoinedToCurrentPages = pagesNumberArray.slice(currentPageIndexInPagesArray - adjoinedToCurrentPagesNum, currentPageIndexInPagesArray);
                 leftNumsArray = adjoinedToFirstPages.concat('\u2026');
                 leftNumsArray = leftNumsArray.concat(leftAdjoinedToCurrentPages);
             }
-            else {
-                ;
-            }
-            console.log('leftNumsArray after check firstCurrentDistance: ');
-            console.log(leftNumsArray.join(' '));
 
-            console.log('rightNumsArray before check currentLastDistance: ');
-            console.log(rightNumsArray.join(' '));
             if (currentLastDistance > maxShowAllPagesNum) {
                 adjoinedToLastPages = pagesNumberArray.slice(lastPageIndexInPagesArray - adjoinedToMarginPagesNum + 1, lastPageIndexInPagesArray + 1);
                 rightAdjoinedToCurrentPages = pagesNumberArray.slice(currentPageIndexInPagesArray + 1, currentPageIndexInPagesArray + adjoinedToCurrentPagesNum + 1);
                 rightNumsArray = rightAdjoinedToCurrentPages.concat('\u2026');
                 rightNumsArray = rightNumsArray.concat(adjoinedToLastPages);
             }
-            else {
-                ;
-            }
-            console.log('rightNumsArray after check currentLastDistance: ');
-            console.log(rightNumsArray.join(' '));
 
             showedPagesNumsArray = showedPagesNumsArray.concat(leftNumsArray);
             showedPagesNumsArray = showedPagesNumsArray.concat(scope.paginationParameters.currentPageNum);
             showedPagesNumsArray = showedPagesNumsArray.concat(rightNumsArray);
 
             scope.paginationParameters.showedPagesNumsArray = showedPagesNumsArray;
-            console.log('showedPagesNumsArray: ' + scope.paginationParameters.showedPagesNumsArray.join(' '));
         }
         else {
-            //console.log('paginationParameters are\'nt in responseData');
-            ;
+            console.log('paginationParameters are\'nt in responseData');
         }
 
 
@@ -233,7 +194,6 @@ rankingApp.controller('RankingTableController', function($scope, $http) {
            scope.correlationMatrix = responseData.correlationMatrix;
         }
 
-        //console.log('scope.correlationMatrix: ', scope.correlationMatrix);
 
         if (('aggregateRankingCsvFileDownloadPath' in responseData) && (responseData.aggregateRankingCsvFileDownloadPath !== null)) {
             $scope.aggregateRankingCsvFileDownloadPath = responseData.aggregateRankingCsvFileDownloadPath;
@@ -243,15 +203,7 @@ rankingApp.controller('RankingTableController', function($scope, $http) {
     $scope.requestData =  {selectedRankingNames : null, selectedYear : null, currentPage : null, recordsPerPage : null, needsToBeUpdated : false}
 
     $scope.retrieveTableData = function(requestData) {
-        //console.log('retrieveTableData: $scope.requestData.selectedRankingNames: ' + $scope.requestData.selectedRankingNames + ', $scope.requestData.selectedYear: ' + $scope.requestData.selectedYear);
-        if ('spinner' in $scope) {
-            //console.log('spinner in scope');
-            ;
-        }
-        else {
-            //console.log('spinner not in scope');
-            ;
-        }
+
         $scope.spinner.on();
         $http({
             method : 'POST',
@@ -272,33 +224,22 @@ rankingApp.controller('RankingTableController', function($scope, $http) {
     };
 
     $scope.goToPage = function(pageNum) {
-        //console.log('pageNum: ' + pageNum);
+
         if ((pageNum != $scope.paginationParameters.currentPageNum) && (pageNum >= $scope.paginationParameters.minPageNum) && (pageNum <= $scope.paginationParameters.totalPages)) {
             
             $scope.prepareRequestData($scope);
             $scope.requestData.currentPageNum = pageNum;
-            //console.log('request will be sended');
 
-            //console.log('goToPage, pageNum: ' + pageNum);
             $scope.retrieveTableData($scope.requestData);
             $scope.paginationParameters.currentPageNum = pageNum;
-            //console.log('goToPage, $scope.paginationParameters.currentPageNum: ' + $scope.paginationParameters.currentPageNum);
         }
-        else {
-            //console.log('pageNum not allowed, request not will sended');
-            ;
-        }
-
-        //console.log('$scope.paginationParameters.currentPageNum: ' + $scope.paginationParameters.currentPageNum);
     };
 
     $scope.goToNextPage = function() {
-        //console.log('Entry in goToNextPage');
         $scope.goToPage($scope.paginationParameters.currentPageNum + 1);
     };
 
     $scope.goToPrevPage = function() {
-        //console.log('Entry in goToPrevPage');
         $scope.goToPage($scope.paginationParameters.currentPageNum - 1);
     };
 
@@ -332,46 +273,38 @@ rankingApp.controller('RankingTableController', function($scope, $http) {
     }
 
     $scope.sendSelected = function() {
-        //console.log('Entry in sendSelected');
 
         $scope.prepareRequestData($scope);
-
-        //console.log('Before call retrieveTableData');
         $scope.retrieveTableData($scope.requestData);
+    };
+
+    $scope.downloadFile = function() {
+    };
+
+    $scope.downloadTableAsXLS = function() {
+        $scope.downloadFile($scope, 'rankingTable', 'xls');
     };
 });
 
 rankingApp.controller('StartController', function($scope) {
-    //console.log('Entry in StartController');
-    if ('setActiveNavItem' in $scope) {
-        //console.log('StartController, setActiveNavItem is in $scope');
-        ;
-    }
-    else {
-        //console.log('StartController, setActiveNavItem is not in $scope');
-        ;
-    }
+
     $scope.setActiveNavItem(1);
     $scope.methodologyText = 'Many, many sentences about methodology with terrible formulas...' //Must get methodology text from database. User must can possibility login and edit methodology text.
 });
 
 rankingApp.controller('NavigationController', function($scope) {
-    //console.log('Entry in NavigationController');
 
     var navClasses;
 
     function initNavClasses() {
-        //console.log('Entry in initNavClasses');
         navClasses = ['', ''];
     }
 
     $scope.getNavClass = function(navItemNum) {
-        //console.log('Entry in getNavClass, navItemNum = ' + navItemNum);
         return navClasses[navItemNum];
     };
     
     $scope.setActiveNavItem = function(navItemNum) {
-        //console.log('Entry in setActiveNavItem, navItemNum = ' + navItemNum);
         initNavClasses();
         navClasses[navItemNum] = 'active';
     };

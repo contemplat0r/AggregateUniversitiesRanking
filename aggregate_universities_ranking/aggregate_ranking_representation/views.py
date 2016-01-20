@@ -180,3 +180,15 @@ class RankingTableAPIView(APIView):
 
         return response
 
+
+class RankingFileDownloadAPIView(APIView):
+
+    def get(self, request, *args, **kw):
+        response = Response('', status=status.HTTP_200_OK) #Must inform about error
+
+        return response
+    
+    def post(self, request, format=None):
+        request_data = request.data
+        response = Response('', status=status.HTTP_200_OK) #Must inform about error
+

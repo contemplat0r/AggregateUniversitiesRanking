@@ -2,7 +2,6 @@
 
 /* App Module */
 
-//var rankingApp = angular.module('rankingApp', ['ngRoute']);
 var rankingApp = angular.module('rankingApp', ['ngRoute', 'rankingControllers', 'ngAnimate', 'treasure-overlay-spinner']);
 
 rankingApp.config(['$routeProvider',
