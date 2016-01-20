@@ -278,7 +278,7 @@ rankingApp.controller('RankingTableController', function($scope, $http) {
         $scope.retrieveTableData($scope.requestData);
     };
 
-    $scope.downloadFile = function() {
+    $scope.downloadFile = function(scope, contentName, fileType) {
     };
 
     $scope.downloadTableAsXLS = function() {
