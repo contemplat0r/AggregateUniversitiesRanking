@@ -205,7 +205,7 @@ rankingApp.controller('RankingTableController', function($scope, $http) {
             console.log('rightNumsArray before check currentLastDistance: ');
             console.log(rightNumsArray.join(' '));
             if (currentLastDistance > maxShowAllPagesNum) {
-                adjoinedToLastPages = pagesNumberArray.slice(lastPageIndexInPagesArray - adjoinedToMarginPagesNum, lastPageIndexInPagesArray + 1);
+                adjoinedToLastPages = pagesNumberArray.slice(lastPageIndexInPagesArray - adjoinedToMarginPagesNum + 1, lastPageIndexInPagesArray + 1);
                 rightAdjoinedToCurrentPages = pagesNumberArray.slice(currentPageIndexInPagesArray + 1, currentPageIndexInPagesArray + adjoinedToCurrentPagesNum + 1);
                 rightNumsArray = rightAdjoinedToCurrentPages.concat('\u2026');
                 rightNumsArray = rightNumsArray.concat(adjoinedToLastPages);

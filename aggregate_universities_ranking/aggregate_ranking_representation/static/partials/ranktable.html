@@ -69,34 +69,29 @@
         </tbody>
         <tfoot>
             <tr>
-                <td colspan="tableWidth">
+                <td colspan="{{tableWidth}}" align="center">
                     <div>
                         <ul class="pagination">
                             <li ng-class="prevPageDisabled()">
-                                <a href ng-click="goToPrevPage()">&laquo;</a>
+                                <a href ng-click="goToFirstPage()">&laquo;</a>
                             </li>
                             <li ng-class="firstPageDisabled()">
-                                <a href ng-click="goToFirstPage()">First</a>
+                                <a href ng-click="goToPrevPage()">&lsaquo;</a>
                             </li>
-                            <!--<li ng-repeat="pageNum in paginationParameters.pagesNumberArray" ng-class="{active: pageNum == paginationParameters.currentPageNum}" ng-click="goToPage(pageNum)">-->
                              <li ng-repeat="pageNum in paginationParameters.showedPagesNumsArray track by $index" ng-class="{active: pageNum == paginationParameters.currentPageNum}" ng-click="goToPage(pageNum)">
                                 <a href="">{{ pageNum }}</a>
                             </li>
                             <li ng-class="lastPageDisabled()">
-                                <a href ng-click="goToLastPage()">Last</a>
+                                <a href ng-click="goToNextPage()">&rsaquo;</a>
                             </li>
                             <li ng-class="nextPageDisabled()">
-                                <a href ng-click="goToNextPage()">&raquo;</a>
+                                <a href ng-click="goToLastPage()">&raquo;</a>
                             </li>
-
                         </ul>
-                    </div>
-                    <div>
                     </div>
                 </td>
             </tr>
         </tfoot>
     </table>
-    {{ paginationParameters.showedPagesNumsArray }}
 </div>
 </treasure-overlay-spinner>
