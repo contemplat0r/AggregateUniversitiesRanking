@@ -263,31 +263,31 @@ class FileDownloadAPIView(APIView):
         file_buffer = StringIO()
         print 'After create file_buffer'
         print 'Before create zip'
-        zip_file = ZipFile(file_buffer, 'w', compression=ZIP_DEFLATED)
+        #zip_file = ZipFile(file_buffer, 'w', compression=ZIP_DEFLATED)
         #zip_file = ZipFile(file_buffer, 'w')
-        #gzip_file = GzipFile(mode='w', compresslevel=6, fileobj=file_buffer)
+        gzip_file = GzipFile(mode='w', compresslevel=6, fileobj=file_buffer)
         print 'After create zip'
         print 'Before write to zip'
         #sended_zip_file.writestr('temp.csv', 'abc')
-        zip_file.writestr('temp.csv', file_content)
-        #gzip_file.write(file_content)
+        #zip_file.writestr('temp.csv', file_content)
+        gzip_file.write(file_content)
         print 'After write to zip'
         print 'Before close zip'
-        zip_file.close()
-        #gzip_file.close()
+        #zip_file.close()
+        gzip_file.close()
         print 'After close zip'
         #print file_buffer.getvalue()
-        #gzipped_content = file_buffer.getvalue()
+        gzipped_content = file_buffer.getvalue()
 
         #response = Response({'file' : None}, status=status.HTTP_200_OK) #Must inform about error
         #print file_buffer.getvalue()
-        #response = HttpResponse(FileWrapper(zip_file), content_type='application/zip')
-        #response = HttpResponse(FileWrapper(file_buffer.getvalue()), content_type='application/zip')
-        response = HttpResponse(content_type='application/zip')
-        response['Content-Disposition'] = 'attachment; filename=%s.zip' % filename
-        response.write(file_buffer.getvalue())
-        #response = HttpResponse(gzipped_content)
-        #response['Content-Encoding'] = 'gzip'
-        #response['Content-Length'] = str(len(gzipped_content))
+        ##response = HttpResponse(FileWrapper(zip_file), content_type='application/zip')
+        ##response = HttpResponse(FileWrapper(file_buffer.getvalue()), content_type='application/zip')
+        #response = HttpResponse(content_type='application/zip')
+        #response['Content-Disposition'] = 'attachment; filename=%s.zip' % filename
+        #response.write(file_buffer.getvalue())
+        response = HttpResponse(gzipped_content)
+        response['Content-Encoding'] = 'gzip'
+        response['Content-Length'] = str(len(gzipped_content))
         return response
 

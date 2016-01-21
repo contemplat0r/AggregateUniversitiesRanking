@@ -278,6 +278,12 @@ rankingApp.controller('RankingTableController', function($scope, $http) {
         $scope.retrieveTableData($scope.requestData);
     };
 
+    function openSaveAsDialog(filename, content, mediaType) {
+        console.log('Entry in openSaveAsDialog');
+        var blob = new Blob([content], {type : mediaType});
+        saveAs(blob, filename);
+    }
+
     $scope.downloadFile = function(scope, dataType, fileType) {
         var selectedNames = scope.getSelectedNames(scope);
         var requestData = {selectedRankingNames : selectedNames, selectedYear : scope.yearSelect.selectedYear.value, dataType: dataType, fileType : fileType};
@@ -288,9 +294,11 @@ rankingApp.controller('RankingTableController', function($scope, $http) {
         }).then(
             function successCallback(response) {
                 console.log('downloadFile, success: ', response);
+                var data = response.data;
                 //$scope.table = response.data;
                 //updateLocalDataByResponse(response.data, $scope);
                 //$scope.spinner.off();
+                openSaveAsDialog('ranktable.csv', data,'text/csv;charset=utf-8;');
             },
             function errorrCallback(response) {
                 console.log('downloadFile, error: ', response);
