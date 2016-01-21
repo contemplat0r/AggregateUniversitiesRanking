@@ -218,9 +218,7 @@ class FileDownloadAPIView(APIView):
         return response
     
     def post(self, request, format=None):
-        print 'download file view'
         request_data = request.data
-        print request_data
         
         selected_rankings_names = request_data.get('selectedRankingNames') 
         selected_year = request_data.get('selectedYear')
@@ -230,22 +228,17 @@ class FileDownloadAPIView(APIView):
 
         selected_year = 2015 # This is temp!
         
-        print 'Before check selected_year'
         if selected_year == None or (selected_year != None and (selected_year > FINISH_AGGREGATE_YEAR or selected_year < START_AGGREGATE_YEAR)):
             pass
             #selected_year = FINISH_AGGREGATE_YEAR
-        print 'After check selected_year'
 
-        print 'Before process selected_rankings_names'
         short_rankings_names = [ranking_name.short_name for ranking_name in RankingDescription.objects.all()] #This is right!
         short_rankings_names = [ranking_name for ranking_name in short_rankings_names if ranking_name in ranking_descriptions.keys()] # This is temp?
         selected_rankings_names = short_rankings_names
 
         if selected_rankings_names == []:
-            print 'selected_rankings_names == []'
             selected_rankings_names = short_rankings_names
 
-        print 'After process selected_rankings_names'
         if data_type != None:
             data_type = data_type.lower()
         else:
@@ -258,34 +251,12 @@ class FileDownloadAPIView(APIView):
 
         filename = assemble_filename(selected_rankings_names, selected_year, data_type, file_type)
         file_content = get_file(csv_files_dir , filename)
-        print 'len(file_content): ', len(file_content)
-        print 'Before create file_buffer'
         file_buffer = StringIO()
-        print 'After create file_buffer'
-        print 'Before create zip'
-        #zip_file = ZipFile(file_buffer, 'w', compression=ZIP_DEFLATED)
-        #zip_file = ZipFile(file_buffer, 'w')
         gzip_file = GzipFile(mode='w', compresslevel=6, fileobj=file_buffer)
-        print 'After create zip'
-        print 'Before write to zip'
-        #sended_zip_file.writestr('temp.csv', 'abc')
-        #zip_file.writestr('temp.csv', file_content)
         gzip_file.write(file_content)
-        print 'After write to zip'
-        print 'Before close zip'
-        #zip_file.close()
         gzip_file.close()
-        print 'After close zip'
-        #print file_buffer.getvalue()
         gzipped_content = file_buffer.getvalue()
 
-        #response = Response({'file' : None}, status=status.HTTP_200_OK) #Must inform about error
-        #print file_buffer.getvalue()
-        ##response = HttpResponse(FileWrapper(zip_file), content_type='application/zip')
-        ##response = HttpResponse(FileWrapper(file_buffer.getvalue()), content_type='application/zip')
-        #response = HttpResponse(content_type='application/zip')
-        #response['Content-Disposition'] = 'attachment; filename=%s.zip' % filename
-        #response.write(file_buffer.getvalue())
         response = HttpResponse(gzipped_content)
         response['Content-Encoding'] = 'gzip'
         response['Content-Length'] = str(len(gzipped_content))

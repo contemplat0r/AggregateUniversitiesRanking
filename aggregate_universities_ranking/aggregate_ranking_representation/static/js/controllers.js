@@ -293,11 +293,7 @@ rankingApp.controller('RankingTableController', function($scope, $http) {
             data : requestData
         }).then(
             function successCallback(response) {
-                console.log('downloadFile, success: ', response);
                 var data = response.data;
-                //$scope.table = response.data;
-                //updateLocalDataByResponse(response.data, $scope);
-                //$scope.spinner.off();
                 openSaveAsDialog('ranktable.csv', data,'text/csv;charset=utf-8;');
             },
             function errorrCallback(response) {
@@ -308,7 +304,6 @@ rankingApp.controller('RankingTableController', function($scope, $http) {
     };
 
     $scope.downloadTableAsXLS = function() {
-        console.log('Entry in downloadTableAsXLS');
         //$scope.downloadFile($scope, 'rankTable', 'xls');
         $scope.downloadFile($scope, 'rankTable', 'csv');
     };
