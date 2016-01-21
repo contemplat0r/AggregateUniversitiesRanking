@@ -2,9 +2,14 @@
 
 import datetime
 import os
+import codecs
 from functools import reduce
+from zipfile import ZipFile, ZIP_DEFLATED
+from gzip import GzipFile
+from StringIO import StringIO
 from django.shortcuts import render
 from django.core.context_processors import csrf
+from django.core.servers.basehttp import FileWrapper
 from django.conf import settings
 from django.http import HttpResponse
 from rest_framework import serializers
@@ -60,10 +65,34 @@ def prepare_correlation_matrix_to_response(correlation_matrix):
 
     return correlation_matrix_table
 
+
 def assemble_csv_filename(selected_rankings_names, year):
     selected_rankings_names = sorted(selected_rankings_names)
     csv_filename = reduce(lambda filename, rankname: filename + rankname + '_', selected_rankings_names, str()) + str(year) + '.csv'
     return csv_filename.lower()
+
+
+def assemble_filename(selected_rankings_names, year, data_type, file_type):
+    print 'Entry in assemble_filename'
+    selected_rankings_names = sorted(selected_rankings_names)
+    filename = data_type + '_' +  reduce(lambda filename, rankname: filename + rankname + '_', selected_rankings_names, str()) + str(year) + '.' + file_type
+    print 'assemble_filename, filename: ', filename.lower()
+    return filename.lower()
+
+
+def get_file(file_dir, filename):
+    print 'Entry in get_file'
+     
+    file_path = os.path.join(file_dir, filename)
+    print 'get_file, file_path: ', file_path
+    if check_file_exist(file_path):
+        #file_stream = codecs.open(file_path, 'r', encoding='utf-8')
+        file_stream = open(file_path, 'r')
+        file_content = file_stream.read()
+        file_stream.close()
+        return file_content
+    else:
+        return None
 
 
 def check_file_exist(csv_file_path):
@@ -134,12 +163,12 @@ class RankingTableAPIView(APIView):
         #aggregate_ranking_dataframe = assemble_aggregate_ranking_dataframe(selected_rankings_names, int(selected_year))
         aggregate_ranking_dataframe = DataFrame()
 
-        csv_filename = assemble_csv_filename(selected_rankings_names, selected_year)
-        correlation_matrix_csv_filename = 'correlation_matrix_' + csv_filename
-        print 'csv_filename: ', csv_filename
+        csv_ranktable_filename = assemble_filename(selected_rankings_names, selected_year, 'ranktable', 'csv')
+        #correlation_matrix_csv_filename = 'correlation_matrix_' + csv_filename
+        print 'csv_filename: ', csv_ranktable_filename
         print 'csv_files_dir', csv_files_dir
-        csv_file_path = os.path.join(csv_files_dir, csv_filename)
-        response_data['aggregateRankingCsvFileDownloadPath'] = os.path.join(csv_files_dir_relative_path, csv_filename)
+        csv_file_path = os.path.join(csv_files_dir, csv_ranktable_filename)
+        response_data['aggregateRankingCsvFileDownloadPath'] = os.path.join(csv_files_dir_relative_path, csv_ranktable_filename)
 
         if not check_file_exist(csv_file_path):
             print 'csv file, %s' % csv_file_path, ' not exists'
@@ -181,7 +210,7 @@ class RankingTableAPIView(APIView):
         return response
 
 
-class RankingFileDownloadAPIView(APIView):
+class FileDownloadAPIView(APIView):
 
     def get(self, request, *args, **kw):
         response = Response('', status=status.HTTP_200_OK) #Must inform about error
@@ -189,6 +218,76 @@ class RankingFileDownloadAPIView(APIView):
         return response
     
     def post(self, request, format=None):
+        print 'download file view'
         request_data = request.data
-        response = Response('', status=status.HTTP_200_OK) #Must inform about error
+        print request_data
+        
+        selected_rankings_names = request_data.get('selectedRankingNames') 
+        selected_year = request_data.get('selectedYear')
+        data_type = request_data.get('dataType')
+        file_type = request_data.get('fileType')
+
+
+        selected_year = 2015 # This is temp!
+        
+        print 'Before check selected_year'
+        if selected_year == None or (selected_year != None and (selected_year > FINISH_AGGREGATE_YEAR or selected_year < START_AGGREGATE_YEAR)):
+            pass
+            #selected_year = FINISH_AGGREGATE_YEAR
+        print 'After check selected_year'
+
+        print 'Before process selected_rankings_names'
+        short_rankings_names = [ranking_name.short_name for ranking_name in RankingDescription.objects.all()] #This is right!
+        short_rankings_names = [ranking_name for ranking_name in short_rankings_names if ranking_name in ranking_descriptions.keys()] # This is temp?
+        selected_rankings_names = short_rankings_names
+
+        if selected_rankings_names == []:
+            print 'selected_rankings_names == []'
+            selected_rankings_names = short_rankings_names
+
+        print 'After process selected_rankings_names'
+        if data_type != None:
+            data_type = data_type.lower()
+        else:
+            data_type = 'ranktable'
+
+        if file_type != None:
+            file_type = file_type.lower()
+        else:
+            file_type = 'csv'
+
+        filename = assemble_filename(selected_rankings_names, selected_year, data_type, file_type)
+        file_content = get_file(csv_files_dir , filename)
+        print 'len(file_content): ', len(file_content)
+        print 'Before create file_buffer'
+        file_buffer = StringIO()
+        print 'After create file_buffer'
+        print 'Before create zip'
+        zip_file = ZipFile(file_buffer, 'w', compression=ZIP_DEFLATED)
+        #zip_file = ZipFile(file_buffer, 'w')
+        #gzip_file = GzipFile(mode='w', compresslevel=6, fileobj=file_buffer)
+        print 'After create zip'
+        print 'Before write to zip'
+        #sended_zip_file.writestr('temp.csv', 'abc')
+        zip_file.writestr('temp.csv', file_content)
+        #gzip_file.write(file_content)
+        print 'After write to zip'
+        print 'Before close zip'
+        zip_file.close()
+        #gzip_file.close()
+        print 'After close zip'
+        #print file_buffer.getvalue()
+        #gzipped_content = file_buffer.getvalue()
+
+        #response = Response({'file' : None}, status=status.HTTP_200_OK) #Must inform about error
+        #print file_buffer.getvalue()
+        #response = HttpResponse(FileWrapper(zip_file), content_type='application/zip')
+        #response = HttpResponse(FileWrapper(file_buffer.getvalue()), content_type='application/zip')
+        response = HttpResponse(content_type='application/zip')
+        response['Content-Disposition'] = 'attachment; filename=%s.zip' % filename
+        response.write(file_buffer.getvalue())
+        #response = HttpResponse(gzipped_content)
+        #response['Content-Encoding'] = 'gzip'
+        #response['Content-Length'] = str(len(gzipped_content))
+        return response
 

@@ -278,11 +278,31 @@ rankingApp.controller('RankingTableController', function($scope, $http) {
         $scope.retrieveTableData($scope.requestData);
     };
 
-    $scope.downloadFile = function(scope, contentName, fileType) {
+    $scope.downloadFile = function(scope, dataType, fileType) {
+        var selectedNames = scope.getSelectedNames(scope);
+        var requestData = {selectedRankingNames : selectedNames, selectedYear : scope.yearSelect.selectedYear.value, dataType: dataType, fileType : fileType};
+        $http({
+            method : 'POST',
+            url : 'rest/download',
+            data : requestData
+        }).then(
+            function successCallback(response) {
+                console.log('downloadFile, success: ', response);
+                //$scope.table = response.data;
+                //updateLocalDataByResponse(response.data, $scope);
+                //$scope.spinner.off();
+            },
+            function errorrCallback(response) {
+                console.log('downloadFile, error: ', response);
+                //$scope.spinner.off();
+            }
+        );
     };
 
     $scope.downloadTableAsXLS = function() {
-        $scope.downloadFile($scope, 'rankingTable', 'xls');
+        console.log('Entry in downloadTableAsXLS');
+        //$scope.downloadFile($scope, 'rankTable', 'xls');
+        $scope.downloadFile($scope, 'rankTable', 'csv');
     };
 });
 
