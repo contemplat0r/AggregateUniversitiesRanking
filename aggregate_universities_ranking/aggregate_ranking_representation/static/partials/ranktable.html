@@ -29,6 +29,7 @@
         <strong>
             Correlation matrix
         </strong>
+        <button type="submit" ng-click="downloadCorrelationMatrixAsCSV()" class="btn btn-primary"> Download as csv file </button>
         <span ng-if="correlationMatrix">
             <table class="table-bordered table-condensed">
                 <tbody>
@@ -49,7 +50,7 @@
             Hide correlation matrix
         </div>
     </button>
-    <a class="btn btn-primary" href="/{{aggregateRankingCsvFileDownloadPath}}"> Download Aggregate Ranking as csv file </a>
+    <button type="submit" ng-click="downloadTableAsCSV()" class="btn btn-primary"> Download Aggregate Ranking as csv file </button>
     <button type="submit" ng-click="downloadTableAsXLS()" class="btn btn-primary"> Download Aggregate Ranking as xls file </button>
     <table class="table table-striped table-condensed table-hover">
         <thead>

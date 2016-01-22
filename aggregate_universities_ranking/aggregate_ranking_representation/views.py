@@ -3,6 +3,9 @@
 import datetime
 import os
 import codecs
+import md5
+import csv
+import xlwt
 from functools import reduce
 from zipfile import ZipFile, ZIP_DEFLATED
 from gzip import GzipFile
@@ -99,10 +102,17 @@ def check_file_exist(csv_file_path):
     return os.path.exists(csv_file_path)
 
 
-def aggregate_ranking_to_csv(csv_file_path, aggregate_ranking_dataframe):
-    print 'Entry in aggregate_ranking_to_csv'
-    print 'aggregate_ranking_to_csv, before call aggregate_ranking_dataframe.to_csv'
-    aggregate_ranking_dataframe.to_csv(csv_file_path, sep=';', encoding='utf-8')
+def to_csv(csv_file_path, dataframe):
+    print 'Entry in to_csv'
+    print 'to_csv, before call dataframe.to_csv'
+    dataframe.to_csv(csv_file_path, sep=';', encoding='utf-8')
+    return
+
+
+def to_xls(xls_file_path, dataframe):
+    print 'Entry in to_xls'
+    print 'to_xls, before call dataframe.to_xls'
+    dataframe.to_excel(xls_file_path, index=False)
     return
 
 
@@ -121,7 +131,7 @@ class RankingTableAPIView(APIView):
         request_data = request.data
         print 'recordsPerPage: ', request_data.get('recordsPerPage')
         print 'needsToBeUpdated: ', request_data.get('needsToBeUpdated')
-        response_data = {'rankTable' : None, 'rankingsNamesList' : None, 'yearsList' : None, 'selectedYear' : None, 'paginationParameters' : {'recordsPerPageSelectionList' : [100, 200], 'currentPageNum' : 1, 'totalTableRecords' : 1000, 'totalPages' : 0, 'correlationMatrix' : None, 'aggregateRankingCsvFileDownloadPath' : None}}
+        response_data = {'rankTable' : None, 'rankingsNamesList' : None, 'yearsList' : None, 'selectedYear' : None, 'paginationParameters' : {'recordsPerPageSelectionList' : [100, 200], 'currentPageNum' : 1, 'totalTableRecords' : 1000, 'totalPages' : 0, 'correlationMatrix' : None}}
         current_page_num = request_data.get('currentPageNum')
         if current_page_num is None:
             current_page_num = 1
@@ -160,28 +170,45 @@ class RankingTableAPIView(APIView):
             selected_year = 2015
         response_data['selectedYear'] = selected_year
 
-        #aggregate_ranking_dataframe = assemble_aggregate_ranking_dataframe(selected_rankings_names, int(selected_year))
         aggregate_ranking_dataframe = DataFrame()
-
-        csv_ranktable_filename = assemble_filename(selected_rankings_names, selected_year, 'ranktable', 'csv')
-        #correlation_matrix_csv_filename = 'correlation_matrix_' + csv_filename
-        print 'csv_filename: ', csv_ranktable_filename
+        csv_filename = assemble_filename(selected_rankings_names, selected_year, 'ranktable', 'csv')
+        xls_filename = assemble_filename(selected_rankings_names, selected_year, 'ranktable', 'xls')
+        print 'csv_filename: ', csv_filename
         print 'csv_files_dir', csv_files_dir
-        csv_file_path = os.path.join(csv_files_dir, csv_ranktable_filename)
-        response_data['aggregateRankingCsvFileDownloadPath'] = os.path.join(csv_files_dir_relative_path, csv_ranktable_filename)
+        csv_file_path = os.path.join(csv_files_dir, csv_filename)
+        xls_file_path = os.path.join(csv_files_dir, xls_filename)
 
         if not check_file_exist(csv_file_path):
             print 'csv file, %s' % csv_file_path, ' not exists'
             aggregate_ranking_dataframe = assemble_aggregate_ranking_dataframe(selected_rankings_names, int(selected_year))
             print 'aggregate_ranking_dataframe.count():\n', aggregate_ranking_dataframe.count()
-            aggregate_ranking_to_csv(csv_file_path, aggregate_ranking_dataframe)
+            to_csv(csv_file_path, aggregate_ranking_dataframe)
             print 'After aggregate_ranking_to_csv'
         else:
             print 'csv file, %s' % csv_file_path, ' exists'
             aggregate_ranking_dataframe = DataFrame.from_csv(csv_file_path, sep=';', encoding='utf-8')
-        
-        print 'Before correlation_matrix calculation'
-        correlation_matrix = calculate_correlation_matrix(aggregate_ranking_dataframe)
+
+        if not check_file_exist(xls_file_path):
+            to_xls(xls_file_path, aggregate_ranking_dataframe)
+
+        correlation_matrix = DataFrame()
+        csv_filename = assemble_filename(selected_rankings_names, selected_year, 'correlation', 'csv')
+        print 'csv_filename: ', csv_filename
+        print 'csv_files_dir', csv_files_dir
+        csv_file_path = os.path.join(csv_files_dir, csv_filename)
+
+        if not check_file_exist(csv_file_path):
+            print 'csv file, %s' % csv_file_path, ' not exists'
+            correlation_matrix = calculate_correlation_matrix(aggregate_ranking_dataframe)
+            to_csv(csv_file_path, correlation_matrix)
+            print 'After aggregate_ranking_to_csv'
+        else:
+            print 'csv file, %s' % csv_file_path, ' exists'
+            correlation_matrix = DataFrame.from_csv(csv_file_path, sep=';', encoding='utf-8')
+
+
+        #print 'Before correlation_matrix calculation'
+        #correlation_matrix = calculate_correlation_matrix(aggregate_ranking_dataframe)
         prepared_for_response_correlation_matrix = None
         if request_data['needsToBeUpdated']:
             prepared_for_response_correlation_matrix = prepare_correlation_matrix_to_response(correlation_matrix)
@@ -219,6 +246,13 @@ class FileDownloadAPIView(APIView):
     
     def post(self, request, format=None):
         request_data = request.data
+        print dir(request)
+        #print request.get('accepted_media_type')
+        print request.accepted_media_type
+        #print request.get('content_type')
+        print request.content_type
+        #print request.get('query_params')
+        print request.query_params
         
         selected_rankings_names = request_data.get('selectedRankingNames') 
         selected_year = request_data.get('selectedYear')
@@ -251,14 +285,26 @@ class FileDownloadAPIView(APIView):
 
         filename = assemble_filename(selected_rankings_names, selected_year, data_type, file_type)
         file_content = get_file(csv_files_dir , filename)
+        print md5.new(file_content).hexdigest()
         file_buffer = StringIO()
-        gzip_file = GzipFile(mode='w', compresslevel=6, fileobj=file_buffer)
+        gzip_file = GzipFile(mode='wb', compresslevel=6, fileobj=file_buffer)
         gzip_file.write(file_content)
+        gzip_file.flush()
         gzip_file.close()
         gzipped_content = file_buffer.getvalue()
 
         response = HttpResponse(gzipped_content)
+        ##response = HttpResponse(file_content)
         response['Content-Encoding'] = 'gzip'
+        ##response['Content-Encoding'] = 'application/vnd.ms-excel;charset=utf-8'
         response['Content-Length'] = str(len(gzipped_content))
+        ##response['Content-Type'] = 'application/vnd.ms-excel'
+        #response['Content-Length'] = str(len(file_content))
+        ##print response['Content-Encoding']
+        #print response['Content-Length']
+        ##response = HttpResponse(content_type='application/vnd.ms-excel')
+        ##response['Content-Disposition'] = 'attachment; filename=%s' % filename
+        ##print response['Content-Disposition']
+        ##response.write(file_content)
         return response
 

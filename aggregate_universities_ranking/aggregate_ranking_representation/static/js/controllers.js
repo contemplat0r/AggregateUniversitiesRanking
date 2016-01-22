@@ -193,11 +193,6 @@ rankingApp.controller('RankingTableController', function($scope, $http) {
         if (('correlationMatrix' in responseData) && (responseData.correlationMatrix != null)) {
            scope.correlationMatrix = responseData.correlationMatrix;
         }
-
-
-        if (('aggregateRankingCsvFileDownloadPath' in responseData) && (responseData.aggregateRankingCsvFileDownloadPath !== null)) {
-            $scope.aggregateRankingCsvFileDownloadPath = responseData.aggregateRankingCsvFileDownloadPath;
-        }
     };
 
     $scope.requestData =  {selectedRankingNames : null, selectedYear : null, currentPage : null, recordsPerPage : null, needsToBeUpdated : false}
@@ -278,6 +273,38 @@ rankingApp.controller('RankingTableController', function($scope, $http) {
         $scope.retrieveTableData($scope.requestData);
     };
 
+    function assembleFileName(prefix, selectedRankingNames, year) {
+        var filename = prefix;
+
+        selectedRankingNames.forEach(function(item, i, selectedRankingNames) {
+            filename = filename + '_' + item;
+        });
+
+        filename = filename + '_' + year;
+
+        return filename.toLowerCase();
+    }
+
+    function saveFile(dataType, selectedNames, selectedYear, fileType, fileContent) {
+        if (selectedNames.length == 0) {
+            var rankingCheckList = $scope.rankingCheckList;
+            rankingCheckList.forEach(function(item, i, rankingCheckList) {
+                selectedNames.push(item.name);
+            });
+        }
+        else {
+            console.log('saveFile, selectedNames !== []');
+        }
+        selectedNames.sort();
+        var fileName = assembleFileName(dataType, selectedNames, selectedYear);
+        if (fileType === 'csv') {
+            openSaveAsDialog(fileName + '.csv', fileContent,'text/csv;charset=utf-8;');
+        }
+        else if (fileType === 'xls') {
+            openSaveAsDialog(fileName + '.xls', fileContent,'application/vnd.ms-excel;charset=utf-8');
+        }
+    }
+    
     function openSaveAsDialog(filename, content, mediaType) {
         console.log('Entry in openSaveAsDialog');
         var blob = new Blob([content], {type : mediaType});
@@ -290,22 +317,32 @@ rankingApp.controller('RankingTableController', function($scope, $http) {
         $http({
             method : 'POST',
             url : 'rest/download',
+            //headers: {'Accept-Encoding' : 'gzip,deflate,sdch'},
+            responseType: 'arraybuffer',
             data : requestData
         }).then(
             function successCallback(response) {
                 var data = response.data;
-                openSaveAsDialog('ranktable.csv', data,'text/csv;charset=utf-8;');
+                //console.log(data);
+                console.log(md5(data));
+                saveFile(dataType, requestData.selectedRankingNames, requestData.selectedYear, fileType, data);
             },
             function errorrCallback(response) {
                 console.log('downloadFile, error: ', response);
-                //$scope.spinner.off();
             }
         );
     };
 
-    $scope.downloadTableAsXLS = function() {
-        //$scope.downloadFile($scope, 'rankTable', 'xls');
+    $scope.downloadTableAsCSV = function() {
         $scope.downloadFile($scope, 'rankTable', 'csv');
+    };
+
+    $scope.downloadTableAsXLS = function() {
+        $scope.downloadFile($scope, 'rankTable', 'xls');
+    };
+
+    $scope.downloadCorrelationMatrixAsCSV = function() {
+        $scope.downloadFile($scope, 'correlation', 'csv');
     };
 });
 
