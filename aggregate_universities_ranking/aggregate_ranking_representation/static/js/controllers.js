@@ -317,7 +317,6 @@ rankingApp.controller('RankingTableController', function($scope, $http) {
         $http({
             method : 'POST',
             url : 'rest/download',
-            //headers: {'Accept-Encoding' : 'gzip,deflate,sdch'},
             responseType: 'arraybuffer',
             data : requestData
         }).then(

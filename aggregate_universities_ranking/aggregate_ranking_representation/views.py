@@ -3,24 +3,25 @@
 import datetime
 import os
 import codecs
-import md5
 import csv
 import xlwt
 from functools import reduce
 from zipfile import ZipFile, ZIP_DEFLATED
 from gzip import GzipFile
 from StringIO import StringIO
+from cStringIO import StringIO as BytesIO
 from django.shortcuts import render
 from django.core.context_processors import csrf
 from django.core.servers.basehttp import FileWrapper
 from django.conf import settings
 from django.http import HttpResponse
+from django.core.cache import caches
 from rest_framework import serializers
 from rest_framework.renderers import JSONRenderer
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework import status
-from pandas import DataFrame
+from pandas import DataFrame, ExcelWriter
 from .models import RankingDescription, RankingValue, University 
 from .name_matching import ranking_descriptions, build_aggregate_ranking_dataframe, assemble_aggregate_ranking_dataframe
 from forms import SelectRankingsNamesAndYear
@@ -75,12 +76,63 @@ def assemble_csv_filename(selected_rankings_names, year):
     return csv_filename.lower()
 
 
-def assemble_filename(selected_rankings_names, year, data_type, file_type):
+def assemble_filename(selected_rankings_names, year, data_type, file_type=None):
     print 'Entry in assemble_filename'
     selected_rankings_names = sorted(selected_rankings_names)
-    filename = data_type + '_' +  reduce(lambda filename, rankname: filename + rankname + '_', selected_rankings_names, str()) + str(year) + '.' + file_type
+    filename = data_type + '_' +  reduce(lambda filename, rankname: filename + rankname + '_', selected_rankings_names, str()) + str(year)
+    if file_type != None:
+        filename = filename + '.' + file_type
     print 'assemble_filename, filename: ', filename.lower()
     return filename.lower()
+
+
+def to_mem_excel(dataframe, sheet_name='WorkSheet'):
+    iobuffer = BytesIO()
+    writer = ExcelWriter(iobuffer, engine='xlwt')
+    dataframe.to_excel(writer, sheet_name=sheet_name)
+    iobuffer.flush()
+    iobuffer.seek(0)
+    return iobuffer.getvalue()
+
+def to_mem_csv(dataframe):
+    iobuffer = BytesIO()
+    dataframe.to_csv(iobuffer, sep=';', encoding='utf-8')
+    iobuffer.flush()
+    iobuffer.seek(0)
+    return iobuffer.getvalue()
+
+def to_gzip(data):
+    iobuffer = StringIO()
+    gzip_mem_object = GzipFile(mode='wb', compresslevel=6, fileobj=iobuffer)
+    gzip_mem_object.write(data)
+    gzip_mem_object.flush()
+    gzip_mem_object.close()
+    return iobuffer.getvalue()
+
+def save_to_storage(storage, key, value):
+    storage.set(key, value, None)
+    return
+
+
+def get_from_storage(storage, key):
+    return storage.get(key)
+
+
+def get_storage_example():
+    return caches['default']
+
+class Storage(object):
+
+    def __init__(self):
+        self.cache = caches['default']
+
+    def save(self, key, value):
+        print 'Entry in Storage.save method'
+        self.cache.set(key, value, None)
+        return
+
+    def get(self, key):
+        return self.cache.get(key)
 
 
 def get_file(file_dir, filename):
@@ -128,6 +180,8 @@ class RankingTableAPIView(APIView):
         return response
     
     def post(self, request, format=None):
+        storage = Storage()
+        #cache = caches['default']
         request_data = request.data
         print 'recordsPerPage: ', request_data.get('recordsPerPage')
         print 'needsToBeUpdated: ', request_data.get('needsToBeUpdated')
@@ -144,8 +198,7 @@ class RankingTableAPIView(APIView):
 
         selected_rankings_names = short_rankings_names
 
-        # selected_year = FINISH_AGGREGATE_YEAR # This is right!
-        selected_year = 2015 # This is temp!
+        selected_year = FINISH_AGGREGATE_YEAR # This is right!
 
         if (request_data['selectedRankingNames'] != None) and (request_data['selectedRankingNames'] != []):
             print 'selectedRankingNames not None and not []'
@@ -165,12 +218,10 @@ class RankingTableAPIView(APIView):
         print 'response_data[\'paginationParameters\'][\'currentPageNum\']: ', response_data['paginationParameters']['currentPageNum']
         print 'selected_year: ', selected_year
 
-        ## This is temp!!!
-        if selected_year > 2015:
-            selected_year = 2015
         response_data['selectedYear'] = selected_year
 
         aggregate_ranking_dataframe = DataFrame()
+        aggregate_ranking_dataframe_storage_key = assemble_filename(selected_rankings_names, selected_year, 'ranktable')
         csv_filename = assemble_filename(selected_rankings_names, selected_year, 'ranktable', 'csv')
         xls_filename = assemble_filename(selected_rankings_names, selected_year, 'ranktable', 'xls')
         print 'csv_filename: ', csv_filename
@@ -178,15 +229,22 @@ class RankingTableAPIView(APIView):
         csv_file_path = os.path.join(csv_files_dir, csv_filename)
         xls_file_path = os.path.join(csv_files_dir, xls_filename)
 
-        if not check_file_exist(csv_file_path):
-            print 'csv file, %s' % csv_file_path, ' not exists'
+        #if not check_file_exist(csv_file_path):
+        if storage.get(aggregate_ranking_dataframe_storage_key) is None:
+            #print 'csv file, %s' % csv_file_path, ' not exists'
+            print 'Storage value with key %s not exists' % aggregate_ranking_dataframe_storage_key 
             aggregate_ranking_dataframe = assemble_aggregate_ranking_dataframe(selected_rankings_names, int(selected_year))
+            #cache.set(aggregate_ranking_dataframe_cache_key, aggregate_ranking_dataframe, None)
             print 'aggregate_ranking_dataframe.count():\n', aggregate_ranking_dataframe.count()
+            storage.save(aggregate_ranking_dataframe_storage_key, aggregate_ranking_dataframe)
+            print 'After save aggregate_ranking_dataframe to storage'
             to_csv(csv_file_path, aggregate_ranking_dataframe)
             print 'After aggregate_ranking_to_csv'
         else:
-            print 'csv file, %s' % csv_file_path, ' exists'
-            aggregate_ranking_dataframe = DataFrame.from_csv(csv_file_path, sep=';', encoding='utf-8')
+            #print 'csv file, %s' % csv_file_path, ' exists'
+            print 'Storage value with key %s exists' % aggregate_ranking_dataframe_storage_key 
+            #aggregate_ranking_dataframe = DataFrame.from_csv(csv_file_path, sep=';', encoding='utf-8')
+            aggregate_ranking_dataframe = storage.get(aggregate_ranking_dataframe_storage_key)
 
         if not check_file_exist(xls_file_path):
             to_xls(xls_file_path, aggregate_ranking_dataframe)
@@ -246,29 +304,18 @@ class FileDownloadAPIView(APIView):
     
     def post(self, request, format=None):
         request_data = request.data
-        print dir(request)
-        #print request.get('accepted_media_type')
-        print request.accepted_media_type
-        #print request.get('content_type')
-        print request.content_type
-        #print request.get('query_params')
-        print request.query_params
         
         selected_rankings_names = request_data.get('selectedRankingNames') 
+        print 'FileDownloadAPIView post, selected_rankings_names: ', selected_rankings_names
         selected_year = request_data.get('selectedYear')
         data_type = request_data.get('dataType')
         file_type = request_data.get('fileType')
 
-
-        selected_year = 2015 # This is temp!
-        
         if selected_year == None or (selected_year != None and (selected_year > FINISH_AGGREGATE_YEAR or selected_year < START_AGGREGATE_YEAR)):
-            pass
-            #selected_year = FINISH_AGGREGATE_YEAR
+            selected_year = FINISH_AGGREGATE_YEAR
 
         short_rankings_names = [ranking_name.short_name for ranking_name in RankingDescription.objects.all()] #This is right!
         short_rankings_names = [ranking_name for ranking_name in short_rankings_names if ranking_name in ranking_descriptions.keys()] # This is temp?
-        selected_rankings_names = short_rankings_names
 
         if selected_rankings_names == []:
             selected_rankings_names = short_rankings_names
@@ -285,7 +332,6 @@ class FileDownloadAPIView(APIView):
 
         filename = assemble_filename(selected_rankings_names, selected_year, data_type, file_type)
         file_content = get_file(csv_files_dir , filename)
-        print md5.new(file_content).hexdigest()
         file_buffer = StringIO()
         gzip_file = GzipFile(mode='wb', compresslevel=6, fileobj=file_buffer)
         gzip_file.write(file_content)
@@ -294,17 +340,7 @@ class FileDownloadAPIView(APIView):
         gzipped_content = file_buffer.getvalue()
 
         response = HttpResponse(gzipped_content)
-        ##response = HttpResponse(file_content)
         response['Content-Encoding'] = 'gzip'
-        ##response['Content-Encoding'] = 'application/vnd.ms-excel;charset=utf-8'
         response['Content-Length'] = str(len(gzipped_content))
-        ##response['Content-Type'] = 'application/vnd.ms-excel'
-        #response['Content-Length'] = str(len(file_content))
-        ##print response['Content-Encoding']
-        #print response['Content-Length']
-        ##response = HttpResponse(content_type='application/vnd.ms-excel')
-        ##response['Content-Disposition'] = 'attachment; filename=%s' % filename
-        ##print response['Content-Disposition']
-        ##response.write(file_content)
         return response
 

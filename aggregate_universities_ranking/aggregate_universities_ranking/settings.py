@@ -94,6 +94,12 @@ DATABASES = {
 
 }
 
+CACHES = {
+        'default' : {
+            'BACKEND' : 'django.core.cache.backends.db.DatabaseCache',
+            'LOCATION' : 'aggregate_ranking_cache_table',
+    }
+}
 
 # Internationalization
 # https://docs.djangoproject.com/en/1.8/topics/i18n/
@@ -120,6 +126,7 @@ STATIC_URL = '/static/'
 #Year from whith start calculate aggregate ranking, and collected data rankings data
 START_AGGREGATE_YEAR = 2014
 #Last year in years for which calculate aggregate rank 
-FINISH_AGGREGATE_YEAR = 2016
+#FINISH_AGGREGATE_YEAR = 2016
+FINISH_AGGREGATE_YEAR = 2015
 
 
