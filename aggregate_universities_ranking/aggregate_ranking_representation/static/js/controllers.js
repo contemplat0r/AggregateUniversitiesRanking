@@ -343,6 +343,11 @@ rankingApp.controller('RankingTableController', function($scope, $http) {
     $scope.downloadCorrelationMatrixAsCSV = function() {
         $scope.downloadFile($scope, 'correlation', 'csv');
     };
+
+    $scope.downloadCorrelationMatrixAsXLS = function() {
+        $scope.downloadFile($scope, 'correlation', 'xls');
+    };
+
 });
 
 rankingApp.controller('StartController', function($scope) {

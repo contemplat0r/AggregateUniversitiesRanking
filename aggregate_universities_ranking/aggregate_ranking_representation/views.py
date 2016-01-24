@@ -90,6 +90,7 @@ def to_mem_excel(dataframe, sheet_name='WorkSheet'):
     iobuffer = BytesIO()
     writer = ExcelWriter(iobuffer, engine='xlwt')
     dataframe.to_excel(writer, sheet_name=sheet_name)
+    writer.save()
     iobuffer.flush()
     iobuffer.seek(0)
     return iobuffer.getvalue()
@@ -109,17 +110,6 @@ def to_gzip(data):
     gzip_mem_object.close()
     return iobuffer.getvalue()
 
-def save_to_storage(storage, key, value):
-    storage.set(key, value, None)
-    return
-
-
-def get_from_storage(storage, key):
-    return storage.get(key)
-
-
-def get_storage_example():
-    return caches['default']
 
 class Storage(object):
 
@@ -134,20 +124,9 @@ class Storage(object):
     def get(self, key):
         return self.cache.get(key)
 
-
-def get_file(file_dir, filename):
-    print 'Entry in get_file'
-     
-    file_path = os.path.join(file_dir, filename)
-    print 'get_file, file_path: ', file_path
-    if check_file_exist(file_path):
-        #file_stream = codecs.open(file_path, 'r', encoding='utf-8')
-        file_stream = open(file_path, 'r')
-        file_content = file_stream.read()
-        file_stream.close()
-        return file_content
-    else:
-        return None
+    def delete(self, key):
+        self.cache.delete(key)
+        return
 
 
 def check_file_exist(csv_file_path):
@@ -181,7 +160,6 @@ class RankingTableAPIView(APIView):
     
     def post(self, request, format=None):
         storage = Storage()
-        #cache = caches['default']
         request_data = request.data
         print 'recordsPerPage: ', request_data.get('recordsPerPage')
         print 'needsToBeUpdated: ', request_data.get('needsToBeUpdated')
@@ -222,47 +200,60 @@ class RankingTableAPIView(APIView):
 
         aggregate_ranking_dataframe = DataFrame()
         aggregate_ranking_dataframe_storage_key = assemble_filename(selected_rankings_names, selected_year, 'ranktable')
-        csv_filename = assemble_filename(selected_rankings_names, selected_year, 'ranktable', 'csv')
-        xls_filename = assemble_filename(selected_rankings_names, selected_year, 'ranktable', 'xls')
-        print 'csv_filename: ', csv_filename
-        print 'csv_files_dir', csv_files_dir
-        csv_file_path = os.path.join(csv_files_dir, csv_filename)
-        xls_file_path = os.path.join(csv_files_dir, xls_filename)
+        aggregate_ranking_storage_key_csv = aggregate_ranking_dataframe_storage_key + '.csv'
+        aggregate_ranking_storage_key_xls = aggregate_ranking_dataframe_storage_key + '.xls'
 
-        #if not check_file_exist(csv_file_path):
         if storage.get(aggregate_ranking_dataframe_storage_key) is None:
-            #print 'csv file, %s' % csv_file_path, ' not exists'
             print 'Storage value with key %s not exists' % aggregate_ranking_dataframe_storage_key 
             aggregate_ranking_dataframe = assemble_aggregate_ranking_dataframe(selected_rankings_names, int(selected_year))
-            #cache.set(aggregate_ranking_dataframe_cache_key, aggregate_ranking_dataframe, None)
             print 'aggregate_ranking_dataframe.count():\n', aggregate_ranking_dataframe.count()
             storage.save(aggregate_ranking_dataframe_storage_key, aggregate_ranking_dataframe)
             print 'After save aggregate_ranking_dataframe to storage'
             to_csv(csv_file_path, aggregate_ranking_dataframe)
             print 'After aggregate_ranking_to_csv'
         else:
-            #print 'csv file, %s' % csv_file_path, ' exists'
             print 'Storage value with key %s exists' % aggregate_ranking_dataframe_storage_key 
-            #aggregate_ranking_dataframe = DataFrame.from_csv(csv_file_path, sep=';', encoding='utf-8')
             aggregate_ranking_dataframe = storage.get(aggregate_ranking_dataframe_storage_key)
 
-        if not check_file_exist(xls_file_path):
-            to_xls(xls_file_path, aggregate_ranking_dataframe)
+        if storage.get(aggregate_ranking_storage_key_csv) is None:
+            print 'Call storage.save with key = ', aggregate_ranking_storage_key_csv
+            storage.save(aggregate_ranking_storage_key_csv, to_gzip(to_mem_csv(aggregate_ranking_dataframe)))
+        
+        if storage.get(aggregate_ranking_storage_key_xls) is None:
+            print 'Call storage.save with key = ', aggregate_ranking_storage_key_xls
+            storage.save(aggregate_ranking_storage_key_xls, to_gzip(to_mem_excel(aggregate_ranking_dataframe)))
+
 
         correlation_matrix = DataFrame()
         csv_filename = assemble_filename(selected_rankings_names, selected_year, 'correlation', 'csv')
+        correlation_matrix_storage_key = assemble_filename(selected_rankings_names, selected_year, 'correlation')
+        correlation_matrix_storage_key_csv = correlation_matrix_storage_key + '.csv'
+        correlation_matrix_storage_key_xls = correlation_matrix_storage_key + '.xls'
         print 'csv_filename: ', csv_filename
         print 'csv_files_dir', csv_files_dir
         csv_file_path = os.path.join(csv_files_dir, csv_filename)
 
-        if not check_file_exist(csv_file_path):
-            print 'csv file, %s' % csv_file_path, ' not exists'
+        if storage.get(correlation_matrix_storage_key) is None:
+        #if not check_file_exist(csv_file_path):
+            print 'Storage value with key %s not exists' % correlation_matrix_storage_key
+            #print 'csv file, %s' % csv_file_path, ' not exists'
             correlation_matrix = calculate_correlation_matrix(aggregate_ranking_dataframe)
-            to_csv(csv_file_path, correlation_matrix)
-            print 'After aggregate_ranking_to_csv'
+            #to_csv(csv_file_path, correlation_matrix)
+            #print 'After aggregate_ranking_to_csv'
+            storage.save(correlation_matrix_storage_key, correlation_matrix)
         else:
-            print 'csv file, %s' % csv_file_path, ' exists'
-            correlation_matrix = DataFrame.from_csv(csv_file_path, sep=';', encoding='utf-8')
+            print 'Storage value with key %s exists' % correlation_matrix_storage_key
+            #print 'csv file, %s' % csv_file_path, ' exists'
+            #correlation_matrix = DataFrame.from_csv(csv_file_path, sep=';', encoding='utf-8')
+            correlation_matrix = storage.get(correlation_matrix_storage_key)
+
+        if storage.get(correlation_matrix_storage_key_csv) is None:
+            print 'Call storage.save with key = ', correlation_matrix_storage_key_csv
+            storage.save(correlation_matrix_storage_key_csv, to_gzip(to_mem_csv(correlation_matrix)))
+        
+        if storage.get(correlation_matrix_storage_key_xls) == None:
+            print 'Call storage.save with key = ', correlation_matrix_storage_key_xls
+            storage.save(correlation_matrix_storage_key_xls, to_gzip(to_mem_excel(correlation_matrix)))
 
 
         #print 'Before correlation_matrix calculation'
@@ -274,6 +265,7 @@ class RankingTableAPIView(APIView):
             prepared_for_response_correlation_matrix = None
         response_data['correlationMatrix'] = prepared_for_response_correlation_matrix
         print 'response_data[\'correlationMatrix\']: ', response_data['correlationMatrix']
+
         aggregate_ranking_dataframe_len = aggregate_ranking_dataframe.count()[0]
         if records_per_page >= aggregate_ranking_dataframe_len:
             current_page_num = 1
@@ -303,6 +295,7 @@ class FileDownloadAPIView(APIView):
         return response
     
     def post(self, request, format=None):
+        storage = Storage()
         request_data = request.data
         
         selected_rankings_names = request_data.get('selectedRankingNames') 
@@ -330,17 +323,12 @@ class FileDownloadAPIView(APIView):
         else:
             file_type = 'csv'
 
-        filename = assemble_filename(selected_rankings_names, selected_year, data_type, file_type)
-        file_content = get_file(csv_files_dir , filename)
-        file_buffer = StringIO()
-        gzip_file = GzipFile(mode='wb', compresslevel=6, fileobj=file_buffer)
-        gzip_file.write(file_content)
-        gzip_file.flush()
-        gzip_file.close()
-        gzipped_content = file_buffer.getvalue()
-
-        response = HttpResponse(gzipped_content)
+        storage_key = assemble_filename(selected_rankings_names, selected_year, data_type, file_type)
+        print 'FileDownloadAPIView post, storage_key: ', storage_key
+        download_file_data = storage.get(storage_key)
+        #print 'FileDownloadAPIView post, download_file_data: ', download_file_data
+        response = HttpResponse(download_file_data)
         response['Content-Encoding'] = 'gzip'
-        response['Content-Length'] = str(len(gzipped_content))
+        response['Content-Length'] = str(len(download_file_data))
         return response
 
