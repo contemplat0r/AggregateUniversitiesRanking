@@ -358,7 +358,34 @@ rankingApp.controller('StartController', function($scope) {
 
 rankingApp.controller('NavigationController', function($scope) {
 
+    console.log('Entry in NavigationController');
+    $scope.homeTitle = 'Home';
+    $scope.hello = 'Hello World!';
+    
     var navClasses;
+
+    $scope.langSelect = {
+        availableLanguages : [{id : 0, value : 'En'}, {id : 1, value : 'Ру'}],
+        selectedLang : {id : 0, value : 'En'}
+    };
+    console.log(' NavigationController, $scope.langSelect.selectedLang.id: ' + $scope.langSelect.selectedLang.id);
+
+    var langEnValues = {selectLanguageTitle : 'Select Language', methodologyTitle : 'Methodology', goToTitle : 'Go to', homeNavigationTitle : 'Home', rankingTableNavigationTitle : 'Ranking Table', rankingTablePageTitle : 'Aggregated rankings table'};
+    var langRuValues = {selectLanguageTitle: 'Выбрать язык', methodologyTitle : 'Методология', goToTitle : 'Перейти', homeNavigationTitle : 'Главная', rankingTableNavigationTitle : 'Таблица рейтингов', rankingTablePageTitle : 'Таблица рейтингов'};
+    $scope.langValues = langEnValues;
+
+    $scope.changeLanguage = function() {
+        console.log('Entry in changeLanguage');
+        if ($scope.langSelect.selectedLang.id == 0) {
+            $scope.langValues = langEnValues;
+        }
+        else if ($scope.langSelect.selectedLang.id == 1) {
+            $scope.langValues = langRuValues;
+        }
+    };
+
+    $scope.changeLanguage();
+
 
     function initNavClasses() {
         navClasses = ['', ''];
@@ -375,4 +402,6 @@ rankingApp.controller('NavigationController', function($scope) {
 
     initNavClasses();
     $scope.setActiveNavItem(1);
+    
+
 });
