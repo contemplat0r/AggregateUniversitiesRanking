@@ -369,14 +369,20 @@ rankingApp.controller('NavigationController', function($scope) {
 
     var langRuValues = {selectLanguageTitle: 'Выбрать язык', methodologyTitle : 'Методология', goToTitle : 'Перейти', homeNavigationTitle : 'Главная', rankingTableNavigationTitle : 'Таблица рейтингов', rankingTablePageTitle : 'Таблица рейтингов', downloadAsCSVButtonTitle : 'Сохранить как csv файл', downloadAsXLSButtonTitle : 'Сохранить как excel файл', selectRankingsNamesTitle : 'Выбрать рейтинги', selectYearTitle : 'Выбрать год', selectPerPageTitle : 'Количество записей в таблице на страницу', applyButtonTitle : 'Применить', showCorrelationMatrixButtonTitle : 'Кроскорреляционная матрица', hideCorrelationMatrixButtonTitle : 'Скрыть кроскорреляционную матрицу', correlationMatrixTitle : 'Кроскорреляционная матрица'};
 
+    var methodologyEn = '$R_i$ и $R_j$, длинною соответственно $l_i$ и $l_j$';
+    var methodologyRu = '$R_i$ и $R_j$, длинною соответственно $l_i$ и $l_j$. Пусть дан $u, u \\in R_i$ $r_i(u)$ равен его номеру $n_i(u)$ в этом списке. Пусть $r_j(u)$ - ранг объекта $u$ в списке $R_j$. Тогда, если $u \\in R_j$, то $r_j(u) = n_j(u)$, где $n_j(u)$ - номер объекта $u$ в списке $R_j$, иначе $r_j(u) = l_j + 1$. То есть если $u$ принадлежит списку $R_j$, то ранг $u$ в $R_j$ равен номеру $u$ в этом списке, в противоположном случае ранг $u$ в $R_j$ равен $l_j + 1$ - на единицу больше длины списка $R_j$. Далее, совокупный ранг $r_k$ объекта $u_k$ вычисляется следующим образом: $r_k = \\sum\\limits_{j = 1}^{N}r_j(u_k)$,  где $r_j(u_k)$ - ранг $u_k$ в списке $R_j$, $N$ - число ранжированных списков ($j = 1,2,3\\ldots N$ - номера списков), то есть он просто равен сумме всех рангов для всех списков рангов. Другие, более изощрённые подходы (без приписывания весовых коэффициентов каждому из рангов) подобные использованным в работе [3] существенного результата бы не дали — конечная ранжировка в интегрированном рейтинге не изменилась бы.';
+
     $scope.changeLanguage = function() {
         if ($scope.langSelect.selectedLang.id == 0) {
             $scope.langValues = langEnValues;
+            $scope.methodology = methodologyEn;
         }
         else if ($scope.langSelect.selectedLang.id == 1) {
             $scope.langValues = langRuValues;
+            $scope.methodology = methodologyRu;
         }
     };
+    
 
     $scope.changeLanguage();
 
