@@ -65,3 +65,18 @@ class RankingValue(models.Model):
     def __str__(self):
         #return u'Rank: %s, Year: %s' % (str(self.number_in_ranking_table), str(self.year.year))
         return u'Rank: %s' % str(self.number_in_ranking_table)
+
+
+class Result(models.Model):
+    key = models.CharField(max_length=64, null=False, blank=False, primary_key=True, unique=True)
+    value = models.BinaryField()
+
+    def __str__(self):
+        return 'Result key: %s' % self.key
+
+
+#class LangTranslation(models.Model):
+#    lang_name = CharField(max_length=2, null=False, blank=False)
+#    key = CharField(max_length=32, null, False, blank=False)
+#    value = CharField(max_length=64)
+

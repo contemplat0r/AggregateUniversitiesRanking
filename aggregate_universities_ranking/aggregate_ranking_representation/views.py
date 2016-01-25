@@ -22,7 +22,7 @@ from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework import status
 from pandas import DataFrame, ExcelWriter
-from .models import RankingDescription, RankingValue, University 
+from .models import RankingDescription, RankingValue, University, Result
 from .name_matching import ranking_descriptions, build_aggregate_ranking_dataframe, assemble_aggregate_ranking_dataframe
 from forms import SelectRankingsNamesAndYear
 
@@ -48,9 +48,25 @@ def prepare_ranktable_to_response(selected_rankings_names, aggregate_ranking_dat
             ranktable.append(record)
     return ranktable
 
+def prepare_ranktable_for_table_file(aggregate_ranking_dataframe):
+    aggregate_ranking_dataframe_for_table_file = aggregate_ranking_dataframe.rename(columns={'aggregate_rank' : 'Aggregate Rank', 'rank' : 'Rank', 'university_name' : 'University'})
+    columns_names = aggregate_ranking_dataframe_for_table_file.columns.tolist()
+    right_ordered_columns = ['University', 'Rank', 'Aggregate Rank']
+    tail = [column_name for column_name in columns_names if column_name not in right_ordered_columns]
+    right_ordered_columns.extend(tail)
+    aggregate_ranking_dataframe_for_table_file = aggregate_ranking_dataframe_for_table_file[right_ordered_columns]
+    
+    return aggregate_ranking_dataframe_for_table_file
+
 def calculate_correlation_matrix(aggregate_ranking_dataframe):
     dataframe_prepared_for_calculate_correlation = aggregate_ranking_dataframe.drop('university_name', axis=1)
     dataframe_prepared_for_calculate_correlation.rename(columns={'aggregate_rank' : 'Aggregate Rank', 'rank' : 'Rank'}, inplace=True)
+    columns_names = dataframe_prepared_for_calculate_correlation.columns.tolist()
+    right_ordered_columns = ['Rank', 'Aggregate Rank']
+    tail = [column_name for column_name in columns_names if column_name not in right_ordered_columns]
+    right_ordered_columns.extend(tail)
+    dataframe_prepared_for_calculate_correlation = dataframe_prepared_for_calculate_correlation[right_ordered_columns]
+
     return dataframe_prepared_for_calculate_correlation.corr(method='spearman')
 
 def prepare_correlation_matrix_to_response(correlation_matrix):
@@ -117,7 +133,6 @@ class Storage(object):
         self.cache = caches['default']
 
     def save(self, key, value):
-        print 'Entry in Storage.save method'
         self.cache.set(key, value, None)
         return
 
@@ -127,6 +142,9 @@ class Storage(object):
     def delete(self, key):
         self.cache.delete(key)
         return
+
+    def clear(self):
+        self.cache.clear()
 
 
 def check_file_exist(csv_file_path):
@@ -197,16 +215,21 @@ class RankingTableAPIView(APIView):
         aggregate_ranking_storage_key_xls = aggregate_ranking_dataframe_storage_key + '.xls'
 
         if storage.get(aggregate_ranking_dataframe_storage_key) is None:
+        #if storage.get(aggregate_ranking_dataframe_storage_key) == None:
+            print 'storage.get(aggregate_ranking_dataframe_storage_key) is None'
             aggregate_ranking_dataframe = assemble_aggregate_ranking_dataframe(selected_rankings_names, int(selected_year))
             storage.save(aggregate_ranking_dataframe_storage_key, aggregate_ranking_dataframe)
         else:
             aggregate_ranking_dataframe = storage.get(aggregate_ranking_dataframe_storage_key)
 
+        aggregate_ranking_dataframe_for_table_file = prepare_ranktable_for_table_file(aggregate_ranking_dataframe)
         if storage.get(aggregate_ranking_storage_key_csv) is None:
-            storage.save(aggregate_ranking_storage_key_csv, to_gzip(to_mem_csv(aggregate_ranking_dataframe)))
+        #if storage.get(aggregate_ranking_storage_key_csv) == None:
+            storage.save(aggregate_ranking_storage_key_csv, to_gzip(to_mem_csv(aggregate_ranking_dataframe_for_table_file)))
         
         if storage.get(aggregate_ranking_storage_key_xls) is None:
-            storage.save(aggregate_ranking_storage_key_xls, to_gzip(to_mem_excel(aggregate_ranking_dataframe)))
+        #if storage.get(aggregate_ranking_storage_key_xls) == None:
+            storage.save(aggregate_ranking_storage_key_xls, to_gzip(to_mem_excel(aggregate_ranking_dataframe_for_table_file)))
 
 
         correlation_matrix = DataFrame()
@@ -215,15 +238,18 @@ class RankingTableAPIView(APIView):
         correlation_matrix_storage_key_xls = correlation_matrix_storage_key + '.xls'
 
         if storage.get(correlation_matrix_storage_key) is None:
+        #if storage.get(correlation_matrix_storage_key) == None:
             correlation_matrix = calculate_correlation_matrix(aggregate_ranking_dataframe)
             storage.save(correlation_matrix_storage_key, correlation_matrix)
         else:
             correlation_matrix = storage.get(correlation_matrix_storage_key)
 
         if storage.get(correlation_matrix_storage_key_csv) is None:
+        #if storage.get(correlation_matrix_storage_key_csv) == None:
             storage.save(correlation_matrix_storage_key_csv, to_gzip(to_mem_csv(correlation_matrix)))
         
-        if storage.get(correlation_matrix_storage_key_xls) == None:
+        if storage.get(correlation_matrix_storage_key_xls) is None:
+        #if storage.get(correlation_matrix_storage_key_xls) == None:
             storage.save(correlation_matrix_storage_key_xls, to_gzip(to_mem_excel(correlation_matrix)))
 
         prepared_for_response_correlation_matrix = None
