@@ -365,9 +365,9 @@ rankingApp.controller('NavigationController', function($scope) {
         selectedLang : {id : 0, value : 'En'}
     };
 
-    var langEnValues = {selectLanguageTitle : 'Select Language', methodologyTitle : 'Methodology', goToTitle : 'Go to', homeNavigationTitle : 'Home', rankingTableNavigationTitle : 'Ranking Table', rankingTablePageTitle : 'Aggregated rankings table'};
+    var langEnValues = {selectLanguageTitle : 'Select Language', methodologyTitle : 'Methodology', goToTitle : 'Go to', homeNavigationTitle : 'Home', rankingTableNavigationTitle : 'Ranking Table', rankingTablePageTitle : 'Aggregated rankings table', downloadAsCSVButtonTitle : 'Download as csv', downloadAsXLSButtonTitle : 'Download as excel', selectRankingsNamesTitle : 'Select rankings', selectYearTitle : 'Select year', selectPerPageTitle : 'Table records per page', applyButtonTitle : 'Apply'};
 
-    var langRuValues = {selectLanguageTitle: 'Выбрать язык', methodologyTitle : 'Методология', goToTitle : 'Перейти', homeNavigationTitle : 'Главная', rankingTableNavigationTitle : 'Таблица рейтингов', rankingTablePageTitle : 'Таблица рейтингов'};
+    var langRuValues = {selectLanguageTitle: 'Выбрать язык', methodologyTitle : 'Методология', goToTitle : 'Перейти', homeNavigationTitle : 'Главная', rankingTableNavigationTitle : 'Таблица рейтингов', rankingTablePageTitle : 'Таблица рейтингов', downloadAsCSVButtonTitle : 'Сохранить csv файл', downloadAsXLSButtonTitle : 'Сохранить как excel файл', selectRankingsNamesTitle : 'Выбрать рейтинги', selectYearTitle : 'Выбрать год', selectPerPageTitle : 'Количество записей в таблице на страницу', applyButtonTitle : 'Применить'};
 
     $scope.changeLanguage = function() {
         if ($scope.langSelect.selectedLang.id == 0) {

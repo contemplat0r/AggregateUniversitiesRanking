@@ -18,20 +18,20 @@
                 <input type="checkbox" ng-model="checkRecord.value">{{checkRecord.name}}</input>
             </li>
         </ul>
-        <label for="yearSelect" id="yearSelect">Select year: </label>
+        <label for="yearSelect" id="yearSelect">{{langValues.selectYearTitle}}: </label>
         <select name="yearSelect" id="yearSelect" ng-options="year.value for year in yearSelect.availableYears track by year.id" ng-model="yearSelect.selectedYear"></select>
 
         <label for="recordsPerPageSelect" id="recordsPerPageSelect">Table records per page : </label>
         <select name="recordsPerPageSelect" id="recordsPerPageSelect" ng-options="pageSize.value for pageSize in paginationParameters.recordsPerPageSelection.availableSizes track by pageSize.id" ng-model="paginationParameters.recordsPerPageSelection.selectedSize"></select>
 
-        <button type="submit" ng-click="sendSelected()" class="btn btn-primary">Apply</button>
+        <button type="submit" ng-click="sendSelected()" class="btn btn-primary">{{langValues.applyButtonTitle}}</button>
     </form>
     <div name="correlationMatrixContainer" id="correlationMatrixContainer" ng-show="showCorrelationMatrix">
         <strong>
             Correlation matrix
         </strong>
-        <button type="submit" ng-click="downloadCorrelationMatrixAsCSV()" class="btn btn-primary"> Download as csv file </button>
-        <button type="submit" ng-click="downloadCorrelationMatrixAsXLS()" class="btn btn-primary"> Download as excel file </button>
+        <button type="submit" ng-click="downloadCorrelationMatrixAsCSV()" class="btn btn-primary"> {{langValues.downloadAsCSVButtonTitle}} </button>
+        <button type="submit" ng-click="downloadCorrelationMatrixAsXLS()" class="btn btn-primary"> {{langValues.downloadAsXLSButtonTitle}} </button>
         <span ng-if="correlationMatrix">
             <table class="table-bordered table-condensed">
                 <tbody>
