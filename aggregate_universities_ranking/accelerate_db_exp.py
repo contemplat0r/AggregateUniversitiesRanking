@@ -16,6 +16,7 @@ import numpy as np
 import django
 from timeit import default_timer as timer
 from django.db import connection
+from django.db.models import Sum, Count
 
 DJANGO_PROJECT_DIR = join(abspath(join(dirname(__file__), '..')), 'aggregate_universities_ranking')
 sys.path.append(DJANGO_PROJECT_DIR)
@@ -170,9 +171,25 @@ def from_database_exp(rankings_names_list, year):
 
     return rank_tables
 
+def from_database_accelerate(rankings_names_list, year):
+    # {'ranks': {u'QS': 156, u'NTU': 530, u'THE': 1603, u'URAP': 2001, u'ARWU': 501}, 'canonical_name': u'Ecole Centrale de Paris'}
+    this_function_start_time = timer()
+
+    rank_tables = list()
+
+    year = prepare_year_to_compare(year)
+
+    universities = University.objects.all()
+    rankings_values_related = RankingValue.objects.filter(ranking_description__short_name__in=rankings_names_list).filter(ranking_description__year=year).select_related()
+
+    temp = rankings_values_related.values('university__university_name').annotate(aggregate_ranking_value=Sum('number_in_ranking_table'))
+    for row in temp[:10]:
+        print row
+
 if __name__ == '__main__':
     
 
     #ranking_table = from_database(ranking_descriptions.keys(), 2015)
     #print ranking_table[0]
-    from_database_exp(ranking_descriptions.keys(), 2015)
+    #from_database_exp(ranking_descriptions.keys(), 2015)
+    from_database_accelerate(ranking_descriptions.keys(), 2015)
