@@ -978,20 +978,6 @@ def from_database(rankings_names_list, year):
     return rank_tables
 
 
-def from_database_accelerated():
-    cursor = connection.cursor()
-    #cursor.execute('SELECT * FROM aggregate_ranking_representation_rankingdescription')
-    year = 2015
-    #cursor.execute('SELECT aggregate_ranking_representation_rankingdescription.short_name AS ranking_name, aggregate_ranking_representation_rankingvalue.number_in_ranking_table AS ranking_value, aggregate_ranking_representation_university.university_name AS university_name, COUNT(aggregate_ranking_representation_rankingdescription.short_name) AS rankings_num, SUM(aggregate_ranking_representation_rankingvalue.number_in_ranking_table) AS aggregate_ranking FROM aggregate_ranking_representation_rankingdescription, aggregate_ranking_representation_rankingvalue, aggregate_ranking_representation_university WHERE aggregate_ranking_representation_rankingvalue.ranking_description_id = aggregate_ranking_representation_rankingdescription.id AND aggregate_ranking_representation_rankingvalue.university_id = aggregate_ranking_representation_university.id AND aggregate_ranking_representation_rankingdescription.year = %s GROUP BY university_name' % year)
-    #cursor.execute('SELECT aggregate_ranking_representation_rankingdescription.short_name, aggregate_ranking_representation_rankingvalue.number_in_ranking_table, aggregate_ranking_representation_university.university_name AS university_name, COUNT(aggregate_ranking_representation_rankingdescription.short_name) AS rankings_num, SUM(aggregate_ranking_representation_rankingvalue.number_in_ranking_table) AS aggregate_ranking FROM aggregate_ranking_representation_rankingdescription, aggregate_ranking_representation_rankingvalue, aggregate_ranking_representation_university WHERE aggregate_ranking_representation_rankingvalue.ranking_description_id = aggregate_ranking_representation_rankingdescription.id AND aggregate_ranking_representation_rankingvalue.university_id = aggregate_ranking_representation_university.id AND aggregate_ranking_representation_rankingdescription.year = %s GROUP BY university_name' % year)
-    cursor.execute('SELECT aggregate_ranking_representation_university.university_name AS university_name, COUNT(aggregate_ranking_representation_rankingdescription.short_name) AS rankings_num, SUM(aggregate_ranking_representation_rankingvalue.number_in_ranking_table) AS aggregate_ranking FROM aggregate_ranking_representation_rankingdescription, aggregate_ranking_representation_rankingvalue, aggregate_ranking_representation_university WHERE aggregate_ranking_representation_rankingvalue.ranking_description_id = aggregate_ranking_representation_rankingdescription.id AND aggregate_ranking_representation_rankingvalue.university_id = aggregate_ranking_representation_university.id AND aggregate_ranking_representation_rankingdescription.year = %s GROUP BY university_name' % year)
-
-    rows = cursor.fetchall()
-
-    for row in rows:
-        print row
-
-
 
 def convert_aggregate_ranking_dict_to_dataframe(grouped_aggregate_ranking_dict):
     sorted_aggregate_ranks = sorted(grouped_aggregate_ranking_dict.keys())
@@ -1150,7 +1136,7 @@ if __name__ == '__main__':
 
 
     ##
-    ## rawranking_records_to_structured_tables()
+    rawranking_records_to_structured_tables()
     ##
 
     #rankings_names = {'QS', 'THE', 'ARWU', 'NTU', 'URAP'}
@@ -1168,4 +1154,3 @@ if __name__ == '__main__':
     #print lists_match(l_1, l_2)
     #print lists_match(l_2, l_2)
     #print lists_match(l_1, l_1)
-    from_database_accelerated()

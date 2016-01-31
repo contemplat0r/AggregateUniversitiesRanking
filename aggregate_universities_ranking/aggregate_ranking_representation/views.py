@@ -178,6 +178,7 @@ class RankingTableAPIView(APIView):
     
     def post(self, request, format=None):
         storage = Storage()
+        storage.clear()
         request_data = request.data
         response_data = {'rankTable' : None, 'rankingsNamesList' : None, 'yearsList' : None, 'selectedYear' : None, 'paginationParameters' : {'recordsPerPageSelectionList' : [100, 200], 'currentPageNum' : 1, 'totalTableRecords' : 1000, 'totalPages' : 0, 'correlationMatrix' : None}}
         current_page_num = request_data.get('currentPageNum')
