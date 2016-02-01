@@ -876,7 +876,9 @@ def prepare_year_to_compare(year):
     #return datetime.date(year, 1, 1)
     return year
 
-@profile
+#@profile
+
+'''
 def from_database(rankings_names_list, year):
 
     year = prepare_year_to_compare(year)
@@ -895,6 +897,7 @@ def from_database(rankings_names_list, year):
             rank_tables.append(record)
             #print 'from_database, before return:\n', '=' * 10, '\n', rank_tables
     return rank_tables
+'''
 
 
 def convert_aggregate_ranking_dict_to_dataframe(grouped_aggregate_ranking_dict):
@@ -922,6 +925,43 @@ def convert_aggregate_ranking_dict_to_dataframe(grouped_aggregate_ranking_dict):
         rank_in_aggregate_rank_table = rank_in_aggregate_rank_table + 1
     return DataFrame(dataframe_data_dict)
 
+
+
+def get_rankings_values(grouped_df_part, rankings_num):
+    grouped_data_list = grouped_df_part[['ranking_name', 'number_in_ranking_table']].to_dict('index').values()
+    university_name = grouped_df_part['university_name'].tolist()[0]
+    ranks_values_num = len(grouped_data_list)
+
+    ranks_values = None
+
+    if ranks_values_num == rankings_num:
+        ranks_values = {record['ranking_name'] : record['number_in_ranking_table'] for record in grouped_data_list}
+    #print ranks_values
+    return {'canonical_name' : university_name, 'ranks' : ranks_values}
+
+
+def from_database(rankings_names_list, year):
+    rankings_num = len(rankings_names_list)
+
+    this_function_start_time = timer()
+
+    rank_tables = list()
+
+    year = prepare_year_to_compare(year)
+
+    universities = University.objects.all()
+    rankings_values_related = RankingValue.objects.filter(ranking_description__short_name__in=rankings_names_list).filter(ranking_description__year=year).select_related()
+
+
+    df = DataFrame(list(rankings_values_related.values('ranking_description__short_name', 'number_in_ranking_table', 'university__university_name')))
+
+    df.rename(columns={'ranking_description__short_name' : 'ranking_name', 'university__university_name' : 'university_name'}, inplace=True)
+
+
+    ranks_by_university_names = df.groupby(df.university_name).apply(get_rankings_values, rankings_num = rankings_num)
+
+    return [record for record in ranks_by_university_names if record['ranks'] != None]
+    
 
 def build_aggregate_ranking_dataframe(ranking_descriptions):
     dataframes_dict = rawranking_records_to_dataframes(ranking_descriptions)
