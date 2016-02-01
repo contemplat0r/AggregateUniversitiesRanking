@@ -186,7 +186,28 @@ def from_database_accelerated():
 
 
 def from_database_accelerate(rankings_names_list, year):
-    # {'ranks': {u'QS': 156, u'NTU': 530, u'THE': 1603, u'URAP': 2001, u'ARWU': 501}, 'canonical_name': u'Ecole Centrale de Paris'}
+    #print rankings_names_list
+
+
+    def get_key_and_group(grouped_df_part):
+        #print dir(grouped_df_part)
+        print grouped_df_part
+        #print type(grouped_df_part)
+        print grouped_df_part.count()
+        #print grouped_df_part.to_records()
+        #print grouped_df_part['number_in_ranking_table'].tolist()
+        #print grouped_df_part[['ranking_name', 'number_in_ranking_table']].to_dict('list')
+        #print grouped_df_part[['ranking_name', 'number_in_ranking_table']].to_dict('index')
+        grouped_data_list = grouped_df_part[['ranking_name', 'number_in_ranking_table']].to_dict('index').values()
+        #print grouped_data_list
+
+        ranks_values = {record['ranking_name'] : record['number_in_ranking_table'] for record in grouped_data_list}
+        print ranks_values
+
+
+        #print grouped_df_part[['ranking_name', 'number_in_ranking_table']].to_dict('split')
+        #print grouped_df_part.to_dict()
+
     this_function_start_time = timer()
 
     rank_tables = list()
@@ -201,13 +222,67 @@ def from_database_accelerate(rankings_names_list, year):
     #    print row
 
     df = DataFrame(list(rankings_values_related.values('ranking_description__short_name', 'number_in_ranking_table', 'university__university_name')))
+
+    df.rename(columns={'ranking_description__short_name' : 'ranking_name', 'university__university_name' : 'university_name'}, inplace=True)
+
     print df.head()
 
-    grouped_df = df.groupby(df.university__university_name)
+    #grouped_df = df.groupby(df.university__university_name)
+    grouped_df = df.groupby(df.university_name)
 
-    for name, group in grouped_df:
+    #for name, group in grouped_df:
+    #    print name
+    #    print group
+    #    print [item for item in group.number_in_ranking_table]
+
+    df.groupby(df.university_name).apply(get_key_and_group)
+
+
+    '''
+    grouped_df_with_values_list = grouped_df.apply(get_values_list)
+
+    for name, group in grouped_df_with_values_list:
         print name
         print group
+    '''
+
+
+def from_database_accelerate_1(rankings_names_list, year):
+    rankings_num = len(rankings_names_list)
+
+    def get_rankings_values(grouped_df_part, rankings_num):
+        grouped_data_list = grouped_df_part[['ranking_name', 'number_in_ranking_table']].to_dict('index').values()
+        university_name = grouped_df_part['university_name'].tolist()[0]
+        ranks_values_num = len(grouped_data_list)
+
+        ranks_values = None
+
+        if ranks_values_num == rankings_num:
+            ranks_values = {record['ranking_name'] : record['number_in_ranking_table'] for record in grouped_data_list}
+        print ranks_values
+        return {'canonical_name' : university_name, 'ranks' : ranks_values}
+
+
+    this_function_start_time = timer()
+
+    rank_tables = list()
+
+    year = prepare_year_to_compare(year)
+
+    universities = University.objects.all()
+    rankings_values_related = RankingValue.objects.filter(ranking_description__short_name__in=rankings_names_list).filter(ranking_description__year=year).select_related()
+
+
+    df = DataFrame(list(rankings_values_related.values('ranking_description__short_name', 'number_in_ranking_table', 'university__university_name')))
+
+    df.rename(columns={'ranking_description__short_name' : 'ranking_name', 'university__university_name' : 'university_name'}, inplace=True)
+
+
+    ranks_by_university_names = df.groupby(df.university_name).apply(get_rankings_values, rankings_num = rankings_num)
+
+    #rank_tables = [{'canonical_name' : name, 'ranks' : ranks_values} for name, ranks_values in ranks_by_university_names]
+    #return rank_tables
+    return [record for record in ranks_by_university_names if record['ranks'] != None]
 
 
 
@@ -217,5 +292,7 @@ if __name__ == '__main__':
     #ranking_table = from_database(ranking_descriptions.keys(), 2015)
     #print ranking_table[0]
     #from_database_exp(ranking_descriptions.keys(), 2015)
-    from_database_accelerate(ranking_descriptions.keys(), 2015)
+    ranking_table = from_database_accelerate_1(ranking_descriptions.keys(), 2015)
+    print '\n' * 3, ranking_table[0]
+
     #from_database_accelerated()
