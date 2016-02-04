@@ -356,7 +356,7 @@ rankingApp.controller('StartController', function($scope) {
     $scope.methodologyText = 'Many, many sentences about methodology with terrible formulas...' //Must get methodology text from database. User must can possibility login and edit methodology text.
 });
 
-rankingApp.controller('NavigationController', function($scope) {
+rankingApp.controller('NavigationController', function($scope, $timeout) {
 
     var navClasses;
 
@@ -369,80 +369,42 @@ rankingApp.controller('NavigationController', function($scope) {
 
     var langRuValues = {selectLanguageTitle: 'Выбрать язык', methodologyTitle : 'Методология', goToTitle : 'Перейти', homeNavigationTitle : 'Главная', rankingTableNavigationTitle : 'Таблица рейтингов', rankingTablePageTitle : 'Таблица рейтингов', downloadAsCSVButtonTitle : 'Сохранить как csv файл', downloadAsXLSButtonTitle : 'Сохранить как excel файл', selectRankingsNamesTitle : 'Выбрать рейтинги', selectYearTitle : 'Выбрать год', selectPerPageTitle : 'Количество записей в таблице на страницу', applyButtonTitle : 'Применить', showCorrelationMatrixButtonTitle : 'Кроскорреляционная матрица', hideCorrelationMatrixButtonTitle : 'Скрыть кроскорреляционную матрицу', correlationMatrixTitle : 'Кроскорреляционная матрица'};
 
-    //var methodologyEn = '$R_i$ и $R_j$, длинною соответственно $l_i$ и $l_j$';
-    //var methodologyEn = '$R_i$ и $R_j$, длинною соответственно $l_i$ и $l_j$';
-    //
 
-    var ents_ = { nwarr: '\u2196', swarr: '\u2199' };
-    console.log('before jqMath call');
-    var translateToMath = M.sToMathE('$$∑↙{i=0}↖n i={n(n+1)}/2$$', true);
-    console.log(translateToMath);
-    console.log(typeof(translateToMath));
-    console.log(typeof('abc'));
-    //var methodologyEn = translateToMath;
     var methodologyEn = '$R_i$ и $R_j$, длинною соответственно $l_i$ и $l_j$';
-    var methodologyEnMath = 'R_i\\:и\\:R_j,\\text\" длинною соответственно \" l_i и l_j';
 
-    methodologyEnMath = methodologyEnMath.replace(/&([-#.\w]+);|\\([a-z]+)(?: |(?=[^a-z]))/ig,
-            function(s, e, m) {
-                if (m && (M.macros_[m] || M.macro1s_[m]))
-                    return s; // e.g. \it or \sc
-                var t = '&'+(e || m)+';', res = $('<span>'+t+'</span>').text();
-                return res != t ? res : ents_[e || m] || s;
-            });
-
-
-
-    //var methodologyRuMath = 'R_i и R_j, длинною соответственно $l_i$ и $l_j$. Пусть дан $u, u \\in R_i$ $r_i(u)$ равен его номеру $n_i(u)$ в этом списке. Пусть $r_j(u)$ - ранг объекта $u$ в списке $R_j$. Тогда, если $u \\in R_j$, то $r_j(u) = n_j(u)$, где $n_j(u)$ - номер объекта $u$ в списке $R_j$, иначе $r_j(u) = l_j + 1$. То есть если $u$ принадлежит списку $R_j$, то ранг $u$ в $R_j$ равен номеру $u$ в этом списке, в противоположном случае ранг $u$ в $R_j$ равен $l_j + 1$ - на единицу больше длины списка $R_j$. Далее, совокупный ранг $r_k$ объекта $u_k$ вычисляется следующим образом: $r_k = \\sum\\limits_{j = 1}^{N}r_j(u_k)$,  где $r_j(u_k)$ - ранг $u_k$ в списке $R_j$, $N$ - число ранжированных списков ($j = 1,2,3\\ldots N$ - номера списков), то есть он просто равен сумме всех рангов для всех списков рангов. Другие, более изощрённые подходы (без приписывания весовых коэффициентов каждому из рангов) подобные использованным в работе [3] существенного результата бы не дали — конечная ранжировка в интегрированном рейтинге не изменилась бы.';
-
-    var methodologyRuMath = 'R_i и R_j, длинною соответственно l_i и l_j. Пусть дан u, u \\in R_i r_i(u) равен его номеру n_i(u) в этом списке. Пусть r_j(u) - ранг объекта u в списке R_j. Тогда, если $u \\in R_j$, то $r_j(u) = n_j(u)$, где $n_j(u)$ - номер объекта $u$ в списке $R_j$, иначе $r_j(u) = l_j + 1$. То есть если $u$ принадлежит списку $R_j$, то ранг $u$ в $R_j$ равен номеру $u$ в этом списке, в противоположном случае ранг $u$ в $R_j$ равен $l_j + 1$ - на единицу больше длины списка $R_j$. Далее, совокупный ранг $r_k$ объекта $u_k$ вычисляется следующим образом: $r_k = \\sum\\limits_{j = 1}^{N}r_j(u_k)$,  где $r_j(u_k)$ - ранг $u_k$ в списке $R_j$, $N$ - число ранжированных списков ($j = 1,2,3\\ldots N$ - номера списков), то есть он просто равен сумме всех рангов для всех списков рангов. Другие, более изощрённые подходы (без приписывания весовых коэффициентов каждому из рангов) подобные использованным в работе [3] существенного результата бы не дали — конечная ранжировка в интегрированном рейтинге не изменилась бы.';
 
     var methodologyRu = '$R_i$ и $R_j$, длинною соответственно $l_i$ и $l_j$. Пусть дан $u, u \\in R_i$ $r_i(u)$ равен его номеру $n_i(u)$ в этом списке. Пусть $r_j(u)$ - ранг объекта $u$ в списке $R_j$. Тогда, если $u \\in R_j$, то $r_j(u) = n_j(u)$, где $n_j(u)$ - номер объекта $u$ в списке $R_j$, иначе $r_j(u) = l_j + 1$. То есть если $u$ принадлежит списку $R_j$, то ранг $u$ в $R_j$ равен номеру $u$ в этом списке, в противоположном случае ранг $u$ в $R_j$ равен $l_j + 1$ - на единицу больше длины списка $R_j$. Далее, совокупный ранг $r_k$ объекта $u_k$ вычисляется следующим образом: $$r_k = ∑↙{i=1}↖N r_j(u_k)$$,  где $r_j(u_k)$ - ранг $u_k$ в списке $R_j$, $N$ - число ранжированных списков $($$j = 1,2,3…N$ - номера списков$)$, то есть он просто равен сумме всех рангов для всех списков рангов. Другие, более изощрённые подходы (без приписывания весовых коэффициентов каждому из рангов) подобные использованным в работе [3] существенного результата бы не дали — конечная ранжировка в интегрированном рейтинге не изменилась бы.';
-    methodologyRuMath = methodologyRuMath.replace(/&([-#.\w]+);|\\([a-z]+)(?: |(?=[^a-z]))/ig,
-            function(s, e, m) {
-                if (m && (M.macros_[m] || M.macro1s_[m]))
-                    return s; // e.g. \it or \sc
-                var t = '&'+(e || m)+';', res = $('<span>'+t+'</span>').text();
-                return res != t ? res : ents_[e || m] || s;
-            });
-
 
     $scope.changeLanguage = function() {
+        console.log('Entry in changeLanguage');
         var mathDiv = angular.element(document.getElementById('methodolgyMath'));
         mathDiv.html('');
         if ($scope.langSelect.selectedLang.id == 0) {
             $scope.langValues = langEnValues;
-            $scope.methodology = methodologyEn;
-            //M.parseMath(document.body);
-            //mathDiv.append(translateToMath);
-            //mathDiv.append(M.sToMathE(methodologyEnMath));
             mathDiv.html(methodologyEn);
-            //var mathDiv = angular.element(document.getElementById('methodolgyMath'));
-            //M.parseMath(mathDiv);
+            console.log('changeLanguage: $scope.langSelect.selectedLang.id == 0');
+            console.log('changeLanguage: mathDiv.val(): ' + mathDiv.val());
+            console.log('changeLanguage: mathDiv.text(): ' + mathDiv.text());
+            console.log('changeLanguage: mathDiv.html(): ' + mathDiv.html());
         }
         else if ($scope.langSelect.selectedLang.id == 1) {
             $scope.langValues = langRuValues;
-            $scope.methodology = methodologyRu;
-            //M.parseMath(document.body);
-            //mathDiv.append(M.sToMathE(methodologyRuMath));
             mathDiv.html(methodologyRu);
-            //var mathDiv = angular.element(document.getElementById('methodolgyMath'));
-            //M.parseMath(mathDiv);
+            console.log('changeLanguage: $scope.langSelect.selectedLang.id == 1');
+            console.log('changeLanguage: mathDiv.val(): ' + mathDiv.val());
+            console.log('changeLanguage: mathDiv.text(): ' + mathDiv.text());
+            console.log('changeLanguage: mathDiv.html(): ' + mathDiv.html());
 
         }
-        //MathJax.Hub.Queue(['Typeset', MathJax.Hub, 'methodolgyMath']);
-        //M.parseMath('methodolgyMath');
-        //var mathDiv = angular.element(document.getElementById('methodolgyMath'));
+
         //M.parseMath(mathDiv);
 
-        //mathDiv.html("ABC");
-        //mathDiv.append('<strong> ABC </strong>');
-        //mathDiv.append(translateToMath);
+        console.log('changeLanguage, before parseMath');
         M.parseMath(document.body);
     };
     
 
-    $scope.changeLanguage();
+    //$scope.changeLanguage();
 
     function initNavClasses() {
         navClasses = ['', ''];
@@ -459,6 +421,7 @@ rankingApp.controller('NavigationController', function($scope) {
 
     initNavClasses();
     $scope.setActiveNavItem(1);
-    
+
+    $timeout(function(){ $scope.changeLanguage(); }, 500);
 
 });
