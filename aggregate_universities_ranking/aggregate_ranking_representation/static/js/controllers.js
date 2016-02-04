@@ -370,7 +370,7 @@ rankingApp.controller('NavigationController', function($scope, $timeout) {
     var langRuValues = {selectLanguageTitle: 'Выбрать язык', methodologyTitle : 'Методология', goToTitle : 'Перейти', homeNavigationTitle : 'Главная', rankingTableNavigationTitle : 'Таблица рейтингов', rankingTablePageTitle : 'Таблица рейтингов', downloadAsCSVButtonTitle : 'Сохранить как csv файл', downloadAsXLSButtonTitle : 'Сохранить как excel файл', selectRankingsNamesTitle : 'Выбрать рейтинги', selectYearTitle : 'Выбрать год', selectPerPageTitle : 'Количество записей в таблице на страницу', applyButtonTitle : 'Применить', showCorrelationMatrixButtonTitle : 'Кроскорреляционная матрица', hideCorrelationMatrixButtonTitle : 'Скрыть кроскорреляционную матрицу', correlationMatrixTitle : 'Кроскорреляционная матрица'};
 
 
-    var methodologyEn = '$R_i$ и $R_j$, длинною соответственно $l_i$ и $l_j$';
+    var methodologyEn = 'Suppose we have a ranked list of items $R_i$ and $R_j$ being $l_i$ and $l_j$ long respectively. Let there be given an item $u, u \\in R_i$ then its rank $r_i(u)$ on this list equals its number $n_i(u)$ on this list. Let $u \\in R_j$ be a rank of item $u$ on list $R_j$, in this case if $u \\in R_j$ then $r_j(u) = n_j(u)$ where $n_j(u)$ is the number of item $u$ ';
 
 
     var methodologyRu = '$R_i$ и $R_j$, длинною соответственно $l_i$ и $l_j$. Пусть дан $u, u \\in R_i$ $r_i(u)$ равен его номеру $n_i(u)$ в этом списке. Пусть $r_j(u)$ - ранг объекта $u$ в списке $R_j$. Тогда, если $u \\in R_j$, то $r_j(u) = n_j(u)$, где $n_j(u)$ - номер объекта $u$ в списке $R_j$, иначе $r_j(u) = l_j + 1$. То есть если $u$ принадлежит списку $R_j$, то ранг $u$ в $R_j$ равен номеру $u$ в этом списке, в противоположном случае ранг $u$ в $R_j$ равен $l_j + 1$ - на единицу больше длины списка $R_j$. Далее, совокупный ранг $r_k$ объекта $u_k$ вычисляется следующим образом: $$r_k = ∑↙{i=1}↖N r_j(u_k)$$,  где $r_j(u_k)$ - ранг $u_k$ в списке $R_j$, $N$ - число ранжированных списков $($$j = 1,2,3…N$ - номера списков$)$, то есть он просто равен сумме всех рангов для всех списков рангов. Другие, более изощрённые подходы (без приписывания весовых коэффициентов каждому из рангов) подобные использованным в работе [3] существенного результата бы не дали — конечная ранжировка в интегрированном рейтинге не изменилась бы.';
@@ -382,29 +382,15 @@ rankingApp.controller('NavigationController', function($scope, $timeout) {
         if ($scope.langSelect.selectedLang.id == 0) {
             $scope.langValues = langEnValues;
             mathDiv.html(methodologyEn);
-            console.log('changeLanguage: $scope.langSelect.selectedLang.id == 0');
-            console.log('changeLanguage: mathDiv.val(): ' + mathDiv.val());
-            console.log('changeLanguage: mathDiv.text(): ' + mathDiv.text());
-            console.log('changeLanguage: mathDiv.html(): ' + mathDiv.html());
         }
         else if ($scope.langSelect.selectedLang.id == 1) {
             $scope.langValues = langRuValues;
             mathDiv.html(methodologyRu);
-            console.log('changeLanguage: $scope.langSelect.selectedLang.id == 1');
-            console.log('changeLanguage: mathDiv.val(): ' + mathDiv.val());
-            console.log('changeLanguage: mathDiv.text(): ' + mathDiv.text());
-            console.log('changeLanguage: mathDiv.html(): ' + mathDiv.html());
-
         }
 
-        //M.parseMath(mathDiv);
-
-        console.log('changeLanguage, before parseMath');
         M.parseMath(document.body);
     };
     
-
-    //$scope.changeLanguage();
 
     function initNavClasses() {
         navClasses = ['', ''];
