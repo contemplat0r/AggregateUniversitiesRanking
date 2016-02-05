@@ -253,11 +253,12 @@ class RankingTableAPIView(APIView):
         #if storage.get(correlation_matrix_storage_key_xls) == None:
             storage.save(correlation_matrix_storage_key_xls, to_gzip(to_mem_excel(correlation_matrix)))
 
-        prepared_for_response_correlation_matrix = None
-        if request_data['needsToBeUpdated']:
-            prepared_for_response_correlation_matrix = prepare_correlation_matrix_to_response(correlation_matrix)
-        else:
-            prepared_for_response_correlation_matrix = None
+        #prepared_for_response_correlation_matrix = None
+        #if request_data['needsToBeUpdated']:
+        #    prepared_for_response_correlation_matrix = prepare_correlation_matrix_to_response(correlation_matrix)
+        #else:
+        #    prepared_for_response_correlation_matrix = None
+        prepared_for_response_correlation_matrix = prepare_correlation_matrix_to_response(correlation_matrix)
         response_data['correlationMatrix'] = prepared_for_response_correlation_matrix
 
         aggregate_ranking_dataframe_len = aggregate_ranking_dataframe.count()[0]
