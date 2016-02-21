@@ -76,14 +76,14 @@ ranking_descriptions = {
             'dataframe_postprocessor' : None,
             'ranking_table_as_list_preprocessor' : ranking_table_as_list_preprocessor
             },
-        'NTU' : {
-            'dataframe_postprocessor' : None,
-            'ranking_table_as_list_preprocessor' : ranking_table_as_list_preprocessor
-            },
-        'URAP' : {
-            'dataframe_postprocessor' : None,
-            'ranking_table_as_list_preprocessor' : ranking_table_as_list_preprocessor
-            },
+        #'NTU' : {
+        #    'dataframe_postprocessor' : None,
+        #    'ranking_table_as_list_preprocessor' : ranking_table_as_list_preprocessor
+        #    },
+        #'URAP' : {
+        #    'dataframe_postprocessor' : None,
+        #    'ranking_table_as_list_preprocessor' : ranking_table_as_list_preprocessor
+        #    },
         }
 
 

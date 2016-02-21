@@ -22,6 +22,7 @@ from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework import status
 from pandas import DataFrame, ExcelWriter
+import pandas as pd
 from .models import RankingDescription, RankingValue, University, Result
 from .name_matching import ranking_descriptions, build_aggregate_ranking_dataframe, assemble_aggregate_ranking_dataframe
 from forms import SelectRankingsNamesAndYear
@@ -127,6 +128,7 @@ def to_gzip(data):
     return iobuffer.getvalue()
 
 
+'''
 class Storage(object):
 
     def __init__(self):
@@ -145,6 +147,59 @@ class Storage(object):
 
     def clear(self):
         self.cache.clear()
+        '''
+
+
+class Storage(object):
+
+    def __init__(self):
+        #self.cache = caches['default']
+        self.storage_model = Result
+
+    def save(self, key, value):
+        print 'Entry in Storage.save method'
+        #self.cache.set(key, value, None)
+        item_list = self.storage_model.objects.filter(key=key)
+        #if item_list == []:
+        if len(item_list) == 0:
+            print 'len(item_list) == 0'
+            new_stored_item = self.storage_model(key=key, value=value)
+            print 'After create new_stored item'
+            try:
+                new_stored_item.save()
+            except Error as e:
+                print e
+            print 'After save new_stored item'
+        else:
+            print 'len(item_list) == ', len(item_list)
+        return
+
+    def get(self, key):
+        print 'Entry in storage.get'
+        #return self.cache.get(key)
+        item_list = self.storage_model.objects.filter(key=key)
+        print 'storage.get, item_list: ', item_list
+        #if item_list != []:
+        if len(item_list) > 0:
+            print 'storage.get, item_list != []'
+            return item_list[0].value
+        else:
+            print 'storage.get, item_list == []'
+            return None
+
+
+    def delete(self, key):
+        #self.cache.delete(key)
+        item_list = self.storage_model.objects.filter(key=key)
+        #if item_list != []:
+        if len(item_list) > 0:
+            item = item_list[0]
+            item.delete()
+        return
+    
+    def clear(self):
+        self.storage_model.objects.all().delete()
+
 
 
 def check_file_exist(csv_file_path):
@@ -219,9 +274,13 @@ class RankingTableAPIView(APIView):
         #if storage.get(aggregate_ranking_dataframe_storage_key) == None:
             print 'storage.get(aggregate_ranking_dataframe_storage_key) is None'
             aggregate_ranking_dataframe = assemble_aggregate_ranking_dataframe(selected_rankings_names, int(selected_year))
-            storage.save(aggregate_ranking_dataframe_storage_key, aggregate_ranking_dataframe)
+            #storage.save(aggregate_ranking_dataframe_storage_key, aggregate_ranking_dataframe)
+            storage.save(aggregate_ranking_dataframe_storage_key, to_mem_csv(aggregate_ranking_dataframe))
         else:
-            aggregate_ranking_dataframe = storage.get(aggregate_ranking_dataframe_storage_key)
+            print 'storage.get(aggregate_ranking_dataframe_storage_key) not None'
+            aggregate_ranking_dataframe = pd.read_csv(StringIO(storage.get(aggregate_ranking_dataframe_storage_key)), sep=';', encoding='utf-8')
+            print type(storage.get(aggregate_ranking_dataframe_storage_key))
+            print 'after load aggregate_ranking_dataframe: '
 
         aggregate_ranking_dataframe_for_table_file = prepare_ranktable_for_table_file(aggregate_ranking_dataframe)
         if storage.get(aggregate_ranking_storage_key_csv) is None:
@@ -241,10 +300,11 @@ class RankingTableAPIView(APIView):
         if storage.get(correlation_matrix_storage_key) is None:
         #if storage.get(correlation_matrix_storage_key) == None:
             correlation_matrix = calculate_correlation_matrix(aggregate_ranking_dataframe)
-            storage.save(correlation_matrix_storage_key, correlation_matrix)
+            storage.save(correlation_matrix_storage_key, to_mem_csv(correlation_matrix))
         else:
-            correlation_matrix = storage.get(correlation_matrix_storage_key)
+            correlation_matrix = pd.read_csv(StringIO(storage.get(correlation_matrix_storage_key)), sep=';', encoding='utf-8')
 
+        correlation_matrix = calculate_correlation_matrix(aggregate_ranking_dataframe)
         if storage.get(correlation_matrix_storage_key_csv) is None:
         #if storage.get(correlation_matrix_storage_key_csv) == None:
             storage.save(correlation_matrix_storage_key_csv, to_gzip(to_mem_csv(correlation_matrix)))
@@ -324,7 +384,9 @@ class FileDownloadAPIView(APIView):
 
         storage_key = assemble_filename(selected_rankings_names, selected_year, data_type, file_type)
         print 'FileDownloadAPIView post, storage_key: ', storage_key
-        download_file_data = storage.get(storage_key)
+        #download_file_data = storage.get(storage_key)
+        download_file_buffer = storage.get(storage_key)
+        download_file_data = StringIO(download_file_buffer).getvalue()
         #print 'FileDownloadAPIView post, download_file_data: ', download_file_data
         response = HttpResponse(download_file_data)
         response['Content-Encoding'] = 'gzip'
