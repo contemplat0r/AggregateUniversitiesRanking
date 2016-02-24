@@ -69,7 +69,7 @@ class RankingValue(models.Model):
 
 class Result(models.Model):
     key = models.CharField(max_length=64, null=False, blank=False, primary_key=True, unique=True)
-    value = models.BinaryField()
+    value = models.TextField()
 
     def __str__(self):
         return 'Result key: %s' % self.key

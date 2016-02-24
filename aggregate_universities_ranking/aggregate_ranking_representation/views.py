@@ -4,7 +4,7 @@ import datetime
 import os
 import codecs
 import csv
-import xlwt
+#import xlwt
 from functools import reduce
 from zipfile import ZipFile, ZIP_DEFLATED
 from gzip import GzipFile
@@ -232,7 +232,7 @@ class RankingTableAPIView(APIView):
         return response
     
     def post(self, request, format=None):
-        storage = Storage()
+        #storage = Storage()
         #storage.clear()
         request_data = request.data
         response_data = {'rankTable' : None, 'rankingsNamesList' : None, 'yearsList' : None, 'selectedYear' : None, 'paginationParameters' : {'recordsPerPageSelectionList' : [100, 200], 'currentPageNum' : 1, 'totalTableRecords' : 1000, 'totalPages' : 0, 'correlationMatrix' : None}}
@@ -266,23 +266,56 @@ class RankingTableAPIView(APIView):
         response_data['selectedYear'] = selected_year
 
         aggregate_ranking_dataframe = DataFrame()
+
+        print 'Before generating various storgae keys'
         aggregate_ranking_dataframe_storage_key = assemble_filename(selected_rankings_names, selected_year, 'ranktable')
         aggregate_ranking_storage_key_csv = aggregate_ranking_dataframe_storage_key + '.csv'
         aggregate_ranking_storage_key_xls = aggregate_ranking_dataframe_storage_key + '.xls'
+        print 'Before save/retrieve aggregate_ranking_dataframe to/from storage'
 
+        print 'aggregate_ranking_dataframe_storage_key: ', aggregate_ranking_dataframe_storage_key
+        saved_aggregate_ranking_dataframe_list = Result.objects.filter(key=aggregate_ranking_dataframe_storage_key)
+        print 'saved_aggregate_ranking_dataframe_list: ', saved_aggregate_ranking_dataframe_list
+        if list(saved_aggregate_ranking_dataframe_list) == []:
+            print 'before call assemble_aggregate_ranking_dataframe'
+            aggregate_ranking_dataframe = assemble_aggregate_ranking_dataframe(selected_rankings_names, int(selected_year))
+
+            print 'before create assemble_aggregate_ranking_dataframe storage_record'
+            storage_record = Result(key=aggregate_ranking_dataframe_storage_key, value=to_mem_csv(aggregate_ranking_dataframe))
+            print 'before save storage records'
+            storage_record.save()
+        else:
+            print 'saved_aggregate_ranking_dataframe_list != []'
+            print 'retrieve aggregate_ranking_dataframe from storage'
+            aggregate_ranking_dataframe = pd.read_csv(StringIO(saved_aggregate_ranking_dataframe_list[0].value), sep=';', encoding='utf-8')
+
+
+        '''
         if storage.get(aggregate_ranking_dataframe_storage_key) is None:
         #if storage.get(aggregate_ranking_dataframe_storage_key) == None:
             print 'storage.get(aggregate_ranking_dataframe_storage_key) is None'
             aggregate_ranking_dataframe = assemble_aggregate_ranking_dataframe(selected_rankings_names, int(selected_year))
             #storage.save(aggregate_ranking_dataframe_storage_key, aggregate_ranking_dataframe)
             storage.save(aggregate_ranking_dataframe_storage_key, to_mem_csv(aggregate_ranking_dataframe))
+            #storage.save(aggregate_ranking_dataframe_storage_key, to_mem_csv(aggregate_ranking_dataframe_for_table_file))
         else:
             print 'storage.get(aggregate_ranking_dataframe_storage_key) not None'
             aggregate_ranking_dataframe = pd.read_csv(StringIO(storage.get(aggregate_ranking_dataframe_storage_key)), sep=';', encoding='utf-8')
             print type(storage.get(aggregate_ranking_dataframe_storage_key))
             print 'after load aggregate_ranking_dataframe: '
+        
+        ''' 
+        print 'Before call assemble_aggregate_ranking_dataframe'
+        #aggregate_ranking_dataframe = assemble_aggregate_ranking_dataframe(selected_rankings_names, int(selected_year))
+        print 'After call assemble_aggregate_ranking_dataframe'
+        #print 'aggregate_ranking_dataframe.head(): ', aggregate_ranking_dataframe.head()
+        print 'aggregate_ranking_dataframe[:3]: ', aggregate_ranking_dataframe[:3]
 
+        print 'Before call prepare_ranktable_for_table_file'
         aggregate_ranking_dataframe_for_table_file = prepare_ranktable_for_table_file(aggregate_ranking_dataframe)
+        print 'After call prepare_ranktable_for_table_file'
+
+        '''
         if storage.get(aggregate_ranking_storage_key_csv) is None:
         #if storage.get(aggregate_ranking_storage_key_csv) == None:
             storage.save(aggregate_ranking_storage_key_csv, to_gzip(to_mem_csv(aggregate_ranking_dataframe_for_table_file)))
@@ -290,21 +323,34 @@ class RankingTableAPIView(APIView):
         if storage.get(aggregate_ranking_storage_key_xls) is None:
         #if storage.get(aggregate_ranking_storage_key_xls) == None:
             storage.save(aggregate_ranking_storage_key_xls, to_gzip(to_mem_excel(aggregate_ranking_dataframe_for_table_file)))
+        '''
 
 
         correlation_matrix = DataFrame()
+        
+        print 'Before generation various correlation matrix keys'
         correlation_matrix_storage_key = assemble_filename(selected_rankings_names, selected_year, 'correlation')
         correlation_matrix_storage_key_csv = correlation_matrix_storage_key + '.csv'
         correlation_matrix_storage_key_xls = correlation_matrix_storage_key + '.xls'
-
+        print 'After generation various correlation matrix keys'
+        
+        '''
         if storage.get(correlation_matrix_storage_key) is None:
         #if storage.get(correlation_matrix_storage_key) == None:
             correlation_matrix = calculate_correlation_matrix(aggregate_ranking_dataframe)
             storage.save(correlation_matrix_storage_key, to_mem_csv(correlation_matrix))
         else:
             correlation_matrix = pd.read_csv(StringIO(storage.get(correlation_matrix_storage_key)), sep=';', encoding='utf-8')
-
+        print correlation_matrix
+        '''
+        
+        print 'Before call calculate_correlation_matrix'
         correlation_matrix = calculate_correlation_matrix(aggregate_ranking_dataframe)
+        print 'After call calculate_correlation_matrix'
+        print 'correlation_matrix: '
+        print correlation_matrix
+
+        '''
         if storage.get(correlation_matrix_storage_key_csv) is None:
         #if storage.get(correlation_matrix_storage_key_csv) == None:
             storage.save(correlation_matrix_storage_key_csv, to_gzip(to_mem_csv(correlation_matrix)))
@@ -312,13 +358,17 @@ class RankingTableAPIView(APIView):
         if storage.get(correlation_matrix_storage_key_xls) is None:
         #if storage.get(correlation_matrix_storage_key_xls) == None:
             storage.save(correlation_matrix_storage_key_xls, to_gzip(to_mem_excel(correlation_matrix)))
+        '''
 
         #prepared_for_response_correlation_matrix = None
         #if request_data['needsToBeUpdated']:
         #    prepared_for_response_correlation_matrix = prepare_correlation_matrix_to_response(correlation_matrix)
         #else:
         #    prepared_for_response_correlation_matrix = None
+
+        print 'Before call prepare_correlation_matrix_to_response'
         prepared_for_response_correlation_matrix = prepare_correlation_matrix_to_response(correlation_matrix)
+        print 'After call prepare_correlation_matrix_to_response'
         response_data['correlationMatrix'] = prepared_for_response_correlation_matrix
 
         aggregate_ranking_dataframe_len = aggregate_ranking_dataframe.count()[0]
@@ -340,8 +390,10 @@ class RankingTableAPIView(APIView):
 
         response_data['paginationParameters']['totalPages'] = total_pages
         response_data['rankTable'] = ranktable
-
+        
+        print 'Before creating response'
         response = Response(response_data, status=status.HTTP_200_OK)
+        print 'After creating response and before return'
 
         return response
 

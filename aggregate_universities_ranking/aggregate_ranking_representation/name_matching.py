@@ -20,7 +20,8 @@ import cProfile
 #os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'aggregate_universities_ranking.settings')
 
 #django.setup()
-from .models import RankingDescription, RawRankingRecord, University, RankingValue
+#from .models import RankingDescription, RawRankingRecord, University, RankingValue
+from aggregate_ranking_representation.models import RankingDescription, RawRankingRecord, University, RankingValue
 
 NaN = np.nan
 
@@ -76,14 +77,14 @@ ranking_descriptions = {
             'dataframe_postprocessor' : None,
             'ranking_table_as_list_preprocessor' : ranking_table_as_list_preprocessor
             },
-        #'NTU' : {
-        #    'dataframe_postprocessor' : None,
-        #    'ranking_table_as_list_preprocessor' : ranking_table_as_list_preprocessor
-        #    },
-        #'URAP' : {
-        #    'dataframe_postprocessor' : None,
-        #    'ranking_table_as_list_preprocessor' : ranking_table_as_list_preprocessor
-        #    },
+        'NTU' : {
+            'dataframe_postprocessor' : None,
+            'ranking_table_as_list_preprocessor' : ranking_table_as_list_preprocessor
+            },
+        'URAP' : {
+            'dataframe_postprocessor' : None,
+            'ranking_table_as_list_preprocessor' : ranking_table_as_list_preprocessor
+            },
         }
 
 
@@ -979,6 +980,7 @@ def build_aggregate_ranking_dataframe(ranking_descriptions):
 
 
 def assemble_aggregate_ranking_dataframe(ranking_names_list, year):
+    print 'Entry in assemble_aggregate_ranking_dataframe'
     this_func_start_time = timer()
     start = timer()
     rank_tables = from_database(ranking_names_list, year)
