@@ -71,16 +71,23 @@ def calculate_correlation_matrix(aggregate_ranking_dataframe):
     return dataframe_prepared_for_calculate_correlation.corr(method='spearman')
 
 def prepare_correlation_matrix_to_response(correlation_matrix):
+    print 'Entry in prepare_correlation_matrix_to_response'
+    print 'prepare_correlation_matrix_to_response, before call correlation_matrix.to_dict()'
     correlation_matrix_dict = correlation_matrix.to_dict()
+    print 'prepare_correlation_matrix_to_response, after call correlation_matrix.to_dict()'
     correlation_matrix_dict_keys = correlation_matrix_dict.keys()
     correlation_matrix_table = []
     correlation_matrix_table_first_row = [' ']
+    print 'prepare_correlation_matrix_to_response, before call correlation_matrix_table_first_row.extend():'
     correlation_matrix_table_first_row.extend(correlation_matrix_dict_keys)
     correlation_matrix_table.append(correlation_matrix_table_first_row)
+    print 'prepare_correlation_matrix_to_response, correlation_matrix_dict_keys: ', correlation_matrix_dict_keys
     for key in correlation_matrix_dict_keys:
         row = [key]
+        print 'prepare_correlation_matrix_to_response, row: ', row
         record = correlation_matrix_dict[key]
         for key_1 in correlation_matrix_dict_keys:
+            print 'prepare_correlation_matrix_to_response, key_1: ', key_1
             row.append(float('{0:.2f}'.format(record[key_1])))
         correlation_matrix_table.append(row)
 
@@ -114,7 +121,7 @@ def to_mem_excel(dataframe, sheet_name='WorkSheet'):
 
 def to_mem_csv(dataframe):
     iobuffer = BytesIO()
-    dataframe.to_csv(iobuffer, sep=';', encoding='utf-8')
+    dataframe.to_csv(iobuffer, index=False, sep=';', encoding='utf-8')
     iobuffer.flush()
     iobuffer.seek(0)
     return iobuffer.getvalue()
@@ -127,27 +134,6 @@ def to_gzip(data):
     gzip_mem_object.close()
     return iobuffer.getvalue()
 
-
-'''
-class Storage(object):
-
-    def __init__(self):
-        self.cache = caches['default']
-
-    def save(self, key, value):
-        self.cache.set(key, value, None)
-        return
-
-    def get(self, key):
-        return self.cache.get(key)
-
-    def delete(self, key):
-        self.cache.delete(key)
-        return
-
-    def clear(self):
-        self.cache.clear()
-        '''
 
 
 class Storage(object):
@@ -232,7 +218,7 @@ class RankingTableAPIView(APIView):
         return response
     
     def post(self, request, format=None):
-        #storage = Storage()
+        storage = Storage()
         #storage.clear()
         request_data = request.data
         response_data = {'rankTable' : None, 'rankingsNamesList' : None, 'yearsList' : None, 'selectedYear' : None, 'paginationParameters' : {'recordsPerPageSelectionList' : [100, 200], 'currentPageNum' : 1, 'totalTableRecords' : 1000, 'totalPages' : 0, 'correlationMatrix' : None}}
@@ -269,96 +255,47 @@ class RankingTableAPIView(APIView):
 
         print 'Before generating various storgae keys'
         aggregate_ranking_dataframe_storage_key = assemble_filename(selected_rankings_names, selected_year, 'ranktable')
-        aggregate_ranking_storage_key_csv = aggregate_ranking_dataframe_storage_key + '.csv'
-        aggregate_ranking_storage_key_xls = aggregate_ranking_dataframe_storage_key + '.xls'
         print 'Before save/retrieve aggregate_ranking_dataframe to/from storage'
 
         print 'aggregate_ranking_dataframe_storage_key: ', aggregate_ranking_dataframe_storage_key
-        saved_aggregate_ranking_dataframe_list = Result.objects.filter(key=aggregate_ranking_dataframe_storage_key)
-        print 'saved_aggregate_ranking_dataframe_list: ', saved_aggregate_ranking_dataframe_list
-        if list(saved_aggregate_ranking_dataframe_list) == []:
+
+
+
+        saved_aggregate_ranking_dataframe = storage.get(aggregate_ranking_dataframe_storage_key)
+        if saved_aggregate_ranking_dataframe == None:
             print 'before call assemble_aggregate_ranking_dataframe'
             aggregate_ranking_dataframe = assemble_aggregate_ranking_dataframe(selected_rankings_names, int(selected_year))
+            storage.save(key=aggregate_ranking_dataframe_storage_key, value=to_mem_csv(aggregate_ranking_dataframe))
 
-            print 'before create assemble_aggregate_ranking_dataframe storage_record'
-            storage_record = Result(key=aggregate_ranking_dataframe_storage_key, value=to_mem_csv(aggregate_ranking_dataframe))
-            print 'before save storage records'
-            storage_record.save()
         else:
-            print 'saved_aggregate_ranking_dataframe_list != []'
+            print 'saved_aggregate_ranking_dataframe != None'
             print 'retrieve aggregate_ranking_dataframe from storage'
-            aggregate_ranking_dataframe = pd.read_csv(StringIO(saved_aggregate_ranking_dataframe_list[0].value), sep=';', encoding='utf-8')
+            aggregate_ranking_dataframe = pd.read_csv(StringIO(saved_aggregate_ranking_dataframe), sep=';', encoding='utf-8')
 
 
-        '''
-        if storage.get(aggregate_ranking_dataframe_storage_key) is None:
-        #if storage.get(aggregate_ranking_dataframe_storage_key) == None:
-            print 'storage.get(aggregate_ranking_dataframe_storage_key) is None'
-            aggregate_ranking_dataframe = assemble_aggregate_ranking_dataframe(selected_rankings_names, int(selected_year))
-            #storage.save(aggregate_ranking_dataframe_storage_key, aggregate_ranking_dataframe)
-            storage.save(aggregate_ranking_dataframe_storage_key, to_mem_csv(aggregate_ranking_dataframe))
-            #storage.save(aggregate_ranking_dataframe_storage_key, to_mem_csv(aggregate_ranking_dataframe_for_table_file))
+        correlation_matrix = DataFrame()
+        correlation_matrix_storage_key = assemble_filename(selected_rankings_names, selected_year, 'correlation')
+
+        print 'Before save/retrieve correlation_matrix to/from storage'
+        print 'correlation_matrix_storage_key: ', correlation_matrix_storage_key
+
+        saved_correlation_matrix = storage.get(correlation_matrix_storage_key)
+        if saved_correlation_matrix == None:
+            print 'before call calculate_correlation_matrix'
+            correlation_matrix = calculate_correlation_matrix(aggregate_ranking_dataframe)
+            storage.save(key=correlation_matrix_storage_key, value=to_mem_csv(correlation_matrix))
         else:
-            print 'storage.get(aggregate_ranking_dataframe_storage_key) not None'
-            aggregate_ranking_dataframe = pd.read_csv(StringIO(storage.get(aggregate_ranking_dataframe_storage_key)), sep=';', encoding='utf-8')
-            print type(storage.get(aggregate_ranking_dataframe_storage_key))
-            print 'after load aggregate_ranking_dataframe: '
-        
-        ''' 
-        print 'Before call assemble_aggregate_ranking_dataframe'
-        #aggregate_ranking_dataframe = assemble_aggregate_ranking_dataframe(selected_rankings_names, int(selected_year))
-        print 'After call assemble_aggregate_ranking_dataframe'
-        #print 'aggregate_ranking_dataframe.head(): ', aggregate_ranking_dataframe.head()
+            print 'saved_correlation_matrix != None'
+            print 'retrieve correlation_matrix from storage'
+            correlation_matrix = pd.read_csv(StringIO(saved_correlation_matrix), sep=';', encoding='utf-8')
+
+
         print 'aggregate_ranking_dataframe[:3]: ', aggregate_ranking_dataframe[:3]
 
         print 'Before call prepare_ranktable_for_table_file'
         aggregate_ranking_dataframe_for_table_file = prepare_ranktable_for_table_file(aggregate_ranking_dataframe)
         print 'After call prepare_ranktable_for_table_file'
 
-        '''
-        if storage.get(aggregate_ranking_storage_key_csv) is None:
-        #if storage.get(aggregate_ranking_storage_key_csv) == None:
-            storage.save(aggregate_ranking_storage_key_csv, to_gzip(to_mem_csv(aggregate_ranking_dataframe_for_table_file)))
-        
-        if storage.get(aggregate_ranking_storage_key_xls) is None:
-        #if storage.get(aggregate_ranking_storage_key_xls) == None:
-            storage.save(aggregate_ranking_storage_key_xls, to_gzip(to_mem_excel(aggregate_ranking_dataframe_for_table_file)))
-        '''
-
-
-        correlation_matrix = DataFrame()
-        
-        print 'Before generation various correlation matrix keys'
-        correlation_matrix_storage_key = assemble_filename(selected_rankings_names, selected_year, 'correlation')
-        correlation_matrix_storage_key_csv = correlation_matrix_storage_key + '.csv'
-        correlation_matrix_storage_key_xls = correlation_matrix_storage_key + '.xls'
-        print 'After generation various correlation matrix keys'
-        
-        '''
-        if storage.get(correlation_matrix_storage_key) is None:
-        #if storage.get(correlation_matrix_storage_key) == None:
-            correlation_matrix = calculate_correlation_matrix(aggregate_ranking_dataframe)
-            storage.save(correlation_matrix_storage_key, to_mem_csv(correlation_matrix))
-        else:
-            correlation_matrix = pd.read_csv(StringIO(storage.get(correlation_matrix_storage_key)), sep=';', encoding='utf-8')
-        print correlation_matrix
-        '''
-        
-        print 'Before call calculate_correlation_matrix'
-        correlation_matrix = calculate_correlation_matrix(aggregate_ranking_dataframe)
-        print 'After call calculate_correlation_matrix'
-        print 'correlation_matrix: '
-        print correlation_matrix
-
-        '''
-        if storage.get(correlation_matrix_storage_key_csv) is None:
-        #if storage.get(correlation_matrix_storage_key_csv) == None:
-            storage.save(correlation_matrix_storage_key_csv, to_gzip(to_mem_csv(correlation_matrix)))
-        
-        if storage.get(correlation_matrix_storage_key_xls) is None:
-        #if storage.get(correlation_matrix_storage_key_xls) == None:
-            storage.save(correlation_matrix_storage_key_xls, to_gzip(to_mem_excel(correlation_matrix)))
-        '''
 
         #prepared_for_response_correlation_matrix = None
         #if request_data['needsToBeUpdated']:
