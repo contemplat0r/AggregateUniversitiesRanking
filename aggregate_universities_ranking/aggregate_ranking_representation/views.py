@@ -86,6 +86,7 @@ def prepare_correlation_matrix_to_response(correlation_matrix):
         row = [key]
         print 'prepare_correlation_matrix_to_response, row: ', row
         record = correlation_matrix_dict[key]
+        print 'prepare_correlation_matrix_to_response, record: ', record
         for key_1 in correlation_matrix_dict_keys:
             print 'prepare_correlation_matrix_to_response, key_1: ', key_1
             row.append(float('{0:.2f}'.format(record[key_1])))
@@ -119,9 +120,11 @@ def to_mem_excel(dataframe, sheet_name='WorkSheet'):
     iobuffer.seek(0)
     return iobuffer.getvalue()
 
-def to_mem_csv(dataframe):
+def to_mem_csv(dataframe, index=False, sep=';'):
+    print 'Entry to_mem_csv'
+    print 'to_mem_csv, index: ', index
     iobuffer = BytesIO()
-    dataframe.to_csv(iobuffer, index=False, sep=';', encoding='utf-8')
+    dataframe.to_csv(iobuffer, index=index, sep=sep, encoding='utf-8')
     iobuffer.flush()
     iobuffer.seek(0)
     return iobuffer.getvalue()
@@ -270,7 +273,7 @@ class RankingTableAPIView(APIView):
         else:
             print 'saved_aggregate_ranking_dataframe != None'
             print 'retrieve aggregate_ranking_dataframe from storage'
-            aggregate_ranking_dataframe = pd.read_csv(StringIO(saved_aggregate_ranking_dataframe), sep=';', encoding='utf-8')
+            aggregate_ranking_dataframe = pd.read_csv(StringIO(saved_aggregate_ranking_dataframe), sep=';', encoding='utf-8', index_col=None)
 
 
         correlation_matrix = DataFrame()
@@ -283,11 +286,11 @@ class RankingTableAPIView(APIView):
         if saved_correlation_matrix == None:
             print 'before call calculate_correlation_matrix'
             correlation_matrix = calculate_correlation_matrix(aggregate_ranking_dataframe)
-            storage.save(key=correlation_matrix_storage_key, value=to_mem_csv(correlation_matrix))
+            storage.save(key=correlation_matrix_storage_key, value=to_mem_csv(correlation_matrix, index=True))
         else:
             print 'saved_correlation_matrix != None'
             print 'retrieve correlation_matrix from storage'
-            correlation_matrix = pd.read_csv(StringIO(saved_correlation_matrix), sep=';', encoding='utf-8')
+            correlation_matrix = pd.read_csv(StringIO(saved_correlation_matrix), sep=';', encoding='utf-8', index_col=0)
 
 
         print 'aggregate_ranking_dataframe[:3]: ', aggregate_ranking_dataframe[:3]
@@ -304,6 +307,8 @@ class RankingTableAPIView(APIView):
         #    prepared_for_response_correlation_matrix = None
 
         print 'Before call prepare_correlation_matrix_to_response'
+        print 'correlation_matrix:\n'
+        print correlation_matrix
         prepared_for_response_correlation_matrix = prepare_correlation_matrix_to_response(correlation_matrix)
         print 'After call prepare_correlation_matrix_to_response'
         response_data['correlationMatrix'] = prepared_for_response_correlation_matrix
