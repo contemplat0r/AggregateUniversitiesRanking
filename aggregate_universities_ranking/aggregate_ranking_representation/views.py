@@ -130,11 +130,17 @@ def to_mem_csv(dataframe, index=False, sep=';'):
     return iobuffer.getvalue()
 
 def to_gzip(data):
+    print 'Entry in to_gzip'
     iobuffer = StringIO()
+    print 'to_gzip, before call GzipFile'
     gzip_mem_object = GzipFile(mode='wb', compresslevel=6, fileobj=iobuffer)
+    print 'to_gzip, after call GzipFile, before gzip_mem_object.write(data)'
     gzip_mem_object.write(data)
+    print 'to_gzip, after gzip_mem_object.write(data), before gzip_mem_object.flush()'
     gzip_mem_object.flush()
+    print 'to_gzip, after gzip_mem_object.flush(), before gzip_mem_object.close()'
     gzip_mem_object.close()
+    print 'to_gzip, after gzip_mem_object.close(), before return iobuffer.value()'
     return iobuffer.getvalue()
 
 
@@ -376,12 +382,30 @@ class FileDownloadAPIView(APIView):
         else:
             file_type = 'csv'
 
-        storage_key = assemble_filename(selected_rankings_names, selected_year, data_type, file_type)
+        #storage_key = assemble_filename(selected_rankings_names, selected_year, data_type, file_type)
+        storage_key = assemble_filename(selected_rankings_names, selected_year, data_type)
         print 'FileDownloadAPIView post, storage_key: ', storage_key
         #download_file_data = storage.get(storage_key)
         download_file_buffer = storage.get(storage_key)
-        download_file_data = StringIO(download_file_buffer).getvalue()
+        print 'download_file_buffer', download_file_buffer
+        #download_file_data = StringIO(download_file_buffer).getvalue()
         #print 'FileDownloadAPIView post, download_file_data: ', download_file_data
+        download_file_data = None
+        if file_type == 'csv':
+            print 'FileDownloadAPIView, post, file_type == \'csv\', before call to_gzip'
+            download_file_data = to_gzip(download_file_buffer.encode('utf-8'))
+            print 'FileDownloadAPIView post method, after create download_file_data'
+            '''
+            if data_type == 'ranktable':
+                dataframe = pd.read_csv(StringIO(download_file_buffer), sep=';', encoding='utf-8', index_col=None)
+                download_file_data = to_gzip(to_mem_csv(dataframe))
+            else:
+                dataframe = pd.read_csv(StringIO(download_file_buffer), sep=';', encoding='utf-8', index_col=0)
+                download_file_data = to_gzip(to_mem_csv(dataframe))
+            '''
+        
+        print 'FileDownloadAPIView post method, after fill download_file_data'
+
         response = HttpResponse(download_file_data)
         response['Content-Encoding'] = 'gzip'
         response['Content-Length'] = str(len(download_file_data))
