@@ -395,15 +395,16 @@ class FileDownloadAPIView(APIView):
             print 'FileDownloadAPIView, post, file_type == \'csv\', before call to_gzip'
             download_file_data = to_gzip(download_file_buffer.encode('utf-8'))
             print 'FileDownloadAPIView post method, after create download_file_data'
-            '''
+        elif file_type == 'xls':
+            print 'FileDownloadAPIView, post, file_type == \'csv\', before call to_gzip'
             if data_type == 'ranktable':
                 dataframe = pd.read_csv(StringIO(download_file_buffer), sep=';', encoding='utf-8', index_col=None)
-                download_file_data = to_gzip(to_mem_csv(dataframe))
+                download_file_data = to_gzip(to_mem_excel(dataframe))
             else:
                 dataframe = pd.read_csv(StringIO(download_file_buffer), sep=';', encoding='utf-8', index_col=0)
-                download_file_data = to_gzip(to_mem_csv(dataframe))
-            '''
-        
+                download_file_data = to_gzip(to_mem_excel(dataframe))
+               
+       
         print 'FileDownloadAPIView post method, after fill download_file_data'
 
         response = HttpResponse(download_file_data)
