@@ -38,21 +38,6 @@ csv_files_dir_relative_path = os.path.join('static', 'csv')
 csv_files_dir = os.path.join(current_dir, csv_files_dir_relative_path)
 
 
-'''
-def prepare_ranktable_to_response(selected_rankings_names, aggregate_ranking_dataframe):
-    ranktable = list()
-    ranktable.append(['Rank', 'Aggregate Rank', 'University Name'] + selected_rankings_names)
-    if aggregate_ranking_dataframe is not None:
-        aggregate_ranking_as_list_of_dict = aggregate_ranking_dataframe.to_dict('record')
-        for row in aggregate_ranking_as_list_of_dict:
-            record = [row['rank'], row['aggregate_rank'], row['university_name']]
-            for ranking_name in selected_rankings_names:
-                record.append(row[ranking_name])
-            ranktable.append(record)
-    return ranktable
-'''
-
-
 def prepare_ranktable_to_response(aggregate_ranking_dataframe):
     ranktable = list()
     columns_names = aggregate_ranking_dataframe.columns.tolist()
@@ -64,18 +49,6 @@ def prepare_ranktable_to_response(aggregate_ranking_dataframe):
             table_row.append(record[column_name])
         ranktable.append(table_row)
     return ranktable
-
-
-
-def prepare_ranktable_for_table_file(aggregate_ranking_dataframe):
-    aggregate_ranking_dataframe_for_table_file = aggregate_ranking_dataframe.rename(columns={'aggregate_rank' : 'Aggregate Rank', 'rank' : 'Rank', 'university_name' : 'University'})
-    columns_names = aggregate_ranking_dataframe_for_table_file.columns.tolist()
-    right_ordered_columns = ['University', 'Rank', 'Aggregate Rank']
-    tail = [column_name for column_name in columns_names if column_name not in right_ordered_columns]
-    right_ordered_columns.extend(tail)
-    aggregate_ranking_dataframe_for_table_file = aggregate_ranking_dataframe_for_table_file[right_ordered_columns]
-    
-    return aggregate_ranking_dataframe_for_table_file
 
 
 def fix_columns(aggregate_ranking_dataframe):
@@ -113,7 +86,7 @@ def calculate_correlation_matrix(aggregate_ranking_dataframe):
     return dataframe_prepared_for_calculate_correlation.corr(method='spearman')
 
 
-
+'''
 def prepare_correlation_matrix_to_response(correlation_matrix):
     print 'Entry in prepare_correlation_matrix_to_response'
     print 'prepare_correlation_matrix_to_response, before call correlation_matrix.to_dict()'
@@ -137,6 +110,32 @@ def prepare_correlation_matrix_to_response(correlation_matrix):
         correlation_matrix_table.append(row)
 
     return correlation_matrix_table
+'''
+
+
+def prepare_correlation_matrix_to_response(correlation_matrix):
+    print 'Entry in prepare_correlation_matrix_to_response'
+    correlation_matrix_table = list()
+    table_first_row = [' ']
+    columns_names = correlation_matrix.columns.tolist()
+    right_ordered_columns = ['Rank', 'Aggregate Rank']
+    tail = [column_name for column_name in columns_names if column_name not in right_ordered_columns]
+    right_ordered_columns.extend(tail)
+    table_first_row.extend(right_ordered_columns)
+    print 'prepare_correlation_matrix_to_response, table_first_row: ', table_first_row
+    correlation_matrix_table.append(table_first_row)
+    print 'prepare_correlation_matrix_to_response, after add table_first_row: ', correlation_matrix_table
+    records = correlation_matrix.to_dict()
+    for column_name in right_ordered_columns:
+        table_row = [column_name]
+        record = records[column_name]
+        for column_name in right_ordered_columns:
+            table_row.append(float('{0:.2f}'.format(record[column_name])))
+            print 'prepare_correlation_matrix_to_response, table_row: ', table_row
+        correlation_matrix_table.append(table_row)
+        
+    return correlation_matrix_table
+
 
 
 def assemble_csv_filename(selected_rankings_names, year):
