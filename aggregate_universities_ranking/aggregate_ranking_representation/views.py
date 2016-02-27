@@ -37,6 +37,8 @@ current_dir = os.path.join(BASE_DIR, 'aggregate_ranking_representation')
 csv_files_dir_relative_path = os.path.join('static', 'csv')
 csv_files_dir = os.path.join(current_dir, csv_files_dir_relative_path)
 
+
+'''
 def prepare_ranktable_to_response(selected_rankings_names, aggregate_ranking_dataframe):
     ranktable = list()
     ranktable.append(['Rank', 'Aggregate Rank', 'University Name'] + selected_rankings_names)
@@ -48,6 +50,22 @@ def prepare_ranktable_to_response(selected_rankings_names, aggregate_ranking_dat
                 record.append(row[ranking_name])
             ranktable.append(record)
     return ranktable
+'''
+
+
+def prepare_ranktable_to_response(aggregate_ranking_dataframe):
+    ranktable = list()
+    columns_names = aggregate_ranking_dataframe.columns.tolist()
+    records = aggregate_ranking_dataframe.to_dict('records')
+    ranktable.append(columns_names)
+    for record in records:
+        table_row = list()
+        for column_name in columns_names:
+            table_row.append(record[column_name])
+        ranktable.append(table_row)
+    return ranktable
+
+
 
 def prepare_ranktable_for_table_file(aggregate_ranking_dataframe):
     aggregate_ranking_dataframe_for_table_file = aggregate_ranking_dataframe.rename(columns={'aggregate_rank' : 'Aggregate Rank', 'rank' : 'Rank', 'university_name' : 'University'})
@@ -59,6 +77,16 @@ def prepare_ranktable_for_table_file(aggregate_ranking_dataframe):
     
     return aggregate_ranking_dataframe_for_table_file
 
+
+def fix_columns(aggregate_ranking_dataframe):
+    aggregate_ranking_dataframe = aggregate_ranking_dataframe.rename(columns={'aggregate_rank' : 'Aggregate Rank', 'rank' : 'Rank', 'university_name' : 'University Name'})
+    right_ordered_columns = ['Rank', 'Aggregate Rank', 'University Name']
+    tail = [column_name for column_name in aggregate_ranking_dataframe.columns.tolist() if column_name not in right_ordered_columns]
+    right_ordered_columns.extend(tail)
+    return aggregate_ranking_dataframe[right_ordered_columns]
+
+
+'''
 def calculate_correlation_matrix(aggregate_ranking_dataframe):
     dataframe_prepared_for_calculate_correlation = aggregate_ranking_dataframe.drop('university_name', axis=1)
     dataframe_prepared_for_calculate_correlation.rename(columns={'aggregate_rank' : 'Aggregate Rank', 'rank' : 'Rank'}, inplace=True)
@@ -69,6 +97,22 @@ def calculate_correlation_matrix(aggregate_ranking_dataframe):
     dataframe_prepared_for_calculate_correlation = dataframe_prepared_for_calculate_correlation[right_ordered_columns]
 
     return dataframe_prepared_for_calculate_correlation.corr(method='spearman')
+'''
+
+
+def calculate_correlation_matrix(aggregate_ranking_dataframe):
+    dataframe_prepared_for_calculate_correlation = aggregate_ranking_dataframe.drop('University Name', axis=1)
+    #dataframe_prepared_for_calculate_correlation = aggregate_ranking_dataframe.drop('university_name', axis=1)
+    #dataframe_prepared_for_calculate_correlation.rename(columns={'aggregate_rank' : 'Aggregate Rank', 'rank' : 'Rank'}, inplace=True)
+    #columns_names = dataframe_prepared_for_calculate_correlation.columns.tolist()
+    #right_ordered_columns = ['Rank', 'Aggregate Rank']
+    #tail = [column_name for column_name in columns_names if column_name not in right_ordered_columns]
+    #right_ordered_columns.extend(tail)
+    #dataframe_prepared_for_calculate_correlation = dataframe_prepared_for_calculate_correlation[right_ordered_columns]
+
+    return dataframe_prepared_for_calculate_correlation.corr(method='spearman')
+
+
 
 def prepare_correlation_matrix_to_response(correlation_matrix):
     print 'Entry in prepare_correlation_matrix_to_response'
@@ -274,6 +318,7 @@ class RankingTableAPIView(APIView):
         if saved_aggregate_ranking_dataframe == None:
             print 'before call assemble_aggregate_ranking_dataframe'
             aggregate_ranking_dataframe = assemble_aggregate_ranking_dataframe(selected_rankings_names, int(selected_year))
+            aggregate_ranking_dataframe = fix_columns(aggregate_ranking_dataframe)
             storage.save(key=aggregate_ranking_dataframe_storage_key, value=to_mem_csv(aggregate_ranking_dataframe))
 
         else:
@@ -301,10 +346,6 @@ class RankingTableAPIView(APIView):
 
         print 'aggregate_ranking_dataframe[:3]: ', aggregate_ranking_dataframe[:3]
 
-        print 'Before call prepare_ranktable_for_table_file'
-        aggregate_ranking_dataframe_for_table_file = prepare_ranktable_for_table_file(aggregate_ranking_dataframe)
-        print 'After call prepare_ranktable_for_table_file'
-
 
         #prepared_for_response_correlation_matrix = None
         #if request_data['needsToBeUpdated']:
@@ -329,7 +370,8 @@ class RankingTableAPIView(APIView):
         if last_page_record_num > aggregate_ranking_dataframe_len:
             last_page_record_num = aggregate_ranking_dataframe_len
 
-        ranktable = prepare_ranktable_to_response(selected_rankings_names, aggregate_ranking_dataframe[first_page_record_num:last_page_record_num])
+        #ranktable = prepare_ranktable_to_response(selected_rankings_names, aggregate_ranking_dataframe[first_page_record_num:last_page_record_num])
+        ranktable = prepare_ranktable_to_response(aggregate_ranking_dataframe[first_page_record_num:last_page_record_num])
         total_records = aggregate_ranking_dataframe_len
         total_pages = total_records / records_per_page 
 
