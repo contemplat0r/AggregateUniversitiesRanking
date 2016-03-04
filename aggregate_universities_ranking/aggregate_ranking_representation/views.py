@@ -215,10 +215,10 @@ class Storage(object):
     def get(self, key):
         print 'Entry in storage.get'
         #return self.cache.get(key)
-        item_list = self.storage_model.objects.filter(key=key)
+        item_list = list(self.storage_model.objects.filter(key=key))
         print 'storage.get, item_list: ', item_list
-        #if item_list != []:
-        if len(item_list) > 0:
+        if item_list != []:
+        #if len(item_list) > 0:
             print 'storage.get, item_list != []'
             return item_list[0].value
         else:
@@ -273,6 +273,7 @@ class RankingTableAPIView(APIView):
         storage = Storage()
         #storage.clear()
         request_data = request.data
+        print request_data
         response_data = {'rankTable' : None, 'rankingsNamesList' : None, 'yearsList' : None, 'selectedYear' : None, 'paginationParameters' : {'recordsPerPageSelectionList' : [100, 200], 'currentPageNum' : 1, 'totalTableRecords' : 1000, 'totalPages' : 0, 'correlationMatrix' : None}}
         current_page_num = request_data.get('currentPageNum')
         if current_page_num is None:
