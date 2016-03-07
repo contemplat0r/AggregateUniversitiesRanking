@@ -9,9 +9,20 @@
 <!--<table class="table table-bordered">-->
 <!--<table class="table table-hover">-->
 <!--<strong> No data for this year </strong>-->
-
 <treasure-overlay-spinner active='spinner.active'>
 <div>
+    <!--<div class="panel panel-default">
+        <div class="panel-heading">A basic function demo for bsDropdown.</div>
+        <div class="panel-body" ng-controller="YearController">
+            <p>You select {{selectYear}} ....</p>
+            <div bs-dropdown 
+             bs-dropdown-display="MyDropDown" 
+             bs-dropdown-items="years" 
+             ng-model="selectYear" 
+             ng-change="changeYear()">
+            </div>
+        </div>
+        </div>-->
     <label for="rankingCheckListForm" id="rankingCheckListForm">{{langValues.selectRankingsNamesTitle}}: </label>
     <form name="rankingCheckListForm" id="rankingCheckListForm" class="form-inline">
         <ul class="list-inline">

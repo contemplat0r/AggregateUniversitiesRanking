@@ -4,35 +4,66 @@
     <head>
 
         <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=UnifrakturMaguntia">
-        <script src="{% static "bootstrap/js/bootstrap.min.js" %}"></script>
-        <link href="{% static "bootstrap/css/bootstrap.min.css" %}" rel="stylesheet">
+        <script src="{% static "bower_components/jquery/dist/jquery.js" %}"></script>
+        <!--<script src="{% static "bootstrap/js/bootstrap.min.js" %}"></script>-->
+        <script src="{% static "bower_components/bootstrap/dist/js/bootstrap.min.js" %}"></script>
+        <!--<link href="{% static "bootstrap/css/bootstrap.min.css" %}" rel="stylesheet">-->
+        <link href="{% static "bower_components/bootstrap/dist/css/bootstrap.min.css" %}" rel="stylesheet">
+        <link href="{% static "bower_components/bootstrap/dist/css/bootstrap-theme.min.css" %}" rel="stylesheet">
         <!--<link href="{% static "bootstrap/css/bootstrap-theme.min.css" %}" rel="stylesheet">-->
         <!--<link href="{% static "bootstrap/css/bootstrap-spacelab.min.css" %}" rel="stylesheet">-->
         <!--<link href="{% static "bootstrap/css/bootstrap-paperl.min.css" %}" rel="stylesheet">-->
-        <link href="{% static "bootstrap/css/bootstrap-journal.min.css" %}" rel="stylesheet">
+        <!--<link href="{% static "bootstrap/css/bootstrap-journal.min.css" %}" rel="stylesheet">-->
         <link href="{% static "css/navbar.css" %}" rel="stylesheet">
         <link href="{% static "css/jqmath-0.4.3.css" %}" rel="stylesheet">
         <link href="{% static "css/treasure-overlay-spinner.css" %}" rel="stylesheet">
         <style type="text/css">
            .table-hover tbody tr:hover td { background: gray; } 
         </style>
-        <script src="{% static "bower_components/jquery/dist/jquery.js" %}"></script>
 
         <script src="{% static "bower_components/angular/angular.js" %}"></script>
         <script src="{% static "bower_components/angular-animate/angular-animate.js" %}"></script>
         <script src="{% static "bower_components/angular-route/angular-route.js" %}"></script>
+        <script src="{% static "bower_components/angular-touch/angular-touch.js" %}"></script>
+        <script src="{% static "js/ui-bootstrap-tpls-1.2.4.min.js" %}"></script>
         <script src="{% static "js/app.js" %}"></script>
         <script src="{% static "js/controllers.js" %}"></script>
         <script src="{% static "js/treasure-overlay-spinner.js" %}"></script>
         <script src="{% static "js/FileSaver.min.js" %}"></script>
         <script src="{% static "js/md5.js" %}"></script>
         <script src="{% static "js/jqmath-etc-0.4.3.min.js" %}"></script>
+        <!--<script src="{% static "js/bsDropdown.min.js" %}"></script>-->
         <script>M.MathPlayer = false; M.trustHtml = true;</script>
         <script> function processMath() {M.parseMath("methodologyMath");} </script>
     </head>
     <!--<body ng-app="rankingApp">-->
     {% verbatim %}
     <body ng-controller="NavigationController">
+
+ <div class="dropdown">
+     <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">
+         Dropdown Example
+         <span class="caret">
+         </span>
+     </button>
+     <ul class="dropdown-menu">
+         <li>
+             <a href="#">
+                 HTML
+             </a>
+         </li>
+         <li>
+             <a href="#">
+                 CSS
+             </a>
+         </li>
+         <li>
+             <a href="#">
+                 JavaScript
+             </a>
+         </li>
+     </ul>
+ </div>
         <div class="row">
             <div class="col-sm-2">
                 <div class="sidebar-nav">
