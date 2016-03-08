@@ -985,28 +985,27 @@ def assemble_aggregate_ranking_dataframe(ranking_names_list, year):
     start = timer()
     rank_tables = from_database(ranking_names_list, year)
     end = timer()
-    print 'assemble_aggregate_ranking_dataframe: from_database function runtime = ', end - start
+    #print 'assemble_aggregate_ranking_dataframe: from_database function runtime = ', end - start
 
     if rank_tables != []:
         start = timer()
         rank_tables_with_aggregated_rank = append_aggregate_rank(rank_tables)
         end = timer()
-        print 'assemble_aggregate_ranking_dataframe: append_aggregate_rank function runtime = ', end - start
+        #print 'assemble_aggregate_ranking_dataframe: append_aggregate_rank function runtime = ', end - start
         
         start = timer()
         universities_grouped_by_aggregate_rank = group_by_aggregate_rank(rank_tables_with_aggregated_rank)
         end = timer()
-        print 'assemble_aggregate_ranking_dataframe: group_by_aggregate_rank function runtime = ', end - start
+        #print 'assemble_aggregate_ranking_dataframe: group_by_aggregate_rank function runtime = ', end - start
 
         start = timer()
         aggregate_ranking_dataframe = convert_aggregate_ranking_dict_to_dataframe(universities_grouped_by_aggregate_rank)
         end = timer()
-        print 'assemble_aggregate_ranking_dataframe: convert_aggregate_ranking_dict_to_dataframe_rank function runtime = ', end - start
+        #print 'assemble_aggregate_ranking_dataframe: convert_aggregate_ranking_dict_to_dataframe_rank function runtime = ', end - start
 
-        ##print aggregate_ranking_dataframe
         #print 'assemble_aggregate_ranking_dataframe: rank_tables != []'
         this_func_end_time = timer()
-        print 'assemble_aggregate_ranking_dataframe: total runtime = ', this_func_end_time - this_func_start_time
+        #print 'assemble_aggregate_ranking_dataframe: total runtime = ', this_func_end_time - this_func_start_time
         return aggregate_ranking_dataframe
     else:
         #print 'assemble_aggregate_ranking_dataframe: rank_tables == []'

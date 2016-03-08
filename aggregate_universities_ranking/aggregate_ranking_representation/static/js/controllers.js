@@ -412,7 +412,7 @@ rankingApp.controller('NavigationController', function($scope, $timeout) {
 
 });
 
-/*rankingApp.controller("YearController", function($scope){
+rankingApp.controller("YearController", function($scope){
     $scope.years = [
         "2015",
         "2014",
@@ -425,5 +425,33 @@ rankingApp.controller('NavigationController', function($scope, $timeout) {
     $scope.changeYear = function(){
         console.log("YearController say... " + $scope.selectYear);
     }
-});*/
+});
 
+rankingApp.controller("DividerController", function($scope){
+    $scope.actions = [
+        "Action",
+        "Another action",
+        "Something else here",
+        "separated link1",
+        "Action anain",
+        "Nothing else",
+        "separated link2"
+    ];
+    $scope.selectAction = null;
+});
+
+rankingApp.controller("MultiSelectController", function($scope){
+    $scope.actions = [
+        "Action",
+        "Another action",
+        "Something else here",
+        "separated link1",
+        "Action anain",
+        "Nothing else",
+        "separated link2"
+    ];
+    $scope.selectAction = [$scope.actions[0],$scope.actions[3]];
+    $scope.change = function(){
+        console.log("MultiSelectController say... " + $scope.selectAction);
+    }
+});

@@ -10,10 +10,9 @@
         <!--<link href="{% static "bootstrap/css/bootstrap.min.css" %}" rel="stylesheet">-->
         <link href="{% static "bower_components/bootstrap/dist/css/bootstrap.min.css" %}" rel="stylesheet">
         <link href="{% static "bower_components/bootstrap/dist/css/bootstrap-theme.min.css" %}" rel="stylesheet">
-        <!--<link href="{% static "bootstrap/css/bootstrap-theme.min.css" %}" rel="stylesheet">-->
-        <!--<link href="{% static "bootstrap/css/bootstrap-spacelab.min.css" %}" rel="stylesheet">-->
-        <!--<link href="{% static "bootstrap/css/bootstrap-paperl.min.css" %}" rel="stylesheet">-->
-        <!--<link href="{% static "bootstrap/css/bootstrap-journal.min.css" %}" rel="stylesheet">-->
+        <script src="{% static "bower_components/bootstrap-select/dist/js/bootstrap-select.min.js" %}"></script>
+        <link href="{% static "bower_components/bootstrap-select/dist/css/bootstrap-select.min.css" %}" rel="stylesheet">
+        <script src="{% static "bower_components/bootstrap-select/dist/js/i18n/defaults-*.min.js" %}"></script>
         <link href="{% static "css/navbar.css" %}" rel="stylesheet">
         <link href="{% static "css/jqmath-0.4.3.css" %}" rel="stylesheet">
         <link href="{% static "css/treasure-overlay-spinner.css" %}" rel="stylesheet">
@@ -32,7 +31,7 @@
         <script src="{% static "js/FileSaver.min.js" %}"></script>
         <script src="{% static "js/md5.js" %}"></script>
         <script src="{% static "js/jqmath-etc-0.4.3.min.js" %}"></script>
-        <!--<script src="{% static "js/bsDropdown.min.js" %}"></script>-->
+        <script src="{% static "js/bsDropdown.min.js" %}"></script>
         <script>M.MathPlayer = false; M.trustHtml = true;</script>
         <script> function processMath() {M.parseMath("methodologyMath");} </script>
     </head>
@@ -90,7 +89,7 @@
                 <label for="langSelect" id="langSelect">{{langValues.selectLanguageTitle}}:
                 </label>
 
-                <select name="langSelect" id="langSelect" ng-options="lang.value for lang in langSelect.availableLanguages track by lang.id" ng-model="langSelect.selectedLang" ng-change="changeLanguage()">
+                <select class="selectpicker" name="langSelect" id="langSelect" ng-options="lang.value for lang in langSelect.availableLanguages track by lang.id" ng-model="langSelect.selectedLang" ng-change="changeLanguage()">
                 </select>
 
                <div ng-view>

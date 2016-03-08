@@ -59,58 +59,11 @@ def fix_columns(aggregate_ranking_dataframe):
     return aggregate_ranking_dataframe[right_ordered_columns]
 
 
-'''
-def calculate_correlation_matrix(aggregate_ranking_dataframe):
-    dataframe_prepared_for_calculate_correlation = aggregate_ranking_dataframe.drop('university_name', axis=1)
-    dataframe_prepared_for_calculate_correlation.rename(columns={'aggregate_rank' : 'Aggregate Rank', 'rank' : 'Rank'}, inplace=True)
-    columns_names = dataframe_prepared_for_calculate_correlation.columns.tolist()
-    right_ordered_columns = ['Rank', 'Aggregate Rank']
-    tail = [column_name for column_name in columns_names if column_name not in right_ordered_columns]
-    right_ordered_columns.extend(tail)
-    dataframe_prepared_for_calculate_correlation = dataframe_prepared_for_calculate_correlation[right_ordered_columns]
-
-    return dataframe_prepared_for_calculate_correlation.corr(method='spearman')
-'''
-
 
 def calculate_correlation_matrix(aggregate_ranking_dataframe):
     dataframe_prepared_for_calculate_correlation = aggregate_ranking_dataframe.drop('University Name', axis=1)
-    #dataframe_prepared_for_calculate_correlation = aggregate_ranking_dataframe.drop('university_name', axis=1)
-    #dataframe_prepared_for_calculate_correlation.rename(columns={'aggregate_rank' : 'Aggregate Rank', 'rank' : 'Rank'}, inplace=True)
-    #columns_names = dataframe_prepared_for_calculate_correlation.columns.tolist()
-    #right_ordered_columns = ['Rank', 'Aggregate Rank']
-    #tail = [column_name for column_name in columns_names if column_name not in right_ordered_columns]
-    #right_ordered_columns.extend(tail)
-    #dataframe_prepared_for_calculate_correlation = dataframe_prepared_for_calculate_correlation[right_ordered_columns]
-
     return dataframe_prepared_for_calculate_correlation.corr(method='spearman')
 
-
-'''
-def prepare_correlation_matrix_to_response(correlation_matrix):
-    print 'Entry in prepare_correlation_matrix_to_response'
-    print 'prepare_correlation_matrix_to_response, before call correlation_matrix.to_dict()'
-    correlation_matrix_dict = correlation_matrix.to_dict()
-    print 'prepare_correlation_matrix_to_response, after call correlation_matrix.to_dict()'
-    correlation_matrix_dict_keys = correlation_matrix_dict.keys()
-    correlation_matrix_table = []
-    correlation_matrix_table_first_row = [' ']
-    print 'prepare_correlation_matrix_to_response, before call correlation_matrix_table_first_row.extend():'
-    correlation_matrix_table_first_row.extend(correlation_matrix_dict_keys)
-    correlation_matrix_table.append(correlation_matrix_table_first_row)
-    print 'prepare_correlation_matrix_to_response, correlation_matrix_dict_keys: ', correlation_matrix_dict_keys
-    for key in correlation_matrix_dict_keys:
-        row = [key]
-        print 'prepare_correlation_matrix_to_response, row: ', row
-        record = correlation_matrix_dict[key]
-        print 'prepare_correlation_matrix_to_response, record: ', record
-        for key_1 in correlation_matrix_dict_keys:
-            print 'prepare_correlation_matrix_to_response, key_1: ', key_1
-            row.append(float('{0:.2f}'.format(record[key_1])))
-        correlation_matrix_table.append(row)
-
-    return correlation_matrix_table
-'''
 
 
 def prepare_correlation_matrix_to_response(correlation_matrix):
@@ -122,16 +75,13 @@ def prepare_correlation_matrix_to_response(correlation_matrix):
     tail = [column_name for column_name in columns_names if column_name not in right_ordered_columns]
     right_ordered_columns.extend(tail)
     table_first_row.extend(right_ordered_columns)
-    print 'prepare_correlation_matrix_to_response, table_first_row: ', table_first_row
     correlation_matrix_table.append(table_first_row)
-    print 'prepare_correlation_matrix_to_response, after add table_first_row: ', correlation_matrix_table
     records = correlation_matrix.to_dict()
     for column_name in right_ordered_columns:
         table_row = [column_name]
         record = records[column_name]
         for column_name in right_ordered_columns:
             table_row.append(float('{0:.2f}'.format(record[column_name])))
-            print 'prepare_correlation_matrix_to_response, table_row: ', table_row
         correlation_matrix_table.append(table_row)
         
     return correlation_matrix_table
@@ -164,8 +114,6 @@ def to_mem_excel(dataframe, sheet_name='WorkSheet'):
     return iobuffer.getvalue()
 
 def to_mem_csv(dataframe, index=False, sep=';'):
-    print 'Entry to_mem_csv'
-    print 'to_mem_csv, index: ', index
     iobuffer = BytesIO()
     dataframe.to_csv(iobuffer, index=index, sep=sep, encoding='utf-8')
     iobuffer.flush()
@@ -173,17 +121,11 @@ def to_mem_csv(dataframe, index=False, sep=';'):
     return iobuffer.getvalue()
 
 def to_gzip(data):
-    print 'Entry in to_gzip'
     iobuffer = StringIO()
-    print 'to_gzip, before call GzipFile'
     gzip_mem_object = GzipFile(mode='wb', compresslevel=6, fileobj=iobuffer)
-    print 'to_gzip, after call GzipFile, before gzip_mem_object.write(data)'
     gzip_mem_object.write(data)
-    print 'to_gzip, after gzip_mem_object.write(data), before gzip_mem_object.flush()'
     gzip_mem_object.flush()
-    print 'to_gzip, after gzip_mem_object.flush(), before gzip_mem_object.close()'
     gzip_mem_object.close()
-    print 'to_gzip, after gzip_mem_object.close(), before return iobuffer.value()'
     return iobuffer.getvalue()
 
 
@@ -195,28 +137,20 @@ class Storage(object):
         self.storage_model = Result
 
     def save(self, key, value):
-        print 'Entry in Storage.save method'
-        #self.cache.set(key, value, None)
         item_list = self.storage_model.objects.filter(key=key)
         #if item_list == []:
         if len(item_list) == 0:
-            print 'len(item_list) == 0'
             new_stored_item = self.storage_model(key=key, value=value)
-            print 'After create new_stored item'
             try:
                 new_stored_item.save()
             except Error as e:
                 print e
-            print 'After save new_stored item'
         else:
             print 'len(item_list) == ', len(item_list)
         return
 
     def get(self, key):
-        print 'Entry in storage.get'
-        #return self.cache.get(key)
         item_list = list(self.storage_model.objects.filter(key=key))
-        print 'storage.get, item_list: ', item_list
         if item_list != []:
         #if len(item_list) > 0:
             print 'storage.get, item_list != []'
@@ -227,7 +161,6 @@ class Storage(object):
 
 
     def delete(self, key):
-        #self.cache.delete(key)
         item_list = self.storage_model.objects.filter(key=key)
         #if item_list != []:
         if len(item_list) > 0:
@@ -239,23 +172,9 @@ class Storage(object):
         self.storage_model.objects.all().delete()
 
 
-
 def check_file_exist(csv_file_path):
     return os.path.exists(csv_file_path)
 
-
-def to_csv(csv_file_path, dataframe):
-    print 'Entry in to_csv'
-    print 'to_csv, before call dataframe.to_csv'
-    dataframe.to_csv(csv_file_path, sep=';', encoding='utf-8')
-    return
-
-
-def to_xls(xls_file_path, dataframe):
-    print 'Entry in to_xls'
-    print 'to_xls, before call dataframe.to_xls'
-    dataframe.to_excel(xls_file_path, index=False)
-    return
 
 
 def index(request):
@@ -344,9 +263,6 @@ class RankingTableAPIView(APIView):
             correlation_matrix = pd.read_csv(StringIO(saved_correlation_matrix), sep=';', encoding='utf-8', index_col=0)
 
 
-        print 'aggregate_ranking_dataframe[:3]: ', aggregate_ranking_dataframe[:3]
-
-
         #prepared_for_response_correlation_matrix = None
         #if request_data['needsToBeUpdated']:
         #    prepared_for_response_correlation_matrix = prepare_correlation_matrix_to_response(correlation_matrix)
@@ -354,8 +270,6 @@ class RankingTableAPIView(APIView):
         #    prepared_for_response_correlation_matrix = None
 
         print 'Before call prepare_correlation_matrix_to_response'
-        print 'correlation_matrix:\n'
-        print correlation_matrix
         prepared_for_response_correlation_matrix = prepare_correlation_matrix_to_response(correlation_matrix)
         print 'After call prepare_correlation_matrix_to_response'
         response_data['correlationMatrix'] = prepared_for_response_correlation_matrix
@@ -429,9 +343,7 @@ class FileDownloadAPIView(APIView):
         print 'FileDownloadAPIView post, storage_key: ', storage_key
         #download_file_data = storage.get(storage_key)
         download_file_buffer = storage.get(storage_key)
-        print 'download_file_buffer', download_file_buffer
-        #download_file_data = StringIO(download_file_buffer).getvalue()
-        #print 'FileDownloadAPIView post, download_file_data: ', download_file_data
+        #print 'download_file_buffer', download_file_buffer
         download_file_data = None
         if file_type == 'csv':
             print 'FileDownloadAPIView, post, file_type == \'csv\', before call to_gzip'
