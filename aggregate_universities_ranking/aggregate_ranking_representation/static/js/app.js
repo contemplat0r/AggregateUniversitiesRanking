@@ -2,8 +2,7 @@
 
 /* App Module */
 
-//var rankingApp = angular.module('rankingApp', ['ngRoute', 'rankingControllers', 'ngAnimate', 'treasure-overlay-spinner', 'ng.bs.dropdown']);
-var rankingApp = angular.module('rankingApp', ['ngRoute', 'rankingControllers', 'ngAnimate', 'treasure-overlay-spinner', 'ui.bootstrap', 'ng.bs.dropdown']);
+var rankingApp = angular.module('rankingApp', ['ngRoute', 'rankingControllers', 'ngAnimate', 'treasure-overlay-spinner', 'ui.bootstrap']);
 
 rankingApp.config(['$routeProvider',
     function($routeProvider) {

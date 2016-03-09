@@ -10,9 +10,6 @@
         <!--<link href="{% static "bootstrap/css/bootstrap.min.css" %}" rel="stylesheet">-->
         <link href="{% static "bower_components/bootstrap/dist/css/bootstrap.min.css" %}" rel="stylesheet">
         <link href="{% static "bower_components/bootstrap/dist/css/bootstrap-theme.min.css" %}" rel="stylesheet">
-        <script src="{% static "bower_components/bootstrap-select/dist/js/bootstrap-select.min.js" %}"></script>
-        <link href="{% static "bower_components/bootstrap-select/dist/css/bootstrap-select.min.css" %}" rel="stylesheet">
-        <script src="{% static "bower_components/bootstrap-select/dist/js/i18n/defaults-*.min.js" %}"></script>
         <link href="{% static "css/navbar.css" %}" rel="stylesheet">
         <link href="{% static "css/jqmath-0.4.3.css" %}" rel="stylesheet">
         <link href="{% static "css/treasure-overlay-spinner.css" %}" rel="stylesheet">
@@ -31,38 +28,36 @@
         <script src="{% static "js/FileSaver.min.js" %}"></script>
         <script src="{% static "js/md5.js" %}"></script>
         <script src="{% static "js/jqmath-etc-0.4.3.min.js" %}"></script>
-        <script src="{% static "js/bsDropdown.min.js" %}"></script>
         <script>M.MathPlayer = false; M.trustHtml = true;</script>
         <script> function processMath() {M.parseMath("methodologyMath");} </script>
     </head>
     <!--<body ng-app="rankingApp">-->
     {% verbatim %}
-    <body ng-controller="NavigationController">
-
- <div class="dropdown">
-     <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">
-         Dropdown Example
-         <span class="caret">
-         </span>
-     </button>
-     <ul class="dropdown-menu">
-         <li>
-             <a href="#">
-                 HTML
-             </a>
-         </li>
-         <li>
-             <a href="#">
-                 CSS
-             </a>
-         </li>
-         <li>
-             <a href="#">
-                 JavaScript
-             </a>
-         </li>
-     </ul>
- </div>
+    <body ng-controller="NavigationController"> 
+        <!--<div class="dropdown">
+            <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">
+             Dropdown Example
+             <span class="caret">
+             </span>
+         </button>
+         <ul class="dropdown-menu">
+             <li>
+                 <a href="#">
+                     HTML
+                 </a>
+             </li>
+             <li>
+                 <a href="#">
+                     CSS
+                 </a>
+             </li>
+             <li>
+                 <a href="#">
+                     JavaScript
+                 </a>
+             </li>
+         </ul>
+         </div>-->
         <div class="row">
             <div class="col-sm-2">
                 <div class="sidebar-nav">
@@ -88,7 +83,32 @@
             <div class="col-sm-10">
                 <label for="langSelect" id="langSelect">{{langValues.selectLanguageTitle}}:
                 </label>
-
+                <!--<div class="dropdown">
+                    <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown" id="langDropdownMenu">
+                        Select Lang:
+                        <span class="caret">
+                        </span>
+                    </button>
+                    <ul class="dropdown-menu" aria-labelledby="langDropdownMenu">
+                        <li ng-repeat="lang in langSelect.availableLanguages">
+                            <div id="langId{{lang.id}}" ng-click="setLang(lang.id)">
+                                {{ lang.value }}
+                            </div>
+                        </li>
+                    </ul>
+                    </div>-->
+                <div class="btn-group" uib-dropdown is-open="status.isopen">
+                    <button id="langDropdownMenu" type=button" class="btn btn-primary" uib-dropdown-toggle ng-diabled="disabled">
+                        Set lang: <span class="caret"></span>
+                    </button>
+                    <ul uib-dropdown-menu role="menu" aria-labelledby="langDropdownMenu">
+                        <li ng-repeat="lang in langSelect.availableLanguages" role="menuitem">
+                            <div id="langId{{lang.id}}" ng-click="setLang(lang.id)">
+                                {{ lang.value }}
+                            </div>
+                        </li>
+                    </ul>
+                </div>
                 <select class="selectpicker" name="langSelect" id="langSelect" ng-options="lang.value for lang in langSelect.availableLanguages track by lang.id" ng-model="langSelect.selectedLang" ng-change="changeLanguage()">
                 </select>
 

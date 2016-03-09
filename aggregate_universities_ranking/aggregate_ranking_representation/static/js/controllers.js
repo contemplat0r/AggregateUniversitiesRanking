@@ -376,6 +376,7 @@ rankingApp.controller('NavigationController', function($scope, $timeout) {
     var methodologyRu = 'Положим, у нас есть  ранжированные списки объектов $R_i$ и $R_j$, длинною соответственно $l_i$ и $l_j$. Пусть дан $u, u ∊ R_i$, тогда его ранг $r_i(u)$ в этом списке равен его равен его номеру $n_i(u)$ в этом списке. Пусть $r_j(u)$ — ранг объекта $u$ в списке $R_j$. Тогда, если $u ∊ R_j$, то $r_j(u) = n_j(u)$, где $n_j(u)$ — номер объекта $u$ в списке $R_j$, иначе $r_j(u) = l_j + 1$. То есть если $u$ принадлежит списку $R_j$, то ранг $u$ в $R_j$ равен номеру $u$ в этом списке, в противоположном случае ранг $u$ в $R_j$ равен $l_j + 1$ — на единицу больше длины списка $R_j$. Исходя из этого принципа  Judit Bar-Ilan et al. строят межранговое расстояние между частично пересекающимися списками в своей работе «Methods for comparing rankings of search engine results».  Далее, совокупный ранг $r_k$ объекта $u_k$ вычисляется следующим образом: $$r_k = ∑↙{i=1}↖N r_j(u_k)$$ где $r_j(u_k)$ — ранг $u_k$ в списке $R_j$, $N$ — число ранжированных списков $($$j = 1,2,3…N$ — номера списков$)$, то есть он просто равен сумме всех рангов для всех списков рангов. Другие, более изощрённые подходы $($без приписывания весовых коэффициентов каждому из рангов$)$ подобные использованным в работе [3] существенного результата бы не дали — конечная ранжировка в интегрированном рейтинге не изменилась бы.';
 
     $scope.changeLanguage = function() {
+        console.log('Entry in changeLanguage');
         var mathDiv = angular.element(document.getElementById('methodolgyMath'));
         mathDiv.html('');
         if ($scope.langSelect.selectedLang.id == 0) {
@@ -390,10 +391,27 @@ rankingApp.controller('NavigationController', function($scope, $timeout) {
         M.parseMath(document.body);
     };
     
+    $scope.setLang = function(langId) {
+        console.log('Entry in setLang');
+        console.log('setLang: ' + langId);
+        var mathDiv = angular.element(document.getElementById('methodolgyMath'));
+        mathDiv.html('');
+        if (langId == '0') {
+            $scope.langValues = langEnValues;
+            mathDiv.html(methodologyEn);
+        }
+        else if (langId == '1') {
+            $scope.langValues = langRuValues;
+            mathDiv.html(methodologyRu);
+        }
+
+        M.parseMath(document.body);
+
+    };
 
     function initNavClasses() {
         navClasses = ['', ''];
-    }
+    };
 
     $scope.getNavClass = function(navItemNum) {
         return navClasses[navItemNum];
