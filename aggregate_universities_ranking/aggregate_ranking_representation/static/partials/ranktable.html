@@ -49,22 +49,25 @@
 
     <label for="rankingCheckListForm" id="rankingCheckListForm">{{langValues.selectRankingsNamesTitle}}: </label>
     <form name="rankingCheckListForm" id="rankingCheckListForm" class="form-inline">
-    <form name="rankingCheckListForm" id="rankingCheckListForm" class="form-inline">
-        <div class="dropdown">
+        <!--<div class="dropdown">
             <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">
                 Select ranking:
                 <span class="caret">
                 </span>
-            </button>
-            <ul class="dropdown-menu">
-                <!--<ul class="list-inline">-->
-                <li ng-repeat="checkRecord in rankingCheckList">
-                    <div class="checkbox">
-                        <input type="checkbox" ng-model="checkRecord.value">{{checkRecord.name}}</input>
-                    </div>
-                </li>
-            </ul>
-        </div>
+                </button>-->
+            <div class="panel panel-info">
+                <div class="panel-heading"> Select rankings
+                    <ul class="list-inline">
+                    <!--<ul class="dropdown-menu">-->
+                        <li ng-repeat="checkRecord in rankingCheckList">
+                            <div class="checkbox">
+                                <input type="checkbox" ng-model="checkRecord.value">{{checkRecord.name}}</input>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <!--</div>-->
         <div class="dropdown">
             <label for="yearSelect" id="yearSelect">{{langValues.selectYearTitle}}: </label>
             <select name="yearSelect" id="yearSelect" class="form-control" ng-options="year.value for year in yearSelect.availableYears track by year.id" ng-model="yearSelect.selectedYear"></select>

@@ -1,0 +1,12 @@
+.dropdown-menu {
+   /*background-color: #677583;*/
+   /*background-color: #939aa9;*/
+   background-color: #bcbcbc;
+}
+.dropdown-menu > li > div:hover, dropdown-menu > li > div:focus {
+   background-image:none !important;
+}
+.dropdown-menu > li > div:hover, dropdown-menu > li > div:focus {
+   /*background-color:gray;*/
+   background-color:#5f5f5f;
+}
