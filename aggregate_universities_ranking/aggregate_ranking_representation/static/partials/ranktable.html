@@ -22,54 +22,37 @@
              ng-change="changeYear()">
             </div>
         </div>
-    </div>
-    <div class="panel panel-default">
-        <div class="panel-heading">A divider demo for bsDropdown.</div>
-        <div class="panel-body" ng-controller="DividerController">
-            <div bs-dropdown 
-                 bs-dropdown-display="MyDropDown" 
-                 bs-dropdown-items="actions" 
-                 bs-dropdown-divider="{{[2,5]}}" 
-                 ng-model="selectAction"></div>
-        </div>
-    </div>
-    <div class="panel panel-default">
-        <div class="panel-heading">A multiselect dropdown demo for bsDropdown.</div>
-        <div class="panel-body" ng-controller="MultiSelectController">
-            <div bs-dropdown 
-                 bs-dropdown-multi 
-                 bs-dropdown-display="Multiselect" 
-                 bs-dropdown-items="actions" 
-                 ng-model="selectAction" 
-                 bs-dropdown-item-disabled="{{[0,5]}}" 
-                 bs-dropdown-divider="{{[2,5]}}" 
-                 ng-change="change()"></div>
-        </div>
         </div>-->
 
     <label for="rankingCheckListForm" id="rankingCheckListForm">{{langValues.selectRankingsNamesTitle}}: </label>
     <form name="rankingCheckListForm" id="rankingCheckListForm" class="form-inline">
-        <!--<div class="dropdown">
-            <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">
-                Select ranking:
+        <div class="panel panel-info">
+            <div class="panel-heading"> Select rankings
+                <ul class="list-inline">
+                <!--<ul class="dropdown-menu">-->
+                    <li ng-repeat="checkRecord in rankingCheckList">
+                        <div class="checkbox checkbox-primary">
+                            <input type="checkbox" ng-model="checkRecord.value"><div>{{checkRecord.name}}</div></input>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <label for="yearSelect" id="yearSelect">{{langValues.selectYearTitle}}: </label>
+        <div class="dropdown">
+            <button class="btn btn-primary dropdown-toggle btn-sm" type="button" data-toggle="dropdown" id="yearDropdownMenu">
+                {{yearSelect.selectedYear.value}}
+                <!--{{currentSelectedYear}}-->
                 <span class="caret">
                 </span>
-                </button>-->
-            <div class="panel panel-info">
-                <div class="panel-heading"> Select rankings
-                    <ul class="list-inline">
-                    <!--<ul class="dropdown-menu">-->
-                        <li ng-repeat="checkRecord in rankingCheckList">
-                            <div class="checkbox checkbox-primary">
-                                <input type="checkbox" ng-model="checkRecord.value"><div>{{checkRecord.name}}</div></input>
-                            </div>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-            <!--</div>-->
-        <div class="dropdown">
-            <label for="yearSelect" id="yearSelect">{{langValues.selectYearTitle}}: </label>
+            </button>
+            <ul class="dropdown-menu" aria-labelledby="yearDropdownMenu">
+                <li ng-repeat="year in yearSelect.availableYears">
+                    <div id="yearId{{year.id}}" ng-click="setYear(year.id)">
+                        {{ year.value }}
+                    </div>
+                </li>
+            </ul>
             <select name="yearSelect" id="yearSelect" class="form-control" ng-options="year.value for year in yearSelect.availableYears track by year.id" ng-model="yearSelect.selectedYear"></select>
         </div>
 

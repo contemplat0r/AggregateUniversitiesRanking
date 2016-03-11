@@ -16,10 +16,7 @@ rankingApp.controller('RankingTableController', function($scope, $http) {
 
     $scope.setActiveNavItem(2);
 
-    //var paginationParameters = {};
-
     $scope.rankingTable = {headers : [], records : []};
-    $scope.paginationParameters = {};
     $scope.yearSelect = null;
     $scope.rankingCheckList = null;
     $scope.paginationParameters = {};
@@ -348,6 +345,17 @@ rankingApp.controller('RankingTableController', function($scope, $http) {
         $scope.downloadFile($scope, 'correlation', 'xls');
     };
 
+    $scope.setYear = function(yearId) {
+        console.log('Entry in setYear');
+        var yearIndex = Number(yearId);
+        if ('yearSelect' in $scope) {
+            console.log('yearSelect in $scope');
+        }
+        else {
+            console.log('yearSelect not in $scope');
+        }
+        $scope.yearSelect.selectedYear = $scope.yearSelect.availableYears[yearIndex];
+    };
 });
 
 rankingApp.controller('StartController', function($scope) {
@@ -395,6 +403,9 @@ rankingApp.controller('NavigationController', function($scope, $timeout) {
         console.log('Entry in setLang');
         console.log('setLang: ' + langId);
         var mathDiv = angular.element(document.getElementById('methodolgyMath'));
+        var langIndex = Number(langId);
+        console.log('setLang, langIndex: ' + langIndex);
+        $scope.langSelect.selectedLang = $scope.langSelect.availableLanguages[langIndex];
         mathDiv.html('');
         if (langId == '0') {
             $scope.langValues = langEnValues;
@@ -405,9 +416,14 @@ rankingApp.controller('NavigationController', function($scope, $timeout) {
             mathDiv.html(methodologyRu);
         }
 
+        $scope.displayLang = function() {
+            return langSelect.selectedLang.value
+        };
+
         M.parseMath(document.body);
 
     };
+
 
     function initNavClasses() {
         navClasses = ['', ''];
@@ -420,13 +436,15 @@ rankingApp.controller('NavigationController', function($scope, $timeout) {
     $scope.setActiveNavItem = function(navItemNum) {
         initNavClasses();
         navClasses[navItemNum] = 'active';
-        $scope.changeLanguage();
+        //$scope.changeLanguage();
+        $scope.setLang($scope.langSelect.selectedLang.id);
     };
 
     initNavClasses();
     $scope.setActiveNavItem(1);
 
-    $timeout(function(){ $scope.changeLanguage(); }, 500);
+    //$timeout(function(){ $scope.changeLanguage(); }, 500);
+    $timeout(function(){ $scope.setLang($scope.langSelect.selectedLang.id); }, 500);
 
 });
 
