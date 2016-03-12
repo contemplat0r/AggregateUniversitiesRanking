@@ -1,7 +1,6 @@
-<strong>
-<!--Aggregated ranking table-->
+<!--<strong>
     {{langValues.rankingTablePageTitle}}
-</strong>
+    </strong>-->
 
 <br/>
 <!--<table cellspacing="2" border="1" cellpadding="5">-->
@@ -23,11 +22,19 @@
             </div>
         </div>
         </div>-->
-
-    <label for="rankingCheckListForm" id="rankingCheckListForm">{{langValues.selectRankingsNamesTitle}}: </label>
+    <!--<div class="bordered-container">
+        Hello
+        </div>-->
+    <div class="container">
+    <label for="rankingCheckListForm" id="rankingCheckListForm" class="bordered-container">{{langValues.selectRankingsNamesTitle}}: </label>
     <form name="rankingCheckListForm" id="rankingCheckListForm" class="form-inline">
-        <div class="panel panel-info">
+        <!--<div class="panel panel-info">
             <div class="panel-heading"> Select rankings
+        </div>
+        </div>-->
+        <div class="row">
+            <div class="col-md-6">
+                <!--<div class="span4">-->
                 <ul class="list-inline">
                 <!--<ul class="dropdown-menu">-->
                     <li ng-repeat="checkRecord in rankingCheckList">
@@ -37,30 +44,63 @@
                     </li>
                 </ul>
             </div>
-        </div>
-        <label for="yearSelect" id="yearSelect">{{langValues.selectYearTitle}}: </label>
-        <div class="dropdown">
-            <button class="btn btn-primary dropdown-toggle btn-sm" type="button" data-toggle="dropdown" id="yearDropdownMenu">
-                {{yearSelect.selectedYear.value}}
-                <!--{{currentSelectedYear}}-->
-                <span class="caret">
-                </span>
-            </button>
-            <ul class="dropdown-menu" aria-labelledby="yearDropdownMenu">
-                <li ng-repeat="year in yearSelect.availableYears">
-                    <div id="yearId{{year.id}}" ng-click="setYear(year.id)">
-                        {{ year.value }}
+            <div class="col-md-3">
+                <!--<div class="span3">-->
+                <div class="row">
+                    <!--<div class="span8">-->
+                    <div class="col-md-8">
+                        <label for="yearSelect" id="yearSelect">{{langValues.selectYearTitle}}: </label>
                     </div>
-                </li>
-            </ul>
-            <select name="yearSelect" id="yearSelect" class="form-control" ng-options="year.value for year in yearSelect.availableYears track by year.id" ng-model="yearSelect.selectedYear"></select>
+                    <!--<div class="span4">-->
+                    <div class="col-md-4">
+                        <div class="dropdown">
+                            <button class="btn btn-primary dropdown-toggle btn-sm" type="button" data-toggle="dropdown" id="yearDropdownMenu">
+                                {{yearSelect.selectedYear.value}}
+                                <!--{{currentSelectedYear}}-->
+                                <span class="caret">
+                                </span>
+                            </button>
+                            <ul class="dropdown-menu" aria-labelledby="yearDropdownMenu">
+                                <li ng-repeat="year in yearSelect.availableYears">
+                                    <div id="yearId{{year.id}}" ng-click="setYear(year.id)">
+                                        {{ year.value }}
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+            <!--<div class="span3">-->
+                <label for="recordsPerPageSelect" id="recordsPerPageSelect">{{langValues.selectPerPageTitle}}: </label>
+                <div class="dropdown">
+                    <button class="btn btn-primary dropdown-toggle btn-sm" type="button" data-toggle="dropdown" id="recordsPerPageDropdownMenu">
+                        {{paginationParameters.recordsPerPageSelection.selectedSize.value}}
+                        <span class="caret">
+                        </span>
+                    </button>
+                    <ul class="dropdown-menu" aria-labelledby="recordsPerPageDropdownMenu">
+                        <li ng-repeat="pageSize in paginationParameters.recordsPerPageSelection.availableSizes">
+                            <div id="pageSizeId{{pageSize.id}}" ng-click="setPageSize(pageSize.id)">
+                                {{ pageSize.value }}
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <!--<div class="col-md-2">-->
+            <!--<div class="span2">
+                <button type="submit" ng-click="sendSelected()" class="btn btn-primary btn-sm">
+                    {{langValues.applyButtonTitle}}
+                </button>
+                </div>-->
+            <button type="submit" ng-click="sendSelected()" class="btn btn-primary btn-sm">
+                {{langValues.applyButtonTitle}}
+            </button>
         </div>
-
-        <label for="recordsPerPageSelect" id="recordsPerPageSelect">{{langValues.selectPerPageTitle}}: </label>
-        <select name="recordsPerPageSelect" id="recordsPerPageSelect" ng-options="pageSize.value for pageSize in paginationParameters.recordsPerPageSelection.availableSizes track by pageSize.id" ng-model="paginationParameters.recordsPerPageSelection.selectedSize"></select>
-
-        <button type="submit" ng-click="sendSelected()" class="btn btn-primary btn-sm">{{langValues.applyButtonTitle}}</button>
     </form>
+    </div>
     <div name="correlationMatrixContainer" id="correlationMatrixContainer" ng-show="showCorrelationMatrix">
         <strong>
             {{langValues.correlationMatrixTitle}}
@@ -110,19 +150,19 @@
                     <div>
                         <ul class="pagination">
                             <li ng-class="prevPageDisabled()">
-                                <a href ng-click="goToFirstPage()">&laquo;</a>
+                                <a class="btn btn-primary btn-sm" href="" ng-click="goToFirstPage()">&laquo;</a>
                             </li>
                             <li ng-class="firstPageDisabled()">
-                                <a href ng-click="goToPrevPage()">&lsaquo;</a>
+                                <a class="btn btn-primary btn-sm" href="" ng-click="goToPrevPage()">&lsaquo;</a>
                             </li>
                              <li ng-repeat="pageNum in paginationParameters.showedPagesNumsArray track by $index" ng-class="{active: pageNum == paginationParameters.currentPageNum}" ng-click="goToPage(pageNum)">
-                                <a href="">{{ pageNum }}</a>
+                                <a class="btn btn-primary btn-sm" href="">{{ pageNum }}</a>
                             </li>
                             <li ng-class="lastPageDisabled()">
-                                <a href ng-click="goToNextPage()">&rsaquo;</a>
+                                <a class="btn btn-primary btn-sm" href="" ng-click="goToNextPage()">&rsaquo;</a>
                             </li>
                             <li ng-class="nextPageDisabled()">
-                                <a href ng-click="goToLastPage()">&raquo;</a>
+                                <a class="btn btn-primary btn-sm" href="" ng-click="goToLastPage()">&raquo;</a>
                             </li>
                         </ul>
                     </div>
