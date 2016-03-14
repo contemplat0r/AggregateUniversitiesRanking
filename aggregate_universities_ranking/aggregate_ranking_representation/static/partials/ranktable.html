@@ -21,15 +21,30 @@
                     <ul class="list-inline">
                     <!--<ul class="dropdown-menu">-->
                         <li ng-repeat="checkRecord in rankingCheckList" class="col-md-1">
-                            <div class="checkbox checkbox-primary">
-                                <input type="checkbox" ng-model="checkRecord.value"><div>{{checkRecord.name}}</div></input>
+                            <!--<span style="display:inline-block;">
+                                {{checkRecord.name}}
+                                </span>-->
+                            <div class="checkbox checkbox-primary" style="display:inline-block;">
+                                <!--<div style="display:inline-block;">
+                                    {{checkRecord.name}}
+                                    </div>-->
+                                <!--<div style="display:inline-block;">-->
+                                <input type="checkbox" ng-model="checkRecord.value">
+                                    <div>
+                                        {{checkRecord.name}}
+                                    </div>
+                                </input>
+                                <!--</div>-->
+                                <!--<input type="checkbox" ng-model="checkRecord.value">
+                                    </input>-->
                             </div>
                         </li>
                     </ul>
                 </div>
              </div>
              <div class="row">
-                <div class="col-md-4">
+                <div class="col-md-3">
+                <!--<div class="col-md-4">-->
                     <!--<label style="float:left" for="yearSelect" id="yearSelect">{{langValues.selectYearTitle}}:-->
                     <!--<label for="yearSelect" id="yearSelect">{{langValues.selectYearTitle}}:
                         </label>-->
@@ -38,7 +53,8 @@
                         {{langValues.selectYearTitle}}:
                     </span>
                     <div class="dropdown" style="display:inline-block;">
-                        <button class="btn btn-primary dropdown-toggle btn-sm" type="button" data-toggle="dropdown" id="yearDropdownMenu">
+                        <!--<button class="btn btn-primary dropdown-toggle btn-sm" type="button" data-toggle="dropdown" id="yearDropdownMenu">-->
+                        <button class="btn-custom dropdown-toggle btn-sm" type="button" data-toggle="dropdown" id="yearDropdownMenu">
                             {{yearSelect.selectedYear.value}}
                             <!--{{currentSelectedYear}}-->
                             <span class="caret">
@@ -54,14 +70,15 @@
                         </ul>
                     </div>
                 </div>
-                <div class="col-md-4">
+                <div class="col-md-3">
                     <!--<label for="recordsPerPageSelect" id="recordsPerPageSelect">{{langValues.selectPerPageTitle}}: </label>-->
 
                     <span style="display:inline-block;">
                         {{langValues.selectPerPageTitle}}:
                     </span>
                     <div class="dropdown" style="display:inline-block;">
-                        <button class="btn btn-primary dropdown-toggle btn-sm" type="button" data-toggle="dropdown" id="recordsPerPageDropdownMenu">
+                        <!--<button class="btn btn-primary dropdown-toggle btn-sm" type="button" data-toggle="dropdown" id="recordsPerPageDropdownMenu">-->
+                        <button class="btn dropdown-toggle btn-sm" type="button" data-toggle="dropdown" id="recordsPerPageDropdownMenu">
                             {{paginationParameters.recordsPerPageSelection.selectedSize.value}}
                             <span class="caret">
                             </span>
@@ -75,7 +92,8 @@
                         </ul>
                     </div>
                 </div>
-                <div class="col-md-4">
+                <!--<div class="col-md-1 col-md-offset-1" style="display:inline-block;">-->
+                <div class="col-md-1" style="display:inline-block;">
                     <button type="submit" ng-click="sendSelected()" class="btn btn-primary btn-sm">
                         {{langValues.applyButtonTitle}}
                     </button>
