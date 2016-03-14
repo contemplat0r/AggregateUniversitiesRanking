@@ -65,7 +65,22 @@
                /*padding-top: 20px;
                  padding-bottom: 20px;*/
            }
-
+           .dropdown-menu {
+               min-width: 0px !important;
+               width: 100%;
+           }
+           /*ul.dropdown-menu-narrow {
+               min-width: 0px !important;
+               width: 40%;
+           }*/
+           ul.dropdown-menu > li {
+               /*float: left;*/
+               /*width: 50%;*/
+               padding-left :8px;
+           }
+           span.inline {
+               display:inline;
+           }
         </style>
 
         <script src="{% static "bower_components/angular/angular.js" %}"></script>
@@ -117,15 +132,18 @@
                 <!--<div class="col-md-10">-->
                 <!--<div class="col-md-6">-->
                 <!--<div class="col-md-2 col-md-offset-4 pull-right">-->
-                <div class="col-md-2 col-md-offset-4 text-right">
+                <!--<div class="col-md-2 col-md-offset-4 text-center">-->
+                <!--<div class="col-md-2 col-md-offset-4 text-right">-->
+                <div class="col-md-2 col-md-offset-4">
                     <!--<label for="langSelect" id="langSelect">{{langValues.selectLanguageTitle}}:
                         </label>-->
-                    <div class="dropdown">
+                    <div class="dropdown" style="display:inline-block;">
                         <button class="btn btn-primary dropdown-toggle btn-sm" type="button" data-toggle="dropdown" id="langDropdownMenu">
                             {{langSelect.selectedLang.value}}
                             <span class="caret">
                             </span>
                         </button>
+                        <!--<ul class="dropdown-menu col-sm-1" aria-labelledby="langDropdownMenu">-->
                         <ul class="dropdown-menu" aria-labelledby="langDropdownMenu">
                             <li ng-repeat="lang in langSelect.availableLanguages">
                                 <div id="langId{{lang.id}}" ng-click="setLang(lang.id)">

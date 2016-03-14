@@ -14,61 +14,59 @@
         Hello
         </div>-->
     <div class="container">
-        <!--<label for="rankingCheckListForm" id="rankingCheckListForm" class="bordered-container">{{langValues.selectRankingsNamesTitle}}: </label>-->
         <form name="rankingCheckListForm" id="rankingCheckListForm" class="form-inline">
-            <!--<div class="panel panel-info">
-                <div class="panel-heading"> Select rankings
-            </div>
-            </div>-->
             <div class="row">
-                <div class="col-md-6">
-                    <!--<div class="span4">-->
+                <!--<div class="col-md-6">-->
+                <div class="col-md-12">
                     <ul class="list-inline">
                     <!--<ul class="dropdown-menu">-->
-                        <li ng-repeat="checkRecord in rankingCheckList">
+                        <li ng-repeat="checkRecord in rankingCheckList" class="col-md-1">
                             <div class="checkbox checkbox-primary">
                                 <input type="checkbox" ng-model="checkRecord.value"><div>{{checkRecord.name}}</div></input>
                             </div>
                         </li>
                     </ul>
                 </div>
-                <div class="col-md-3">
-                    <!--<div class="span3">-->
-                    <div class="row">
-                        <!--<div class="span8">-->
-                        <div class="col-md-8">
-                            <label for="yearSelect" id="yearSelect">{{langValues.selectYearTitle}}: </label>
-                        </div>
-                        <!--<div class="span4">-->
-                        <div class="col-md-4">
-                            <div class="dropdown">
-                                <button class="btn btn-primary dropdown-toggle btn-sm" type="button" data-toggle="dropdown" id="yearDropdownMenu">
-                                    {{yearSelect.selectedYear.value}}
-                                    <!--{{currentSelectedYear}}-->
-                                    <span class="caret">
-                                    </span>
-                                </button>
-                                <ul class="dropdown-menu" aria-labelledby="yearDropdownMenu">
-                                    <li ng-repeat="year in yearSelect.availableYears">
-                                        <div id="yearId{{year.id}}" ng-click="setYear(year.id)">
-                                            {{ year.value }}
-                                        </div>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
+             </div>
+             <div class="row">
+                <div class="col-md-4">
+                    <!--<label style="float:left" for="yearSelect" id="yearSelect">{{langValues.selectYearTitle}}:-->
+                    <!--<label for="yearSelect" id="yearSelect">{{langValues.selectYearTitle}}:
+                        </label>-->
+                        <!--<span class="inline">-->
+                    <span style="display:inline-block;">
+                        {{langValues.selectYearTitle}}:
+                    </span>
+                    <div class="dropdown" style="display:inline-block;">
+                        <button class="btn btn-primary dropdown-toggle btn-sm" type="button" data-toggle="dropdown" id="yearDropdownMenu">
+                            {{yearSelect.selectedYear.value}}
+                            <!--{{currentSelectedYear}}-->
+                            <span class="caret">
+                            </span>
+                        </button>
+                        <!--<ul class="dropdown-menu dropdown-menu-narrow" aria-labelledby="yearDropdownMenu">-->
+                        <ul class="dropdown-menu" aria-labelledby="yearDropdownMenu">
+                            <li ng-repeat="year in yearSelect.availableYears">
+                                <div id="yearId{{year.id}}" ng-click="setYear(year.id)">
+                                    {{ year.value }}
+                                </div>
+                            </li>
+                        </ul>
                     </div>
                 </div>
-                <div class="col-md-3">
-                <!--<div class="span3">-->
-                    <label for="recordsPerPageSelect" id="recordsPerPageSelect">{{langValues.selectPerPageTitle}}: </label>
-                    <div class="dropdown">
+                <div class="col-md-4">
+                    <!--<label for="recordsPerPageSelect" id="recordsPerPageSelect">{{langValues.selectPerPageTitle}}: </label>-->
+
+                    <span style="display:inline-block;">
+                        {{langValues.selectPerPageTitle}}:
+                    </span>
+                    <div class="dropdown" style="display:inline-block;">
                         <button class="btn btn-primary dropdown-toggle btn-sm" type="button" data-toggle="dropdown" id="recordsPerPageDropdownMenu">
                             {{paginationParameters.recordsPerPageSelection.selectedSize.value}}
                             <span class="caret">
                             </span>
                         </button>
-                        <ul class="dropdown-menu" aria-labelledby="recordsPerPageDropdownMenu">
+                        <ul class="dropdown-menu dropdown-menu-narrow" aria-labelledby="recordsPerPageDropdownMenu">
                             <li ng-repeat="pageSize in paginationParameters.recordsPerPageSelection.availableSizes">
                                 <div id="pageSizeId{{pageSize.id}}" ng-click="setPageSize(pageSize.id)">
                                     {{ pageSize.value }}
@@ -77,9 +75,11 @@
                         </ul>
                     </div>
                 </div>
-                <button type="submit" ng-click="sendSelected()" class="btn btn-primary btn-sm">
-                    {{langValues.applyButtonTitle}}
-                </button>
+                <div class="col-md-4">
+                    <button type="submit" ng-click="sendSelected()" class="btn btn-primary btn-sm">
+                        {{langValues.applyButtonTitle}}
+                    </button>
+                </div>
             </div>
         </form>
     </div>
