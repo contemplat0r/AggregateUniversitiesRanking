@@ -15,6 +15,7 @@
         </div>-->
     <div class="container">
         <form name="rankingCheckListForm" id="rankingCheckListForm" class="form-inline">
+            <div class="row" style="border:solid 2px #696969;">
             <div class="row">
                 <!--<div class="col-md-6">-->
                 <div class="col-md-12">
@@ -53,8 +54,8 @@
                         {{langValues.selectYearTitle}}:
                     </span>
                     <div class="dropdown" style="display:inline-block;">
-                        <!--<button class="btn btn-primary dropdown-toggle btn-sm" type="button" data-toggle="dropdown" id="yearDropdownMenu">-->
-                        <button class="btn-custom dropdown-toggle btn-sm" type="button" data-toggle="dropdown" id="yearDropdownMenu">
+                        <button class="btn btn-primary dropdown-toggle btn-sm" type="button" data-toggle="dropdown" id="yearDropdownMenu">
+                        <!--<button class="btn-custom dropdown-toggle btn-sm" type="button" data-toggle="dropdown" id="yearDropdownMenu">-->
                             {{yearSelect.selectedYear.value}}
                             <!--{{currentSelectedYear}}-->
                             <span class="caret">
@@ -70,6 +71,8 @@
                         </ul>
                     </div>
                 </div>
+            </div>
+            <div class="row">
                 <div class="col-md-3">
                     <!--<label for="recordsPerPageSelect" id="recordsPerPageSelect">{{langValues.selectPerPageTitle}}: </label>-->
 
@@ -77,8 +80,8 @@
                         {{langValues.selectPerPageTitle}}:
                     </span>
                     <div class="dropdown" style="display:inline-block;">
-                        <!--<button class="btn btn-primary dropdown-toggle btn-sm" type="button" data-toggle="dropdown" id="recordsPerPageDropdownMenu">-->
-                        <button class="btn dropdown-toggle btn-sm" type="button" data-toggle="dropdown" id="recordsPerPageDropdownMenu">
+                        <button class="btn btn-primary dropdown-toggle btn-sm" type="button" data-toggle="dropdown" id="recordsPerPageDropdownMenu">
+                        <!--<button class="btn dropdown-toggle btn-sm" type="button" data-toggle="dropdown" id="recordsPerPageDropdownMenu">-->
                             {{paginationParameters.recordsPerPageSelection.selectedSize.value}}
                             <span class="caret">
                             </span>
@@ -92,12 +95,13 @@
                         </ul>
                     </div>
                 </div>
+            </div>
                 <!--<div class="col-md-1 col-md-offset-1" style="display:inline-block;">-->
-                <div class="col-md-1" style="display:inline-block;">
-                    <button type="submit" ng-click="sendSelected()" class="btn btn-primary btn-sm">
-                        {{langValues.applyButtonTitle}}
-                    </button>
-                </div>
+            <div class="col-md-1" style="display:inline-block;">
+                <button type="submit" ng-click="sendSelected()" class="btn btn-primary btn-sm">
+                    {{langValues.applyButtonTitle}}
+                </button>
+            </div>
             </div>
         </form>
     </div>
@@ -120,7 +124,8 @@
                 </table>
             </span>
         </div>
-        <button class="btn btn-primary btn-sm" ng-click="showCorrelationMatrix = !showCorrelationMatrix" ng-init="showCorrelationMatrix = false">
+        <button class="btn btn-primary btn-sm " ng-click="showCorrelationMatrix = !showCorrelationMatrix" ng-init="showCorrelationMatrix = false">
+        <!--<button class="btn-custom btn-sm " ng-click="showCorrelationMatrix = !showCorrelationMatrix" ng-init="showCorrelationMatrix = false">-->
             <div ng-show="!showCorrelationMatrix">
                 {{langValues.showCorrelationMatrixButtonTitle}}
             </div>

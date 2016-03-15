@@ -432,7 +432,7 @@ rankingApp.controller('NavigationController', function($scope, $timeout) {
 
 
     function initNavClasses() {
-        navClasses = ['', ''];
+        navClasses = ['', '', ''];
     };
 
     $scope.getNavClass = function(navItemNum) {

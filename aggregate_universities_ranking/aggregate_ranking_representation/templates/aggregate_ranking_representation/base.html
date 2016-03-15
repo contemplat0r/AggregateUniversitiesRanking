@@ -20,11 +20,6 @@
         <style type="text/css">
            .table-hover tbody tr:hover td { background: gray; } 
            /*.span12 {*/
-           .container {
-               border:solid 12px #880000;
-               padding-top: 20px;
-               padding-bottom: 20px; 
-           }
            .dropdown-menu {
                min-width: 0px !important;
                width: 100%;
@@ -36,7 +31,9 @@
            ul.dropdown-menu > li {
                /*float: left;*/
                /*width: 50%;*/
-               padding-left :8px;
+               /*padding-left :8px;*/
+               padding-left :4px;
+               padding-right :4px;
            }
            span.inline {
                display:inline;
@@ -58,60 +55,41 @@
         <script> function processMath() {M.parseMath("methodologyMath");} </script>
     </head>
     {% verbatim %}
-    <body ng-controller="NavigationController"> 
+    <body ng-controller="NavigationController">
         <div class="container">
-            <div class="row">
-                <!--<div class="col-md-2">-->
-                <div class="col-md-6">
-                    <div class="navbar navbar-default" role="navigation">
-                        <div class="navbar-header">
-                            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".sidebar-navbar-collapse">
-                                <span class="sr-only">Toggle navigation</span>
-                                <span class="icon-bar"></span>
-                                <span class="icon-bar"></span>
-                            </button>
-                        </div>
-                        <div class="navbar-collapse collapse sidebar-navbar-collapse">
-                            <ul class="nav navbar-nav">
-                                <li ng-class="getNavClass(1)" ng-click="setActiveNavItem(1)">
-                                    <a href="#/">
-                                        {{langValues.homeNavigationTitle}}
-                                    </a>
-                                </li>
-                                <li ng-class="getNavClass(2)" ng-click="setActiveNavItem(2)">
-                                    <a href="#/ranktable">
-                                        {{langValues.rankingTableNavigationTitle}}
-                                    </a>
+            <nav class="navbar navbar-inverse">
+                <!--<div class="container-fluid">-->
+                    <ul class="nav navbar-nav">
+                        <li ng-class="getNavClass(1)" ng-click="setActiveNavItem(1)">
+                            <a href="#/">
+                                {{langValues.homeNavigationTitle}}
+                            </a>
+                        </li>
+                        <li ng-class="getNavClass(2)" ng-click="setActiveNavItem(2)">
+                            <a href="#/ranktable">
+                                {{langValues.rankingTableNavigationTitle}}
+                            </a>
+                        </li>
+                        <li class="divider">
+                        </li>
+                        <li class="dropdown navbar-right">
+                            <a class="dropdown-toggle" data-toggle="dropdown" href="">
+                                {{langSelect.selectedLang.value}}
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="langDropdownMenu">
+                                <li ng-repeat="lang in langSelect.availableLanguages">
+                                    <div id="langId{{lang.id}}" ng-click="setLang(lang.id)">
+                                        {{ lang.value }}
+                                    </div>
                                 </li>
                             </ul>
-                        </div><!--/.nav-collapse -->
-                    </div>
-                </div>
-                <!--<div class="col-md-10">-->
-                <!--<div class="col-md-6">-->
-                <!--<div class="col-md-2 col-md-offset-4 pull-right">-->
-                <!--<div class="col-md-2 col-md-offset-4 text-center">-->
-                <!--<div class="col-md-2 col-md-offset-4 text-right">-->
-                <div class="col-md-2 col-md-offset-4">
-                    <!--<label for="langSelect" id="langSelect">{{langValues.selectLanguageTitle}}:
-                        </label>-->
-                    <div class="dropdown" style="display:inline-block;">
-                        <button class="btn btn-primary dropdown-toggle btn-sm" type="button" data-toggle="dropdown" id="langDropdownMenu">
-                            {{langSelect.selectedLang.value}}
-                            <span class="caret">
-                            </span>
-                        </button>
-                        <!--<ul class="dropdown-menu col-sm-1" aria-labelledby="langDropdownMenu">-->
-                        <ul class="dropdown-menu" aria-labelledby="langDropdownMenu">
-                            <li ng-repeat="lang in langSelect.availableLanguages">
-                                <div id="langId{{lang.id}}" ng-click="setLang(lang.id)">
-                                    {{ lang.value }}
-                                </div>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
+                        </li>
+                    </ul>
+                    <!--<ul class="nav pull-right">-->
+                    <ul class="nav navbar-right">
+                    </ul>
+                    <!--</div>-->
+            </nav>
         </div>
         <div ng-view>
         </div>
