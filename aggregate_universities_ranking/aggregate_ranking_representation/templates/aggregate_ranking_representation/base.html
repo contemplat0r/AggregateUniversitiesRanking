@@ -14,6 +14,7 @@
         <link href="{% static "css/btn-custom.css" %}" rel="stylesheet">
         <link href="{% static "css/dropdown-menu-custom.css" %}" rel="stylesheet">
         <link href="{% static "css/custom.css" %}" rel="stylesheet">
+        <link href="{% static "css/pagination-custom.css" %}" rel="stylesheet">
         <!--<link href="{% static "css/awesome-bootstrap-checkbox.css" %}" rel="stylesheet">
         <link href="{% static "css/font-awesome.css" %}" rel="stylesheet">
         <link href="{% static "css/build.css" %}" rel="stylesheet">-->
@@ -41,6 +42,22 @@
            div.dropdown > ul.dropdown-menu > li {
                font-size : 12px;
            }
+           /*.pagination > li > a {
+               color: #303030;
+           }
+           .pagination > li.active > a {
+               background: #4d4d4d;
+               color: #505050;
+           }*/
+        .pagination > li > a:focus,
+        .pagination > li > a:hover,
+        .pagination > li > span:focus,
+        .pagination > li > span:hover {
+            z-index: 3;
+            color: #23527c;
+            background-color: purple;
+            border-color: #ddd;
+        }
         </style>
 
         <script src="{% static "bower_components/angular/angular.js" %}"></script>
