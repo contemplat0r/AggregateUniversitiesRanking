@@ -362,6 +362,10 @@ rankingApp.controller('RankingTableController', function($scope, $http) {
 
         $scope.paginationParameters.recordsPerPageSelection.selectedSize = $scope.paginationParameters.recordsPerPageSelection.availableSizes[pageSizeIndex];
     };
+
+    $scope.checkPageNumbersEq = function(pageNum) {
+        return pageNum === $scope.paginationParameters.currentPageNum;
+    };
 });
 
 rankingApp.controller('StartController', function($scope) {

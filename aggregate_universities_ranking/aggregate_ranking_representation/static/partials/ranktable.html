@@ -127,8 +127,10 @@
                                                 &lsaquo;
                                             </a>
                                         </li>
-                                        <!--<li ng-repeat="pageNum in paginationParameters.showedPagesNumsArray track by $index" ng-class="{active: pageNum == paginationParameters.currentPageNum}" ng-click="goToPage(pageNum)">-->
                                         <li ng-repeat="pageNum in paginationParameters.showedPagesNumsArray track by $index" ng-class="{active: pageNum == paginationParameters.currentPageNum}" ng-click="goToPage(pageNum)">
+                                        <!--<li ng-repeat="pageNum in paginationParameters.showedPagesNumsArray track by $index" ng-class="{active: pageNum == paginationParameters.currentPageNum}" ng-click="goToPage(pageNum)">-->
+                                        <!--<li ng-repeat="pageNum in paginationParameters.showedPagesNumsArray track by $index" ng-class="{checkPageNumbersEq(pageNum) ? 'dark-pagination' : 'light-pagination'}" ng-click="goToPage(pageNum)">-->
+                                        <!--<li ng-repeat="pageNum in paginationParameters.showedPagesNumsArray track by $index" ng-class="{'pagination' : pageNum == paginationParameters.currentPageNum}" ng-click="goToPage(pageNum)">-->
                                             <a class="btn btn-primary btn-sm" href="">
                                                 {{ pageNum }}
                                             </a>
