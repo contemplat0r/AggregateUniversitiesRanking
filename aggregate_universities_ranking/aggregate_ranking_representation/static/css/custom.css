@@ -56,6 +56,7 @@
   color: #414141;
   background-color: #eee;
   border-color: #ddd;
+  border: 1px solid;
 }
 .pagination > .active > a,
 .pagination > .active > span,
@@ -71,7 +72,9 @@
 
   background-color: #a6a6a6;
   color: #414141;
-  border-color: #a0a0a0;
+  /*border-color: #a0a0a0;*/
+  border-color: #bbb;
+  border: 1px solid;
 
 }
 .pagination > .disabled > span,
