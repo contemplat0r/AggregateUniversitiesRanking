@@ -80,3 +80,8 @@ class Result(models.Model):
 #    key = CharField(max_length=32, null, False, blank=False)
 #    value = CharField(max_length=64)
 
+class BigSiteText(models.Model):
+    lang = models.CharField(max_length=4, null=False, blank=False)
+    text_name = models.CharField(max_length=64, null=False, blank=False)
+    text = models.TextField()
+    

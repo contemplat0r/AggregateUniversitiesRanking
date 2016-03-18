@@ -23,7 +23,7 @@ from rest_framework.response import Response
 from rest_framework import status
 from pandas import DataFrame, ExcelWriter
 import pandas as pd
-from .models import RankingDescription, RankingValue, University, Result
+from .models import RankingDescription, RankingValue, University, Result, BigSiteText
 from .name_matching import ranking_descriptions, build_aggregate_ranking_dataframe, assemble_aggregate_ranking_dataframe
 from forms import SelectRankingsNamesAndYear
 
@@ -37,6 +37,7 @@ current_dir = os.path.join(BASE_DIR, 'aggregate_ranking_representation')
 csv_files_dir_relative_path = os.path.join('static', 'csv')
 csv_files_dir = os.path.join(current_dir, csv_files_dir_relative_path)
 
+lang_list = ['En', 'Ru'] # Will be from app config or database!!!
 
 def prepare_ranktable_to_response(aggregate_ranking_dataframe):
     ranktable = list()
@@ -364,5 +365,42 @@ class FileDownloadAPIView(APIView):
         response = HttpResponse(download_file_data)
         response['Content-Encoding'] = 'gzip'
         response['Content-Length'] = str(len(download_file_data))
+        return response
+
+class BigSiteTextsAPIView(APIView):
+
+    def get(self, request, *args, **kw):
+        #response = Response('', status=status.HTTP_200_OK) #Must inform about error
+        print 'Entry in BigSiteTextsAPIView get method'
+        response_data = {'methodologyTextEn' : None, 'methodologyTextRu' : None}
+        methodology_texts = BigSiteText.objects.filter(text_name='methodology')
+        methodology_text_en_list = list(methodology_texts.filter(lang='en'))
+
+        #if methodology_text_en_list != []:
+        #    response_data['methodologyTextEn'] = methodology_text_en_list[0]
+        
+        for lang in lang_list:
+            methodology_text_list = list(methodology_texts.filter(lang=lang))
+            if methodology_text_list != []:
+                response_data['methodologyText%s' % lang] = methodology_text_list[0]
+        print response_data
+        response = Response(response_data, status=status.HTTP_200_OK)
+        return response
+
+    def post(self, request, format=None):
+        print 'Entry in BigSiteTextsAPIView post method'
+        response_data = {'methodologyTextEn' : None, 'methodologyTextRu' : None}
+        methodology_texts = BigSiteText.objects.filter(text_name='methodology')
+        methodology_text_en_list = list(methodology_texts.filter(lang='en'))
+
+        #if methodology_text_en_list != []:
+        #    response_data['methodologyTextEn'] = methodology_text_en_list[0]
+        
+        for lang in lang_list:
+            methodology_text_list = list(methodology_texts.filter(lang=lang))
+            if methodology_text_list != []:
+                response_data['methodologyText%s' % lang] = methodology_text_list[0]
+
+        response = Response(response_data, status=status.HTTP_200_OK)
         return response
 
