@@ -6,6 +6,9 @@
             <div style="padding-left: 16px; padding-right: 16px;">
                 <form name="rankingCheckListForm" id="rankingCheckListForm" class="form-inline">
                     <ul class="list-inline">
+                        <!--<li>
+                            {{langValues.rankingsSelectPhrase}}
+                            </li>-->
                         <li ng-repeat="checkRecord in rankingCheckList">
                             <input type="checkbox" ng-model="checkRecord.value">
                             {{checkRecord.name}}

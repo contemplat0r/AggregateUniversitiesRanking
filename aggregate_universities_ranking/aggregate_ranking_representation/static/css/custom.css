@@ -308,3 +308,13 @@ fieldset[disabled] .btn-primary.active {
   background-color: #fff;
 }
 
+a {
+  color: #848484;
+}
+
+a:active,
+a:hover {
+  outline: 0;
+  color: #9f9f9f;
+}
+
