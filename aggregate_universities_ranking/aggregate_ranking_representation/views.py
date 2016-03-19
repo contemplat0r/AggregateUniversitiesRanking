@@ -370,20 +370,25 @@ class FileDownloadAPIView(APIView):
 class BigSiteTextsAPIView(APIView):
 
     def get(self, request, *args, **kw):
-        #response = Response('', status=status.HTTP_200_OK) #Must inform about error
         print 'Entry in BigSiteTextsAPIView get method'
-        response_data = {'methodologyTextEn' : None, 'methodologyTextRu' : None}
+        response_data = {
+                'methodologyTextEn' : None,
+                'methodologyTextRu' : None,
+                'aboutTextEn' : None,
+                'aboutTextRu' : None
+                }
         methodology_texts = BigSiteText.objects.filter(text_name='methodology')
-        methodology_text_en_list = list(methodology_texts.filter(lang='en'))
-
-        #if methodology_text_en_list != []:
-        #    response_data['methodologyTextEn'] = methodology_text_en_list[0]
+        about_texts = BigSiteText.objects.filter(text_name='about')
         
         for lang in lang_list:
             methodology_text_list = list(methodology_texts.filter(lang=lang))
+            about_text_list = list(about_texts.filter(lang=lang))
             if methodology_text_list != []:
-                response_data['methodologyText%s' % lang] = methodology_text_list[0]
-        print response_data
+                response_data['methodologyText%s' % lang] = methodology_text_list[0].text
+            if about_text_list != []:
+                response_data['aboutText%s' % lang] = about_text_list[0].text
+       
+        #response = Response('', status=status.HTTP_404_NOT_FOUND) #Must inform about error
         response = Response(response_data, status=status.HTTP_200_OK)
         return response
 
@@ -391,16 +396,12 @@ class BigSiteTextsAPIView(APIView):
         print 'Entry in BigSiteTextsAPIView post method'
         response_data = {'methodologyTextEn' : None, 'methodologyTextRu' : None}
         methodology_texts = BigSiteText.objects.filter(text_name='methodology')
-        methodology_text_en_list = list(methodology_texts.filter(lang='en'))
 
-        #if methodology_text_en_list != []:
-        #    response_data['methodologyTextEn'] = methodology_text_en_list[0]
-        
         for lang in lang_list:
             methodology_text_list = list(methodology_texts.filter(lang=lang))
             if methodology_text_list != []:
-                response_data['methodologyText%s' % lang] = methodology_text_list[0]
-
+                response_data['methodologyText%s' % lang] = methodology_text_list[0].text
         response = Response(response_data, status=status.HTTP_200_OK)
+
         return response
 

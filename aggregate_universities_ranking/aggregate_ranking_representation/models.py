@@ -84,4 +84,7 @@ class BigSiteText(models.Model):
     lang = models.CharField(max_length=4, null=False, blank=False)
     text_name = models.CharField(max_length=64, null=False, blank=False)
     text = models.TextField()
+
+    def __str__(self):
+        return '%s%s' % (text_name, lang)
     
