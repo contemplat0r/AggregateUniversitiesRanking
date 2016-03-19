@@ -86,5 +86,5 @@ class BigSiteText(models.Model):
     text = models.TextField()
 
     def __str__(self):
-        return '%s%s' % (text_name, lang)
+        return '%s%s' % (self.text_name, self.lang)
     
