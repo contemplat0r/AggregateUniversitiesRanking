@@ -409,8 +409,8 @@ rankingApp.controller('NavigationController', function($scope, $timeout, $http) 
             function successCallback(response) {
                 console.log('retrieveBigSiteTexts, success: ' + response.data);
                 methodologyEn = response.data.methodologyTextEn;
-                console.log('retrieveBigSiteTexts,  methodologyEn: ' + methodologyEn);
-                console.log('retrieveBigSiteTexts,  response.methodologyTextRu: ' + response.data.methodologyTextRu);
+                //console.log('retrieveBigSiteTexts,  methodologyEn: ' + methodologyEn);
+                //console.log('retrieveBigSiteTexts,  response.methodologyTextRu: ' + response.data.methodologyTextRu);
                 methodologyRu = response.data.methodologyTextRu;
 
                 aboutEn = response.data.aboutTextEn;
@@ -451,13 +451,11 @@ rankingApp.controller('NavigationController', function($scope, $timeout, $http) 
         mathDiv.html('');
         if (langId == '0') {
             $scope.langValues = langEnValues;
-            console.log('setLang, $scope.methodologyEn: ' + $scope.methodologyEn);
             $scope.about = aboutEn;
             mathDiv.html(methodologyEn);
         }
         else if (langId == '1') {
             $scope.langValues = langRuValues;
-            console.log('setLang, $scope.methodologyRu: ' + $scope.methodologyRu);
             $scope.about = aboutRu;
             mathDiv.html(methodologyRu);
         }
