@@ -15,12 +15,6 @@ import numpy as np
 from timeit import default_timer as timer
 import cProfile
 
-#DJANGO_PROJECT_DIR = join(abspath(join(dirname(__file__), '..')), 'aggregate_universities_ranking')
-#sys.path.append(DJANGO_PROJECT_DIR)
-#os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'aggregate_universities_ranking.settings')
-
-#django.setup()
-#from .models import RankingDescription, RawRankingRecord, University, RankingValue
 from aggregate_ranking_representation.models import RankingDescription, RawRankingRecord, University, RankingValue
 
 NaN = np.nan
