@@ -13,7 +13,7 @@ sys.path.append(DJANGO_PROJECT_DIR)
 os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'aggregate_universities_ranking.settings')
 import django
 django.setup()
-from aggregate_ranking_representation.models import RankingName, RawRankingRecord
+from aggregate_ranking_representation.models import RawRankingRecord, RankingDescription
 
 NONE_STR_VALUE = '~~~~~~~~~'
 
@@ -35,6 +35,7 @@ def extract_data(html, description):
     rownum = 1
     ranktable = []
     tree = etree.parse(StringIO(html), parser)
+    row_is_empty = False
     for row in tree.xpath(table_row_xpath):
         ranking = NONE_STR_VALUE
         university_name = NONE_STR_VALUE
@@ -47,8 +48,10 @@ def extract_data(html, description):
         if ranking_as_list != []:
             ranking = ranking_as_list[0].text
             print 'Ranking: ', ranking
+            row_is_empty = False
         else:
             print 'ranking_as_list is empty'
+            row_is_empty = True
         if name_as_list != []:
             university_name = name_as_list[0].text
             print 'University Name: ', university_name.encode('utf-8')
@@ -58,9 +61,9 @@ def extract_data(html, description):
 
         print '\n', '-' * 10, '\n'
 
-        ranktable.append({'absolute_ranking' : rownum, 'ranking' : ranking, 'university_name' : university_name, 'country' : country})
-
-        rownum = rownum + 1
+        if not row_is_empty:
+            ranktable.append({'absolute_ranking' : rownum, 'ranking' : ranking, 'university_name' : university_name, 'country' : country})
+            rownum = rownum + 1
 
     return ranktable
 
@@ -77,17 +80,18 @@ if __name__ == '__main__':
     print 'Ranktable extracted'
     print 'len(ranktable): ', len(ranktable)
 
-    ranking_name_list = RankingName.objects.filter(short_name='THE')
-    print ranking_name_list
-    ranking_name = ranking_name_list[0]
+    ranking_description_list = RankingDescription.objects.filter(short_name='THE')
+    print ranking_description_list
+    ranking_description = ranking_description_list[0]
+    ranking_description.rawrankingrecord_set.all().delete()
 
 
     for ranking_record in ranktable:
         print ranking_record
-        ## raw_ranking_record = RawRankingRecord(university_name=ranking_record['university_name'], country=ranking_record['country'], original_value=ranking_record['ranking'], number_in_ranking_table=ranking_record['absolute_ranking'], ranking_name=ranking_name)
-        ### ranking_name.rawrankingrecord_set.add(raw_ranking_record)
-        ## raw_ranking_record.save(force_insert=True)
-        ## ranking_name.rawrankingrecord_set.create(university_name=ranking_record['university_name'], country=ranking_record['country'], original_value=ranking_record['ranking'], number_in_ranking_table=ranking_record['absolute_ranking'])
+        raw_ranking_record = RawRankingRecord(university_name=ranking_record['university_name'], country=ranking_record['country'], original_value=ranking_record['ranking'], number_in_ranking_table=ranking_record['absolute_ranking'], ranking_description=ranking_description)
+        ### ranking_description.rawrankingrecord_set.add(raw_ranking_record)
+        raw_ranking_record.save(force_insert=True)
+        ranking_description.rawrankingrecord_set.create(university_name=ranking_record['university_name'], country=ranking_record['country'], original_value=ranking_record['ranking'], number_in_ranking_table=ranking_record['absolute_ranking'])
     
     ## print '\n' * 6, 'RawRankingRecord.objects.all(): ', '\n' * 2,  RawRankingRecord.objects.all()
 

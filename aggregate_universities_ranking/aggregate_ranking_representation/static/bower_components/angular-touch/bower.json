@@ -1,0 +1,10 @@
+{
+  "name": "angular-touch",
+  "version": "1.5.1-build.4659+sha.db281c1",
+  "license": "MIT",
+  "main": "./angular-touch.js",
+  "ignore": [],
+  "dependencies": {
+    "angular": "1.5.1-build.4659+sha.db281c1"
+  }
+}

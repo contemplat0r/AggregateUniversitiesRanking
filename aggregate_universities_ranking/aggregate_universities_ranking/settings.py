@@ -39,6 +39,7 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'rest_framework',
     'aggregate_ranking_representation',
 )
 
@@ -78,11 +79,19 @@ WSGI_APPLICATION = 'aggregate_universities_ranking.wsgi.application'
 # https://docs.djangoproject.com/en/1.8/ref/settings/#databases
 
 DATABASES = {
+    #'default': {
+    #    'ENGINE': 'django.db.backends.sqlite3',
+    #    'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+    #}
+    #'aggregateranking': {
     'default': {
+<<<<<<< HEAD
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     },
     'aggregateranking': {
+=======
+>>>>>>> not_optimised_database
         'ENGINE': 'django.db.backends.postgresql_psycopg2', # Add 'postgresql_psycopg2', 'mysql', 'sqlite3' or 'oracle'.
         'NAME': 'aggregateranking', # Or path to database file if using sqlite3.
         'USER': 'uldo',
@@ -94,9 +103,18 @@ DATABASES = {
 
 }
 
+<<<<<<< HEAD
 DATABASE_ROUTERS = ['aggregate_ranking_representation.routers.MigrationRouter']
 #DATABASE_ROUTERS = ['MigrationRouter']
 
+=======
+CACHES = {
+        'default' : {
+            'BACKEND' : 'django.core.cache.backends.db.DatabaseCache',
+            'LOCATION' : 'aggregate_ranking_cache_table',
+    }
+}
+>>>>>>> not_optimised_database
 
 # Internationalization
 # https://docs.djangoproject.com/en/1.8/topics/i18n/
@@ -123,6 +141,7 @@ STATIC_URL = '/static/'
 #Year from whith start calculate aggregate ranking, and collected data rankings data
 START_AGGREGATE_YEAR = 2014
 #Last year in years for which calculate aggregate rank 
-FINISH_AGGREGATE_YEAR = 2016
+#FINISH_AGGREGATE_YEAR = 2016
+FINISH_AGGREGATE_YEAR = 2015
 
 

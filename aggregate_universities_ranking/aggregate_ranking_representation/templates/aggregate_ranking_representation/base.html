@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html ng-app="rankingApp">
+    {% load staticfiles %}
+    <head>
+
+        <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=UnifrakturMaguntia">
+        <script src="{% static "bower_components/jquery/dist/jquery.js" %}"></script>
+        <script src="{% static "bower_components/bootstrap/dist/js/bootstrap.min.js" %}"></script>
+        <link href="{% static "bower_components/bootstrap/dist/css/bootstrap.min.css" %}" rel="stylesheet">
+        <link href="{% static "bower_components/bootstrap/dist/css/bootstrap-theme.min.css" %}" rel="stylesheet">
+        <link href="{% static "css/navbar.css" %}" rel="stylesheet">
+        <link href="{% static "css/jqmath-0.4.3.css" %}" rel="stylesheet">
+        <link href="{% static "css/treasure-overlay-spinner.css" %}" rel="stylesheet">
+        <link href="{% static "css/btn-custom.css" %}" rel="stylesheet">
+        <link href="{% static "css/dropdown-menu-custom.css" %}" rel="stylesheet">
+        <link href="{% static "css/custom.css" %}" rel="stylesheet">
+        <!--<link href="{% static "css/awesome-bootstrap-checkbox.css" %}" rel="stylesheet">
+        <link href="{% static "css/font-awesome.css" %}" rel="stylesheet">
+        <link href="{% static "css/build.css" %}" rel="stylesheet">-->
+        <style type="text/css">
+           /*.table-hover tbody tr:hover td { background: gray; } */
+           .table-hover tbody tr:hover td { background: #bbb; } 
+           .dropdown-menu {
+               min-width: 0px !important;
+               width: 100%;
+           }
+           ul.dropdown-menu > li {
+               padding-left :4px;
+               padding-right :4px;
+           }
+           span.inline {
+               display:inline;
+           }
+           div.dropdown > ul.dropdown-menu > li {
+               font-size : 12px;
+           }
+        </style>
+        <script src="{% static "bower_components/angular/angular.js" %}"></script>
+        <script src="{% static "bower_components/angular-animate/angular-animate.js" %}"></script>
+        <script src="{% static "bower_components/angular-route/angular-route.js" %}"></script>
+        <script src="{% static "bower_components/angular-touch/angular-touch.js" %}"></script>
+        <script src="{% static "js/ui-bootstrap-tpls-1.2.4.min.js" %}"></script>
+        <script src="{% static "js/app.js" %}"></script>
+        <script src="{% static "js/controllers.js" %}"></script>
+        <script src="{% static "js/treasure-overlay-spinner.js" %}"></script>
+        <script src="{% static "js/FileSaver.min.js" %}"></script>
+        <script src="{% static "js/md5.js" %}"></script>
+        <script src="{% static "js/jqmath-etc-0.4.3.min.js" %}"></script>
+        <script>M.MathPlayer = false; M.trustHtml = true;</script>
+        <script> function processMath() {M.parseMath("methodologyMath");} </script>
+    </head>
+    {% verbatim %}
+    <body ng-controller="NavigationController">
+        <div class="container">
+            <nav class="navbar navbar-inverse">
+                <!--<div class="container-fluid">-->
+                    <ul class="nav navbar-nav">
+                        <li ng-class="getNavClass(1)" ng-click="setActiveNavItem(1)">
+                            <a href="#/">
+                                {{langValues.homeNavigationTitle}}
+                            </a>
+                        </li>
+                        <li ng-class="getNavClass(2)" ng-click="setActiveNavItem(2)">
+                            <a href="#/ranktable">
+                                {{langValues.rankingTableNavigationTitle}}
+                            </a>
+                        </li>
+                        <li class="divider">
+                        </li>
+                        <li class="dropdown navbar-right">
+                            <a class="dropdown-toggle" data-toggle="dropdown" href="">
+                                {{langSelect.selectedLang.value}}
+                            </a>
+                            <!--<ul class="dropdown-menu" aria-labelledby="langDropdownMenu" style="background: transparent; background-color: #717171; border: 0;">-->
+                            <!--<ul class="dropdown-menu" aria-labelledby="langDropdownMenu" style="background: transparent; background-color: #717171;">-->
+                            <ul class="dropdown-menu" aria-labelledby="langDropdownMenu" style="background: transparent; border: 0; background-color: #717171;">
+                                <li ng-repeat="lang in langSelect.availableLanguages" style="color: #ddd;">
+                                    <div id="langId{{lang.id}}" ng-click="setLang(lang.id)" onmouseover="this.style.backgroundColor='#404040';" onmouseout="this.style.backgroundColor='#717171';">
+                                        {{ lang.value }}
+                                    </div>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                    <!--<ul class="nav pull-right">-->
+                    <ul class="nav navbar-right">
+                    </ul>
+                    <!--</div>-->
+            </nav>
+        </div>
+        <div ng-view>
+        </div>
+    </body>
+    {% endverbatim %}
+</html>
